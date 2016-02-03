@@ -18,5 +18,18 @@ CHIP Mux8Way16 {
     OUT out[16];
 
     PARTS:
-    // Put your code here:
+    //Select AB or CD using the LSB sel bit
+    Mux16(a=a, b=b, sel=sel[0], out=ab);
+    Mux16(a=c, b=d, sel=sel[0], out=cd);
+    Mux16(a=e, b=f, sel=sel[0], out=ef);
+    Mux16(a=g, b=h, sel=sel[0], out=gh);
+
+    //Select AB, CD, EF, or GH using the 2ndSB sel bit
+    Mux16(a=ab, b=cd, sel=sel[1], out=outL);
+    Mux16(a=ef, b=gh, sel=sel[1], out=outU);
+
+    //Select outL or OutU using the MSB sel bit
+    Mux16(a=outL, b=outU, sel=sel[2], out=out);
+
+
 }
