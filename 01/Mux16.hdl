@@ -1,0 +1,133 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/01/Mux16.hdl
+
+/**
+ * 16-bit multiplexor: 
+ * for i = 0..15 out[i] = a[i] if sel == 0 
+ *                        b[i] if sel == 1
+ */
+
+CHIP Mux16 {
+    IN a[16], b[16], sel;
+    OUT out[16];
+
+    PARTS:
+    // Create a variable called notSel that is the opposite of sel
+    Not(in=sel, out=notSel);
+
+    // the output value of this And statement selects A’s value:
+    And(a=a[0], b=notSel, out=C0);
+    // the output value of this And statement selects B’s value:
+    And(a=b[0], b=sel, out=D0);
+    // combine output values of C and D
+    Or(a=C0, b=D0, out=out[0]);
+
+    // the output value of this And statement selects A’s value:
+    And(a=a[1], b=notSel, out=C1);
+    // the output value of this And statement selects B’s value:
+    And(a=b[1], b=sel, out=D1);
+    // combine output values of C and D
+    Or(a=C1, b=D1, out=out[1]);
+
+    // the output value of this And statement selects A’s value:
+    And(a=a[2], b=notSel, out=C2);
+    // the output value of this And statement selects B’s value:
+    And(a=b[2], b=sel, out=D2);
+    // combine output values of C and D
+    Or(a=C2, b=D2, out=out[2]);
+
+    // the output value of this And statement selects A’s value:
+    And(a=a[3], b=notSel, out=C3);
+    // the output value of this And statement selects B’s value:
+    And(a=b[3], b=sel, out=D3);
+    // combine output values of C and D
+    Or(a=C3, b=D3, out=out[3]);
+
+    // the output value of this And statement selects A’s value:
+    And(a=a[4], b=notSel, out=C4);
+    // the output value of this And statement selects B’s value:
+    And(a=b[4], b=sel, out=D4);
+    // combine output values of C and D
+    Or(a=C4, b=D4, out=out[4]);
+
+    // the output value of this And statement selects A’s value:
+    And(a=a[5], b=notSel, out=C5);
+    // the output value of this And statement selects B’s value:
+    And(a=b[5], b=sel, out=D5);
+    // combine output values of C and D
+    Or(a=C5, b=D5, out=out[5]);
+
+    // the output value of this And statement selects A’s value:
+    And(a=a[6], b=notSel, out=C6);
+    // the output value of this And statement selects B’s value:
+    And(a=b[6], b=sel, out=D6);
+    // combine output values of C and D
+    Or(a=C6, b=D6, out=out[6]);
+
+    // the output value of this And statement selects A’s value:
+    And(a=a[7], b=notSel, out=C7);
+    // the output value of this And statement selects B’s value:
+    And(a=b[7], b=sel, out=D7);
+    // combine output values of C and D
+    Or(a=C7, b=D7, out=out[7]);
+
+    // the output value of this And statement selects A’s value:
+    And(a=a[8], b=notSel, out=C8);
+    // the output value of this And statement selects B’s value:
+    And(a=b[8], b=sel, out=D8);
+    // combine output values of C and D
+    Or(a=C8, b=D8, out=out[8]);
+
+    // the output value of this And statement selects A’s value:
+    And(a=a[9], b=notSel, out=C9);
+    // the output value of this And statement selects B’s value:
+    And(a=b[9], b=sel, out=D9);
+    // combine output values of C and D
+    Or(a=C9, b=D9, out=out[9]);
+
+    // the output value of this And statement selects A’s value:
+    And(a=a[10], b=notSel, out=C10);
+    // the output value of this And statement selects B’s value:
+    And(a=b[10], b=sel, out=D10);
+    // combine output values of C and D
+    Or(a=C10, b=D10, out=out[10]);
+
+    // the output value of this And statement selects A’s value:
+    And(a=a[11], b=notSel, out=C11);
+    // the output value of this And statement selects B’s value:
+    And(a=b[11], b=sel, out=D11);
+    // combine output values of C and D
+    Or(a=C11, b=D11, out=out[11]);
+
+    // the output value of this And statement selects A’s value:
+    And(a=a[12], b=notSel, out=C12);
+    // the output value of this And statement selects B’s value:
+    And(a=b[12], b=sel, out=D12);
+    // combine output values of C and D
+    Or(a=C12, b=D12, out=out[12]);
+
+    // the output value of this And statement selects A’s value:
+    And(a=a[13], b=notSel, out=C13);
+    // the output value of this And statement selects B’s value:
+    And(a=b[13], b=sel, out=D13);
+    // combine output values of C and D
+    Or(a=C13, b=D13, out=out[13]);
+
+    // the output value of this And statement selects A’s value:
+    And(a=a[14], b=notSel, out=C14);
+    // the output value of this And statement selects B’s value:
+    And(a=b[14], b=sel, out=D14);
+    // combine output values of C and D
+    Or(a=C14, b=D14, out=out[14]);
+
+    // the output value of this And statement selects A’s value:
+    And(a=a[15], b=notSel, out=C15);
+    // the output value of this And statement selects B’s value:
+    And(a=b[15], b=sel, out=D15);
+    // combine output values of C and D
+    Or(a=C15, b=D15, out=out[15]);
+
+
+}
