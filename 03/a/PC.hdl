@@ -24,11 +24,9 @@ CHIP PC {
     Mux16(a=incOut, b=in, sel=load, out=loadV);
 
     Mux16(a=loadV, b=false, sel=reset, out=resetValue);
-		
-    Or(a=load, b=inc, out=storeLoad);
 	
-    Or(a=storeLoad, b=reset, out=combinedLoad);
+    Register(in=resetValue, load=true, out=out, out=registerV);
 	
-    Register(in=resetValue, load=combinedLoad, out=out, out=registerV);
+
 
 }
