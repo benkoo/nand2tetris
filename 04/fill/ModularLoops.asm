@@ -4,7 +4,7 @@
 // When a key is pressed (any key), the program does something.
 
 	@color   //Initialize color to be black -1
-	M=-1
+	M=0
 
 	@8191   //What ever number is here, for example, 8192 is equal to (256*32)
 	D=A   //Get the address number (8192-1) to D
@@ -67,7 +67,7 @@
 	D;JGT
 
 	@color
-	M=-1
+	M=0
 
 	@REDRAW
 	0;JMP
@@ -75,6 +75,6 @@
 
 (NOKEYPRESSED)
 	@color
-	M=0
+	M=-1
 	@REDRAW
 	0;JMP
