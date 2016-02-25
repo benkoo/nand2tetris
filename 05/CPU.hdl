@@ -41,27 +41,35 @@ CHIP CPU {
     PARTS:
     // Put your code here:
 
-    Mux16(a=myOut, b=instruction, sel=true, out=aIn);
+    Not(in=instruction[15], out=selectionBit);
+
+    Mux16(a=ALUOut, b=instruction, sel=selectionBit, out=ARegIn, 
+	out[0]=j3, out[1]=j2, out[2]=j1, 
+	out[3]=d3, out[4]=d2, out[5]=d1, 
+	out[6]=c6, out[7]=c5, out[8]=c4, out[9]=c3, out[10]=c2, out[11]=c1, 
+	out[12]= ca, out[15]= msb); 
+
 
 
     //Controlling bits
 
-    ARegister(in=aIn, load=true, out[0..14]=addressM, out=myAOut);
+    ARegister(in=ARegIn, load=true, out[0..14]=addressM, out=ARegOut);
 
-    Mux16(a=myAOut, b=inM, sel=true ,out=aluY);
+    Mux16(a=ARegOut, b=inM, sel=true ,out=aluY);
 
 
-    DRegister(in=myOut, load=true, out=aluX);
+    DRegister(in=ALUOut, load=false, out=aluX);
 
 
 	
     //Addressing bits
-    PC(in=myAOut, reset=reset, load=true, inc=true, out[0..14]=pc);
+    PC(in=ARegOut, reset=reset, load=false, inc=true, out[0..14]=pc);
 	
 
 
     //Data Bits
-    ALU(x=aluX, y=aluY, zx=true, nx=true, zy=true, ny=true, f=true, no=true, zr=zr, ng=ng, out=outM, out=myOut);
-    And(a=true, b=instruction[12], out=writeM);
+    ALU(x=aluX, y=aluY, zx=false, nx=false, zy=false, ny=false, f=false, no=false, zr=zr, ng=ng, out=outM, out=ALUOut);
+
+    Or(a=false, b=msb, out=writeM);
 
 }
