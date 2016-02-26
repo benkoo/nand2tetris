@@ -39,37 +39,65 @@ CHIP CPU {
         pc[15];          // address of next instruction
 
     PARTS:
-    // Put your code here:
-
-    Not(in=instruction[15], out=selectionBit);
-
-    Mux16(a=ALUOut, b=instruction, sel=selectionBit, out=ARegIn, 
+    // First create variable names for each of the “instruction” bits.
+    // The names of these bits tries to follow TECS book.
+    Or16(a=false, b=instruction, out=sameIns,
 	out[0]=j3, out[1]=j2, out[2]=j1, 
 	out[3]=d3, out[4]=d2, out[5]=d1, 
 	out[6]=c6, out[7]=c5, out[8]=c4, out[9]=c3, out[10]=c2, out[11]=c1, 
-	out[12]= ca, out[15]= msb); 
+	out[12]=compAbit, out[15]=msb); 
 
+    //When msg==0, this instruction is an A-instruction
+    //when msb==1, this is a C-instruction. 
+
+    //Create the negative of d1 so that when msb==1, the ALUOut is selected
+    Mux16(a=instruction, b=ALUOut, sel=msb, out=ARegIn);
 
 
     //Controlling bits
 
-    ARegister(in=ARegIn, load=true, out[0..14]=addressM, out=ARegOut);
+    //when d1 ==1, store the ALU computed result to Register
+    ARegister(in=ARegIn, load=d1, out[0..14]=addressM, out=ARegOut);
 
-    Mux16(a=ARegOut, b=inM, sel=true ,out=aluY);
+    //when compAbit==1, switch to load inM data
+    Mux16(a=ARegOut, b=inM, sel=compAbit, out=aluY);
 
-
-    DRegister(in=ALUOut, load=false, out=aluX);
+    DRegister(in=ALUOut, load=d2, out=aluX);
 
 
 	
     //Addressing bits
-    PC(in=ARegOut, reset=reset, load=false, inc=true, out[0..14]=pc);
+    //Use logic gates to determine whether to jump or not
+    //with the 3 j-bits of the C-instruction jump field.
+
+    // First test the out result and create jump conditions using And gates
+    And(a=j1, b=ng, out=j1-outng);
+    And(a=j2, b=zr, out=j2-outzr);
+
+    //Must determine whether ALU output is greater than zero or not 
+    //by negating the Or result of ng and zr. If output is NOT ng and NOT zr,
+    // then, it must be greater than zero.
+    Or(a=ng, b=zr, out=not-greaterThanZero);
+    Not(in=not-greaterThanZero, out=out-greaterzr);
+
+    //Now, determine whether j3 and output of ALU are greater than zero.
+    And(a=j3, b=out-greaterzr, out=j3-out-greater);
+
+    //Here, perform the Or operations to determine whether to jump or not.
+    Or(a=j1-outng, b=j2-outzr, out=j12-jump);
+    Or(a=j12-jump, b=j3-out-greater, out=pc-jump);
+
+    PC(in=ARegOut, reset=reset, load=pc-jump, inc=true, out[0..14]=pc);
 	
 
 
     //Data Bits
-    ALU(x=aluX, y=aluY, zx=false, nx=false, zy=false, ny=false, f=false, no=false, zr=zr, ng=ng, out=outM, out=ALUOut);
+    //Using the 6 c-bits of the C-instruction compute field to configure ALU.
+    ALU(x=aluX, y=aluY, 
+	zx=c1, nx=c2, zy=c3, ny=c4, f=c5, no=c6, 
+	zr=zr, ng=ng, 
+	out=outM, out=ALUOut);
 
-    Or(a=false, b=msb, out=writeM);
+    And(a=msb, b=d3, out=writeM);
 
 }
