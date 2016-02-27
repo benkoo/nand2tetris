@@ -41,28 +41,42 @@ CHIP CPU {
     PARTS:
     // First create variable names for each of the “instruction” bits.
     // The names of these bits tries to follow TECS book.
-    Or16(a=false, b=instruction, out=sameIns,
+
+    //When instruction[15]==0, this instruction is an A-instruction
+    //when instruction[15]==1, this is a C-instruction. 
+
+    Mux16(a=false, b=instruction, sel=instruction[15], 
 	out[0]=j3, out[1]=j2, out[2]=j1, 
 	out[3]=d3, out[4]=d2, out[5]=d1, 
 	out[6]=c6, out[7]=c5, out[8]=c4, out[9]=c3, out[10]=c2, out[11]=c1, 
-	out[12]=compAbit, out[15]=msb); 
+	out[12]=compAbit); 
 
-    //When msg==0, this instruction is an A-instruction
-    //when msb==1, this is a C-instruction. 
 
-    //Create the negative of d1 so that when msb==1, the ALUOut is selected
-    Mux16(a=instruction, b=ALUOut, sel=msb, out=ARegIn);
+
+    //when d1 ==1, store the ALU computed result to ARegister
+    Mux16(a=instruction, b=ALUOut, sel=d1, out=ARegIn);
+
+    //When instruction[15]==0, isAInstruction==1;
+    Not(in=instruction[15], out=isAInstruction);
+    Or(a=d1, b=isAInstruction, out=loadAReg);
+    ARegister(in=ARegIn, load=loadAReg, out[0..14]=addressM, out=ARegOut);
+
+
+    //when d2 ==1, store the ALU computed result to DRegister
+    DRegister(in=ALUOut, load=d2, out=aluX);
+
+    //When this is a C-instruction, and d3==1, write to memory
+    And(a=instruction[15], b=d3, out=writeM);
+
 
 
     //Controlling bits
 
-    //when d1 ==1, store the ALU computed result to Register
-    ARegister(in=ARegIn, load=d1, out[0..14]=addressM, out=ARegOut);
 
     //when compAbit==1, switch to load inM data
     Mux16(a=ARegOut, b=inM, sel=compAbit, out=aluY);
 
-    DRegister(in=ALUOut, load=d2, out=aluX);
+
 
 
 	
@@ -97,7 +111,5 @@ CHIP CPU {
 	zx=c1, nx=c2, zy=c3, ny=c4, f=c5, no=c6, 
 	zr=zr, ng=ng, 
 	out=outM, out=ALUOut);
-
-    And(a=msb, b=d3, out=writeM);
 
 }
