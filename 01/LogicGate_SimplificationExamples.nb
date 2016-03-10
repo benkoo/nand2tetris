@@ -1,0 +1,1360 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.4' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     42925,       1350]
+NotebookOptionsPosition[     40149,       1250]
+NotebookOutlinePosition[     40570,       1267]
+CellTagsIndexPosition[     40527,       1264]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"BooleanTable", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"p", ",", "q", ",", 
+       RowBox[{"p", "||", "q"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"p", ",", "q"}], "}"}]}], "]"}], "//", "Boole"}], "//", 
+  "TableForm"}]], "Input",
+ CellChangeTimes->{{3.666572030756113*^9, 3.666572071801021*^9}}],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"1", "1", "1"},
+    {"1", "0", "1"},
+    {"0", "1", "1"},
+    {"0", "0", "0"}
+   },
+   GridBoxAlignment->{
+    "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+     "RowsIndexed" -> {}},
+   GridBoxSpacings->{"Columns" -> {
+       Offset[0.27999999999999997`], {
+        Offset[2.0999999999999996`]}, 
+       Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+       Offset[0.2], {
+        Offset[0.4]}, 
+       Offset[0.2]}, "RowsIndexed" -> {}}],
+  Function[BoxForm`e$, 
+   TableForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{{3.66657202793886*^9, 3.6665720722161922`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"BooleanTable", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"p", ",", "q", ",", 
+       RowBox[{"Xor", "[", 
+        RowBox[{"p", ",", "q"}], "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"p", ",", "q"}], "}"}]}], "]"}], "//", "Boole"}], "//", 
+  "TableForm"}]], "Input",
+ CellChangeTimes->{{3.666572098625643*^9, 3.666572104633264*^9}}],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"1", "1", "0"},
+    {"1", "0", "1"},
+    {"0", "1", "1"},
+    {"0", "0", "0"}
+   },
+   GridBoxAlignment->{
+    "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+     "RowsIndexed" -> {}},
+   GridBoxSpacings->{"Columns" -> {
+       Offset[0.27999999999999997`], {
+        Offset[2.0999999999999996`]}, 
+       Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+       Offset[0.2], {
+        Offset[0.4]}, 
+       Offset[0.2]}, "RowsIndexed" -> {}}],
+  Function[BoxForm`e$, 
+   TableForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{3.666572105073579*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"myFunc", "[", "x_", "]"}], ":=", " ", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"BooleanTable", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"p", ",", "q", ",", 
+        RowBox[{"x", "[", 
+         RowBox[{"p", ",", "q"}], "]"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"p", ",", "q"}], "}"}]}], "]"}], "//", "Boole"}], "//", 
+   "TableForm"}]}]], "Input",
+ CellChangeTimes->{{3.666572114746532*^9, 3.666572115657111*^9}, {
+  3.666572151246552*^9, 3.666572200240234*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"f", "=", "Or"}]], "Input",
+ CellChangeTimes->{{3.666572145946094*^9, 3.6665721484122667`*^9}}],
+
+Cell[BoxData["Or"], "Output",
+ CellChangeTimes->{3.6665721487593117`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"myFunc", "[", "And", "]"}]], "Input",
+ CellChangeTimes->{{3.666572205732646*^9, 3.666572209519988*^9}}],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"1", "1", "1"},
+    {"1", "0", "0"},
+    {"0", "1", "0"},
+    {"0", "0", "0"}
+   },
+   GridBoxAlignment->{
+    "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+     "RowsIndexed" -> {}},
+   GridBoxSpacings->{"Columns" -> {
+       Offset[0.27999999999999997`], {
+        Offset[2.0999999999999996`]}, 
+       Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+       Offset[0.2], {
+        Offset[0.4]}, 
+       Offset[0.2]}, "RowsIndexed" -> {}}],
+  Function[BoxForm`e$, 
+   TableForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{3.666572210001812*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"myFunc", "[", "f", "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"f", ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"And", ",", " ", "Or", ",", " ", "Xor", ",", " ", "Nand"}], 
+      "}"}]}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.666572215044489*^9, 3.666572241551528*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`f$$ = Nand, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`f$$], {And, Or, Xor, Nand}}}, Typeset`size$$ = {
+    71., {26.8544921875, 32.1455078125}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = True, $CellContext`f$5649$$ =
+     0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`f$$ = And}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`f$$, $CellContext`f$5649$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> $CellContext`myFunc[$CellContext`f$$], 
+      "Specifications" :> {{$CellContext`f$$, {And, Or, Xor, Nand}}}, 
+      "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{144., {69., 74.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.6665722430234537`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"BooleanMinimize", "[", 
+    RowBox[{"And", "[", 
+     RowBox[{
+      RowBox[{"Or", "[", 
+       RowBox[{"p", ",", "q"}], "]"}], ",", " ", 
+      RowBox[{"Xor", "[", 
+       RowBox[{"q", ",", "p"}], "]"}]}], "]"}], "]"}], "//", "FullSimplify"}],
+   "//", "FullForm"}]], "Input",
+ CellChangeTimes->{{3.666572334691883*^9, 3.666572369020262*^9}, {
+  3.666572403621163*^9, 3.666572415667624*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   RowBox[{"Xor", "[", 
+    RowBox[{"p", ",", "q"}], "]"}],
+   ShowSpecialCharacters->False,
+   ShowStringCharacters->True,
+   NumberMarks->True],
+  FullForm]], "Output",
+ CellChangeTimes->{{3.666572350899041*^9, 3.666572369807249*^9}, {
+  3.666572405902372*^9, 3.666572415984332*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"BooleanTable", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"p", ",", "q", ",", 
+       RowBox[{"And", "[", 
+        RowBox[{
+         RowBox[{"Or", "[", 
+          RowBox[{"p", ",", "q"}], "]"}], ",", " ", 
+         RowBox[{"Xor", "[", 
+          RowBox[{"q", ",", "p"}], "]"}]}], "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"p", ",", "q"}], "}"}]}], "]"}], "//", "Boole"}], "//", 
+  "TableForm"}]], "Input",
+ CellChangeTimes->{3.666572470248014*^9}],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"1", "1", "0"},
+    {"1", "0", "1"},
+    {"0", "1", "1"},
+    {"0", "0", "0"}
+   },
+   GridBoxAlignment->{
+    "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+     "RowsIndexed" -> {}},
+   GridBoxSpacings->{"Columns" -> {
+       Offset[0.27999999999999997`], {
+        Offset[2.0999999999999996`]}, 
+       Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+       Offset[0.2], {
+        Offset[0.4]}, 
+       Offset[0.2]}, "RowsIndexed" -> {}}],
+  Function[BoxForm`e$, 
+   TableForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{{3.666572456474469*^9, 3.666572473079891*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"BooleanMinimize", "[", 
+   RowBox[{"And", "[", 
+    RowBox[{
+     RowBox[{"Or", "[", 
+      RowBox[{"p", ",", "q"}], "]"}], ",", " ", 
+     RowBox[{"Xor", "[", 
+      RowBox[{"q", ",", "p"}], "]"}]}], "]"}], "]"}], "//", 
+  "FullForm"}]], "Input",
+ CellChangeTimes->{3.666572504342506*^9}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   RowBox[{"Or", "[", 
+    RowBox[{
+     RowBox[{"And", "[", 
+      RowBox[{"p", ",", 
+       RowBox[{"Not", "[", "q", "]"}]}], "]"}], ",", 
+     RowBox[{"And", "[", 
+      RowBox[{
+       RowBox[{"Not", "[", "p", "]"}], ",", "q"}], "]"}]}], "]"}],
+   ShowSpecialCharacters->False,
+   ShowStringCharacters->True,
+   NumberMarks->True],
+  FullForm]], "Output",
+ CellChangeTimes->{3.6665725048782797`*^9}]
+}, Open  ]],
+
+Cell["BooleanTable[{p, q, p || q}, {p, q}] // Boole", "Text",
+ CellChangeTimes->{{3.666574375477178*^9, 3.6665743762719927`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"BooleanTable", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"p", ",", "q", ",", 
+       RowBox[{"p", "||", "q"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"p", ",", "q"}], "}"}]}], "]"}], "//", "Boole"}], "//", 
+  "Grid"}]], "Input",
+ CellChangeTimes->{{3.66657439619674*^9, 3.666574401912198*^9}}],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"1", "1", "1"},
+    {"1", "0", "1"},
+    {"0", "1", "1"},
+    {"0", "0", "0"}
+   },
+   AutoDelete->False,
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Grid"]], "Output",
+ CellChangeTimes->{{3.666574397304242*^9, 3.666574402332136*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Grid", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"BooleanTable", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"p", ",", "q", ",", 
+        RowBox[{"p", "||", "q"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"p", ",", "q"}], "}"}]}], "]"}], "//", "Boole"}], ",", " ", 
+   RowBox[{"Frame", " ", "\[Rule]", " ", "All"}], ",", 
+   RowBox[{"Background", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"None", ",", " ", "None", ",", " ", "Gray"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"LightGray", ",", " ", "None"}], "}"}]}], "}"}]}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.666574428132596*^9, 3.666574448557796*^9}, {
+  3.6665744800834503`*^9, 3.666574480411941*^9}, {3.6665745261682043`*^9, 
+  3.666574579640464*^9}}],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"1", "1", "1"},
+    {"1", "0", "1"},
+    {"0", "1", "1"},
+    {"0", "0", "0"}
+   },
+   AutoDelete->False,
+   GridBoxBackground->{"Columns" -> {None, None, 
+       GrayLevel[0.5]}, "Rows" -> {
+       GrayLevel[0.85], None}},
+   GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Grid"]], "Output",
+ CellChangeTimes->{
+  3.666574449177932*^9, 3.6665744809780083`*^9, {3.666574531168524*^9, 
+   3.6665745801879272`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Insert", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"BooleanTable", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"p", ",", "q", ",", 
+         RowBox[{"p", "||", "q"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"p", ",", "q"}], "}"}]}], "]"}], "//", "Boole"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"a", ",", "b", ",", "out"}], "}"}], ",", " ", "1"}], "]"}], "//",
+   "TableForm"}]], "Input",
+ CellChangeTimes->{
+  3.66657459908982*^9, {3.66657464828576*^9, 3.666574743536021*^9}}],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"a", "b", "out"},
+    {"1", "1", "1"},
+    {"1", "0", "1"},
+    {"0", "1", "1"},
+    {"0", "0", "0"}
+   },
+   GridBoxAlignment->{
+    "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+     "RowsIndexed" -> {}},
+   GridBoxSpacings->{"Columns" -> {
+       Offset[0.27999999999999997`], {
+        Offset[2.0999999999999996`]}, 
+       Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+       Offset[0.2], {
+        Offset[0.4]}, 
+       Offset[0.2]}, "RowsIndexed" -> {}}],
+  Function[BoxForm`e$, 
+   TableForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{
+  3.6665745996457577`*^9, {3.6665746697663803`*^9, 3.666574743827005*^9}}]
+}, Open  ]],
+
+Cell["\<\
+Grid[BooleanTable[{p, q, p || q}, {p, q}] // Boole, Frame -> All, Background \
+-> {{None, None, Gray}, {LightGray, None}}]\
+\>", "Text",
+ CellChangeTimes->{3.666574812466854*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Grid", "[", 
+  RowBox[{
+   RowBox[{"Insert", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"BooleanTable", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"p", ",", "q", ",", 
+          RowBox[{"p", "||", "q"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"p", ",", "q"}], "}"}]}], "]"}], "//", "Boole"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"a", ",", "b", ",", "out"}], "}"}], ",", " ", "1"}], "]"}], ",", 
+   RowBox[{"Spacings", " ", "\[Rule]", " ", 
+    RowBox[{"{", 
+     RowBox[{"2", ",", " ", "1"}], "}"}]}], ",", " ", 
+   RowBox[{"Frame", " ", "\[Rule]", " ", "All"}], ",", 
+   RowBox[{"Background", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"None", ",", " ", "None", ",", " ", "Gray"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"LightGray", ",", " ", "None"}], "}"}]}], "}"}]}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.666574815360551*^9, 3.666574827160762*^9}, {
+  3.6665748662681513`*^9, 3.666574867465176*^9}}],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"a", "b", "out"},
+    {"1", "1", "1"},
+    {"1", "0", "1"},
+    {"0", "1", "1"},
+    {"0", "0", "0"}
+   },
+   AutoDelete->False,
+   GridBoxBackground->{"Columns" -> {None, None, 
+       GrayLevel[0.5]}, "Rows" -> {
+       GrayLevel[0.85], None}},
+   GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+   GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{1}}}],
+  "Grid"]], "Output",
+ CellChangeTimes->{3.666574828151581*^9, 3.666574868271385*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"First", "[", 
+  RowBox[{"Grid", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"a", ",", "b", ",", "out"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"1", ",", "1", ",", "1"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"1", ",", "0", ",", "1"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", "1", ",", "1"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", "0", ",", "0"}], "}"}]}], "}"}], ",", 
+    RowBox[{"Spacings", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{"2", ",", "1"}], "}"}]}], ",", 
+    RowBox[{"Frame", "\[Rule]", "All"}], ",", 
+    RowBox[{"Background", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"None", ",", "None", ",", 
+         RowBox[{"GrayLevel", "[", "0.5`", "]"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"GrayLevel", "[", "0.85`", "]"}], ",", "None"}], "}"}]}], 
+      "}"}]}]}], "]"}], "]"}]], "Input",
+ NumberMarks->False],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"a", ",", "b", ",", "out"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "1", ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "0", ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "1", ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0", ",", "0"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.666574954241342*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Grid", "[", 
+  RowBox[{
+   RowBox[{"Insert", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"BooleanTable", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"p", ",", 
+          RowBox[{"Not", "[", "p", "]"}]}], "}"}], ",", 
+        RowBox[{"{", "p", "}"}]}], "]"}], "//", "Boole"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"in", ",", "out"}], "}"}], ",", " ", "1"}], "]"}], ",", 
+   RowBox[{"Spacings", " ", "\[Rule]", " ", 
+    RowBox[{"{", 
+     RowBox[{"2", ",", " ", "1"}], "}"}]}], ",", " ", 
+   RowBox[{"Frame", " ", "\[Rule]", " ", "All"}], ",", 
+   RowBox[{"Background", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"None", ",", " ", "None", ",", " ", "Gray"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"LightGray", ",", " ", "None"}], "}"}]}], "}"}]}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{
+  3.6665748083178787`*^9, {3.666574945464695*^9, 3.666574990883726*^9}}],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"in", "out"},
+    {"1", "0"},
+    {"0", "1"}
+   },
+   AutoDelete->False,
+   GridBoxBackground->{"Columns" -> {None, None, 
+       GrayLevel[0.5]}, "Rows" -> {
+       GrayLevel[0.85], None}},
+   GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+   GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{1}}}],
+  "Grid"]], "Output",
+ CellChangeTimes->{3.666574992700452*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Or", "[", 
+   RowBox[{
+    RowBox[{"And", "[", 
+     RowBox[{"A", ",", " ", 
+      RowBox[{"Not", "[", "B", "]"}], ",", "C"}], "]"}], " ", ",", " ", 
+    RowBox[{"And", "[", 
+     RowBox[{"A", ",", " ", "B", ",", "C"}], "]"}], ",", " ", 
+    RowBox[{"And", "[", 
+     RowBox[{"A", ",", "C"}], "]"}], ",", " ", 
+    RowBox[{"And", "[", 
+     RowBox[{"A", ",", "B", ",", 
+      RowBox[{"Not", "[", "C", "]"}]}], "]"}]}], "]"}], " ", "//", 
+  "FullSimplify"}]], "Input",
+ CellChangeTimes->{{3.6665749416147223`*^9, 3.666574952125181*^9}, {
+  3.666585997861145*^9, 3.666585999314917*^9}, {3.66658602988078*^9, 
+  3.6665860770512257`*^9}, {3.666586176496554*^9, 3.6665862084716663`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"A", "&&", 
+  RowBox[{"(", 
+   RowBox[{"B", "||", "C"}], ")"}]}]], "Output",
+ CellChangeTimes->{{3.666586039015582*^9, 3.66658607760985*^9}, 
+   3.6665862103429527`*^9}]
+}, Open  ]],
+
+Cell[TextData[StyleBox["Grid[Insert[BooleanTable[{p, q, p || q}, {p, q}] // \
+Boole, {a, b, out}, 1], Spacings -> {2, 1}, Frame -> All, Background -> \
+{{None, None, Gray}, {LightGray, None}}]", "Input"]], "Text",
+ CellChangeTimes->{{3.6665862457571363`*^9, 3.666586268868559*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Grid", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"a", ",", "b", ",", "c", ",", "out"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", "1", ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", "0", ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "1", ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "0", ",", "0"}], "}"}]}], "}"}], ",", 
+   RowBox[{"Spacings", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"2", ",", "1"}], "}"}]}], ",", 
+   RowBox[{"Frame", "\[Rule]", "All"}], ",", 
+   RowBox[{"Background", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"None", ",", "None", ",", 
+        RowBox[{"GrayLevel", "[", "0.5`", "]"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"GrayLevel", "[", "0.85`", "]"}], ",", "None"}], "}"}]}], 
+     "}"}]}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.666586283639678*^9, 3.666586300788391*^9}},
+ NumberMarks->False],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"a", "b", "out"},
+    {"1", "1", "1"},
+    {"1", "0", "1"},
+    {"0", "1", "1"},
+    {"0", "0", "0"}
+   },
+   AutoDelete->False,
+   GridBoxBackground->{"Columns" -> {None, None, 
+       GrayLevel[0.5]}, "Rows" -> {
+       GrayLevel[0.85], None}},
+   GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+   GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{1}}}],
+  "Grid"]], "Output",
+ CellChangeTimes->{
+  3.666574954241342*^9, {3.6665862778705597`*^9, 3.6665862954961843`*^9}}]
+}, Open  ]],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"BooleanTable", "[", 
+         RowBox[{"{", 
+          RowBox[{"A", ",", " ", "B", ",", "C", ",", " ", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"A", "&&", 
+              RowBox[{"(", 
+               RowBox[{"B", "||", "C"}], ")"}]}], ")"}], "||", 
+            RowBox[{"(", 
+             RowBox[{"B", "&&", "C"}], ")"}]}]}]}]}], ")"}], "}"}], ",", " ", 
+      
+      RowBox[{"{", 
+       RowBox[{"A", ",", "B", ",", "C"}], "}"}]}], "]"}], "//", "Boole"}], "//",
+    "MatrixForm"}], "Input"]], "Input",
+ CellChangeTimes->{{3.666586316636628*^9, 3.6665864167536182`*^9}, 
+   3.666586453725816*^9, {3.666586685396553*^9, 3.666586724215307*^9}, 
+   3.6665867677748833`*^9},
+ EmphasizeSyntaxErrors->True],
+
+Cell[BoxData[
+ RowBox[{"Clear", "[", "c", "]"}]], "Input",
+ CellChangeTimes->{{3.666586351063847*^9, 3.666586405369384*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Or", "[", 
+   RowBox[{
+    RowBox[{"And", "[", 
+     RowBox[{"A", ",", " ", "C"}], "]"}], ",", " ", 
+    RowBox[{"And", "[", 
+     RowBox[{"B", ",", " ", "C"}], "]"}], ",", " ", 
+    RowBox[{"And", "[", 
+     RowBox[{"A", ",", " ", "B"}], "]"}]}], "]"}], "//", 
+  "FullSimplify"}]], "Input",
+ CellChangeTimes->{{3.666586732342352*^9, 3.66658675188409*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(", 
+   RowBox[{"A", "&&", 
+    RowBox[{"(", 
+     RowBox[{"B", "||", "C"}], ")"}]}], ")"}], "||", 
+  RowBox[{"(", 
+   RowBox[{"B", "&&", "C"}], ")"}]}]], "Output",
+ CellChangeTimes->{{3.666586742599783*^9, 3.666586752593692*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"Grid", "[", 
+   RowBox[{
+    RowBox[{"Insert", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"BooleanTable", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"A", ",", "B", ",", "C", ",", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"A", "&&", 
+              RowBox[{"(", 
+               RowBox[{"B", "||", "C"}], ")"}]}], ")"}], "||", 
+            RowBox[{"(", 
+             RowBox[{"B", "&&", "C"}], ")"}]}]}], " ", "}"}], ",", " ", 
+         RowBox[{"{", 
+          RowBox[{"A", ",", "B", ",", "C"}], "}"}]}], "]"}], " ", "//", " ", 
+       "Boole"}], ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"a", ",", " ", "b", ",", "c", ",", " ", "out"}], "}"}], ",", 
+      " ", "1"}], "]"}], ",", " ", 
+    RowBox[{"Spacings", " ", "->", " ", 
+     RowBox[{"{", 
+      RowBox[{"2", ",", " ", "1"}], "}"}]}], ",", " ", 
+    RowBox[{"Frame", " ", "->", " ", "All"}], ",", " ", 
+    RowBox[{"Background", " ", "->", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"None", ",", " ", "None", ",", " ", "Gray"}], "}"}], ",", " ", 
+       RowBox[{"{", 
+        RowBox[{"LightGray", ",", " ", "None"}], "}"}]}], "}"}]}]}], "]"}], 
+  "Input"]], "Input",
+ CellChangeTimes->{{3.66658681162733*^9, 3.66658684864298*^9}, {
+  3.666586908505621*^9, 3.666586915498818*^9}}],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"a", "b", "c", "out"},
+    {"1", "1", "1", "1"},
+    {"1", "1", "0", "1"},
+    {"1", "0", "1", "1"},
+    {"1", "0", "0", "0"},
+    {"0", "1", "1", "1"},
+    {"0", "1", "0", "0"},
+    {"0", "0", "1", "0"},
+    {"0", "0", "0", "0"}
+   },
+   AutoDelete->False,
+   GridBoxBackground->{"Columns" -> {None, None, 
+       GrayLevel[0.5]}, "Rows" -> {
+       GrayLevel[0.85], None}},
+   GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+   GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{1}}}],
+  "Grid"]], "Output",
+ CellChangeTimes->{3.6665868124884653`*^9, 3.6665868499598227`*^9, 
+  3.6665869167490587`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{"A", " ", "&&", " ", 
+     RowBox[{"(", 
+      RowBox[{"B", " ", "||", " ", "C"}], ")"}]}], ")"}], " ", "||", " ", 
+   RowBox[{"(", 
+    RowBox[{"B", " ", "&&", " ", "C"}], ")"}]}], " ", "//", 
+  "TreeForm"}]], "Input",
+ CellChangeTimes->{{3.6665869341888323`*^9, 3.66658695913764*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[
+  TagBox[GraphicsComplexBox[{{1.2510864843424487`, 2.5021729686848975`}, {
+    0.41702882811414954`, 1.6681153124565984`}, {0., 0.8340576562282993}, {
+    0.8340576562282991, 0.8340576562282993}, {0.41702882811414954`, 0.}, {
+    1.2510864843424487`, 0.}, {2.0851441405707476`, 1.6681153124565984`}, {
+    1.6681153124565982`, 0.8340576562282993}, {2.5021729686848975`, 
+    0.8340576562282993}}, {
+     {RGBColor[0.55, 0.45, 0.45], 
+      LineBox[{{1, 2}, {1, 7}, {2, 3}, {2, 4}, {4, 5}, {4, 6}, {7, 8}, {7, 
+       9}}]}, {
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox["Or", "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 1],
+        TagBox[
+         RowBox[{
+           RowBox[{"(", 
+             RowBox[{"A", "&&", 
+               RowBox[{"(", 
+                 RowBox[{"B", "||", "C"}], ")"}]}], ")"}], "||", 
+           RowBox[{"(", 
+             RowBox[{"B", "&&", "C"}], ")"}]}], HoldForm]],
+       Annotation[#, 
+        HoldForm[
+         Or[
+          And[$CellContext`A, 
+           Or[$CellContext`B, C]], 
+          And[$CellContext`B, C]]], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox["And", "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 2],
+        TagBox[
+         RowBox[{"A", "&&", 
+           RowBox[{"(", 
+             RowBox[{"B", "||", "C"}], ")"}]}], HoldForm]],
+       Annotation[#, 
+        HoldForm[
+         And[$CellContext`A, 
+          Or[$CellContext`B, C]]], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["A",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 3],
+        TagBox["A", HoldForm]],
+       Annotation[#, 
+        HoldForm[$CellContext`A], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox["Or", "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 4],
+        TagBox[
+         RowBox[{"B", "||", "C"}], HoldForm]],
+       Annotation[#, 
+        HoldForm[
+         Or[$CellContext`B, C]], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["B",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 5],
+        TagBox["B", HoldForm]],
+       Annotation[#, 
+        HoldForm[$CellContext`B], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["C",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 6],
+        TagBox["C", HoldForm]],
+       Annotation[#, 
+        HoldForm[C], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox["And", "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 7],
+        TagBox[
+         RowBox[{"B", "&&", "C"}], HoldForm]],
+       Annotation[#, 
+        HoldForm[
+         And[$CellContext`B, C]], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["B",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 8],
+        TagBox["B", HoldForm]],
+       Annotation[#, 
+        HoldForm[$CellContext`B], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["C",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 9],
+        TagBox["C", HoldForm]],
+       Annotation[#, 
+        HoldForm[C], "Tooltip"]& ]}}],
+   Annotation[#, 
+    VertexCoordinateRules -> {{1.2510864843424487`, 2.5021729686848975`}, {
+     0.41702882811414954`, 1.6681153124565984`}, {0., 0.8340576562282993}, {
+     0.8340576562282991, 0.8340576562282993}, {0.41702882811414954`, 0.}, {
+     1.2510864843424487`, 0.}, {2.0851441405707476`, 1.6681153124565984`}, {
+     1.6681153124565982`, 0.8340576562282993}, {2.5021729686848975`, 
+     0.8340576562282993}}]& ],
+  AspectRatio->NCache[2 3^Rational[-1, 2], 1.1547005383792517`],
+  FormatType:>StandardForm,
+  FrameTicks->Automatic,
+  PlotRange->All,
+  PlotRangePadding->Scaled[0.1]]], "Output",
+ CellChangeTimes->{{3.666586942947982*^9, 3.66658695960056*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Or", "[", 
+   RowBox[{
+    RowBox[{"And", "[", 
+     RowBox[{"A", ",", " ", "C"}], "]"}], ",", " ", 
+    RowBox[{"And", "[", 
+     RowBox[{"B", ",", " ", "C"}], "]"}], ",", " ", 
+    RowBox[{"And", "[", 
+     RowBox[{"A", ",", " ", "B"}], "]"}]}], "]"}], "//", 
+  "TreeForm"}]], "Input",
+ CellChangeTimes->{{3.666588035967167*^9, 3.66658810592071*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[
+  TagBox[GraphicsComplexBox[{{1.7437145811572892`, 1.3949716649258315`}, {
+    0.34874291623145787`, 0.6974858324629157}, {0., 0.}, {0.6974858324629157, 
+    0.}, {1.7437145811572892`, 0.6974858324629157}, {1.3949716649258315`, 
+    0.}, {2.092457497388747, 0.}, {3.1386862460831204`, 0.6974858324629157}, {
+    2.789943329851663, 0.}, {3.4874291623145783`, 0.}}, {
+     {RGBColor[0.55, 0.45, 0.45], 
+      LineBox[{{1, 2}, {1, 5}, {1, 8}, {2, 3}, {2, 4}, {5, 6}, {5, 7}, {8, 
+       9}, {8, 10}}]}, {
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox["Or", "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 1],
+        TagBox[
+         RowBox[{
+           RowBox[{"(", 
+             RowBox[{"A", "&&", "C"}], ")"}], "||", 
+           RowBox[{"(", 
+             RowBox[{"B", "&&", "C"}], ")"}], "||", 
+           RowBox[{"(", 
+             RowBox[{"A", "&&", "B"}], ")"}]}], HoldForm]],
+       Annotation[#, 
+        HoldForm[
+         Or[
+          And[$CellContext`A, C], 
+          And[$CellContext`B, C], 
+          And[$CellContext`A, $CellContext`B]]], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox["And", "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 2],
+        TagBox[
+         RowBox[{"A", "&&", "C"}], HoldForm]],
+       Annotation[#, 
+        HoldForm[
+         And[$CellContext`A, C]], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["A",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 3],
+        TagBox["A", HoldForm]],
+       Annotation[#, 
+        HoldForm[$CellContext`A], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["C",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 4],
+        TagBox["C", HoldForm]],
+       Annotation[#, 
+        HoldForm[C], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox["And", "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 5],
+        TagBox[
+         RowBox[{"B", "&&", "C"}], HoldForm]],
+       Annotation[#, 
+        HoldForm[
+         And[$CellContext`B, C]], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["B",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 6],
+        TagBox["B", HoldForm]],
+       Annotation[#, 
+        HoldForm[$CellContext`B], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["C",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 7],
+        TagBox["C", HoldForm]],
+       Annotation[#, 
+        HoldForm[C], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox["And", "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 8],
+        TagBox[
+         RowBox[{"A", "&&", "B"}], HoldForm]],
+       Annotation[#, 
+        HoldForm[
+         And[$CellContext`A, $CellContext`B]], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["A",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 9],
+        TagBox["A", HoldForm]],
+       Annotation[#, 
+        HoldForm[$CellContext`A], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["B",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 10],
+        TagBox["B", HoldForm]],
+       Annotation[#, 
+        HoldForm[$CellContext`B], "Tooltip"]& ]}}],
+   Annotation[#, 
+    VertexCoordinateRules -> {{1.7437145811572892`, 1.3949716649258315`}, {
+     0.34874291623145787`, 0.6974858324629157}, {0., 0.}, {0.6974858324629157,
+      0.}, {1.7437145811572892`, 0.6974858324629157}, {1.3949716649258315`, 
+     0.}, {2.092457497388747, 0.}, {3.1386862460831204`, 
+     0.6974858324629157}, {2.789943329851663, 0.}, {3.4874291623145783`, 
+     0.}}]& ],
+  AspectRatio->NCache[Rational[2, 3]^Rational[1, 2], 0.816496580927726],
+  FormatType:>StandardForm,
+  FrameTicks->Automatic,
+  PlotRange->All,
+  PlotRangePadding->Scaled[0.1]]], "Output",
+ CellChangeTimes->{{3.666588046016336*^9, 3.6665881063500557`*^9}}]
+}, Open  ]]
+},
+WindowSize->{808, 751},
+WindowMargins->{{225, Automatic}, {Automatic, 7}},
+FrontEndVersion->"10.4 for Mac OS X x86 (32-bit, 64-bit Kernel) (February 25, \
+2016)",
+StyleDefinitions->FrontEnd`FileName[{"Book"}, "Textbook.nb", 
+  CharacterEncoding -> "UTF-8"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 365, 11, 29, "Input"],
+Cell[948, 35, 653, 19, 88, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1638, 59, 400, 12, 29, "Input"],
+Cell[2041, 73, 628, 19, 88, "Output"]
+}, Open  ]],
+Cell[2684, 95, 520, 15, 29, "Input"],
+Cell[CellGroupData[{
+Cell[3229, 114, 118, 2, 28, "Input"],
+Cell[3350, 118, 73, 1, 28, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3460, 124, 127, 2, 29, "Input"],
+Cell[3590, 128, 628, 19, 88, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4255, 152, 343, 9, 29, "Input"],
+Cell[4601, 163, 1628, 34, 160, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6266, 202, 439, 12, 29, "Input"],
+Cell[6708, 216, 320, 10, 40, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7065, 231, 516, 16, 29, "Input"],
+Cell[7584, 249, 652, 19, 88, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8273, 273, 324, 10, 29, "Input"],
+Cell[8600, 285, 438, 15, 40, "Output"]
+}, Open  ]],
+Cell[9053, 303, 129, 1, 20, "Text"],
+Cell[CellGroupData[{
+Cell[9207, 308, 359, 11, 29, "Input"],
+Cell[9569, 321, 306, 10, 77, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9912, 336, 803, 22, 45, "Input"],
+Cell[10718, 360, 541, 16, 87, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11296, 381, 539, 16, 29, "Input"],
+Cell[11838, 399, 704, 21, 104, "Output"]
+}, Open  ]],
+Cell[12557, 423, 188, 4, 20, "Text"],
+Cell[CellGroupData[{
+Cell[12770, 431, 1020, 28, 45, "Input"],
+Cell[13793, 461, 566, 16, 135, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14396, 482, 1016, 30, 45, "Input"],
+Cell[15415, 514, 442, 13, 28, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[15894, 532, 953, 27, 45, "Input"],
+Cell[16850, 561, 488, 14, 89, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[17375, 580, 717, 17, 29, "Input"],
+Cell[18095, 599, 192, 5, 29, "Output"]
+}, Open  ]],
+Cell[18302, 607, 281, 3, 37, "Text"],
+Cell[CellGroupData[{
+Cell[18608, 614, 1033, 30, 45, "Input"],
+Cell[19644, 646, 597, 17, 135, "Output"]
+}, Open  ]],
+Cell[20256, 666, 842, 25, 29, "Input"],
+Cell[21101, 693, 124, 2, 28, "Input"],
+Cell[CellGroupData[{
+Cell[21250, 699, 391, 11, 29, "Input"],
+Cell[21644, 712, 265, 8, 29, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[21946, 725, 1360, 37, 61, "Input"],
+Cell[23309, 764, 726, 21, 227, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[24072, 790, 350, 10, 29, "Input"],
+Cell[24425, 802, 7373, 206, 476, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[31835, 1013, 387, 11, 28, "Input"],
+Cell[32225, 1026, 7908, 221, 320, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

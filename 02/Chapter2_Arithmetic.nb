@@ -1,0 +1,3026 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.4' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[    101720,       3018]
+NotebookOptionsPosition[     95781,       2828]
+NotebookOutlinePosition[     96255,       2846]
+CellTagsIndexPosition[     96212,       2843]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["2", "BookChapterNumber",
+ CellChangeTimes->{3.666592606486993*^9}],
+
+Cell["Arithmetic Principles", "BookChapterTitle",
+ CellChangeTimes->{{3.666573492756401*^9, 3.666573546716201*^9}, {
+  3.666575167669347*^9, 3.666575168868183*^9}, {3.666576515832239*^9, 
+  3.666576518949546*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "2.",
+ 
+ CounterBox["Section"],
+ ". You should know some rules about addition"
+}], "Section",
+ CellChangeTimes->{{3.666573556558523*^9, 3.66657359623905*^9}, {
+  3.666576546127756*^9, 3.666576555581092*^9}, {3.666592609158564*^9, 
+  3.6665926092838297`*^9}}],
+
+Cell["\<\
+The first arithmetic operation is addition. In Mathematica, it is simply \
+called Plus.\
+\>", "Text",
+ CellChangeTimes->{{3.666573601464292*^9, 3.66657369394256*^9}, {
+  3.666573726018475*^9, 3.666573726023479*^9}, {3.666576283845158*^9, 
+  3.666576345944644*^9}, {3.666576563535304*^9, 3.666576604634439*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Plus", "[", 
+  RowBox[{"1", ",", "3", ",", "4"}], "]"}]], "Input",
+ CellChangeTimes->{{3.666576585590366*^9, 3.666576597393013*^9}}],
+
+Cell[BoxData["8"], "Output",
+ CellChangeTimes->{{3.666576588615666*^9, 3.666576597888754*^9}}]
+}, Open  ]],
+
+Cell["\<\
+You may also think of it as a binary operator, meaning that it only takes two \
+arguments:\
+\>", "Text",
+ CellChangeTimes->{{3.666576621093232*^9, 3.666576641852228*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Plus", "[", 
+  RowBox[{"1", ",", "1"}], "]"}]], "Input",
+ CellChangeTimes->{{3.666576648130378*^9, 3.666576653719532*^9}}],
+
+Cell[BoxData["2"], "Output",
+ CellChangeTimes->{3.6665766541329613`*^9}]
+}, Open  ]],
+
+Cell["\<\
+Showing this formulate in different form, we can demonstrate that Mathematica \
+actually interprets this expression in an \[OpenCurlyDoubleQuote]infix\
+\[CloseCurlyDoubleQuote] form, meaning that it uses the + sign in the middle \
+of two arguments.\
+\>", "Text",
+ CellChangeTimes->{{3.666576679735586*^9, 3.666576699691901*^9}, {
+  3.666577004577951*^9, 3.6665770397782907`*^9}, {3.666577085208774*^9, 
+  3.666577086927724*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Hold", "[", 
+  RowBox[{"Plus", "[", 
+   RowBox[{"a", ",", "b", ",", "c", ",", "d"}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.666576703995183*^9, 3.666576809794443*^9}, {
+  3.66657685068918*^9, 3.666576865728619*^9}, {3.666576936495661*^9, 
+  3.666576966314219*^9}, {3.666577041852463*^9, 3.666577072101358*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Hold", "[", 
+  RowBox[{"a", "+", "b", "+", "c", "+", "d"}], "]"}]], "Output",
+ CellChangeTimes->{{3.6665767116783323`*^9, 3.666576745528405*^9}, {
+  3.666576784545676*^9, 3.666576810415512*^9}, {3.666576858583536*^9, 
+  3.666576866124704*^9}, {3.666576944229328*^9, 3.6665769668209743`*^9}, {
+  3.666577044879458*^9, 3.6665770726209993`*^9}}]
+}, Open  ]],
+
+Cell["\<\
+The goal of this chapter is to learn to build an Arithmetic Logic Unit to \
+perform integer adding functions. To learn to do this, we need to first \
+understand how integer numbers are represented in various base forms.\
+\>", "Text",
+ CellChangeTimes->{{3.666573601464292*^9, 3.66657369394256*^9}, {
+  3.666573726018475*^9, 3.6665737866074667`*^9}, {3.666573873121557*^9, 
+  3.666573985906039*^9}, {3.6665771681136723`*^9, 3.666577275133119*^9}, {
+  3.6665774661237698`*^9, 3.666577475446929*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "2.",
+ 
+ CounterBox["Section"],
+ ". Integer Number Representation"
+}], "Section",
+ CellChangeTimes->{{3.666577304359889*^9, 3.666577311451676*^9}, {
+  3.666592612814348*^9, 3.666592612939815*^9}}],
+
+Cell["\<\
+Integer numbers can be represented in a decimal system, but it can also be \
+written down in various other base forms. For example, if we represent the \
+following numbers in base form of 8, then, we can show these numbers as \
+follows:\
+\>", "Text",
+ CellChangeTimes->{{3.666577687314818*^9, 3.6665776899215937`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"numbers", " ", "=", " ", 
+  RowBox[{"Table", "[", 
+   RowBox[{"i", ",", 
+    RowBox[{"{", 
+     RowBox[{"i", ",", "1", ",", "20"}], "}"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.666577696361135*^9, 3.66657771649194*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "1", ",", "2", ",", "3", ",", "4", ",", "5", ",", "6", ",", "7", ",", "8", 
+   ",", "9", ",", "10", ",", "11", ",", "12", ",", "13", ",", "14", ",", "15",
+    ",", "16", ",", "17", ",", "18", ",", "19", ",", "20"}], "}"}]], "Output",\
+
+ CellChangeTimes->{{3.666577711699162*^9, 3.666577716976001*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"BaseForm", "[", 
+  RowBox[{"numbers", ",", "8"}], "]"}]], "Input",
+ CellChangeTimes->{{3.6665773578472652`*^9, 3.666577437806671*^9}, {
+   3.666577482884366*^9, 3.6665774888794737`*^9}, {3.666577531261979*^9, 
+   3.666577540339519*^9}, 3.666577724234541*^9}],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"{", 
+   RowBox[{
+    InterpretationBox[
+     SubscriptBox["\<\"1\"\>", "\<\"8\"\>"],
+     1,
+     Editable->False], ",", 
+    InterpretationBox[
+     SubscriptBox["\<\"2\"\>", "\<\"8\"\>"],
+     2,
+     Editable->False], ",", 
+    InterpretationBox[
+     SubscriptBox["\<\"3\"\>", "\<\"8\"\>"],
+     3,
+     Editable->False], ",", 
+    InterpretationBox[
+     SubscriptBox["\<\"4\"\>", "\<\"8\"\>"],
+     4,
+     Editable->False], ",", 
+    InterpretationBox[
+     SubscriptBox["\<\"5\"\>", "\<\"8\"\>"],
+     5,
+     Editable->False], ",", 
+    InterpretationBox[
+     SubscriptBox["\<\"6\"\>", "\<\"8\"\>"],
+     6,
+     Editable->False], ",", 
+    InterpretationBox[
+     SubscriptBox["\<\"7\"\>", "\<\"8\"\>"],
+     7,
+     Editable->False], ",", 
+    InterpretationBox[
+     SubscriptBox["\<\"10\"\>", "\<\"8\"\>"],
+     8,
+     Editable->False], ",", 
+    InterpretationBox[
+     SubscriptBox["\<\"11\"\>", "\<\"8\"\>"],
+     9,
+     Editable->False], ",", 
+    InterpretationBox[
+     SubscriptBox["\<\"12\"\>", "\<\"8\"\>"],
+     10,
+     Editable->False], ",", 
+    InterpretationBox[
+     SubscriptBox["\<\"13\"\>", "\<\"8\"\>"],
+     11,
+     Editable->False], ",", 
+    InterpretationBox[
+     SubscriptBox["\<\"14\"\>", "\<\"8\"\>"],
+     12,
+     Editable->False], ",", 
+    InterpretationBox[
+     SubscriptBox["\<\"15\"\>", "\<\"8\"\>"],
+     13,
+     Editable->False], ",", 
+    InterpretationBox[
+     SubscriptBox["\<\"16\"\>", "\<\"8\"\>"],
+     14,
+     Editable->False], ",", 
+    InterpretationBox[
+     SubscriptBox["\<\"17\"\>", "\<\"8\"\>"],
+     15,
+     Editable->False], ",", 
+    InterpretationBox[
+     SubscriptBox["\<\"20\"\>", "\<\"8\"\>"],
+     16,
+     Editable->False], ",", 
+    InterpretationBox[
+     SubscriptBox["\<\"21\"\>", "\<\"8\"\>"],
+     17,
+     Editable->False], ",", 
+    InterpretationBox[
+     SubscriptBox["\<\"22\"\>", "\<\"8\"\>"],
+     18,
+     Editable->False], ",", 
+    InterpretationBox[
+     SubscriptBox["\<\"23\"\>", "\<\"8\"\>"],
+     19,
+     Editable->False], ",", 
+    InterpretationBox[
+     SubscriptBox["\<\"24\"\>", "\<\"8\"\>"],
+     20,
+     Editable->False]}], "}"}],
+  BaseForm[#, 8]& ]], "Output",
+ CellChangeTimes->{{3.6665773900057287`*^9, 3.6665774382170057`*^9}, 
+   3.666577489425071*^9, {3.666577532255657*^9, 3.6665775419069233`*^9}, 
+   3.666577724980901*^9}]
+}, Open  ]],
+
+Cell["\<\
+Similarly, we can show these numbers in the base form of 16, also known as \
+hexadecimal form:\
+\>", "Text",
+ CellChangeTimes->{{3.666577559780562*^9, 3.6665776239364157`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"BaseForm", "[", 
+  RowBox[{"numbers", ",", "16"}], "]"}]], "Input",
+ CellChangeTimes->{{3.666577631611013*^9, 3.6665776565754232`*^9}, 
+   3.666577730373661*^9}],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"{", 
+   RowBox[{
+    InterpretationBox[
+     SubscriptBox["\<\"1\"\>", "\<\"16\"\>"],
+     1,
+     Editable->False], ",", 
+    InterpretationBox[
+     SubscriptBox["\<\"2\"\>", "\<\"16\"\>"],
+     2,
+     Editable->False], ",", 
+    InterpretationBox[
+     SubscriptBox["\<\"3\"\>", "\<\"16\"\>"],
+     3,
+     Editable->False], ",", 
+    InterpretationBox[
+     SubscriptBox["\<\"4\"\>", "\<\"16\"\>"],
+     4,
+     Editable->False], ",", 
+    InterpretationBox[
+     SubscriptBox["\<\"5\"\>", "\<\"16\"\>"],
+     5,
+     Editable->False], ",", 
+    InterpretationBox[
+     SubscriptBox["\<\"6\"\>", "\<\"16\"\>"],
+     6,
+     Editable->False], ",", 
+    InterpretationBox[
+     SubscriptBox["\<\"7\"\>", "\<\"16\"\>"],
+     7,
+     Editable->False], ",", 
+    InterpretationBox[
+     SubscriptBox["\<\"8\"\>", "\<\"16\"\>"],
+     8,
+     Editable->False], ",", 
+    InterpretationBox[
+     SubscriptBox["\<\"9\"\>", "\<\"16\"\>"],
+     9,
+     Editable->False], ",", 
+    InterpretationBox[
+     SubscriptBox["\<\"a\"\>", "\<\"16\"\>"],
+     10,
+     Editable->False], ",", 
+    InterpretationBox[
+     SubscriptBox["\<\"b\"\>", "\<\"16\"\>"],
+     11,
+     Editable->False], ",", 
+    InterpretationBox[
+     SubscriptBox["\<\"c\"\>", "\<\"16\"\>"],
+     12,
+     Editable->False], ",", 
+    InterpretationBox[
+     SubscriptBox["\<\"d\"\>", "\<\"16\"\>"],
+     13,
+     Editable->False], ",", 
+    InterpretationBox[
+     SubscriptBox["\<\"e\"\>", "\<\"16\"\>"],
+     14,
+     Editable->False], ",", 
+    InterpretationBox[
+     SubscriptBox["\<\"f\"\>", "\<\"16\"\>"],
+     15,
+     Editable->False], ",", 
+    InterpretationBox[
+     SubscriptBox["\<\"10\"\>", "\<\"16\"\>"],
+     16,
+     Editable->False], ",", 
+    InterpretationBox[
+     SubscriptBox["\<\"11\"\>", "\<\"16\"\>"],
+     17,
+     Editable->False], ",", 
+    InterpretationBox[
+     SubscriptBox["\<\"12\"\>", "\<\"16\"\>"],
+     18,
+     Editable->False], ",", 
+    InterpretationBox[
+     SubscriptBox["\<\"13\"\>", "\<\"16\"\>"],
+     19,
+     Editable->False], ",", 
+    InterpretationBox[
+     SubscriptBox["\<\"14\"\>", "\<\"16\"\>"],
+     20,
+     Editable->False]}], "}"}],
+  BaseForm[#, 16]& ]], "Output",
+ CellChangeTimes->{{3.66657763814517*^9, 3.666577657489863*^9}, 
+   3.666577730885769*^9}]
+}, Open  ]],
+
+Cell["\<\
+In this chapter, we are going to represent these numbers in their binary \
+form, therefore we can let the machine to do the translation:\
+\>", "Text",
+ CellChangeTimes->{{3.666577748472507*^9, 3.66657777412394*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"BaseForm", "[", 
+  RowBox[{"numbers", ",", "2"}], "]"}]], "Input",
+ CellChangeTimes->{{3.666577780348198*^9, 3.6665778066589403`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"{", 
+   RowBox[{
+    InterpretationBox[
+     SubscriptBox["\<\"1\"\>", "\<\"2\"\>"],
+     1,
+     Editable->False], ",", 
+    InterpretationBox[
+     SubscriptBox["\<\"10\"\>", "\<\"2\"\>"],
+     2,
+     Editable->False], ",", 
+    InterpretationBox[
+     SubscriptBox["\<\"11\"\>", "\<\"2\"\>"],
+     3,
+     Editable->False], ",", 
+    InterpretationBox[
+     SubscriptBox["\<\"100\"\>", "\<\"2\"\>"],
+     4,
+     Editable->False], ",", 
+    InterpretationBox[
+     SubscriptBox["\<\"101\"\>", "\<\"2\"\>"],
+     5,
+     Editable->False], ",", 
+    InterpretationBox[
+     SubscriptBox["\<\"110\"\>", "\<\"2\"\>"],
+     6,
+     Editable->False], ",", 
+    InterpretationBox[
+     SubscriptBox["\<\"111\"\>", "\<\"2\"\>"],
+     7,
+     Editable->False], ",", 
+    InterpretationBox[
+     SubscriptBox["\<\"1000\"\>", "\<\"2\"\>"],
+     8,
+     Editable->False], ",", 
+    InterpretationBox[
+     SubscriptBox["\<\"1001\"\>", "\<\"2\"\>"],
+     9,
+     Editable->False], ",", 
+    InterpretationBox[
+     SubscriptBox["\<\"1010\"\>", "\<\"2\"\>"],
+     10,
+     Editable->False], ",", 
+    InterpretationBox[
+     SubscriptBox["\<\"1011\"\>", "\<\"2\"\>"],
+     11,
+     Editable->False], ",", 
+    InterpretationBox[
+     SubscriptBox["\<\"1100\"\>", "\<\"2\"\>"],
+     12,
+     Editable->False], ",", 
+    InterpretationBox[
+     SubscriptBox["\<\"1101\"\>", "\<\"2\"\>"],
+     13,
+     Editable->False], ",", 
+    InterpretationBox[
+     SubscriptBox["\<\"1110\"\>", "\<\"2\"\>"],
+     14,
+     Editable->False], ",", 
+    InterpretationBox[
+     SubscriptBox["\<\"1111\"\>", "\<\"2\"\>"],
+     15,
+     Editable->False], ",", 
+    InterpretationBox[
+     SubscriptBox["\<\"10000\"\>", "\<\"2\"\>"],
+     16,
+     Editable->False], ",", 
+    InterpretationBox[
+     SubscriptBox["\<\"10001\"\>", "\<\"2\"\>"],
+     17,
+     Editable->False], ",", 
+    InterpretationBox[
+     SubscriptBox["\<\"10010\"\>", "\<\"2\"\>"],
+     18,
+     Editable->False], ",", 
+    InterpretationBox[
+     SubscriptBox["\<\"10011\"\>", "\<\"2\"\>"],
+     19,
+     Editable->False], ",", 
+    InterpretationBox[
+     SubscriptBox["\<\"10100\"\>", "\<\"2\"\>"],
+     20,
+     Editable->False]}], "}"}],
+  BaseForm[#, 2]& ]], "Output",
+ CellChangeTimes->{3.666577807155595*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "2.",
+ 
+ CounterBox["Section"],
+ ".",
+ 
+ CounterBox["Subsection"],
+ ". Addition operation for different base forms follows the same rewrite \
+rule"
+}], "Subsection",
+ CellChangeTimes->{{3.666577927730371*^9, 3.666577982141678*^9}, {
+  3.6665944532483807`*^9, 3.666594453383225*^9}}],
+
+Cell["\<\
+For numbers represented in any base forms, the rules to perform addition are \
+the same. When the symbol set within the same digit cannot represent the \
+added number, we take the remainder and write it down as the current digit, \
+then, jot down the result of the \[OpenCurlyDoubleQuote]carry over\
+\[CloseCurlyDoubleQuote] and add it to the digit on the immediate left side \
+of the current digit. This rule can be applied recursively to any number.\
+\>", "Text",
+ CellChangeTimes->{{3.66657799898678*^9, 3.666578131244334*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"first", "=", "290"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"second", "=", "538"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"numberOfDigits", "=", "4"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"base", "=", "10"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"denominations", "=", 
+     RowBox[{
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{"base", "^", "i"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"i", ",", " ", "0", ",", 
+          RowBox[{"numberOfDigits", "-", "1"}]}], "}"}]}], "]"}], "//", 
+      "Reverse"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"firstSet", "=", 
+     RowBox[{"NumberDecompose", "[", 
+      RowBox[{"first", ",", "denominations"}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"secondSet", "=", 
+     RowBox[{"NumberDecompose", "[", 
+      RowBox[{"second", ",", " ", "denominations"}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"sumOfTwoSets", "=", 
+     RowBox[{"firstSet", "+", "secondSet"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"sumOfTwoSets", "=", 
+    RowBox[{"Map", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"BaseForm", "[", 
+        RowBox[{"#", ",", "base"}], "]"}], "&"}], ",", "sumOfTwoSets"}], 
+     "]"}]}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"finalDigits", " ", "=", 
+     RowBox[{"Map", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"BaseForm", "[", 
+         RowBox[{"#", ",", "base"}], "]"}], "&"}], ",", 
+       RowBox[{"NumberDecompose", "[", 
+        RowBox[{
+         RowBox[{"first", " ", "+", " ", "second"}], ",", " ", 
+         "denominations"}], "]"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"Grid", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "firstSet", ",", " ", "secondSet", ",", " ", "sumOfTwoSets", ",", 
+       "finalDigits"}], "}"}], ",", " ", 
+     RowBox[{"Spacings", " ", "->", " ", 
+      RowBox[{"{", 
+       RowBox[{"2", ",", " ", "2"}], "}"}]}], ",", " ", 
+     RowBox[{"Background", " ", "->", " ", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"None", ",", " ", "None", ",", " ", "None"}], "}"}], ",", 
+        " ", 
+        RowBox[{"{", 
+         RowBox[{
+         "None", ",", "None", ",", " ", "LightGray", ",", " ", "Gray"}], 
+         "}"}]}], "}"}]}]}], "]"}], "\[IndentingNewLine]", 
+   RowBox[{"BaseForm", "[", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"first", " ", "+", " ", "second"}], ")"}], ",", "base"}], 
+    "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.666578176330448*^9, 3.666578177711952*^9}, {
+  3.666579565086176*^9, 3.66657956935638*^9}, {3.666580477490417*^9, 
+  3.666580519797636*^9}, {3.6665805749663486`*^9, 3.666580621780867*^9}, {
+  3.666588688117138*^9, 3.6665888287661543`*^9}, {3.666588899272868*^9, 
+  3.6665889647191896`*^9}, {3.6665890615780973`*^9, 3.666589063290657*^9}, {
+  3.6665894565480967`*^9, 3.6665894713730783`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   TagBox[
+    InterpretationBox["\<\"0\"\>",
+     0,
+     Editable->False],
+    BaseForm[#, 10]& ], ",", 
+   TagBox[
+    InterpretationBox["\<\"7\"\>",
+     7,
+     Editable->False],
+    BaseForm[#, 10]& ], ",", 
+   TagBox[
+    InterpretationBox["\<\"12\"\>",
+     12,
+     Editable->False],
+    BaseForm[#, 10]& ], ",", 
+   TagBox[
+    InterpretationBox["\<\"8\"\>",
+     8,
+     Editable->False],
+    BaseForm[#, 10]& ]}], "}"}]], "Output",
+ CellChangeTimes->{{3.6665806121677027`*^9, 3.6665806225432663`*^9}, {
+   3.666588750799655*^9, 3.666588829258234*^9}, {3.666588938637179*^9, 
+   3.6665889652176867`*^9}, 3.666589063820571*^9, {3.666589461291122*^9, 
+   3.666589471865629*^9}}],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"0", "2", "9", "0"},
+    {"0", "5", "3", "8"},
+    {
+     TagBox[
+      InterpretationBox["\<\"0\"\>",
+       0,
+       Editable->False],
+      BaseForm[#, 10]& ], 
+     TagBox[
+      InterpretationBox["\<\"7\"\>",
+       7,
+       Editable->False],
+      BaseForm[#, 10]& ], 
+     TagBox[
+      InterpretationBox["\<\"12\"\>",
+       12,
+       Editable->False],
+      BaseForm[#, 10]& ], 
+     TagBox[
+      InterpretationBox["\<\"8\"\>",
+       8,
+       Editable->False],
+      BaseForm[#, 10]& ]},
+    {
+     TagBox[
+      InterpretationBox["\<\"0\"\>",
+       0,
+       Editable->False],
+      BaseForm[#, 10]& ], 
+     TagBox[
+      InterpretationBox["\<\"8\"\>",
+       8,
+       Editable->False],
+      BaseForm[#, 10]& ], 
+     TagBox[
+      InterpretationBox["\<\"2\"\>",
+       2,
+       Editable->False],
+      BaseForm[#, 10]& ], 
+     TagBox[
+      InterpretationBox["\<\"8\"\>",
+       8,
+       Editable->False],
+      BaseForm[#, 10]& ]}
+   },
+   AutoDelete->False,
+   GridBoxBackground->{"Columns" -> {None, None, None}, "Rows" -> {None, None, 
+       GrayLevel[0.85], 
+       GrayLevel[0.5]}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+   GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{2}}}],
+  "Grid"]], "Output",
+ CellChangeTimes->{{3.6665806121677027`*^9, 3.6665806225432663`*^9}, {
+   3.666588750799655*^9, 3.666588829258234*^9}, {3.666588938637179*^9, 
+   3.6665889652176867`*^9}, 3.666589063820571*^9, {3.666589461291122*^9, 
+   3.666589471877515*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  InterpretationBox["\<\"828\"\>",
+   828,
+   Editable->False],
+  BaseForm[#, 10]& ]], "Output",
+ CellChangeTimes->{{3.6665806121677027`*^9, 3.6665806225432663`*^9}, {
+   3.666588750799655*^9, 3.666588829258234*^9}, {3.666588938637179*^9, 
+   3.6665889652176867`*^9}, 3.666589063820571*^9, {3.666589461291122*^9, 
+   3.666589471888301*^9}}]
+}, Open  ]],
+
+Cell["\<\
+To do this problem in binary form, we can add two numbers as the following:\
+\>", "Text",
+ CellChangeTimes->{{3.666588339209755*^9, 3.6665883529282*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"first", "=", "7"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"second", "=", "6"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"numberOfDigits", "=", "5"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"base", "=", "2"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"denominations", "=", 
+     RowBox[{
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{"base", "^", "i"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"i", ",", " ", "0", ",", 
+          RowBox[{"numberOfDigits", "-", "1"}]}], "}"}]}], "]"}], "//", 
+      "Reverse"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"firstSet", "=", 
+     RowBox[{"NumberDecompose", "[", 
+      RowBox[{"first", ",", "denominations"}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"secondSet", "=", 
+     RowBox[{"NumberDecompose", "[", 
+      RowBox[{"second", ",", " ", "denominations"}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"sumOfTwoSets", "=", 
+     RowBox[{"firstSet", "+", "secondSet"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"sumOfTwoSets", "=", 
+    RowBox[{"Map", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"BaseForm", "[", 
+        RowBox[{"#", ",", "base"}], "]"}], "&"}], ",", "sumOfTwoSets"}], 
+     "]"}]}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"finalDigits", " ", "=", 
+     RowBox[{"Map", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"BaseForm", "[", 
+         RowBox[{"#", ",", "base"}], "]"}], "&"}], ",", 
+       RowBox[{"NumberDecompose", "[", 
+        RowBox[{
+         RowBox[{"first", " ", "+", " ", "second"}], ",", " ", 
+         "denominations"}], "]"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"Grid", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "firstSet", ",", " ", "secondSet", ",", " ", "sumOfTwoSets", ",", 
+       "finalDigits"}], "}"}], ",", " ", 
+     RowBox[{"Spacings", " ", "->", " ", 
+      RowBox[{"{", 
+       RowBox[{"2", ",", " ", "2"}], "}"}]}], ",", " ", 
+     RowBox[{"Background", " ", "->", " ", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"None", ",", " ", "None", ",", " ", "None"}], "}"}], ",", 
+        " ", 
+        RowBox[{"{", 
+         RowBox[{
+         "None", ",", "None", ",", " ", "LightGray", ",", " ", "Gray"}], 
+         "}"}]}], "}"}]}]}], "]"}], "\[IndentingNewLine]", 
+   RowBox[{"BaseForm", "[", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"first", " ", "+", " ", "second"}], ")"}], ",", "base"}], 
+    "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.666588357872608*^9, 3.666588392975545*^9}, {
+  3.666588426756208*^9, 3.666588460475919*^9}, {3.6665885291103907`*^9, 
+  3.666588564834353*^9}, {3.6665885979322033`*^9, 3.666588608380048*^9}, {
+  3.666588842307893*^9, 3.666588857445053*^9}, {3.6665890007060423`*^9, 
+  3.6665890218632927`*^9}, {3.666589054059786*^9, 3.666589055907035*^9}, {
+  3.666589256436164*^9, 3.666589301352964*^9}, {3.6665893327494183`*^9, 
+  3.666589334179737*^9}, {3.666589380446547*^9, 3.666589443302061*^9}, {
+  3.66658947718379*^9, 3.666589496684608*^9}, {3.666589529349462*^9, 
+  3.666589531302051*^9}, {3.666589850759747*^9, 3.666589884034732*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   TagBox[
+    InterpretationBox[
+     SubscriptBox["\<\"0\"\>", "\<\"2\"\>"],
+     0,
+     Editable->False],
+    BaseForm[#, 2]& ], ",", 
+   TagBox[
+    InterpretationBox[
+     SubscriptBox["\<\"0\"\>", "\<\"2\"\>"],
+     0,
+     Editable->False],
+    BaseForm[#, 2]& ], ",", 
+   TagBox[
+    InterpretationBox[
+     SubscriptBox["\<\"10\"\>", "\<\"2\"\>"],
+     2,
+     Editable->False],
+    BaseForm[#, 2]& ], ",", 
+   TagBox[
+    InterpretationBox[
+     SubscriptBox["\<\"10\"\>", "\<\"2\"\>"],
+     2,
+     Editable->False],
+    BaseForm[#, 2]& ], ",", 
+   TagBox[
+    InterpretationBox[
+     SubscriptBox["\<\"1\"\>", "\<\"2\"\>"],
+     1,
+     Editable->False],
+    BaseForm[#, 2]& ]}], "}"}]], "Output",
+ CellChangeTimes->{{3.66658835933252*^9, 3.6665883938807983`*^9}, {
+   3.666588445116138*^9, 3.6665884610069523`*^9}, {3.666588548297776*^9, 
+   3.666588565424333*^9}, 3.66658860869468*^9, 3.66658885813103*^9, 
+   3.666589022667492*^9, 3.6665890566767397`*^9, {3.666589257366541*^9, 
+   3.666589301902196*^9}, 3.6665893347197723`*^9, {3.666589389766349*^9, 
+   3.666589443690608*^9}, {3.666589478024212*^9, 3.666589497112441*^9}, {
+   3.666589851735252*^9, 3.6665898844667807`*^9}}],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"0", "0", "1", "1", "1"},
+    {"0", "0", "1", "1", "0"},
+    {
+     TagBox[
+      InterpretationBox[
+       SubscriptBox["\<\"0\"\>", "\<\"2\"\>"],
+       0,
+       Editable->False],
+      BaseForm[#, 2]& ], 
+     TagBox[
+      InterpretationBox[
+       SubscriptBox["\<\"0\"\>", "\<\"2\"\>"],
+       0,
+       Editable->False],
+      BaseForm[#, 2]& ], 
+     TagBox[
+      InterpretationBox[
+       SubscriptBox["\<\"10\"\>", "\<\"2\"\>"],
+       2,
+       Editable->False],
+      BaseForm[#, 2]& ], 
+     TagBox[
+      InterpretationBox[
+       SubscriptBox["\<\"10\"\>", "\<\"2\"\>"],
+       2,
+       Editable->False],
+      BaseForm[#, 2]& ], 
+     TagBox[
+      InterpretationBox[
+       SubscriptBox["\<\"1\"\>", "\<\"2\"\>"],
+       1,
+       Editable->False],
+      BaseForm[#, 2]& ]},
+    {
+     TagBox[
+      InterpretationBox[
+       SubscriptBox["\<\"0\"\>", "\<\"2\"\>"],
+       0,
+       Editable->False],
+      BaseForm[#, 2]& ], 
+     TagBox[
+      InterpretationBox[
+       SubscriptBox["\<\"1\"\>", "\<\"2\"\>"],
+       1,
+       Editable->False],
+      BaseForm[#, 2]& ], 
+     TagBox[
+      InterpretationBox[
+       SubscriptBox["\<\"1\"\>", "\<\"2\"\>"],
+       1,
+       Editable->False],
+      BaseForm[#, 2]& ], 
+     TagBox[
+      InterpretationBox[
+       SubscriptBox["\<\"0\"\>", "\<\"2\"\>"],
+       0,
+       Editable->False],
+      BaseForm[#, 2]& ], 
+     TagBox[
+      InterpretationBox[
+       SubscriptBox["\<\"1\"\>", "\<\"2\"\>"],
+       1,
+       Editable->False],
+      BaseForm[#, 2]& ]}
+   },
+   AutoDelete->False,
+   GridBoxBackground->{"Columns" -> {None, None, None}, "Rows" -> {None, None, 
+       GrayLevel[0.85], 
+       GrayLevel[0.5]}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+   GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{2}}}],
+  "Grid"]], "Output",
+ CellChangeTimes->{{3.66658835933252*^9, 3.6665883938807983`*^9}, {
+   3.666588445116138*^9, 3.6665884610069523`*^9}, {3.666588548297776*^9, 
+   3.666588565424333*^9}, 3.66658860869468*^9, 3.66658885813103*^9, 
+   3.666589022667492*^9, 3.6665890566767397`*^9, {3.666589257366541*^9, 
+   3.666589301902196*^9}, 3.6665893347197723`*^9, {3.666589389766349*^9, 
+   3.666589443690608*^9}, {3.666589478024212*^9, 3.666589497112441*^9}, {
+   3.666589851735252*^9, 3.6665898844777813`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  InterpretationBox[
+   SubscriptBox["\<\"1101\"\>", "\<\"2\"\>"],
+   13,
+   Editable->False],
+  BaseForm[#, 2]& ]], "Output",
+ CellChangeTimes->{{3.66658835933252*^9, 3.6665883938807983`*^9}, {
+   3.666588445116138*^9, 3.6665884610069523`*^9}, {3.666588548297776*^9, 
+   3.666588565424333*^9}, 3.66658860869468*^9, 3.66658885813103*^9, 
+   3.666589022667492*^9, 3.6665890566767397`*^9, {3.666589257366541*^9, 
+   3.666589301902196*^9}, 3.6665893347197723`*^9, {3.666589389766349*^9, 
+   3.666589443690608*^9}, {3.666589478024212*^9, 3.666589497112441*^9}, {
+   3.666589851735252*^9, 3.666589884485422*^9}}]
+}, Open  ]],
+
+Cell["\<\
+The readers are welcome to play with the paramters of the above program to \
+test the digit-wise rewrite rules of addition arithmetic.\
+\>", "Text",
+ CellChangeTimes->{{3.666588339209755*^9, 3.6665883529282*^9}, {
+  3.666589957715076*^9, 3.666589995953272*^9}}],
+
+Cell["", "PageBreak",
+ PageBreakBelow->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "2.",
+ 
+ CounterBox["Section"],
+ ".",
+ 
+ CounterBox["Subsection"],
+ ". The substraction operation"
+}], "Subsection",
+ CellChangeTimes->{{3.666577927730371*^9, 3.666577982141678*^9}, {
+  3.6665944532483807`*^9, 3.666594453383225*^9}, {3.666594498263461*^9, 
+  3.666594513428609*^9}}],
+
+Cell["\<\
+In the video of TECS course, it was said that negative numbers are \
+represented in a way so that it is easy to perform substraction by adding a \
+negative number. Therefore this raise two questions. First, how is a negative \
+number represetned in binary with regard to this TECS\[CloseCurlyQuote]s \
+design contract. Second, how do we turn a regular positive number into a \
+negative number.\
+\>", "Text",
+ CellChangeTimes->{{3.66657799898678*^9, 3.666578131244334*^9}, {
+  3.6665945192937593`*^9, 3.666594668324725*^9}}],
+
+Cell["\<\
+The clever way as Noam Nisan mentioned in his talk, says that all negative \
+numbers all have its 16th bit given the value of 1, and the values of the \
+remaining bits are simply flipping the {1,0} values of the positive number\
+\[CloseCurlyQuote]s bitwise representation. If this approach works, then, we \
+solved both problems as stated earlier. First, we know how to represent a \
+negative number, by having the most significant bit (MSB) to show the value \
+of 1, and use a Not16 chip to flip all bits to its inverse values. Then, we \
+just continue to use the Adder as it was originally implemented.  But is this \
+true? Moreover, why would this be true?\
+\>", "Text",
+ CellChangeTimes->{{3.66657799898678*^9, 3.666578131244334*^9}, {
+  3.6665945192937593`*^9, 3.666594704583633*^9}, {3.666594768920848*^9, 
+  3.666595087646492*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "2.",
+ 
+ CounterBox["Section"],
+ ".",
+ 
+ CounterBox["Subsection"],
+ ". Substraction by overflow"
+}], "Subsection",
+ CellChangeTimes->{{3.666577927730371*^9, 3.666577982141678*^9}, {
+  3.6665944532483807`*^9, 3.666594453383225*^9}, {3.666594498263461*^9, 
+  3.666594513428609*^9}, {3.666595318882895*^9, 3.666595326536397*^9}}],
+
+Cell["\<\
+So, let\[CloseCurlyQuote]s study this number theoretical problem with \
+Mathematica. To help everyone understand this approach, we may start with \
+decimal number systems.\
+\>", "Text",
+ CellChangeTimes->{{3.666595142750366*^9, 3.666595151594851*^9}, {
+  3.6665952183887978`*^9, 3.6665952380834007`*^9}}],
+
+Cell["\<\
+For example, if we want to substract 1 from a two digit system, say 35, we \
+may just add 99 to 35, and get 134, then ignore the carry over value by 100. \
+The remaining two digits would be identical to 35-1. This can be illustrated \
+as follow:\
+\>", "Text",
+ CellChangeTimes->{{3.6665952407525578`*^9, 3.666595303641262*^9}, {
+  3.666595335305573*^9, 3.666595399195258*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"first", "=", "8"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"second", "=", "9"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"numberOfDigits", "=", "4"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"base", "=", "10"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"denominations", "=", 
+     RowBox[{
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{"base", "^", "i"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"i", ",", " ", "0", ",", 
+          RowBox[{"numberOfDigits", "-", "1"}]}], "}"}]}], "]"}], "//", 
+      "Reverse"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"firstSet", "=", 
+     RowBox[{"NumberDecompose", "[", 
+      RowBox[{"first", ",", "denominations"}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"secondSet", "=", 
+     RowBox[{"NumberDecompose", "[", 
+      RowBox[{"second", ",", " ", "denominations"}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"sumOfTwoSets", "=", 
+     RowBox[{"firstSet", "+", "secondSet"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"sumOfTwoSets", "=", 
+    RowBox[{"Map", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"BaseForm", "[", 
+        RowBox[{"#", ",", "base"}], "]"}], "&"}], ",", "sumOfTwoSets"}], 
+     "]"}]}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"finalDigits", " ", "=", 
+     RowBox[{"Map", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"BaseForm", "[", 
+         RowBox[{"#", ",", "base"}], "]"}], "&"}], ",", 
+       RowBox[{"NumberDecompose", "[", 
+        RowBox[{
+         RowBox[{"first", " ", "+", " ", "second"}], ",", " ", 
+         "denominations"}], "]"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"Grid", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "firstSet", ",", " ", "secondSet", ",", " ", "sumOfTwoSets", ",", 
+       "finalDigits"}], "}"}], ",", " ", 
+     RowBox[{"Spacings", " ", "->", " ", 
+      RowBox[{"{", 
+       RowBox[{"2", ",", " ", "2"}], "}"}]}], ",", " ", 
+     RowBox[{"Background", " ", "->", " ", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"None", ",", " ", "None", ",", " ", "None"}], "}"}], ",", 
+        " ", 
+        RowBox[{"{", 
+         RowBox[{
+         "None", ",", "None", ",", " ", "LightGray", ",", " ", "Gray"}], 
+         "}"}]}], "}"}]}]}], "]"}], "\[IndentingNewLine]", 
+   RowBox[{"BaseForm", "[", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"first", " ", "+", " ", "second"}], ")"}], ",", "base"}], 
+    "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.666578176330448*^9, 3.666578177711952*^9}, {
+  3.666579565086176*^9, 3.66657956935638*^9}, {3.666580477490417*^9, 
+  3.666580519797636*^9}, {3.6665805749663486`*^9, 3.666580621780867*^9}, {
+  3.666588688117138*^9, 3.6665888287661543`*^9}, {3.666588899272868*^9, 
+  3.6665889647191896`*^9}, {3.6665890615780973`*^9, 3.666589063290657*^9}, {
+  3.6665894565480967`*^9, 3.6665894713730783`*^9}, {3.666595407609761*^9, 
+  3.666595407950603*^9}, {3.666595523422967*^9, 3.6665955479306507`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   TagBox[
+    InterpretationBox["\<\"0\"\>",
+     0,
+     Editable->False],
+    BaseForm[#, 10]& ], ",", 
+   TagBox[
+    InterpretationBox["\<\"0\"\>",
+     0,
+     Editable->False],
+    BaseForm[#, 10]& ], ",", 
+   TagBox[
+    InterpretationBox["\<\"0\"\>",
+     0,
+     Editable->False],
+    BaseForm[#, 10]& ], ",", 
+   TagBox[
+    InterpretationBox["\<\"17\"\>",
+     17,
+     Editable->False],
+    BaseForm[#, 10]& ]}], "}"}]], "Output",
+ CellChangeTimes->{{3.6665806121677027`*^9, 3.6665806225432663`*^9}, {
+   3.666588750799655*^9, 3.666588829258234*^9}, {3.666588938637179*^9, 
+   3.6665889652176867`*^9}, 3.666589063820571*^9, {3.666589461291122*^9, 
+   3.666589471865629*^9}, 3.666595409540867*^9, {3.666595532178154*^9, 
+   3.666595548719914*^9}}],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"0", "0", "0", "8"},
+    {"0", "0", "0", "9"},
+    {
+     TagBox[
+      InterpretationBox["\<\"0\"\>",
+       0,
+       Editable->False],
+      BaseForm[#, 10]& ], 
+     TagBox[
+      InterpretationBox["\<\"0\"\>",
+       0,
+       Editable->False],
+      BaseForm[#, 10]& ], 
+     TagBox[
+      InterpretationBox["\<\"0\"\>",
+       0,
+       Editable->False],
+      BaseForm[#, 10]& ], 
+     TagBox[
+      InterpretationBox["\<\"17\"\>",
+       17,
+       Editable->False],
+      BaseForm[#, 10]& ]},
+    {
+     TagBox[
+      InterpretationBox["\<\"0\"\>",
+       0,
+       Editable->False],
+      BaseForm[#, 10]& ], 
+     TagBox[
+      InterpretationBox["\<\"0\"\>",
+       0,
+       Editable->False],
+      BaseForm[#, 10]& ], 
+     TagBox[
+      InterpretationBox["\<\"1\"\>",
+       1,
+       Editable->False],
+      BaseForm[#, 10]& ], 
+     TagBox[
+      InterpretationBox["\<\"7\"\>",
+       7,
+       Editable->False],
+      BaseForm[#, 10]& ]}
+   },
+   AutoDelete->False,
+   GridBoxBackground->{"Columns" -> {None, None, None}, "Rows" -> {None, None, 
+       GrayLevel[0.85], 
+       GrayLevel[0.5]}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+   GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{2}}}],
+  "Grid"]], "Output",
+ CellChangeTimes->{{3.6665806121677027`*^9, 3.6665806225432663`*^9}, {
+   3.666588750799655*^9, 3.666588829258234*^9}, {3.666588938637179*^9, 
+   3.6665889652176867`*^9}, 3.666589063820571*^9, {3.666589461291122*^9, 
+   3.666589471865629*^9}, 3.666595409540867*^9, {3.666595532178154*^9, 
+   3.666595548730735*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  InterpretationBox["\<\"17\"\>",
+   17,
+   Editable->False],
+  BaseForm[#, 10]& ]], "Output",
+ CellChangeTimes->{{3.6665806121677027`*^9, 3.6665806225432663`*^9}, {
+   3.666588750799655*^9, 3.666588829258234*^9}, {3.666588938637179*^9, 
+   3.6665889652176867`*^9}, 3.666589063820571*^9, {3.666589461291122*^9, 
+   3.666589471865629*^9}, 3.666595409540867*^9, {3.666595532178154*^9, 
+   3.666595548739161*^9}}]
+}, Open  ]],
+
+Cell["\<\
+If we just ignore the carry over value by 10, then the resulting value of 8-1 \
+is equal to 7.\
+\>", "Text",
+ CellChangeTimes->{{3.6665954329741793`*^9, 3.666595477117487*^9}, {
+  3.666595568388032*^9, 3.66659558504945*^9}, {3.66659570862306*^9, 
+  3.666595708627386*^9}}],
+
+Cell["\<\
+This property would also work with binary system. Therefore, by adding 31 to \
+arbitrary positive numbers in a 5 digit binary system, the remaing four bits, \
+will also be equal to the original number -1.\
+\>", "Text",
+ CellChangeTimes->{{3.6665954329741793`*^9, 3.666595477117487*^9}, {
+  3.666595568388032*^9, 3.66659558504945*^9}, {3.66659570862306*^9, 
+  3.6665957803232307`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"first", "=", "28"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"second", "=", "31"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"numberOfDigits", "=", "5"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"base", "=", "2"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"denominations", "=", 
+     RowBox[{
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{"base", "^", "i"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"i", ",", " ", "0", ",", 
+          RowBox[{"numberOfDigits", "-", "1"}]}], "}"}]}], "]"}], "//", 
+      "Reverse"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"firstSet", "=", 
+     RowBox[{"NumberDecompose", "[", 
+      RowBox[{"first", ",", "denominations"}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"secondSet", "=", 
+     RowBox[{"NumberDecompose", "[", 
+      RowBox[{"second", ",", " ", "denominations"}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"sumOfTwoSets", "=", 
+     RowBox[{"firstSet", "+", "secondSet"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"sumOfTwoSets", "=", 
+    RowBox[{"Map", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"BaseForm", "[", 
+        RowBox[{"#", ",", "base"}], "]"}], "&"}], ",", "sumOfTwoSets"}], 
+     "]"}]}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"finalDigits", " ", "=", 
+     RowBox[{"Map", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"BaseForm", "[", 
+         RowBox[{"#", ",", "base"}], "]"}], "&"}], ",", 
+       RowBox[{"NumberDecompose", "[", 
+        RowBox[{
+         RowBox[{"first", " ", "+", " ", "second"}], ",", " ", 
+         "denominations"}], "]"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"Grid", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "firstSet", ",", " ", "secondSet", ",", " ", "sumOfTwoSets", ",", 
+       "finalDigits"}], "}"}], ",", " ", 
+     RowBox[{"Spacings", " ", "->", " ", 
+      RowBox[{"{", 
+       RowBox[{"2", ",", " ", "2"}], "}"}]}], ",", " ", 
+     RowBox[{"Background", " ", "->", " ", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"None", ",", " ", "None", ",", " ", "None"}], "}"}], ",", 
+        " ", 
+        RowBox[{"{", 
+         RowBox[{
+         "None", ",", "None", ",", " ", "LightGray", ",", " ", "Gray"}], 
+         "}"}]}], "}"}]}]}], "]"}], "\[IndentingNewLine]", 
+   RowBox[{"BaseForm", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"first", " ", "+", " ", "second"}], ")"}], "-", 
+      RowBox[{"base", "^", "numberOfDigits"}]}], ",", "base"}], "]"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"BaseForm", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"first", " ", "+", " ", "second"}], ")"}], "-", 
+      RowBox[{"base", "^", "numberOfDigits"}]}], ",", "10"}], "]"}]}]}]], \
+"Input",
+ CellChangeTimes->{{3.666578176330448*^9, 3.666578177711952*^9}, {
+  3.666579565086176*^9, 3.66657956935638*^9}, {3.666580477490417*^9, 
+  3.666580519797636*^9}, {3.6665805749663486`*^9, 3.666580621780867*^9}, {
+  3.666588688117138*^9, 3.6665888287661543`*^9}, {3.666588899272868*^9, 
+  3.6665889647191896`*^9}, {3.6665890615780973`*^9, 3.666589063290657*^9}, {
+  3.6665894565480967`*^9, 3.6665894713730783`*^9}, {3.666595407609761*^9, 
+  3.666595407950603*^9}, {3.666595596653001*^9, 3.6665956966630173`*^9}, {
+  3.666595783061775*^9, 3.66659579866647*^9}, {3.66659585838759*^9, 
+  3.66659589936446*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   TagBox[
+    InterpretationBox[
+     SubscriptBox["\<\"10\"\>", "\<\"2\"\>"],
+     2,
+     Editable->False],
+    BaseForm[#, 2]& ], ",", 
+   TagBox[
+    InterpretationBox[
+     SubscriptBox["\<\"10\"\>", "\<\"2\"\>"],
+     2,
+     Editable->False],
+    BaseForm[#, 2]& ], ",", 
+   TagBox[
+    InterpretationBox[
+     SubscriptBox["\<\"10\"\>", "\<\"2\"\>"],
+     2,
+     Editable->False],
+    BaseForm[#, 2]& ], ",", 
+   TagBox[
+    InterpretationBox[
+     SubscriptBox["\<\"1\"\>", "\<\"2\"\>"],
+     1,
+     Editable->False],
+    BaseForm[#, 2]& ], ",", 
+   TagBox[
+    InterpretationBox[
+     SubscriptBox["\<\"1\"\>", "\<\"2\"\>"],
+     1,
+     Editable->False],
+    BaseForm[#, 2]& ]}], "}"}]], "Output",
+ CellChangeTimes->{{3.6665806121677027`*^9, 3.6665806225432663`*^9}, {
+   3.666588750799655*^9, 3.666588829258234*^9}, {3.666588938637179*^9, 
+   3.6665889652176867`*^9}, 3.666589063820571*^9, {3.666589461291122*^9, 
+   3.666589471865629*^9}, 3.666595409540867*^9, {3.666595613413972*^9, 
+   3.666595697161046*^9}, {3.6665957856225443`*^9, 3.666595799047789*^9}, {
+   3.6665958760213842`*^9, 3.6665958999477987`*^9}}],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"1", "1", "1", "0", "0"},
+    {"1", "1", "1", "1", "1"},
+    {
+     TagBox[
+      InterpretationBox[
+       SubscriptBox["\<\"10\"\>", "\<\"2\"\>"],
+       2,
+       Editable->False],
+      BaseForm[#, 2]& ], 
+     TagBox[
+      InterpretationBox[
+       SubscriptBox["\<\"10\"\>", "\<\"2\"\>"],
+       2,
+       Editable->False],
+      BaseForm[#, 2]& ], 
+     TagBox[
+      InterpretationBox[
+       SubscriptBox["\<\"10\"\>", "\<\"2\"\>"],
+       2,
+       Editable->False],
+      BaseForm[#, 2]& ], 
+     TagBox[
+      InterpretationBox[
+       SubscriptBox["\<\"1\"\>", "\<\"2\"\>"],
+       1,
+       Editable->False],
+      BaseForm[#, 2]& ], 
+     TagBox[
+      InterpretationBox[
+       SubscriptBox["\<\"1\"\>", "\<\"2\"\>"],
+       1,
+       Editable->False],
+      BaseForm[#, 2]& ]},
+    {
+     TagBox[
+      InterpretationBox[
+       SubscriptBox["\<\"11\"\>", "\<\"2\"\>"],
+       3,
+       Editable->False],
+      BaseForm[#, 2]& ], 
+     TagBox[
+      InterpretationBox[
+       SubscriptBox["\<\"1\"\>", "\<\"2\"\>"],
+       1,
+       Editable->False],
+      BaseForm[#, 2]& ], 
+     TagBox[
+      InterpretationBox[
+       SubscriptBox["\<\"0\"\>", "\<\"2\"\>"],
+       0,
+       Editable->False],
+      BaseForm[#, 2]& ], 
+     TagBox[
+      InterpretationBox[
+       SubscriptBox["\<\"1\"\>", "\<\"2\"\>"],
+       1,
+       Editable->False],
+      BaseForm[#, 2]& ], 
+     TagBox[
+      InterpretationBox[
+       SubscriptBox["\<\"1\"\>", "\<\"2\"\>"],
+       1,
+       Editable->False],
+      BaseForm[#, 2]& ]}
+   },
+   AutoDelete->False,
+   GridBoxBackground->{"Columns" -> {None, None, None}, "Rows" -> {None, None, 
+       GrayLevel[0.85], 
+       GrayLevel[0.5]}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+   GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{2}}}],
+  "Grid"]], "Output",
+ CellChangeTimes->{{3.6665806121677027`*^9, 3.6665806225432663`*^9}, {
+   3.666588750799655*^9, 3.666588829258234*^9}, {3.666588938637179*^9, 
+   3.6665889652176867`*^9}, 3.666589063820571*^9, {3.666589461291122*^9, 
+   3.666589471865629*^9}, 3.666595409540867*^9, {3.666595613413972*^9, 
+   3.666595697161046*^9}, {3.6665957856225443`*^9, 3.666595799047789*^9}, {
+   3.6665958760213842`*^9, 3.666595899959241*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  InterpretationBox[
+   SubscriptBox["\<\"11011\"\>", "\<\"2\"\>"],
+   27,
+   Editable->False],
+  BaseForm[#, 2]& ]], "Output",
+ CellChangeTimes->{{3.6665806121677027`*^9, 3.6665806225432663`*^9}, {
+   3.666588750799655*^9, 3.666588829258234*^9}, {3.666588938637179*^9, 
+   3.6665889652176867`*^9}, 3.666589063820571*^9, {3.666589461291122*^9, 
+   3.666589471865629*^9}, 3.666595409540867*^9, {3.666595613413972*^9, 
+   3.666595697161046*^9}, {3.6665957856225443`*^9, 3.666595799047789*^9}, {
+   3.6665958760213842`*^9, 3.6665958999675493`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  InterpretationBox["\<\"27\"\>",
+   27,
+   Editable->False],
+  BaseForm[#, 10]& ]], "Output",
+ CellChangeTimes->{{3.6665806121677027`*^9, 3.6665806225432663`*^9}, {
+   3.666588750799655*^9, 3.666588829258234*^9}, {3.666588938637179*^9, 
+   3.6665889652176867`*^9}, 3.666589063820571*^9, {3.666589461291122*^9, 
+   3.666589471865629*^9}, 3.666595409540867*^9, {3.666595613413972*^9, 
+   3.666595697161046*^9}, {3.6665957856225443`*^9, 3.666595799047789*^9}, {
+   3.6665958760213842`*^9, 3.66659589998176*^9}}]
+}, Open  ]],
+
+Cell["\<\
+We can see that if we want to substract 2 out of an existing value, we would \
+simply add 30 which equals to 32-2 to the number, remove the carry over \
+value, and get the result.  \
+\>", "Text",
+ CellChangeTimes->{{3.6665954329741793`*^9, 3.666595477117487*^9}, {
+  3.666595979352768*^9, 3.666596021162781*^9}, {3.6665960671135178`*^9, 
+  3.666596181226775*^9}, {3.6665962918642483`*^9, 3.6665962978751707`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"Manipulate", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"first", ",", " ", 
+      RowBox[{"BaseForm", "[", 
+       RowBox[{"first", ",", "2"}], "]"}], ",", 
+      RowBox[{"BaseForm", "[", 
+       RowBox[{
+        RowBox[{"32", "-", "first"}], ",", "2"}], "]"}]}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"first", ",", " ", "0", ",", "31", ",", "1"}], "}"}]}], "]"}]}]],\
+ "Input",
+ CellChangeTimes->{{3.666578176330448*^9, 3.666578177711952*^9}, {
+  3.666579565086176*^9, 3.66657956935638*^9}, {3.666580477490417*^9, 
+  3.666580519797636*^9}, {3.6665805749663486`*^9, 3.666580621780867*^9}, {
+  3.666588688117138*^9, 3.6665888287661543`*^9}, {3.666588899272868*^9, 
+  3.6665889647191896`*^9}, {3.6665890615780973`*^9, 3.666589063290657*^9}, {
+  3.6665894565480967`*^9, 3.6665894713730783`*^9}, {3.666595407609761*^9, 
+  3.666595407950603*^9}, {3.666595596653001*^9, 3.6665956966630173`*^9}, {
+  3.666595783061775*^9, 3.66659579866647*^9}, {3.66659585838759*^9, 
+  3.66659589936446*^9}, {3.6665960839320717`*^9, 3.666596086296307*^9}, {
+  3.6665963183072357`*^9, 3.666596318511518*^9}, {3.666596567956141*^9, 
+  3.666596652737123*^9}, {3.66659670903391*^9, 3.666596773023026*^9}, {
+  3.666597123221805*^9, 3.666597177887948*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`first$$ = 6, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`first$$], 0, 31, 1}}, Typeset`size$$ = {
+    113., {3., 8.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`first$4198$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`first$$ = 0}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`first$$, $CellContext`first$4198$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> {$CellContext`first$$, 
+        BaseForm[$CellContext`first$$, 2], 
+        BaseForm[32 - $CellContext`first$$, 2]}, 
+      "Specifications" :> {{$CellContext`first$$, 0, 31, 1}}, "Options" :> {},
+       "DefaultOptions" :> {}],
+     ImageSizeCache->{257., {47., 52.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.6665806121677027`*^9, 3.6665806225432663`*^9}, {
+   3.666588750799655*^9, 3.666588829258234*^9}, {3.666588938637179*^9, 
+   3.6665889652176867`*^9}, 3.666589063820571*^9, {3.666589461291122*^9, 
+   3.666589471865629*^9}, 3.666595409563081*^9, 3.666596086758967*^9, 
+   3.6665963191753473`*^9, {3.666596573044056*^9, 3.666596608040903*^9}, 
+   3.666596653668261*^9, {3.66659671551589*^9, 3.666596773622967*^9}, {
+   3.66659713295319*^9, 3.666597178857932*^9}}]
+}, Open  ]],
+
+Cell["\<\
+Following this thread of thoughts, we may infer the rule that a negative \
+number in a limited digital represtation, can be implemented by creating a \
+number that is the identical magnitude of the negative number. This can be \
+accomplished by just using the 2\[CloseCurlyQuote]s complement.\
+\>", "Text",
+ CellChangeTimes->{{3.666596307721038*^9, 3.666596337634275*^9}, {
+  3.666596471690908*^9, 3.6665964955629263`*^9}, {3.666596974735383*^9, 
+  3.66659705266613*^9}, {3.666597305099431*^9, 3.66659734363815*^9}, {
+  3.666597386879608*^9, 3.666597390647683*^9}}],
+
+Cell["", "PageBreak",
+ PageBreakBelow->True]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["2.3. Adders in digital circuits", "Section",
+ CellChangeTimes->{{3.666577304359889*^9, 3.666577311451676*^9}, {
+  3.6665900306003513`*^9, 3.666590063944346*^9}, {3.666592626070421*^9, 
+  3.666592626179647*^9}}],
+
+Cell["\<\
+Knowing that addition is simply a kind of rewrite rule, we can implement \
+these rewrite rules by digital circuits, not by hand writing. The following \
+section shows how one can do this in simple boolean logic.\
+\>", "Text",
+ CellChangeTimes->{{3.666577687314818*^9, 3.6665776899215937`*^9}, {
+  3.666590074929413*^9, 3.6665901458222713`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["2.3.1 Half Adder", "Subsection",
+ CellChangeTimes->{{3.666577927730371*^9, 3.666577982141678*^9}, {
+  3.6665901508485813`*^9, 3.666590163349931*^9}, {3.666592628438252*^9, 
+  3.6665926297236223`*^9}}],
+
+Cell["\<\
+An intuitive way to look at half adder is by looking at the possible binary \
+values of each bit-wise input-output pair. A half adder is a bit-wise \
+addition unit, that properly returns the {0,1} values according to value \
+combinations of two input bits, {a,b}. The following truth table lists the \
+values of all four pins, {a,b,carry and sum}.\
+\>", "Text",
+ CellChangeTimes->{{3.66657799898678*^9, 3.666578131244334*^9}, {
+  3.66659020745616*^9, 3.666590399672862*^9}}],
+
+Cell["  ", "Text",
+ CellChangeTimes->{{3.66657799898678*^9, 3.666578131244334*^9}, {
+  3.66659020745616*^9, 3.66659035356402*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Grid", "[", 
+  RowBox[{
+   RowBox[{"Insert", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"BooleanTable", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"a", ",", " ", "b", ",", " ", 
+          RowBox[{"And", "[", 
+           RowBox[{"a", ",", "b"}], "]"}], ",", 
+          RowBox[{"Xor", "[", 
+           RowBox[{"a", ",", " ", "b"}], "]"}]}], "}"}], ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"a", ",", "b"}], "}"}]}], "]"}], " ", "//", " ", "Boole"}], 
+     ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"a", ",", " ", "b", ",", " ", "carry", ",", " ", "sum"}], "}"}],
+      ",", " ", "1"}], "]"}], ",", " ", 
+   RowBox[{"Spacings", " ", "->", " ", 
+    RowBox[{"{", 
+     RowBox[{"2", ",", " ", "1"}], "}"}]}], ",", " ", 
+   RowBox[{"Frame", " ", "->", " ", "All"}], ",", " ", 
+   RowBox[{"Background", " ", "->", " ", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"None", ",", " ", "None", ",", " ", "Gray"}], "}"}], ",", " ", 
+      
+      RowBox[{"{", 
+       RowBox[{"LightGray", ",", " ", "None"}], "}"}]}], "}"}]}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.6665897164908657`*^9, 3.666589739700552*^9}, {
+  3.6665897811760273`*^9, 3.6665897891148567`*^9}}],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"a", "b", "carry", "sum"},
+    {"1", "1", "1", "0"},
+    {"1", "0", "0", "1"},
+    {"0", "1", "0", "1"},
+    {"0", "0", "0", "0"}
+   },
+   AutoDelete->False,
+   GridBoxBackground->{"Columns" -> {None, None, 
+       GrayLevel[0.5]}, "Rows" -> {
+       GrayLevel[0.85], None}},
+   GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+   GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{1}}}],
+  "Grid"]], "Output",
+ CellChangeTimes->{{3.666589638521105*^9, 3.6665896593658667`*^9}, {
+   3.666589720434081*^9, 3.6665897401556797`*^9}, 3.6665897897317944`*^9}]
+}, Open  ]],
+
+Cell["\<\
+The answer to the implementation of half adder is trivial. The output pin, \
+sum, has truth values identical to the Xor gate, and the output in carry, has \
+truth values identical to the And gate. So that we can draw the following \
+diagram by Mathematica.\
+\>", "Text",
+ CellChangeTimes->{{3.66657799898678*^9, 3.666578131244334*^9}, {
+  3.66659020745616*^9, 3.666590532563219*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"And", "[", 
+     RowBox[{"a", ",", "b"}], "]"}], ",", 
+    RowBox[{"Xor", "[", 
+     RowBox[{"a", ",", " ", "b"}], "]"}]}], "}"}], " ", "//", 
+  "TreeForm"}]], "Input",
+ CellChangeTimes->{{3.666579783545597*^9, 3.666579826338646*^9}, {
+  3.666590539507942*^9, 3.666590545274014*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[
+  TagBox[GraphicsComplexBox[{{1.2247448713915892`, 1.6329931618554523`}, {
+    0.4082482904638631, 0.8164965809277261}, {0., 0.}, {0.8164965809277261, 
+    0.}, {2.041241452319315, 0.8164965809277261}, {1.6329931618554523`, 0.}, {
+    2.4494897427831783`, 0.}}, {
+     {RGBColor[0.55, 0.45, 0.45], 
+      LineBox[{{1, 2}, {1, 5}, {2, 3}, {2, 4}, {5, 6}, {5, 7}}]}, {
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox["List", "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 1],
+        TagBox[
+         RowBox[{"{", 
+           RowBox[{
+             RowBox[{"a", "&&", "b"}], ",", 
+             RowBox[{"a", "\[Xor]", "b"}]}], "}"}], HoldForm]],
+       Annotation[#, 
+        HoldForm[{
+          And[$CellContext`a, $CellContext`b], 
+          Xor[$CellContext`a, $CellContext`b]}], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox["And", "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 2],
+        TagBox[
+         RowBox[{"a", "&&", "b"}], HoldForm]],
+       Annotation[#, 
+        HoldForm[
+         And[$CellContext`a, $CellContext`b]], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["a",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 3],
+        TagBox["a", HoldForm]],
+       Annotation[#, 
+        HoldForm[$CellContext`a], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["b",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 4],
+        TagBox["b", HoldForm]],
+       Annotation[#, 
+        HoldForm[$CellContext`b], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox["Xor", "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 5],
+        TagBox[
+         RowBox[{"a", "\[Xor]", "b"}], HoldForm]],
+       Annotation[#, 
+        HoldForm[
+         Xor[$CellContext`a, $CellContext`b]], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["a",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 6],
+        TagBox["a", HoldForm]],
+       Annotation[#, 
+        HoldForm[$CellContext`a], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["b",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 7],
+        TagBox["b", HoldForm]],
+       Annotation[#, 
+        HoldForm[$CellContext`b], "Tooltip"]& ]}}],
+   Annotation[#, 
+    VertexCoordinateRules -> {{1.2247448713915892`, 1.6329931618554523`}, {
+     0.4082482904638631, 0.8164965809277261}, {0., 0.}, {0.8164965809277261, 
+     0.}, {2.041241452319315, 0.8164965809277261}, {1.6329931618554523`, 
+     0.}, {2.4494897427831783`, 0.}}]& ],
+  AspectRatio->1,
+  FormatType:>StandardForm,
+  FrameTicks->Automatic,
+  PlotRange->All,
+  PlotRangePadding->Scaled[0.1]]], "Output",
+ CellChangeTimes->{{3.666579794663661*^9, 3.666579827187633*^9}, 
+   3.666590545573138*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["2.3.2 Full Adder", "Subsection",
+ CellChangeTimes->{{3.666577927730371*^9, 3.666577982141678*^9}, {
+  3.6665901508485813`*^9, 3.666590163349931*^9}, {3.666590622709031*^9, 
+  3.666590623378498*^9}, {3.666592634334195*^9, 3.666592640515523*^9}}],
+
+Cell["\<\
+A full adder is simply a bit wise addition machine with the ability to manage \
+carry from lower bit, and forward its carry throught its output pin, carry. \
+Therefore, it has one more input pin than half adder. It is called a full \
+adder because it is usually made of two half adders. The truth table of a \
+full adder can be shown below:\
+\>", "Text",
+ CellChangeTimes->{{3.66657799898678*^9, 3.666578131244334*^9}, {
+  3.66659020745616*^9, 3.666590399672862*^9}, {3.66659069280622*^9, 
+  3.666590805918352*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Grid", "[", 
+  RowBox[{
+   RowBox[{"Insert", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"BooleanTable", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"a", ",", " ", "b", ",", "c", ",", " ", 
+          RowBox[{"Or", "[", 
+           RowBox[{
+            RowBox[{"And", "[", 
+             RowBox[{"a", ",", "b"}], "]"}], ",", " ", 
+            RowBox[{"And", "[", 
+             RowBox[{"b", ",", "c"}], "]"}], ",", 
+            RowBox[{"And", "[", 
+             RowBox[{"a", ",", " ", "c"}], "]"}]}], "]"}], ",", " ", 
+          RowBox[{"Xor", "[", 
+           RowBox[{
+            RowBox[{"Xor", "[", 
+             RowBox[{"a", ",", " ", "b"}], "]"}], ",", "c"}], "]"}]}], "}"}], 
+        ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"a", ",", " ", "b", ",", "c"}], "}"}]}], "]"}], " ", "//", 
+      " ", "Boole"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{
+      "a", ",", " ", "b", ",", " ", "c", ",", "carry", ",", " ", "sum"}], 
+      "}"}], ",", " ", "1"}], "]"}], ",", " ", 
+   RowBox[{"Spacings", " ", "->", " ", 
+    RowBox[{"{", 
+     RowBox[{"2", ",", " ", "1"}], "}"}]}], ",", " ", 
+   RowBox[{"Frame", " ", "->", " ", "All"}], ",", " ", 
+   RowBox[{"Background", " ", "->", " ", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"None", ",", " ", "None", ",", " ", "None", ",", "Gray"}], 
+       "}"}], ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"LightGray", ",", " ", "None"}], "}"}]}], "}"}]}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.6665908810599823`*^9, 3.6665909105093822`*^9}, {
+  3.666591123888034*^9, 3.666591129294202*^9}, {3.666591277248667*^9, 
+  3.666591283695478*^9}, {3.6665917245647097`*^9, 3.6665917397637167`*^9}}],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"a", "b", "c", "carry", "sum"},
+    {"1", "1", "1", "1", "1"},
+    {"1", "1", "0", "1", "0"},
+    {"1", "0", "1", "1", "0"},
+    {"1", "0", "0", "0", "1"},
+    {"0", "1", "1", "1", "0"},
+    {"0", "1", "0", "0", "1"},
+    {"0", "0", "1", "0", "1"},
+    {"0", "0", "0", "0", "0"}
+   },
+   AutoDelete->False,
+   GridBoxBackground->{"Columns" -> {None, None, None, 
+       GrayLevel[0.5]}, "Rows" -> {
+       GrayLevel[0.85], None}},
+   GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+   GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{1}}}],
+  "Grid"]], "Output",
+ CellChangeTimes->{{3.666590884961546*^9, 3.666590911157592*^9}, 
+   3.666591130329873*^9, 3.6665912840336123`*^9, 3.666591740575358*^9}]
+}, Open  ]],
+
+Cell["\<\
+This is an interesting truth table, because one can think about the sum bit \
+by using a two level Xor gate to ensure that only one of {a,b,c} pins is \
+true, then the sum bit can be 1. The carry pin should be one when at least \
+two of {a,b,c} are simultaneously 1s. That means we can use an Or gate to \
+unite the three possible combinations of {a,b,c} pins being simultaneously \
+turned on to be 1.\
+\>", "Text",
+ CellChangeTimes->{{3.66657799898678*^9, 3.666578131244334*^9}, {
+  3.66659020745616*^9, 3.666590399672862*^9}, {3.66659069280622*^9, 
+  3.666590757752746*^9}, {3.6665918298767633`*^9, 3.666592025007018*^9}, {
+  3.666592080546966*^9, 3.666592080551324*^9}}],
+
+Cell["A more comprehensive solution can be displayed as follow:", "Text",
+ CellChangeTimes->{{3.66657799898678*^9, 3.666578131244334*^9}, {
+  3.66659020745616*^9, 3.666590399672862*^9}, {3.66659069280622*^9, 
+  3.666590757752746*^9}, {3.6665918298767633`*^9, 3.666592025007018*^9}, {
+  3.666592080546966*^9, 3.666592097792593*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Or", "[", 
+   RowBox[{
+    RowBox[{"And", "[", 
+     RowBox[{"a", ",", " ", "b"}], "]"}], ",", " ", 
+    RowBox[{"And", "[", 
+     RowBox[{"b", ",", " ", "c"}], "]"}], ",", " ", 
+    RowBox[{"And", "[", 
+     RowBox[{"a", ",", " ", "c"}], "]"}], ",", " ", 
+    RowBox[{"And", "[", 
+     RowBox[{"a", ",", " ", "b", ",", " ", "c"}], "]"}]}], "]"}], " ", "//", 
+  " ", "TreeForm"}]], "Input",
+ CellChangeTimes->{{3.666592070027882*^9, 3.66659207406485*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[
+  TagBox[GraphicsComplexBox[{{2.1445411172960953`, 1.1437552625579177`}, {
+    0.2859388156394794, 0.5718776312789589}, {0., 0.}, {0.5718776312789589, 
+    0.}, {1.429694078197397, 0.5718776312789589}, {1.1437552625579177`, 0.}, {
+    1.7156328938368763`, 0.}, {2.5734493407553147`, 0.5718776312789589}, {
+    2.2875105251158354`, 0.}, {2.859388156394794, 0.}, {4.003143418952711, 
+    0.5718776312789589}, {3.4312657876737527`, 0.}, {4.003143418952711, 0.}, {
+    4.575021050231671, 0.}}, {
+     {RGBColor[0.55, 0.45, 0.45], 
+      LineBox[{{1, 2}, {1, 5}, {1, 8}, {1, 11}, {2, 3}, {2, 4}, {5, 6}, {5, 
+       7}, {8, 9}, {8, 10}, {11, 12}, {11, 13}, {11, 14}}]}, {
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox["Or", "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 1],
+        TagBox[
+         RowBox[{
+           RowBox[{"(", 
+             RowBox[{"a", "&&", "b"}], ")"}], "||", 
+           RowBox[{"(", 
+             RowBox[{"b", "&&", "c"}], ")"}], "||", 
+           RowBox[{"(", 
+             RowBox[{"a", "&&", "c"}], ")"}], "||", 
+           RowBox[{"(", 
+             RowBox[{"a", "&&", "b", "&&", "c"}], ")"}]}], HoldForm]],
+       Annotation[#, 
+        HoldForm[
+         Or[
+          And[$CellContext`a, $CellContext`b], 
+          And[$CellContext`b, $CellContext`c], 
+          And[$CellContext`a, $CellContext`c], 
+          And[$CellContext`a, $CellContext`b, $CellContext`c]]], 
+        "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox["And", "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 2],
+        TagBox[
+         RowBox[{"a", "&&", "b"}], HoldForm]],
+       Annotation[#, 
+        HoldForm[
+         And[$CellContext`a, $CellContext`b]], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["a",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 3],
+        TagBox["a", HoldForm]],
+       Annotation[#, 
+        HoldForm[$CellContext`a], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["b",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 4],
+        TagBox["b", HoldForm]],
+       Annotation[#, 
+        HoldForm[$CellContext`b], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox["And", "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 5],
+        TagBox[
+         RowBox[{"b", "&&", "c"}], HoldForm]],
+       Annotation[#, 
+        HoldForm[
+         And[$CellContext`b, $CellContext`c]], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["b",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 6],
+        TagBox["b", HoldForm]],
+       Annotation[#, 
+        HoldForm[$CellContext`b], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["c",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 7],
+        TagBox["c", HoldForm]],
+       Annotation[#, 
+        HoldForm[$CellContext`c], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox["And", "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 8],
+        TagBox[
+         RowBox[{"a", "&&", "c"}], HoldForm]],
+       Annotation[#, 
+        HoldForm[
+         And[$CellContext`a, $CellContext`c]], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["a",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 9],
+        TagBox["a", HoldForm]],
+       Annotation[#, 
+        HoldForm[$CellContext`a], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["c",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 10],
+        TagBox["c", HoldForm]],
+       Annotation[#, 
+        HoldForm[$CellContext`c], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox["And", "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 11],
+        TagBox[
+         RowBox[{"a", "&&", "b", "&&", "c"}], HoldForm]],
+       Annotation[#, 
+        HoldForm[
+         And[$CellContext`a, $CellContext`b, $CellContext`c]], "Tooltip"]& ], 
+      
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["a",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 12],
+        TagBox["a", HoldForm]],
+       Annotation[#, 
+        HoldForm[$CellContext`a], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["b",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 13],
+        TagBox["b", HoldForm]],
+       Annotation[#, 
+        HoldForm[$CellContext`b], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["c",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 14],
+        TagBox["c", HoldForm]],
+       Annotation[#, 
+        HoldForm[$CellContext`c], "Tooltip"]& ]}}],
+   Annotation[#, 
+    VertexCoordinateRules -> {{2.1445411172960953`, 1.1437552625579177`}, {
+     0.2859388156394794, 0.5718776312789589}, {0., 0.}, {0.5718776312789589, 
+     0.}, {1.429694078197397, 0.5718776312789589}, {1.1437552625579177`, 
+     0.}, {1.7156328938368763`, 0.}, {2.5734493407553147`, 
+     0.5718776312789589}, {2.2875105251158354`, 0.}, {2.859388156394794, 
+     0.}, {4.003143418952711, 0.5718776312789589}, {3.4312657876737527`, 
+     0.}, {4.003143418952711, 0.}, {4.575021050231671, 0.}}]& ],
+  AspectRatio->NCache[2^Rational[-1, 2], 0.7071067811865475],
+  FormatType:>StandardForm,
+  FrameTicks->Automatic,
+  PlotRange->All,
+  PlotRangePadding->Scaled[0.1]]], "Output",
+ CellChangeTimes->{3.6665920748120832`*^9}]
+}, Open  ]],
+
+Cell["\<\
+Using the FullSimplify expression, we can see, the above expression can be \
+automatically simplified to be the following:\
+\>", "Text",
+ CellChangeTimes->{{3.66657799898678*^9, 3.666578131244334*^9}, {
+  3.66659020745616*^9, 3.666590399672862*^9}, {3.66659069280622*^9, 
+  3.666590757752746*^9}, {3.6665918298767633`*^9, 3.666592025007018*^9}, {
+  3.666592080546966*^9, 3.6665921557102423`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"Or", "[", 
+    RowBox[{
+     RowBox[{"And", "[", 
+      RowBox[{"a", ",", " ", "b"}], "]"}], ",", " ", 
+     RowBox[{"And", "[", 
+      RowBox[{"b", ",", " ", "c"}], "]"}], ",", " ", 
+     RowBox[{"And", "[", 
+      RowBox[{"a", ",", " ", "c"}], "]"}], ",", " ", 
+     RowBox[{"And", "[", 
+      RowBox[{"a", ",", " ", "b", ",", " ", "c"}], "]"}]}], "]"}], " ", "//", 
+   " ", "FullSimplify"}], "//", "FullForm"}]], "Input",
+ CellChangeTimes->{{3.666592070027882*^9, 3.66659207406485*^9}, {
+  3.6665921242407*^9, 3.666592132319415*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   RowBox[{"Or", "[", 
+    RowBox[{
+     RowBox[{"And", "[", 
+      RowBox[{"a", ",", 
+       RowBox[{"Or", "[", 
+        RowBox[{"b", ",", "c"}], "]"}]}], "]"}], ",", 
+     RowBox[{"And", "[", 
+      RowBox[{"b", ",", "c"}], "]"}]}], "]"}],
+   ShowSpecialCharacters->False,
+   ShowStringCharacters->True,
+   NumberMarks->True],
+  FullForm]], "Output",
+ CellChangeTimes->{
+  3.6665920748120832`*^9, {3.66659212667556*^9, 3.666592132654893*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"Or", "[", 
+    RowBox[{
+     RowBox[{"And", "[", 
+      RowBox[{"a", ",", " ", "b"}], "]"}], ",", " ", 
+     RowBox[{"And", "[", 
+      RowBox[{"b", ",", " ", "c"}], "]"}], ",", " ", 
+     RowBox[{"And", "[", 
+      RowBox[{"a", ",", " ", "c"}], "]"}], ",", " ", 
+     RowBox[{"And", "[", 
+      RowBox[{"a", ",", " ", "b", ",", " ", "c"}], "]"}]}], "]"}], " ", "//", 
+   " ", "FullSimplify"}], " ", "//", " ", "TreeForm"}]], "Input",
+ CellChangeTimes->{{3.666592160861553*^9, 3.666592168597769*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[
+  TagBox[GraphicsComplexBox[{{1.2510864843424487`, 2.5021729686848975`}, {
+    0.41702882811414954`, 1.6681153124565984`}, {0., 0.8340576562282993}, {
+    0.8340576562282991, 0.8340576562282993}, {0.41702882811414954`, 0.}, {
+    1.2510864843424487`, 0.}, {2.0851441405707476`, 1.6681153124565984`}, {
+    1.6681153124565982`, 0.8340576562282993}, {2.5021729686848975`, 
+    0.8340576562282993}}, {
+     {RGBColor[0.55, 0.45, 0.45], 
+      LineBox[{{1, 2}, {1, 7}, {2, 3}, {2, 4}, {4, 5}, {4, 6}, {7, 8}, {7, 
+       9}}]}, {
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox["Or", "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 1],
+        TagBox[
+         RowBox[{
+           RowBox[{"(", 
+             RowBox[{"a", "&&", 
+               RowBox[{"(", 
+                 RowBox[{"b", "||", "c"}], ")"}]}], ")"}], "||", 
+           RowBox[{"(", 
+             RowBox[{"b", "&&", "c"}], ")"}]}], HoldForm]],
+       Annotation[#, 
+        HoldForm[
+         Or[
+          And[$CellContext`a, 
+           Or[$CellContext`b, $CellContext`c]], 
+          And[$CellContext`b, $CellContext`c]]], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox["And", "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 2],
+        TagBox[
+         RowBox[{"a", "&&", 
+           RowBox[{"(", 
+             RowBox[{"b", "||", "c"}], ")"}]}], HoldForm]],
+       Annotation[#, 
+        HoldForm[
+         And[$CellContext`a, 
+          Or[$CellContext`b, $CellContext`c]]], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["a",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 3],
+        TagBox["a", HoldForm]],
+       Annotation[#, 
+        HoldForm[$CellContext`a], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox["Or", "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 4],
+        TagBox[
+         RowBox[{"b", "||", "c"}], HoldForm]],
+       Annotation[#, 
+        HoldForm[
+         Or[$CellContext`b, $CellContext`c]], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["b",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 5],
+        TagBox["b", HoldForm]],
+       Annotation[#, 
+        HoldForm[$CellContext`b], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["c",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 6],
+        TagBox["c", HoldForm]],
+       Annotation[#, 
+        HoldForm[$CellContext`c], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox["And", "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 7],
+        TagBox[
+         RowBox[{"b", "&&", "c"}], HoldForm]],
+       Annotation[#, 
+        HoldForm[
+         And[$CellContext`b, $CellContext`c]], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["b",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 8],
+        TagBox["b", HoldForm]],
+       Annotation[#, 
+        HoldForm[$CellContext`b], "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[InsetBox[
+         FrameBox[
+          StyleBox[
+           TagBox["c",
+            HoldForm], "StandardForm", "Output",
+           StripOnInput->False,
+           LineColor->GrayLevel[0],
+           FrontFaceColor->GrayLevel[0],
+           BackFaceColor->GrayLevel[0],
+           GraphicsColor->GrayLevel[0],
+           FontSize->Scaled[0.05],
+           FontColor->GrayLevel[0]],
+          Background->RGBColor[1., 1., 0.871],
+          FrameStyle->GrayLevel[0.5],
+          StripOnInput->False], 9],
+        TagBox["c", HoldForm]],
+       Annotation[#, 
+        HoldForm[$CellContext`c], "Tooltip"]& ]}}],
+   Annotation[#, 
+    VertexCoordinateRules -> {{1.2510864843424487`, 2.5021729686848975`}, {
+     0.41702882811414954`, 1.6681153124565984`}, {0., 0.8340576562282993}, {
+     0.8340576562282991, 0.8340576562282993}, {0.41702882811414954`, 0.}, {
+     1.2510864843424487`, 0.}, {2.0851441405707476`, 1.6681153124565984`}, {
+     1.6681153124565982`, 0.8340576562282993}, {2.5021729686848975`, 
+     0.8340576562282993}}]& ],
+  AspectRatio->NCache[2 3^Rational[-1, 2], 1.1547005383792517`],
+  FormatType:>StandardForm,
+  FrameTicks->Automatic,
+  PlotRange->All,
+  PlotRangePadding->Scaled[0.1]]], "Output",
+ CellChangeTimes->{3.6665921689650507`*^9}]
+}, Open  ]],
+
+Cell["\<\
+One may check its truth table, and find it consistent with the original \
+expression. Note that this following function can be automatically proposed \
+using Mathematica\[CloseCurlyQuote]s \[OpenCurlyDoubleQuote]suggstion\
+\[CloseCurlyDoubleQuote] feature.\
+\>", "Text",
+ CellChangeTimes->{{3.6665922044352207`*^9, 3.666592217936673*^9}, {
+  3.666592301941359*^9, 3.6665923552384043`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"TableForm", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"BooleanTable", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"a", ",", "b", ",", "c", ",", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"a", "&&", 
+           RowBox[{"(", 
+            RowBox[{"b", "||", "c"}], ")"}]}], ")"}], "||", 
+         RowBox[{"(", 
+          RowBox[{"b", "&&", "c"}], ")"}]}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"a", ",", "b", ",", "c"}], "}"}]}], "]"}], "//", "Boole"}], 
+   ",", 
+   RowBox[{"TableHeadings", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"None", ",", 
+      RowBox[{"{", 
+       RowBox[{"a", ",", "b", ",", "c", ",", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"a", "&&", 
+           RowBox[{"(", 
+            RowBox[{"b", "||", "c"}], ")"}]}], ")"}], "||", 
+         RowBox[{"(", 
+          RowBox[{"b", "&&", "c"}], ")"}]}]}], "}"}]}], "}"}]}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.666592292283589*^9, 3.666592293375778*^9}},
+ NumberMarks->False],
+
+Cell[BoxData[
+ TagBox[
+  TagBox[GridBox[{
+     {
+      TagBox["a",
+       HoldForm], 
+      TagBox["b",
+       HoldForm], 
+      TagBox["c",
+       HoldForm], 
+      TagBox[
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"a", "&&", 
+          RowBox[{"(", 
+           RowBox[{"b", "||", "c"}], ")"}]}], ")"}], "||", 
+        RowBox[{"(", 
+         RowBox[{"b", "&&", "c"}], ")"}]}],
+       HoldForm]},
+     {"1", "1", "1", "1"},
+     {"1", "1", "0", "1"},
+     {"1", "0", "1", "1"},
+     {"1", "0", "0", "0"},
+     {"0", "1", "1", "1"},
+     {"0", "1", "0", "0"},
+     {"0", "0", "1", "0"},
+     {"0", "0", "0", "0"}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxDividers->{
+     "Columns" -> {{False}}, "ColumnsIndexed" -> {}, 
+      "Rows" -> {False, True, {False}, False}, "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[2.0999999999999996`]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}],
+   {None, OutputFormsDump`HeadedColumns}],
+  Function[BoxForm`e$, 
+   TableForm[
+   BoxForm`e$, 
+    TableHeadings -> {None, {$CellContext`a, $CellContext`b, $CellContext`c, 
+       Or[
+        And[$CellContext`a, 
+         Or[$CellContext`b, $CellContext`c]], 
+        And[$CellContext`b, $CellContext`c]]}}]]]], "Output",
+ CellChangeTimes->{3.666592185245515*^9, 3.666592294103991*^9}]
+}, Open  ]],
+
+Cell["", "PageBreak",
+ PageBreakBelow->True]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["2.3. The Arithmetic Logic Unit (ALU)", "Section",
+ CellChangeTimes->{{3.666577304359889*^9, 3.666577311451676*^9}, {
+  3.666592563435047*^9, 3.6665925635130253`*^9}, {3.666592647501803*^9, 
+  3.66659267637528*^9}, {3.666592751129395*^9, 3.6665927523456793`*^9}}],
+
+Cell["\<\
+The design contract of ALU as specified by Nisan and Schocken, is simply a 15 \
+bit adder with some other existing logical operations, such as negation (Not) \
+or increment by one. The ALU takes only two 16 bit input channels, namely \
+{x,y}. Then , the controlling bits, {zx, nx, zy, ny, f, no, out}, are just \
+some slection bits to choose between different ways to perform simple \
+operations. One may imagine, you can just use a number of multiplexers to \
+redirect inputs to different logical operation circuits to get data \
+processed. Then, after performing the logic operation, the ALU will also \
+determine whether the output pins represents a number that is zero or not, \
+indicated by the zr pin. If the output represent a negative number including \
+the value zero, then, the ng pin will return 1. This roughly states the basic \
+design contract of this ALU. \
+\>", "Text",
+ CellChangeTimes->{{3.666577687314818*^9, 3.6665776899215937`*^9}, {
+  3.666592742876574*^9, 3.666593142424426*^9}}],
+
+Cell["\<\
+Given the specification, the suggested strategy to implement this chip, is to \
+follow Figure 2.6 in the TECS book. First, use Mux16 to select whether one \
+should negate or zero all bits from {x,y} input channels. Then, one may use \
+the Add16 chip and And16 chip to perform instructions selected by the f pin. \
+finally, one may implement the flipping of bits or not based on the values of \
+no bit. It took me 18 chips to implement the whole ALU, and it should not be \
+very difficult for people who carefully follow the book.\
+\>", "Text",
+ CellChangeTimes->{{3.66657799898678*^9, 3.666578131244334*^9}, {
+  3.66659020745616*^9, 3.666590532563219*^9}, {3.6665937041465597`*^9, 
+  3.666594017443993*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["2.3.1 Caveats", "Subsection",
+ CellChangeTimes->{{3.666577927730371*^9, 3.666577982141678*^9}, {
+  3.6665901508485813`*^9, 3.666590163349931*^9}, {3.666592628438252*^9, 
+  3.6665926297236223`*^9}, {3.66659407351052*^9, 3.666594076507394*^9}}],
+
+Cell["\<\
+Readers might run into some syntactical challenges when dealing with \
+implementing ALU. The following syntax would be useful for implementation. \
+First, individual pins of a multi-bit channel can be group selected using the \
+array index syntax. \
+\>", "Text",
+ CellChangeTimes->{{3.66657799898678*^9, 3.666578131244334*^9}, {
+  3.66659020745616*^9, 3.666590399672862*^9}, {3.6665940834541893`*^9, 
+  3.666594170694046*^9}}],
+
+Cell["For example:", "Text",
+ CellChangeTimes->{{3.66657799898678*^9, 3.666578131244334*^9}, {
+  3.66659020745616*^9, 3.666590399672862*^9}, {3.6665940834541893`*^9, 
+  3.666594172880146*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Or16", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"a", "=", "x"}], ",", " ", 
+     RowBox[{"b", "=", "y"}], ",", " ", 
+     RowBox[{
+      RowBox[{"out", "[", 
+       RowBox[{
+        RowBox[{"0", ".."}], "7"}], "]"}], "=", "lowerBits"}], ",", " ", 
+     RowBox[{
+      RowBox[{"out", "[", 
+       RowBox[{
+        RowBox[{"8", ".."}], "15"}], "]"}], "=", "higherBits"}]}], ")"}]}], 
+  ";"}]], "Code",
+ CellChangeTimes->{{3.666594188656005*^9, 3.66659422417453*^9}},
+ EmphasizeSyntaxErrors->True],
+
+Cell["\<\
+This syntax example shows that one can split the output into two sets of \
+bits, and the HardwareSimulator would still work, and pipe the results to \
+relevant pins as specified.\
+\>", "Text",
+ CellChangeTimes->{{3.666594233431575*^9, 3.666594280068694*^9}}],
+
+Cell["\<\
+The other trick is to determine whether a number is negative or not. Using \
+Or8Way chip, one may determine whether all the bits are zero or not. Then, it \
+is easy to determine whether the represented number in its entirety is zero \
+or not. \
+\>", "Text",
+ CellChangeTimes->{{3.666594233431575*^9, 3.6665943985686827`*^9}}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Reference for ALU implementation", "ReferenceSection",
+ CellChangeTimes->{{3.666594425259049*^9, 3.666594433477696*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Authorlast, \[OpenCurlyDoubleQuote]Article Title,\[CloseCurlyDoubleQuote] \
+",
+ StyleBox["Journal Title",
+  FontSlant->"Italic"],
+ ", ",
+ StyleBox["Volume",
+  FontWeight->"Bold"],
+ "(Issue), 2005 pp. #\[Dash]#."
+}], "Reference"],
+
+Cell[TextData[{
+ "Authorlast1 and B. Authorlast2, \[OpenCurlyDoubleQuote]Article Title,\
+\[CloseCurlyDoubleQuote] ",
+ StyleBox["Journal Title",
+  FontSlant->"Italic"],
+ ", ",
+ StyleBox["Volume",
+  FontWeight->"Bold"],
+ "(Issue), 2005 pp. #\[Dash]#."
+}], "Reference"],
+
+Cell[TextData[{
+ "Authorlast1, B. Authorlast2, and C. Authorlast3, \
+\[OpenCurlyDoubleQuote]Article Title,\[CloseCurlyDoubleQuote] ",
+ StyleBox["Journal Title",
+  FontSlant->"Italic"],
+ ", ",
+ StyleBox["Volume",
+  FontWeight->"Bold"],
+ "(Issue), 2005 pp. #\[Dash]#."
+}], "Reference"],
+
+Cell[TextData[{
+ "Authorlast, ",
+ StyleBox["Book Title",
+  FontSlant->"Italic"],
+ ", ",
+ StyleBox["n",
+  FontSlant->"Italic"],
+ "th ed., Publisher Location: Publisher Name, 2005."
+}], "Reference"],
+
+Cell[TextData[{
+ "Authorlast1 and B. Authorlast2, ",
+ StyleBox["Book Title",
+  FontSlant->"Italic"],
+ ", ",
+ StyleBox["n",
+  FontSlant->"Italic"],
+ "th ed., Publisher Location: Publisher Name, 2005."
+}], "Reference"],
+
+Cell[TextData[{
+ "Authorlast1, B. Authorlast2, and C. Authorlast3, ",
+ StyleBox["Book Title",
+  FontSlant->"Italic"],
+ ", ",
+ StyleBox["n",
+  FontSlant->"Italic"],
+ "th ed., Publisher Location: Publisher Name, 2005."
+}], "Reference"],
+
+Cell[TextData[{
+ "Authorlast, \[OpenCurlyDoubleQuote]Paper Title,\[CloseCurlyDoubleQuote] in ",
+ StyleBox["Conference Proceedings Title (Conference Acronym and Year)",
+  FontSlant->"Italic"],
+ ", Conference Location (A. Authorlast, ed.), Publisher Location: Publisher \
+Name, Publication Date pp. #\[Dash]#."
+}], "Reference"],
+
+Cell[TextData[{
+ "Authorlast1, B. Authorlast2, and C. Authorlast3, \
+\[OpenCurlyDoubleQuote]Paper Title,\[CloseCurlyDoubleQuote] in ",
+ StyleBox["Conference Proceedings Title (Conference Acronym and Year)",
+  FontSlant->"Italic"],
+ ", Conference Location (A. Authorlast, ed.), Publisher Location: Publisher \
+Name, Publication Date pp. #\[Dash]#."
+}], "Reference"],
+
+Cell[TextData[{
+ "Authorlast1, B. Authorlast2, and C. Authorlast3, \
+\[OpenCurlyDoubleQuote]Paper Title,\[CloseCurlyDoubleQuote] in ",
+ StyleBox["Conference Proceedings Title (Conference Acronym and Year)",
+  FontSlant->"Italic"],
+ ", Conference Location (A. Authorlast, ed.), Publisher Location: Publisher \
+Name, Publication Date pp. #\[Dash]#."
+}], "Reference"],
+
+Cell["\<\
+Authorlast. \[OpenCurlyDoubleQuote]Website Title.\[CloseCurlyDoubleQuote] \
+(Last updated date or date visited in three-character Month Day, Year format) \
+URL.\
+\>", "Reference"],
+
+Cell["\<\
+B. Authorlast. \[OpenCurlyDoubleQuote]Entry Title\[CloseCurlyDoubleQuote] \
+from CompanyN\[LongDash]A CompanyN Web Resource. URL.\
+\>", "Reference"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1064, 851},
+WindowMargins->{{406, Automatic}, {Automatic, 0}},
+FrontEndVersion->"10.4 for Mac OS X x86 (32-bit, 64-bit Kernel) (February 25, \
+2016)",
+StyleDefinitions->FrontEnd`FileName[{"Book"}, "Textbook.nb", 
+  CharacterEncoding -> "UTF-8"],
+PrivateNotebookOptions -> {"NotebookAuthor" -> ""}
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 72, 1, 147, "BookChapterNumber"],
+Cell[655, 25, 213, 3, 126, "BookChapterTitle"],
+Cell[CellGroupData[{
+Cell[893, 32, 275, 8, 55, "Section"],
+Cell[1171, 42, 320, 6, 20, "Text"],
+Cell[CellGroupData[{
+Cell[1516, 52, 156, 3, 28, "Input"],
+Cell[1675, 57, 94, 1, 28, "Output"]
+}, Open  ]],
+Cell[1784, 61, 180, 4, 20, "Text"],
+Cell[CellGroupData[{
+Cell[1989, 69, 146, 3, 28, "Input"],
+Cell[2138, 74, 72, 1, 28, "Output"]
+}, Open  ]],
+Cell[2225, 78, 438, 8, 20, "Text"],
+Cell[CellGroupData[{
+Cell[2688, 90, 341, 6, 28, "Input"],
+Cell[3032, 98, 366, 6, 28, "Output"]
+}, Open  ]],
+Cell[3413, 107, 507, 8, 35, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3957, 120, 213, 7, 55, "Section"],
+Cell[4173, 129, 328, 6, 35, "Text"],
+Cell[CellGroupData[{
+Cell[4526, 139, 248, 6, 28, "Input"],
+Cell[4777, 147, 343, 7, 28, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5157, 159, 282, 5, 28, "Input"],
+Cell[5442, 166, 2379, 87, 40, "Output"]
+}, Open  ]],
+Cell[7836, 256, 186, 4, 20, "Text"],
+Cell[CellGroupData[{
+Cell[8047, 264, 185, 4, 28, "Input"],
+Cell[8235, 270, 2313, 86, 40, "Output"]
+}, Open  ]],
+Cell[10563, 359, 225, 4, 20, "Text"],
+Cell[CellGroupData[{
+Cell[10813, 367, 158, 3, 28, "Input"],
+Cell[10974, 372, 2292, 85, 40, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13303, 462, 299, 11, 32, "Subsection"],
+Cell[13605, 475, 540, 8, 35, "Text"],
+Cell[CellGroupData[{
+Cell[14170, 487, 3059, 81, 235, InheritFromParent],
+Cell[17232, 570, 727, 26, 28, "Output"],
+Cell[17962, 598, 1551, 57, 133, "Output"],
+Cell[19516, 657, 363, 9, 39, "Output"]
+}, Open  ]],
+Cell[19894, 669, 163, 3, 20, "Text"],
+Cell[CellGroupData[{
+Cell[20082, 676, 3291, 84, 235, "Input"],
+Cell[23376, 762, 1233, 39, 29, "Output"],
+Cell[24612, 803, 2364, 80, 133, "Output"],
+Cell[26979, 885, 630, 13, 40, "Output"]
+}, Open  ]],
+Cell[27624, 901, 271, 5, 20, "Text"],
+Cell[27898, 908, 44, 1, 4, "PageBreak",
+ PageBreakBelow->True]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[27979, 914, 299, 11, 32, "Subsection"],
+Cell[28281, 927, 533, 9, 35, "Text"],
+Cell[28817, 938, 848, 13, 65, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[29702, 956, 343, 11, 32, "Subsection"],
+Cell[30048, 969, 314, 6, 20, "Text"],
+Cell[30365, 977, 386, 7, 35, "Text"],
+Cell[CellGroupData[{
+Cell[30776, 988, 3152, 82, 235, InheritFromParent],
+Cell[33931, 1072, 799, 27, 28, "Output"],
+Cell[34733, 1101, 1623, 58, 133, "Output"],
+Cell[36359, 1161, 433, 10, 39, "Output"]
+}, Open  ]],
+Cell[36807, 1174, 282, 6, 20, "Text"],
+Cell[37092, 1182, 394, 7, 20, "Text"],
+Cell[CellGroupData[{
+Cell[37511, 1193, 3553, 93, 251, InheritFromParent],
+Cell[41067, 1288, 1169, 38, 29, "Output"],
+Cell[42239, 1328, 2299, 79, 133, "Output"],
+Cell[44541, 1409, 568, 12, 40, "Output"],
+Cell[45112, 1423, 532, 11, 39, "Output"]
+}, Open  ]],
+Cell[45659, 1437, 423, 7, 20, "Text"],
+Cell[CellGroupData[{
+Cell[46107, 1448, 1296, 25, 45, InheritFromParent],
+Cell[47406, 1475, 2110, 40, 150, "Output"]
+}, Open  ]],
+Cell[49531, 1518, 575, 9, 35, "Text"],
+Cell[50109, 1529, 44, 1, 4, "PageBreak",
+ PageBreakBelow->True]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[50202, 1536, 216, 3, 55, "Section"],
+Cell[50421, 1541, 354, 6, 20, "Text"],
+Cell[CellGroupData[{
+Cell[50800, 1551, 206, 3, 32, "Subsection"],
+Cell[51009, 1556, 484, 8, 35, "Text"],
+Cell[51496, 1566, 130, 2, 20, "Text"],
+Cell[CellGroupData[{
+Cell[51651, 1572, 1235, 34, 45, "Input"],
+Cell[52889, 1608, 675, 17, 135, "Output"]
+}, Open  ]],
+Cell[53579, 1628, 393, 7, 35, "Text"],
+Cell[CellGroupData[{
+Cell[53997, 1639, 348, 10, 28, "Input"],
+Cell[54348, 1651, 5610, 156, 386, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[60007, 1813, 250, 3, 32, "Subsection"],
+Cell[60260, 1818, 525, 9, 50, "Text"],
+Cell[CellGroupData[{
+Cell[60810, 1831, 1719, 45, 107, "Input"],
+Cell[62532, 1878, 824, 21, 227, "Output"]
+}, Open  ]],
+Cell[63371, 1902, 683, 11, 65, "Text"],
+Cell[64057, 1915, 331, 4, 20, "Text"],
+Cell[CellGroupData[{
+Cell[64413, 1923, 490, 13, 28, "Input"],
+Cell[64906, 1938, 11016, 305, 281, "Output"]
+}, Open  ]],
+Cell[75937, 2246, 406, 7, 20, "Text"],
+Cell[CellGroupData[{
+Cell[76368, 2257, 583, 15, 45, "Input"],
+Cell[76954, 2274, 479, 16, 39, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[77470, 2295, 547, 14, 45, "Input"],
+Cell[78020, 2311, 7443, 206, 442, "Output"]
+}, Open  ]],
+Cell[85478, 2520, 399, 7, 35, "Text"],
+Cell[CellGroupData[{
+Cell[85902, 2531, 1026, 32, 45, "Input"],
+Cell[86931, 2565, 1578, 50, 168, "Output"]
+}, Open  ]],
+Cell[88524, 2618, 44, 1, 1, "PageBreak",
+ PageBreakBelow->True]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[88617, 2625, 268, 3, 55, "Section"],
+Cell[88888, 2630, 1012, 15, 110, "Text"],
+Cell[89903, 2647, 717, 11, 80, "Text"],
+Cell[CellGroupData[{
+Cell[90645, 2662, 248, 3, 32, "Subsection"],
+Cell[90896, 2667, 436, 8, 35, "Text"],
+Cell[91335, 2677, 192, 3, 20, "Text"],
+Cell[91530, 2682, 532, 17, 50, "Code"],
+Cell[92065, 2701, 268, 5, 35, "Text"],
+Cell[92336, 2708, 335, 6, 35, "Text"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[92720, 2720, 126, 1, 275, "ReferenceSection"],
+Cell[CellGroupData[{
+Cell[92871, 2725, 246, 9, 16, "Reference"],
+Cell[93120, 2736, 266, 9, 16, "Reference"],
+Cell[93389, 2747, 283, 9, 16, "Reference"],
+Cell[93675, 2758, 196, 8, 16, "Reference"],
+Cell[93874, 2768, 216, 8, 16, "Reference"],
+Cell[94093, 2778, 233, 8, 16, "Reference"],
+Cell[94329, 2788, 325, 6, 30, "Reference"],
+Cell[94657, 2796, 364, 7, 30, "Reference"],
+Cell[95024, 2805, 364, 7, 30, "Reference"],
+Cell[95391, 2814, 189, 4, 16, "Reference"],
+Cell[95583, 2820, 158, 3, 16, "Reference"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

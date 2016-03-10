@@ -32,7 +32,7 @@ CHIP ALU {
         zx, // zero the x input?
         nx, // negate the x input?
         zy, // zero the y input?
-        ny, // negate the y input?
+        ny, // negate the y input? 
         f,  // compute out = x + y (if 1) or x & y (if 0)
         no; // negate the out output?
 
@@ -62,9 +62,8 @@ CHIP ALU {
     Or16(a=oTest, b=oTest, out[0..7]=lowerBits, out[8..15]=higherBits);
 
     Or8Way(in=lowerBits, out=zrL);
-    Or8Way(in=higherBits, out=zrH);
+    Or8Way(in=higherBits, out=zrH, out=ng);
 
-    Or(a=zrH, b=zrH, out=ng);
     Or(a=zrL, b=zrH, out=negZR);
     Not(in=negZR, out=zr);
 
