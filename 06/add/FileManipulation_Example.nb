@@ -1,0 +1,754 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.4' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     26651,        746]
+NotebookOptionsPosition[     24405,        667]
+NotebookOutlinePosition[     24919,        689]
+CellTagsIndexPosition[     24833,        684]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"?", "*Directory*"}]], "Input",
+ CellChangeTimes->{{3.6666642724899883`*^9, 3.666664278026579*^9}, {
+  3.6666645126396008`*^9, 3.666664519949744*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ DynamicModuleBox[{Typeset`open$$ = True}, 
+  PaneSelectorBox[{False->
+   RowBox[{
+    OpenerBox[Dynamic[Typeset`open$$],
+     ImageSize->Small], 
+    StyleBox["System`", "InfoHeading"]}], True->GridBox[{
+     {
+      RowBox[{
+       OpenerBox[Dynamic[Typeset`open$$],
+        ImageSize->Small], 
+       StyleBox["System`", "InfoHeading"]}]},
+     {GridBox[{
+        {
+         ButtonBox["CloudDirectory",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info33666693320-5964449", {"CloudDirectory", "System`"}},
+          ButtonNote->"System`"], 
+         ButtonBox["ParentDirectory",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info33666693320-5964449", {"ParentDirectory", "System`"}},
+          ButtonNote->"System`"], 
+         ButtonBox["$InitialDirectory",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info33666693320-5964449", {"$InitialDirectory", "System`"}},
+          ButtonNote->"System`"]},
+        {
+         ButtonBox["CopyDirectory",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info33666693320-5964449", {"CopyDirectory", "System`"}},
+          ButtonNote->"System`"], 
+         ButtonBox["ProcessDirectory",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info33666693320-5964449", {"ProcessDirectory", "System`"}},
+          ButtonNote->"System`"], 
+         ButtonBox["$InstallationDirectory",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info33666693320-5964449", {"$InstallationDirectory", "System`"}},
+          ButtonNote->"System`"]},
+        {
+         ButtonBox["CreateDirectory",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info33666693320-5964449", {"CreateDirectory", "System`"}},
+          ButtonNote->"System`"], 
+         ButtonBox["RenameDirectory",
+          BaseStyle->"InformationLink",
+          ButtonData:>{
+           "Info33666693320-5964449", {"RenameDirectory", "System`"}},
+          ButtonNote->"System`"], 
+         ButtonBox["$LaunchDirectory",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info33666693320-5964449", {"$LaunchDirectory", "System`"}},
+          ButtonNote->"System`"]},
+        {
+         ButtonBox["DeleteDirectory",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info33666693320-5964449", {"DeleteDirectory", "System`"}},
+          ButtonNote->"System`"], 
+         ButtonBox["ResetDirectory",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info33666693320-5964449", {"ResetDirectory", "System`"}},
+          ButtonNote->"System`"], 
+         ButtonBox["$PreferencesDirectory",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info33666693320-5964449", {"$PreferencesDirectory", "System`"}},
+          ButtonNote->"System`"]},
+        {
+         ButtonBox["Directory",
+          BaseStyle->"InformationLink",
+          ButtonData:>{"Info33666693320-5964449", {"Directory", "System`"}},
+          ButtonNote->"System`"], 
+         ButtonBox["SetCloudDirectory",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info33666693320-5964449", {"SetCloudDirectory", "System`"}},
+          ButtonNote->"System`"], 
+         ButtonBox["$RootDirectory",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info33666693320-5964449", {"$RootDirectory", "System`"}},
+          ButtonNote->"System`"]},
+        {
+         ButtonBox["DirectoryName",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info33666693320-5964449", {"DirectoryName", "System`"}},
+          ButtonNote->"System`"], 
+         ButtonBox["SetDirectory",
+          BaseStyle->"InformationLink",
+          ButtonData:>{"Info33666693320-5964449", {"SetDirectory", "System`"}},
+          ButtonNote->"System`"], 
+         ButtonBox["$TemporaryDirectory",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info33666693320-5964449", {"$TemporaryDirectory", "System`"}},
+          ButtonNote->"System`"]},
+        {
+         ButtonBox["DirectoryQ",
+          BaseStyle->"InformationLink",
+          ButtonData:>{"Info33666693320-5964449", {"DirectoryQ", "System`"}},
+          ButtonNote->"System`"], 
+         ButtonBox["$AddOnsDirectory",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info33666693320-5964449", {"$AddOnsDirectory", "System`"}},
+          ButtonNote->"System`"], 
+         ButtonBox["$TopDirectory",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info33666693320-5964449", {"$TopDirectory", "System`"}},
+          ButtonNote->"System`"]},
+        {
+         ButtonBox["DirectoryStack",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info33666693320-5964449", {"DirectoryStack", "System`"}},
+          ButtonNote->"System`"], 
+         ButtonBox["$BaseDirectory",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info33666693320-5964449", {"$BaseDirectory", "System`"}},
+          ButtonNote->"System`"], 
+         ButtonBox["$UserAddOnsDirectory",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info33666693320-5964449", {"$UserAddOnsDirectory", "System`"}},
+          ButtonNote->"System`"]},
+        {
+         ButtonBox["HomeDirectory",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info33666693320-5964449", {"HomeDirectory", "System`"}},
+          ButtonNote->"System`"], 
+         ButtonBox["$CloudRootDirectory",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info33666693320-5964449", {"$CloudRootDirectory", "System`"}},
+          ButtonNote->"System`"], 
+         ButtonBox["$UserBaseDirectory",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info33666693320-5964449", {"$UserBaseDirectory", "System`"}},
+          ButtonNote->"System`"]},
+        {
+         ButtonBox["NotebookDirectory",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info33666693320-5964449", {"NotebookDirectory", "System`"}},
+          ButtonNote->"System`"], 
+         ButtonBox["$HomeDirectory",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info33666693320-5964449", {"$HomeDirectory", "System`"}},
+          ButtonNote->"System`"], 
+         ButtonBox["$UserDocumentsDirectory",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info33666693320-5964449", {"$UserDocumentsDirectory", "System`"}},
+          
+          ButtonNote->"System`"]}
+       },
+       DefaultBaseStyle->"InfoGrid",
+       GridBoxItemSize->{"Columns" -> {{
+            Scaled[0.31666666666666665`]}}}]}
+    },
+    GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}}]}, 
+   Dynamic[Typeset`open$$],
+   ImageSize->Automatic]], "\n", 
+ DynamicModuleBox[{Typeset`open$$ = True}, 
+  PaneSelectorBox[{False->
+   RowBox[{
+    OpenerBox[Dynamic[Typeset`open$$],
+     ImageSize->Small], 
+    StyleBox["PacletManager`", "InfoHeading"]}], True->GridBox[{
+     {
+      RowBox[{
+       OpenerBox[Dynamic[Typeset`open$$],
+        ImageSize->Small], 
+       StyleBox["PacletManager`", "InfoHeading"]}]},
+     {GridBox[{
+        {
+         ButtonBox["PacletDirectoryAdd",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info33666693320-5964449", {
+            "PacletDirectoryAdd", "PacletManager`"}},
+          ButtonNote->"PacletManager`"], 
+         ButtonBox["$BasePacletsDirectory",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info33666693320-5964449", {
+            "$BasePacletsDirectory", "PacletManager`"}},
+          ButtonNote->"PacletManager`"]},
+        {
+         ButtonBox["PacletDirectoryRemove",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info33666693320-5964449", {
+            "PacletDirectoryRemove", "PacletManager`"}},
+          ButtonNote->"PacletManager`"], 
+         ButtonBox["$UserBasePacletsDirectory",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info33666693320-5964449", {
+            "$UserBasePacletsDirectory", "PacletManager`"}},
+          ButtonNote->"PacletManager`"]}
+       },
+       DefaultBaseStyle->"InfoGrid",
+       GridBoxItemSize->{"Columns" -> {{
+            Scaled[0.475]}}}]}
+    },
+    GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}}]}, 
+   Dynamic[Typeset`open$$],
+   ImageSize->Automatic]]}], "Print", "InfoCell",
+ CellChangeTimes->{3.666664520388764*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox["\<\"\!\(\*RowBox[{\\\"NotebookDirectory\\\", \\\"[\\\", \
+\\\"]\\\"}]\) gives the directory of the current evaluation notebook. \\n\!\(\
+\*RowBox[{\\\"NotebookDirectory\\\", \\\"[\\\", StyleBox[\\\"nb\\\", \\\"TI\\\
+\"], \\\"]\\\"}]\) gives the directory for the notebook specified by \
+\!\(\*StyleBox[\\\"nb\\\", \\\"TI\\\"]\). \"\>", "MSG"], 
+  "\[NonBreakingSpace]", 
+  ButtonBox[
+   StyleBox["\[RightSkeleton]", "SR"],
+   Active->True,
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/NotebookDirectory"]}]], "Print", "PrintUsage",
+ CellTags->"Info33666693320-5964449"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"rawText", "=", 
+  RowBox[{"Import", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"NotebookDirectory", "[", "]"}], "<>", "\"\<Add.asm\>\""}], ",", 
+    " ", "\"\<Text\>\""}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.6666644994722433`*^9, 3.666664501721689*^9}, {
+  3.666664535030588*^9, 3.666664662137617*^9}, {3.666664980319619*^9, 
+  3.6666650378836412`*^9}, {3.666665088361999*^9, 3.666665089624667*^9}, {
+  3.666666773482098*^9, 3.666666791605538*^9}, {3.666666921477673*^9, 
+  3.666666934004366*^9}, {3.6666669987588787`*^9, 3.666667000141622*^9}}],
+
+Cell[BoxData["\<\"// This file is part of www.nand2tetris.org\\n// and the \
+book \\\"The Elements of Computing Systems\\\"\\n// by Nisan and Schocken, \
+MIT Press.\\n// File name: projects/06/add/Add.asm\\n\\n// Computes R0 = 2 + \
+3\\n\\n@2\\nD=A\\n@3\\nD=D+A\\n@0\\nM=D\"\>"], "Output",
+ CellChangeTimes->{{3.666666776550827*^9, 3.666666792310639*^9}, {
+   3.666666923484541*^9, 3.6666669344444237`*^9}, 3.666667007885785*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"arrayOfLines", "=", " ", 
+  RowBox[{"StringSplit", "[", 
+   RowBox[{"rawText", ",", " ", "\"\<\\n\>\""}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.666666968663109*^9, 3.666667004825762*^9}, {
+  3.666667096047682*^9, 3.666667099515533*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"// This file is part of www.nand2tetris.org\"\>", 
+   ",", "\<\"// and the book \\\"The Elements of Computing Systems\\\"\"\>", 
+   ",", "\<\"// by Nisan and Schocken, MIT Press.\"\>", 
+   ",", "\<\"// File name: projects/06/add/Add.asm\"\>", ",", "\<\"\"\>", 
+   ",", "\<\"// Computes R0 = 2 + 3\"\>", ",", "\<\"\"\>", ",", "\<\"@2\"\>", 
+   ",", "\<\"D=A\"\>", ",", "\<\"@3\"\>", ",", "\<\"D=D+A\"\>", 
+   ",", "\<\"@0\"\>", ",", "\<\"M=D\"\>"}], "}"}]], "Output",
+ CellChangeTimes->{{3.666666951404413*^9, 3.6666670113921022`*^9}, 
+   3.66666709989955*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"arrayOfLines", " ", "//", "TableForm"}]], "Input",
+ CellChangeTimes->{{3.666665231231764*^9, 3.666665236423995*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  TagBox[GridBox[{
+     {"\<\"// This file is part of www.nand2tetris.org\"\>"},
+     {"\<\"// and the book \\\"The Elements of Computing Systems\\\"\"\>"},
+     {"\<\"// by Nisan and Schocken, MIT Press.\"\>"},
+     {"\<\"// File name: projects/06/add/Add.asm\"\>"},
+     {"\<\"\"\>"},
+     {"\<\"// Computes R0 = 2 + 3\"\>"},
+     {"\<\"\"\>"},
+     {"\<\"@2\"\>"},
+     {"\<\"D=A\"\>"},
+     {"\<\"@3\"\>"},
+     {"\<\"D=D+A\"\>"},
+     {"\<\"@0\"\>"},
+     {"\<\"M=D\"\>"}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.5599999999999999]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}],
+   Column],
+  Function[BoxForm`e$, 
+   TableForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{
+  3.6666645536525087`*^9, {3.666664605089106*^9, 3.6666646629087276`*^9}, {
+   3.666664989187372*^9, 3.666665015655923*^9}, 3.6666650900735826`*^9, 
+   3.666665236770821*^9, 3.66666701518937*^9, {3.666667084906331*^9, 
+   3.6666671037505627`*^9}}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"IsCommentedLineQ", "[", "line_", "]"}], ":=", " ", 
+  RowBox[{"StringMatchQ", "[", 
+   RowBox[{
+    RowBox[{"StringTrim", "[", "line", "]"}], ",", " ", "\"\<//*\>\""}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.666664702372508*^9, 3.666664718706789*^9}, {
+  3.666664812388217*^9, 3.666664816370798*^9}, {3.666664876330962*^9, 
+  3.666664885425241*^9}, {3.666665107900185*^9, 3.6666651081002483`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"IsEmptyLineQ", "[", "line_", "]"}], ":=", 
+  RowBox[{"If", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"StringLength", "[", 
+      RowBox[{"StringTrim", "[", "line", "]"}], "]"}], "\[Equal]", "0"}], ",",
+     "True", ",", " ", "False"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.666665281242436*^9, 3.666665297859016*^9}, {
+  3.66666538522395*^9, 3.6666654232328167`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Map", "[", 
+  RowBox[{"IsCommentedLineQ", ",", " ", "arrayOfLines"}], "]"}]], "Input",
+ CellChangeTimes->{{3.66666489836519*^9, 3.666664910407991*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "True", ",", "True", ",", "True", ",", "True", ",", "False", ",", "True", 
+   ",", "False", ",", "False", ",", "False", ",", "False", ",", "False", ",", 
+   "False", ",", "False"}], "}"}]], "Output",
+ CellChangeTimes->{3.66666702211061*^9, 3.666667108093639*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Map", "[", 
+  RowBox[{"IsEmptyLineQ", ",", " ", "arrayOfLines"}], "]"}]], "Input",
+ CellChangeTimes->{3.6666654356764307`*^9}],
+
+Cell[BoxData["\<\"// This file is part of www.nand2tetris.org\\n// and the \
+book \\\"The Elements of Computing Systems\\\"\\n// by Nisan and Schocken, \
+MIT Press.\\n// File name: projects/06/add/Add.asm\\n\\n// Computes R0 = 2 + \
+3\\n\\n@2\\nD=A\\n@3\\nD=D+A\\n@0\\nM=D\"\>"], "Output",
+ CellChangeTimes->{
+  3.6666649108310347`*^9, {3.666665095658855*^9, 3.666665111790947*^9}, 
+   3.666665436284831*^9, 3.6666670258747663`*^9, 3.6666670730311203`*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AddToInstructionArray", "[", 
+   RowBox[{"anInstructionLine_", ",", " ", "emptyArray_"}], "]"}], ":=", 
+  RowBox[{"If", "[", 
+   RowBox[{
+    RowBox[{"Not", "[", 
+     RowBox[{
+      RowBox[{"IsEmptyLineQ", "[", "anInstructionLine", "]"}], "||", " ", 
+      RowBox[{"IsCommentLineQ", "[", "anInstructionLine", "]"}]}], "]"}], ",", 
+    RowBox[{"AppendTo", "[", 
+     RowBox[{"emptyArray", ",", " ", "anInstructionLine"}], "]"}]}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.666666226688615*^9, 3.666666250705223*^9}, {
+  3.66666638152061*^9, 3.666666405906465*^9}, {3.6666664885478487`*^9, 
+  3.666666527224451*^9}, {3.666666674258677*^9, 3.666666675977192*^9}, {
+  3.66666743704113*^9, 3.666667459229445*^9}, {3.666667519957378*^9, 
+  3.6666675341908293`*^9}, {3.666667837471326*^9, 3.666667837663096*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"CollectInstruction", "[", "originalArray_", "]"}], ":=", 
+  "\[IndentingNewLine]", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"emptyArray", "=", 
+       RowBox[{"{", "}"}]}], ",", " ", 
+      RowBox[{"n", "=", "1"}]}], "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"While", "[", 
+      RowBox[{
+       RowBox[{"n", "<", 
+        RowBox[{"Length", "[", "originalArray", "]"}]}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"Print", "[", 
+         RowBox[{
+         "originalArray", "\[LeftDoubleBracket]", "n", 
+          "\[RightDoubleBracket]"}], "]"}], ";", " ", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{"Not", "[", 
+            RowBox[{
+             RowBox[{"IsEmptyLineQ", "[", 
+              RowBox[{
+              "originalArray", "\[LeftDoubleBracket]", "n", 
+               "\[RightDoubleBracket]"}], "]"}], "||", " ", 
+             RowBox[{"IsCommentLineQ", "[", 
+              RowBox[{
+              "originalArray", "\[LeftDoubleBracket]", "n", 
+               "\[RightDoubleBracket]"}], "]"}]}], "]"}], ",", 
+           RowBox[{"AppendTo", "[", 
+            RowBox[{"emptyArray", ",", " ", 
+             RowBox[{
+             "originalArray", "\[LeftDoubleBracket]", "n", 
+              "\[RightDoubleBracket]"}]}], "]"}]}], "]"}], 
+         "\[IndentingNewLine]", 
+         RowBox[{"n", "++"}]}]}]}], " ", "]"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Return", "[", "emptyArray", "]"}], ";"}]}], 
+   "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellChangeTimes->{{3.6666655581188583`*^9, 3.666665560510556*^9}, {
+   3.666665599125534*^9, 3.666665669076262*^9}, 3.666665710647331*^9, {
+   3.666665761602146*^9, 3.666665766489497*^9}, {3.666665940887882*^9, 
+   3.666665996283046*^9}, {3.666666053721936*^9, 3.6666660926593323`*^9}, {
+   3.666666127711343*^9, 3.66666615667092*^9}, {3.666666304066985*^9, 
+   3.666666340912261*^9}, 3.6666665378973494`*^9, {3.666667251560487*^9, 
+   3.66666727364464*^9}, {3.66666733930396*^9, 3.6666673434635677`*^9}, {
+   3.666667379747375*^9, 3.66666741321631*^9}, {3.666667467070148*^9, 
+   3.6666674916534033`*^9}, {3.66666754556454*^9, 3.666667624873844*^9}, {
+   3.6666677165647707`*^9, 3.666667778883704*^9}, {3.6666678308957567`*^9, 
+   3.6666678311115913`*^9}, {3.66666786717906*^9, 3.666667867618052*^9}, {
+   3.666667914218606*^9, 3.6666679392414017`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"q", "=", 
+  RowBox[{"CollectInstruction", "[", "arrayOfLines", "]"}]}]], "Input",
+ CellChangeTimes->{{3.666666175814802*^9, 3.6666661764711733`*^9}, {
+  3.666667121900407*^9, 3.666667131570704*^9}, {3.666667290312168*^9, 
+  3.666667290822877*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\<\"// This file is part of www.nand2tetris.org\"\>"], "Print",
+ CellChangeTimes->{
+  3.666667628241454*^9, 3.6666677838121977`*^9, {3.666667833787603*^9, 
+   3.666667870796474*^9}}],
+
+Cell[BoxData["\<\"// and the book \\\"The Elements of Computing Systems\\\"\"\
+\>"], "Print",
+ CellChangeTimes->{
+  3.666667628241454*^9, 3.6666677838121977`*^9, {3.666667833787603*^9, 
+   3.666667870803644*^9}}],
+
+Cell[BoxData["\<\"// by Nisan and Schocken, MIT Press.\"\>"], "Print",
+ CellChangeTimes->{
+  3.666667628241454*^9, 3.6666677838121977`*^9, {3.666667833787603*^9, 
+   3.666667870812922*^9}}],
+
+Cell[BoxData["\<\"// File name: projects/06/add/Add.asm\"\>"], "Print",
+ CellChangeTimes->{
+  3.666667628241454*^9, 3.6666677838121977`*^9, {3.666667833787603*^9, 
+   3.666667870822229*^9}}],
+
+Cell[BoxData["\<\"\"\>"], "Print",
+ CellChangeTimes->{
+  3.666667628241454*^9, 3.6666677838121977`*^9, {3.666667833787603*^9, 
+   3.666667870832575*^9}}],
+
+Cell[BoxData["\<\"// Computes R0 = 2 + 3\"\>"], "Print",
+ CellChangeTimes->{
+  3.666667628241454*^9, 3.6666677838121977`*^9, {3.666667833787603*^9, 
+   3.6666678708418207`*^9}}],
+
+Cell[BoxData["\<\"\"\>"], "Print",
+ CellChangeTimes->{
+  3.666667628241454*^9, 3.6666677838121977`*^9, {3.666667833787603*^9, 
+   3.666667870851035*^9}}],
+
+Cell[BoxData["\<\"@2\"\>"], "Print",
+ CellChangeTimes->{
+  3.666667628241454*^9, 3.6666677838121977`*^9, {3.666667833787603*^9, 
+   3.6666678708602448`*^9}}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"AppendTo", "::", "rvalue"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\(\\*RowBox[{\\\"{\\\", \\\"}\\\"}]\\)\
+\[NoBreak] is not a variable with a value, so its value cannot be changed. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/rvalue\\\", \
+ButtonNote -> \\\"AppendTo::rvalue\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{{3.666667844222746*^9, 3.666667870869536*^9}}],
+
+Cell[BoxData["\<\"D=A\"\>"], "Print",
+ CellChangeTimes->{
+  3.666667628241454*^9, 3.6666677838121977`*^9, {3.666667833787603*^9, 
+   3.6666678708746634`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"AppendTo", "::", "rvalue"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\(\\*RowBox[{\\\"{\\\", \\\"}\\\"}]\\)\
+\[NoBreak] is not a variable with a value, so its value cannot be changed. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/rvalue\\\", \
+ButtonNote -> \\\"AppendTo::rvalue\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{{3.666667844222746*^9, 3.666667870944586*^9}}],
+
+Cell[BoxData["\<\"@3\"\>"], "Print",
+ CellChangeTimes->{
+  3.666667628241454*^9, 3.6666677838121977`*^9, {3.666667833787603*^9, 
+   3.66666787095172*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"AppendTo", "::", "rvalue"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\(\\*RowBox[{\\\"{\\\", \\\"}\\\"}]\\)\
+\[NoBreak] is not a variable with a value, so its value cannot be changed. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/rvalue\\\", \
+ButtonNote -> \\\"AppendTo::rvalue\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{{3.666667844222746*^9, 3.666667871004715*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \
+\[NoBreak]\\!\\(\\*StyleBox[RowBox[{\\\"AppendTo\\\", \\\"::\\\", \
+\\\"rvalue\\\"}], \\\"MessageName\\\"]\\)\[NoBreak] will be suppressed during \
+this calculation. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/stop\\\", ButtonNote -> \
+\\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{{3.666667844222746*^9, 3.666667871045596*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\<\"D=D+A\"\>"], "Print",
+ CellChangeTimes->{
+  3.666667628241454*^9, 3.6666677838121977`*^9, {3.666667833787603*^9, 
+   3.6666678710527983`*^9}}],
+
+Cell[BoxData["\<\"@0\"\>"], "Print",
+ CellChangeTimes->{
+  3.666667628241454*^9, 3.6666677838121977`*^9, {3.666667833787603*^9, 
+   3.6666678710621443`*^9}}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Output",
+ CellChangeTimes->{
+  3.66666734618009*^9, {3.6666675411361513`*^9, 3.666667588804345*^9}, 
+   3.6666676283559227`*^9, 3.666667783929925*^9, {3.6666678339045153`*^9, 
+   3.666667871074173*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["q"], "Input",
+ CellChangeTimes->{{3.666666034135919*^9, 3.666666037290121*^9}, 
+   3.666667296423045*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Output",
+ CellChangeTimes->{3.666667349497447*^9, 3.666667564224408*^9}]
+}, Open  ]]
+},
+WindowSize->{808, 751},
+WindowMargins->{{42, Automatic}, {41, Automatic}},
+FrontEndVersion->"10.4 for Mac OS X x86 (32-bit, 64-bit Kernel) (February 25, \
+2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "Info33666693320-5964449"->{
+  Cell[9813, 286, 609, 13, 58, "Print",
+   CellTags->"Info33666693320-5964449"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"Info33666693320-5964449", 24728, 678}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 173, 3, 28, "Input"],
+Cell[CellGroupData[{
+Cell[778, 29, 9032, 255, 324, "Print"],
+Cell[9813, 286, 609, 13, 58, "Print",
+ CellTags->"Info33666693320-5964449"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10471, 305, 575, 11, 28, "Input"],
+Cell[11049, 318, 429, 5, 233, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11515, 328, 263, 5, 28, "Input"],
+Cell[11781, 335, 603, 10, 80, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12421, 350, 140, 2, 28, "Input"],
+Cell[12564, 354, 1261, 34, 240, "Output"]
+}, Open  ]],
+Cell[13840, 391, 438, 9, 28, "Input"],
+Cell[14281, 402, 407, 10, 28, "Input"],
+Cell[CellGroupData[{
+Cell[14713, 416, 175, 3, 28, "Input"],
+Cell[14891, 421, 304, 6, 28, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[15232, 432, 150, 3, 28, "Input"],
+Cell[15385, 437, 456, 6, 233, "Output"]
+}, Open  ]],
+Cell[15856, 446, 844, 17, 63, "Input"],
+Cell[16703, 465, 2499, 55, 165, "Input"],
+Cell[CellGroupData[{
+Cell[19227, 524, 271, 5, 28, "Input"],
+Cell[CellGroupData[{
+Cell[19523, 533, 196, 3, 22, "Print"],
+Cell[19722, 538, 212, 4, 22, "Print"],
+Cell[19937, 544, 189, 3, 22, "Print"],
+Cell[20129, 549, 190, 3, 22, "Print"],
+Cell[20322, 554, 153, 3, 21, "Print"],
+Cell[20478, 559, 177, 3, 22, "Print"],
+Cell[20658, 564, 153, 3, 21, "Print"],
+Cell[20814, 569, 157, 3, 21, "Print"]
+}, Open  ]],
+Cell[20986, 575, 540, 10, 24, "Message"],
+Cell[21529, 587, 158, 3, 21, "Print"],
+Cell[21690, 592, 540, 10, 24, "Message"],
+Cell[22233, 604, 154, 3, 21, "Print"],
+Cell[22390, 609, 540, 10, 24, "Message"],
+Cell[22933, 621, 589, 12, 24, "Message"],
+Cell[CellGroupData[{
+Cell[23547, 637, 160, 3, 21, "Print"],
+Cell[23710, 642, 157, 3, 21, "Print"]
+}, Open  ]],
+Cell[23882, 648, 239, 5, 28, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[24158, 658, 119, 2, 28, "Input"],
+Cell[24280, 662, 109, 2, 28, "Output"]
+}, Open  ]]
+}
+]
+*)
+

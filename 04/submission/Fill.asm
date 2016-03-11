@@ -8,9 +8,14 @@
 // i.e. writes "black" in every pixel. When no key is pressed, the
 // program clears the screen, i.e. writes "white" in every pixel.
 
+	
+// Note, in order to pass the test, one must use Assembler.sh to
+// compile the edited code to Fill.hack.
+// then use AutomaticTest.tst script to test the result before submission.
 
-	@color   //Initialize color to be black -1
-	M=-1
+
+	@color   //Initialize color to be white
+	M=0
 
 	@8191   //What ever number is here, for example, 8192 is equal to (256*32)
 	D=A   //Get the address number (8192-1) to D
@@ -73,7 +78,7 @@
 	D;JGT
 
 	@color
-	M=-1
+	M=0
 
 	@REDRAW
 	0;JMP
@@ -81,6 +86,6 @@
 
 (NOKEYPRESSED)
 	@color
-	M=0
+	M=-1
 	@REDRAW
 	0;JMP

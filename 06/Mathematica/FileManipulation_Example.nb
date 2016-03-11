@@ -1,0 +1,369 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.4' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     12034,        361]
+NotebookOptionsPosition[     11289,        329]
+NotebookOutlinePosition[     11803,        351]
+CellTagsIndexPosition[     11717,        346]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"?", "*Directory*"}]], "Input",
+ CellChangeTimes->{{3.6666642724899883`*^9, 3.666664278026579*^9}, {
+  3.6666645126396008`*^9, 3.666664519949744*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ DynamicModuleBox[{Typeset`open$$ = True}, 
+  PaneSelectorBox[{False->
+   RowBox[{
+    OpenerBox[Dynamic[Typeset`open$$],
+     ImageSize->Small], 
+    StyleBox["System`", "InfoHeading"]}], True->GridBox[{
+     {
+      RowBox[{
+       OpenerBox[Dynamic[Typeset`open$$],
+        ImageSize->Small], 
+       StyleBox["System`", "InfoHeading"]}]},
+     {GridBox[{
+        {
+         ButtonBox["CloudDirectory",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info33666693320-5964449", {"CloudDirectory", "System`"}},
+          ButtonNote->"System`"], 
+         ButtonBox["ParentDirectory",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info33666693320-5964449", {"ParentDirectory", "System`"}},
+          ButtonNote->"System`"], 
+         ButtonBox["$InitialDirectory",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info33666693320-5964449", {"$InitialDirectory", "System`"}},
+          ButtonNote->"System`"]},
+        {
+         ButtonBox["CopyDirectory",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info33666693320-5964449", {"CopyDirectory", "System`"}},
+          ButtonNote->"System`"], 
+         ButtonBox["ProcessDirectory",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info33666693320-5964449", {"ProcessDirectory", "System`"}},
+          ButtonNote->"System`"], 
+         ButtonBox["$InstallationDirectory",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info33666693320-5964449", {"$InstallationDirectory", "System`"}},
+          ButtonNote->"System`"]},
+        {
+         ButtonBox["CreateDirectory",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info33666693320-5964449", {"CreateDirectory", "System`"}},
+          ButtonNote->"System`"], 
+         ButtonBox["RenameDirectory",
+          BaseStyle->"InformationLink",
+          ButtonData:>{
+           "Info33666693320-5964449", {"RenameDirectory", "System`"}},
+          ButtonNote->"System`"], 
+         ButtonBox["$LaunchDirectory",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info33666693320-5964449", {"$LaunchDirectory", "System`"}},
+          ButtonNote->"System`"]},
+        {
+         ButtonBox["DeleteDirectory",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info33666693320-5964449", {"DeleteDirectory", "System`"}},
+          ButtonNote->"System`"], 
+         ButtonBox["ResetDirectory",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info33666693320-5964449", {"ResetDirectory", "System`"}},
+          ButtonNote->"System`"], 
+         ButtonBox["$PreferencesDirectory",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info33666693320-5964449", {"$PreferencesDirectory", "System`"}},
+          ButtonNote->"System`"]},
+        {
+         ButtonBox["Directory",
+          BaseStyle->"InformationLink",
+          ButtonData:>{"Info33666693320-5964449", {"Directory", "System`"}},
+          ButtonNote->"System`"], 
+         ButtonBox["SetCloudDirectory",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info33666693320-5964449", {"SetCloudDirectory", "System`"}},
+          ButtonNote->"System`"], 
+         ButtonBox["$RootDirectory",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info33666693320-5964449", {"$RootDirectory", "System`"}},
+          ButtonNote->"System`"]},
+        {
+         ButtonBox["DirectoryName",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info33666693320-5964449", {"DirectoryName", "System`"}},
+          ButtonNote->"System`"], 
+         ButtonBox["SetDirectory",
+          BaseStyle->"InformationLink",
+          ButtonData:>{"Info33666693320-5964449", {"SetDirectory", "System`"}},
+          ButtonNote->"System`"], 
+         ButtonBox["$TemporaryDirectory",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info33666693320-5964449", {"$TemporaryDirectory", "System`"}},
+          ButtonNote->"System`"]},
+        {
+         ButtonBox["DirectoryQ",
+          BaseStyle->"InformationLink",
+          ButtonData:>{"Info33666693320-5964449", {"DirectoryQ", "System`"}},
+          ButtonNote->"System`"], 
+         ButtonBox["$AddOnsDirectory",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info33666693320-5964449", {"$AddOnsDirectory", "System`"}},
+          ButtonNote->"System`"], 
+         ButtonBox["$TopDirectory",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info33666693320-5964449", {"$TopDirectory", "System`"}},
+          ButtonNote->"System`"]},
+        {
+         ButtonBox["DirectoryStack",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info33666693320-5964449", {"DirectoryStack", "System`"}},
+          ButtonNote->"System`"], 
+         ButtonBox["$BaseDirectory",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info33666693320-5964449", {"$BaseDirectory", "System`"}},
+          ButtonNote->"System`"], 
+         ButtonBox["$UserAddOnsDirectory",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info33666693320-5964449", {"$UserAddOnsDirectory", "System`"}},
+          ButtonNote->"System`"]},
+        {
+         ButtonBox["HomeDirectory",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info33666693320-5964449", {"HomeDirectory", "System`"}},
+          ButtonNote->"System`"], 
+         ButtonBox["$CloudRootDirectory",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info33666693320-5964449", {"$CloudRootDirectory", "System`"}},
+          ButtonNote->"System`"], 
+         ButtonBox["$UserBaseDirectory",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info33666693320-5964449", {"$UserBaseDirectory", "System`"}},
+          ButtonNote->"System`"]},
+        {
+         ButtonBox["NotebookDirectory",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info33666693320-5964449", {"NotebookDirectory", "System`"}},
+          ButtonNote->"System`"], 
+         ButtonBox["$HomeDirectory",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info33666693320-5964449", {"$HomeDirectory", "System`"}},
+          ButtonNote->"System`"], 
+         ButtonBox["$UserDocumentsDirectory",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info33666693320-5964449", {"$UserDocumentsDirectory", "System`"}},
+          
+          ButtonNote->"System`"]}
+       },
+       DefaultBaseStyle->"InfoGrid",
+       GridBoxItemSize->{"Columns" -> {{
+            Scaled[0.31666666666666665`]}}}]}
+    },
+    GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}}]}, 
+   Dynamic[Typeset`open$$],
+   ImageSize->Automatic]], "\n", 
+ DynamicModuleBox[{Typeset`open$$ = True}, 
+  PaneSelectorBox[{False->
+   RowBox[{
+    OpenerBox[Dynamic[Typeset`open$$],
+     ImageSize->Small], 
+    StyleBox["PacletManager`", "InfoHeading"]}], True->GridBox[{
+     {
+      RowBox[{
+       OpenerBox[Dynamic[Typeset`open$$],
+        ImageSize->Small], 
+       StyleBox["PacletManager`", "InfoHeading"]}]},
+     {GridBox[{
+        {
+         ButtonBox["PacletDirectoryAdd",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info33666693320-5964449", {
+            "PacletDirectoryAdd", "PacletManager`"}},
+          ButtonNote->"PacletManager`"], 
+         ButtonBox["$BasePacletsDirectory",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info33666693320-5964449", {
+            "$BasePacletsDirectory", "PacletManager`"}},
+          ButtonNote->"PacletManager`"]},
+        {
+         ButtonBox["PacletDirectoryRemove",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info33666693320-5964449", {
+            "PacletDirectoryRemove", "PacletManager`"}},
+          ButtonNote->"PacletManager`"], 
+         ButtonBox["$UserBasePacletsDirectory",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info33666693320-5964449", {
+            "$UserBasePacletsDirectory", "PacletManager`"}},
+          ButtonNote->"PacletManager`"]}
+       },
+       DefaultBaseStyle->"InfoGrid",
+       GridBoxItemSize->{"Columns" -> {{
+            Scaled[0.475]}}}]}
+    },
+    GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}}]}, 
+   Dynamic[Typeset`open$$],
+   ImageSize->Automatic]]}], "Print", "InfoCell",
+ CellChangeTimes->{3.666664520388764*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox["\<\"\!\(\*RowBox[{\\\"NotebookDirectory\\\", \\\"[\\\", \
+\\\"]\\\"}]\) gives the directory of the current evaluation notebook. \\n\!\(\
+\*RowBox[{\\\"NotebookDirectory\\\", \\\"[\\\", StyleBox[\\\"nb\\\", \\\"TI\\\
+\"], \\\"]\\\"}]\) gives the directory for the notebook specified by \
+\!\(\*StyleBox[\\\"nb\\\", \\\"TI\\\"]\). \"\>", "MSG"], 
+  "\[NonBreakingSpace]", 
+  ButtonBox[
+   StyleBox["\[RightSkeleton]", "SR"],
+   Active->True,
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/NotebookDirectory"]}]], "Print", "PrintUsage",
+ CellTags->"Info33666693320-5964449"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Import", "[", 
+  RowBox[{
+   RowBox[{"NotebookDirectory", "[", "]"}], "<>", "\"\<Add.asm\>\""}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.6666644994722433`*^9, 3.666664501721689*^9}, {
+  3.666664535030588*^9, 3.666664588293128*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Import", "::", "nffil"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"File not found during \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"Import\\\"}]\\)\[NoBreak]. \\!\\(\\*ButtonBox[\
+\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/Import/nffil\\\", ButtonNote -> \
+\\\"Import::nffil\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.666664553649743*^9}],
+
+Cell[BoxData["$Failed"], "Output",
+ CellChangeTimes->{3.6666645536525087`*^9}]
+}, Open  ]]
+},
+WindowSize->{808, 751},
+WindowMargins->{{42, Automatic}, {41, Automatic}},
+FrontEndVersion->"10.4 for Mac OS X x86 (32-bit, 64-bit Kernel) (February 25, \
+2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "Info33666693320-5964449"->{
+  Cell[9813, 286, 609, 13, 58, "Print",
+   CellTags->"Info33666693320-5964449"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"Info33666693320-5964449", 11612, 340}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 173, 3, 28, "Input"],
+Cell[CellGroupData[{
+Cell[778, 29, 9032, 255, 324, "Print"],
+Cell[9813, 286, 609, 13, 58, "Print",
+ CellTags->"Info33666693320-5964449"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10471, 305, 257, 6, 28, "Input"],
+Cell[10731, 313, 461, 10, 24, "Message"],
+Cell[11195, 325, 78, 1, 28, "Output"]
+}, Open  ]]
+}
+]
+*)
+
