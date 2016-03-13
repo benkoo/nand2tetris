@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     47404,       1148]
-NotebookOptionsPosition[     46912,       1126]
-NotebookOutlinePosition[     47271,       1142]
-CellTagsIndexPosition[     47228,       1139]
+NotebookDataLength[     50822,       1231]
+NotebookOptionsPosition[     50132,       1203]
+NotebookOutlinePosition[     50490,       1219]
+CellTagsIndexPosition[     50447,       1216]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -80,7 +80,7 @@ Cell[BoxData[
         RowBox[{"\"\<1\>\"", ",", "0111111"}], "}"}], ",", 
        "\[IndentingNewLine]", 
        RowBox[{"{", 
-        RowBox[{"\"\<-1\>\"", ",", "0111011"}], "}"}], ",", 
+        RowBox[{"\"\<-1\>\"", ",", "0111010"}], "}"}], ",", 
        "\[IndentingNewLine]", 
        RowBox[{"{", 
         RowBox[{"\"\<D\>\"", ",", "0001100"}], "}"}], ",", 
@@ -1048,7 +1048,10 @@ Cell[BoxData[
    3.66686390205446*^9}, {3.666863970515334*^9, 3.6668639968571653`*^9}, 
    3.6668641882673683`*^9, {3.66686421942467*^9, 3.6668642295855303`*^9}, {
    3.666864345510273*^9, 3.666864346848181*^9}, {3.6668643800145483`*^9, 
-   3.666864386037599*^9}}],
+   3.666864386037599*^9}, {3.666865318274399*^9, 3.666865322527719*^9}, {
+   3.6668654704343*^9, 3.666865471528819*^9}, {3.666865507801935*^9, 
+   3.666865547199936*^9}, {3.666865594780552*^9, 3.666865595593986*^9}, {
+   3.666865672198945*^9, 3.66686568036546*^9}}],
 
 Cell[CellGroupData[{
 
@@ -1086,7 +1089,8 @@ Mathematica/Add.hack\"\>"], "Output",
  CellChangeTimes->{
   3.666861460425425*^9, {3.666861532788464*^9, 3.6668616084193153`*^9}, 
    3.666861725574967*^9, {3.666861776562469*^9, 3.666861779257905*^9}, 
-   3.666861845053817*^9, 3.66686250062543*^9, 3.666864514646741*^9}]
+   3.666861845053817*^9, 3.66686250062543*^9, {3.666864514646741*^9, 
+   3.666864526017192*^9}}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -1095,8 +1099,8 @@ Cell[BoxData[
  RowBox[{
   RowBox[{"(*", 
    RowBox[{"Testing", " ", "Code", " ", "using", " ", "the", " ", 
-    RowBox[{"Add", ".", "asm"}], " ", "Hack", " ", "Assembly", " ", "code"}], 
-   "*)"}], "\[IndentingNewLine]", 
+    RowBox[{"MaxL", ".", "asm"}], " ", "Hack", " ", "Assembly", " ", "code"}],
+    "*)"}], "\[IndentingNewLine]", 
   RowBox[{
    RowBox[{
     RowBox[{"rawText", "=", 
@@ -1116,16 +1120,89 @@ Cell[BoxData[
       RowBox[{"NotebookDirectory", "[", "]"}], "<>", "\"\<MaxL.hack\>\""}], 
      ",", "binaryCodeInString", ",", "\"\<Text\>\""}], "]"}]}]}]], "Input",
  CellChangeTimes->{{3.666862418862672*^9, 3.6668624498096457`*^9}, 
-   3.666862507770876*^9, 3.666864519250189*^9}],
+   3.666862507770876*^9, 3.666864519250189*^9, {3.666864733251116*^9, 
+   3.666864735234899*^9}}],
 
 Cell[BoxData["\<\"/Users/bkoo/Documents/Workspace/GitRepos/nand2tetris/06/\
 Mathematica/MaxL.hack\"\>"], "Output",
  CellChangeTimes->{{3.666862436531673*^9, 3.666862450574032*^9}, {
    3.666862503704299*^9, 3.6668625080709457`*^9}, 3.666864519780159*^9}]
-}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"Testing", " ", "Code", " ", "using", " ", "the", " ", 
+    RowBox[{"RectL", ".", "asm"}], " ", "Hack", " ", "Assembly", " ", 
+    "code"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"rawText", "=", 
+     RowBox[{"Import", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"NotebookDirectory", "[", "]"}], "<>", "\"\<../rect/\>\"", 
+        "<>", "\"\<RectL.asm\>\""}], ",", " ", "\"\<Text\>\""}], "]"}]}], 
+    ";"}], "\[IndentingNewLine]", 
+   RowBox[{"binaryCodeInString", "=", 
+    RowBox[{"HackCodeInString", "[", "rawText", "]"}]}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"Export", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"NotebookDirectory", "[", "]"}], "<>", "\"\<RectL.hack\>\""}], 
+     ",", "binaryCodeInString", ",", "\"\<Text\>\""}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.6668649109617643`*^9, 3.666864924392845*^9}, 
+   3.666864982273046*^9}],
+
+Cell[BoxData["\<\"0000000000000000\\n1111110000010000\\n0000000000010111\\\
+n1110001100000110\\n0000000000010000\\n1110001100001000\\n0100000000000000\\\
+n1110110000010000\\n0000000000010001\\n1110001100001000\\n0000000000010001\\\
+n1111110000100000\\n1110111010001000\\n0000000000010001\\n1111110000010000\\\
+n0000000000100000\\n1110000010010000\\n0000000000010001\\n1110001100001000\\\
+n0000000000010000\\n1111110010011000\\n0000000000001010\\n1110001100000001\\\
+n0000000000010111\\n1110101010000111\\n\"\>"], "Output",
+ CellChangeTimes->{
+  3.666864924826742*^9, {3.666864983001502*^9, 3.666864994935381*^9}, 
+   3.666865383345323*^9, 3.6668656134143867`*^9, 3.6668656871435623`*^9}],
+
+Cell[BoxData["\<\"/Users/bkoo/Documents/Workspace/GitRepos/nand2tetris/06/\
+Mathematica/RectL.hack\"\>"], "Output",
+ CellChangeTimes->{
+  3.666864924826742*^9, {3.666864983001502*^9, 3.666864994935381*^9}, 
+   3.666865383345323*^9, 3.6668656134143867`*^9, 3.6668656871817217`*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"Testing", " ", "Code", " ", "using", " ", "the", " ", 
+    RowBox[{"PongL", ".", "asm"}], " ", "Hack", " ", "Assembly", " ", 
+    "code"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"rawText", "=", 
+     RowBox[{"Import", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"NotebookDirectory", "[", "]"}], "<>", "\"\<../pong/\>\"", 
+        "<>", "\"\<PongL.asm\>\""}], ",", " ", "\"\<Text\>\""}], "]"}]}], 
+    ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"binaryCodeInString", "=", 
+     RowBox[{"HackCodeInString", "[", "rawText", "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"Export", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"NotebookDirectory", "[", "]"}], "<>", "\"\<PongL.hack\>\""}], 
+     ",", "binaryCodeInString", ",", "\"\<Text\>\""}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.666864738259791*^9, 3.666864754905813*^9}}]
 },
 WindowSize->{808, 751},
-WindowMargins->{{289, Automatic}, {Automatic, 37}},
+WindowMargins->{{Automatic, 134}, {Automatic, 0}},
 FrontEndVersion->"10.4 for Mac OS X x86 (32-bit, 64-bit Kernel) (February 25, \
 2016)",
 StyleDefinitions->"Default.nb"
@@ -1141,15 +1218,21 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 43528, 1030, 4738, "Input"],
+Cell[558, 20, 43767, 1033, 4738, "Input"],
 Cell[CellGroupData[{
-Cell[44111, 1054, 1156, 27, 80, "Input"],
-Cell[45270, 1083, 347, 5, 28, "Output"]
+Cell[44350, 1057, 1156, 27, 80, "Input"],
+Cell[45509, 1086, 375, 6, 28, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[45654, 1093, 985, 25, 80, "Input"],
-Cell[46642, 1120, 254, 3, 86, "Output"]
-}, Open  ]]
+Cell[45921, 1097, 1036, 26, 80, "Input"],
+Cell[46960, 1125, 254, 3, 28, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[47251, 1133, 948, 24, 80, "Input"],
+Cell[48202, 1159, 687, 9, 454, "Output"],
+Cell[48892, 1170, 280, 4, 86, "Output"]
+}, Open  ]],
+Cell[49187, 1177, 941, 24, 80, "Input"]
 }
 ]
 *)
