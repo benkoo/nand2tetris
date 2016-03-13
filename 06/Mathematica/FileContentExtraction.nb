@@ -10,17 +10,17 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      3182,         95]
-NotebookOptionsPosition[      2777,         76]
-NotebookOutlinePosition[      3135,         92]
-CellTagsIndexPosition[      3092,         89]
+NotebookDataLength[     15838,        434]
+NotebookOptionsPosition[     14317,        378]
+NotebookOutlinePosition[     14674,        394]
+CellTagsIndexPosition[     14631,        391]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
 
 Cell[CellGroupData[{
-Cell[BoxData[
+Cell[BoxData[{
  RowBox[{
   RowBox[{"myText", "=", 
    RowBox[{"Import", "[", 
@@ -28,54 +28,356 @@ Cell[BoxData[
      RowBox[{
       RowBox[{"NotebookDirectory", "[", "]"}], "<>", "\"\<../pong/\>\"", 
       "<>", "\"\<PongL.asm\>\""}], ",", " ", "\"\<Text\>\""}], "]"}]}], 
-  ";"}]], "Input",
- CellChangeTimes->{{3.666867542230665*^9, 3.66686754355872*^9}}],
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"arrayOfLines", "=", " ", 
+   RowBox[{"StringSplit", "[", 
+    RowBox[{"myText", ",", " ", "\"\<\\n\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"arrayOfLines", "//", "Length"}]}], "Input",
+ CellChangeTimes->{{3.666867542230665*^9, 3.66686754355872*^9}, {
+  3.666867582098935*^9, 3.6668675875770283`*^9}, {3.6668687711979723`*^9, 
+  3.666868774772647*^9}, {3.666870319646702*^9, 3.6668703257809677`*^9}, {
+  3.666870855743917*^9, 3.666870860767806*^9}}],
+
+Cell[BoxData["27490"], "Output",
+ CellChangeTimes->{3.666870861186577*^9, 3.666871258096366*^9, 
+  3.666871787029715*^9, 3.666871907168909*^9}]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{3.66686760984216*^9, 3.666870854432917*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.666867619042111*^9, 3.666867623472616*^9}, 
+   3.666870858584153*^9}],
+
+Cell[BoxData["27490"], "Output",
+ CellChangeTimes->{3.666867623943775*^9, 3.6668687803800592`*^9, 
+  3.666870331492693*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Timing", "[", 
+  RowBox[{"CollectInstruction", "[", "arrayOfLines", "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.666867673050914*^9, 3.666867677956358*^9}, {
+  3.666868784348701*^9, 3.666868786748663*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"0.000777`", ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"@0\"\>", ",", "\<\"D=M\"\>", ",", "\<\"@1\"\>", 
+     ",", "\<\"D=D-M\"\>", ",", "\<\"@10\"\>", ",", "\<\"D;JGT\"\>", 
+     ",", "\<\"@1\"\>", ",", "\<\"D=M\"\>", ",", "\<\"@12\"\>", 
+     ",", "\<\"0;JMP\"\>", ",", "\<\"@0\"\>", ",", "\<\"D=M\"\>", 
+     ",", "\<\"@2\"\>", ",", "\<\"M=D\"\>", ",", "\<\"@14\"\>", 
+     ",", "\<\"0;JMP\"\>"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.66686789452376*^9, 3.666868786997457*^9, 
+  3.666869765989107*^9}]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.666868850793998*^9, 3.666868851073859*^9}, {
+   3.666869744550427*^9, 3.6668697514703217`*^9}, {3.6668700293518133`*^9, 
+   3.666870029511566*^9}, {3.666870103141467*^9, 3.666870113891646*^9}, {
+   3.666870146986319*^9, 3.666870155905693*^9}, {3.666870247375761*^9, 
+   3.666870286495042*^9}, 3.666871775591365*^9}],
 
 Cell[BoxData[
  RowBox[{
-  StyleBox[
-   RowBox[{"NotebookDirectory", "::", "nosv"}], "MessageName"], 
-  RowBox[{
-  ":", " "}], "\<\"The notebook \
-\[NoBreak]\\!\\(\\*TemplateBox[List[FrontEndObject[LinkObject[\\\"xx2vb_shm\\\
-\", 3, 1]], 31, \\\"FrontEndObject[LinkObject[\\\\\\\"xx2vb_shm\\\\\\\", 3, \
-1]]\\\", \\\"31\\\", \\\"\\\\\\\"Untitled-2\\\\\\\"\\\"], \
-\\\"NotebookObjectUnsaved\\\"]\\)\[NoBreak] is not saved. \\!\\(\\*ButtonBox[\
-\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
-ButtonData:>\\\"paclet:ref/NotebookDirectory\\\", ButtonNote -> \
-\\\"NotebookDirectory::nosv\\\"]\\)\"\>"}]], "Message", "MSG",
- CellChangeTimes->{3.6668675444102793`*^9}],
+  RowBox[{"myCollectInstruction", "[", "textLineArray_", "]"}], ":=", 
+  "\[IndentingNewLine]", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", "\[IndentingNewLine]", " ", 
+     RowBox[{
+      RowBox[{"n", "=", "1"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"dropCandidatesArray", "=", 
+       RowBox[{"{", "}"}]}], ",", "\[IndentingNewLine]", 
+      RowBox[{"emptyArray", "=", 
+       RowBox[{"{", "}"}]}]}], "\[IndentingNewLine]", "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"While", "[", 
+      RowBox[{
+       RowBox[{"n", "<=", 
+        RowBox[{"Length", "[", "textLineArray", "]"}]}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"StringTrim", "[", 
+            RowBox[{
+            "textLineArray", "\[LeftDoubleBracket]", "n", 
+             "\[RightDoubleBracket]"}], "]"}], "\[Equal]", "\"\<\>\""}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"(*", " ", "THEN", " ", "*)"}], "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"AppendTo", "[", 
+            RowBox[{"dropCandidatesArray", ",", 
+             RowBox[{"{", "n", "}"}]}], "]"}], ";", "\[IndentingNewLine]", 
+           RowBox[{"Print", "[", "\"\<-----Empty String-----\>\"", "]"}]}], 
+          ",", "\[IndentingNewLine]", 
+          RowBox[{"(*", " ", "ELSE", " ", "*)"}], "\[IndentingNewLine]", 
+          RowBox[{"If", "[", " ", 
+           RowBox[{
+            RowBox[{"StringStartsQ", "[", 
+             RowBox[{
+              RowBox[{
+              "textLineArray", "\[LeftDoubleBracket]", "n", 
+               "\[RightDoubleBracket]"}], ",", " ", "\"\<//\>\""}], "]"}], 
+            ",", "\[IndentingNewLine]", 
+            RowBox[{"(*", " ", "THEN", " ", "*)"}], "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{"AppendTo", "[", 
+              RowBox[{"dropCandidatesArray", ",", 
+               RowBox[{"{", "n", "}"}]}], "]"}], ";", "\[IndentingNewLine]", 
+             RowBox[{"Print", "[", 
+              RowBox[{"\"\<Is Comment String:   \>\"", " ", "<>", 
+               RowBox[{
+               "textLineArray", "\[LeftDoubleBracket]", "n", 
+                "\[RightDoubleBracket]"}]}], " ", "]"}]}]}], " ", 
+           "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", "]"}], 
+        "\[IndentingNewLine]", 
+        RowBox[{"n", "++"}]}]}], " ", "]"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"emptyArray", "=", 
+      RowBox[{"Drop", "[", "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Return", "[", "emptyArray", "]"}], ";"}]}], 
+   "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellChangeTimes->{{3.666867910651682*^9, 3.666867925659955*^9}, {
+   3.666869829040453*^9, 3.6668698359026413`*^9}, {3.666870038368128*^9, 
+   3.666870038519622*^9}, {3.666870118197237*^9, 3.666870118499523*^9}, {
+   3.666870188175839*^9, 3.666870188350559*^9}, {3.6668702922637463`*^9, 
+   3.6668702925594587`*^9}, {3.666870583508535*^9, 3.6668705927318993`*^9}, {
+   3.6668706250110292`*^9, 3.666870648777638*^9}, {3.6668706870262127`*^9, 
+   3.66687083332543*^9}, {3.666871133191185*^9, 3.666871216142138*^9}, {
+   3.6668712807391*^9, 3.6668713016436987`*^9}, 3.666871518752081*^9, {
+   3.666871562627028*^9, 3.6668716704257383`*^9}, {3.666871705921556*^9, 
+   3.666871766551941*^9}, 3.6668718002536077`*^9, 3.666871901995682*^9, {
+   3.6668719375017223`*^9, 3.666871981532909*^9}, {3.6668720617903214`*^9, 
+   3.666872072622875*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Timing", "[", 
+  RowBox[{"myCollectInstruction", "[", "arrayOfLines", "]"}], "]"}]], "Input",\
+
+ CellChangeTimes->{{3.66686879935756*^9, 3.6668687996204348`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\<\"Is Comment String:   // This file is part of \
+www.nand2tetris.org\"\>"], "Print",
+ CellChangeTimes->{3.6668708731257133`*^9, 3.6668712195749598`*^9, 
+  3.666871312233769*^9, 3.666871832612254*^9, 3.6668719123843412`*^9, 
+  3.666871985108527*^9}],
+
+Cell[BoxData["\<\"Is Comment String:   // and the book \\\"The Elements of \
+Computing Systems\\\"\"\>"], "Print",
+ CellChangeTimes->{3.6668708731257133`*^9, 3.6668712195749598`*^9, 
+  3.666871312233769*^9, 3.666871832612254*^9, 3.6668719123843412`*^9, 
+  3.666871985117919*^9}],
+
+Cell[BoxData["\<\"Is Comment String:   // by Nisan and Schocken, MIT Press.\"\
+\>"], "Print",
+ CellChangeTimes->{3.6668708731257133`*^9, 3.6668712195749598`*^9, 
+  3.666871312233769*^9, 3.666871832612254*^9, 3.6668719123843412`*^9, 
+  3.666871985127358*^9}],
+
+Cell[BoxData["\<\"Is Comment String:   // File name: \
+projects/06/pong/PongL.asm\"\>"], "Print",
+ CellChangeTimes->{3.6668708731257133`*^9, 3.6668712195749598`*^9, 
+  3.666871312233769*^9, 3.666871832612254*^9, 3.6668719123843412`*^9, 
+  3.666871985136785*^9}],
+
+Cell[BoxData["\<\"-----Empty String-----\"\>"], "Print",
+ CellChangeTimes->{3.6668708731257133`*^9, 3.6668712195749598`*^9, 
+  3.666871312233769*^9, 3.666871832612254*^9, 3.6668719123843412`*^9, 
+  3.6668719851461697`*^9}],
+
+Cell[BoxData["\<\"Is Comment String:   // Symbol-less version of the Pong.asm \
+program.\"\>"], "Print",
+ CellChangeTimes->{3.6668708731257133`*^9, 3.6668712195749598`*^9, 
+  3.666871312233769*^9, 3.666871832612254*^9, 3.6668719123843412`*^9, 
+  3.6668719851554947`*^9}],
+
+Cell[BoxData["\<\"-----Empty String-----\"\>"], "Print",
+ CellChangeTimes->{3.6668708731257133`*^9, 3.6668712195749598`*^9, 
+  3.666871312233769*^9, 3.666871832612254*^9, 3.6668719123843412`*^9, 
+  3.666871985164747*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"0.41529`", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", "1", "}"}], ",", 
+     RowBox[{"{", "2", "}"}], ",", 
+     RowBox[{"{", "3", "}"}], ",", 
+     RowBox[{"{", "4", "}"}], ",", 
+     RowBox[{"{", "5", "}"}], ",", 
+     RowBox[{"{", "6", "}"}], ",", 
+     RowBox[{"{", "7", "}"}]}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.666871912789625*^9, 3.666871985506372*^9}]
+}, Open  ]],
 
 Cell[BoxData[
  RowBox[{
-  StyleBox[
-   RowBox[{"StringJoin", "::", "string"}], "MessageName"], 
   RowBox[{
-  ":", " "}], "\<\"String expected at position \
-\[NoBreak]\\!\\(\\*RowBox[{\\\"1\\\"}]\\)\[NoBreak] in \
-\[NoBreak]\\!\\(\\*RowBox[{\\\"$Failed\\\", \\\"<>\\\", \
-\\\"\\\\\\\"../pong/PongL.asm\\\\\\\"\\\"}]\\)\[NoBreak]. \\!\\(\\*ButtonBox[\
-\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
-ButtonData:>\\\"paclet:ref/StringJoin\\\", ButtonNote -> \
-\\\"StringJoin::string\\\"]\\)\"\>"}]], "Message", "MSG",
- CellChangeTimes->{3.666867544477808*^9}],
+   RowBox[{"myHackCodeInString", "[", "rawText_", "]"}], ":=", " ", 
+   RowBox[{"Module", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"{", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"arrayOfLines", " ", "=", " ", 
+        RowBox[{"{", "}"}]}], ",", "\[IndentingNewLine]", 
+       RowBox[{"asmArray", " ", "=", " ", 
+        RowBox[{"{", "}"}]}], ",", "\[IndentingNewLine]", 
+       RowBox[{"binaryCodeArray", " ", "=", " ", 
+        RowBox[{"{", "}"}]}], ",", "\[IndentingNewLine]", 
+       RowBox[{"binaryCodeString", "=", "\"\<\>\""}]}], "\[IndentingNewLine]",
+       "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"arrayOfLines", "=", " ", 
+       RowBox[{"StringSplit", "[", 
+        RowBox[{"rawText", ",", " ", "\"\<\\n\>\""}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Length", "[", "arrayOfLines", "]"}], "\[LessEqual]", "0"}], 
+        ",", " ", "\[IndentingNewLine]", 
+        RowBox[{"(*", "Then", "*)"}], " ", 
+        RowBox[{
+         RowBox[{"Print", "[", "\"\<No Text to be translated\>\"", "]"}], ";",
+          " ", 
+         RowBox[{"Return", " ", "Null"}]}]}], "\[IndentingNewLine]", "]"}], 
+      ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"asmArray", "=", 
+       RowBox[{"myCollectInstruction", "[", "arrayOfLines", "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"binaryCodeArray", "=", 
+       RowBox[{"TranslateInstruction", "[", "asmArray", "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"(*", " ", 
+       RowBox[{
+        RowBox[{"Print", "[", "binaryCodeArray", "]"}], ";"}], "*)"}], 
+      "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Length", "[", "binaryCodeArray", "]"}], "\[LessEqual]", 
+         "0"}], ",", " ", "\[IndentingNewLine]", 
+        RowBox[{"(*", "Then", "*)"}], " ", 
+        RowBox[{"Print", "[", "\"\<No Code to be translated\>\"", "]"}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"(*", "Else", "*)"}], " ", 
+        RowBox[{"binaryCodeString", " ", "=", 
+         RowBox[{"StringJoin", "[", 
+          RowBox[{"Map", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{"#", "<>", "\"\<\\n\>\""}], ")"}], "&"}], ",", " ", 
+            "binaryCodeArray"}], "]"}], "]"}]}]}], "\[IndentingNewLine]", 
+       "]"}], ";", "\[IndentingNewLine]", "binaryCodeString"}]}], 
+    "\[IndentingNewLine]", "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.666867970644184*^9, 3.666867977467264*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"rawText", "=", 
+   RowBox[{"Import", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"NotebookDirectory", "[", "]"}], "<>", "\"\<../max/\>\"", "<>", 
+      "\"\<MaxL.asm\>\""}], ",", " ", "\"\<Text\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"binaryCodeInString", "=", 
+   RowBox[{"myHackCodeInString", "[", "rawText", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Export", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"NotebookDirectory", "[", "]"}], "<>", "\"\<MaxL.hack\>\""}], ",",
+    "binaryCodeInString", ",", "\"\<Text\>\""}], "]"}]}], "Input",
+ CellChangeTimes->{{3.666867997504711*^9, 3.666868004859943*^9}, 
+   3.6668680545662003`*^9}],
+
+Cell[BoxData["\<\"/Users/bkoo/Documents/Workspace/GitRepos/nand2tetris/06/\
+Mathematica/MaxL.hack\"\>"], "Output",
+ CellChangeTimes->{{3.6668679984725933`*^9, 3.6668680053274317`*^9}, 
+   3.666868054967656*^9}]
+}, Open  ]],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"rawText", "=", 
+   RowBox[{"Import", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"NotebookDirectory", "[", "]"}], "<>", "\"\<../pong/\>\"", 
+      "<>", "\"\<PongL.asm\>\""}], ",", " ", "\"\<Text\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"binaryCodeInString", "=", 
+   RowBox[{"myHackCodeInString", "[", "rawText", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Export", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"NotebookDirectory", "[", "]"}], "<>", "\"\<PongL.hack\>\""}], 
+   ",", "binaryCodeInString", ",", "\"\<Text\>\""}], "]"}]}], "Input",
+ CellChangeTimes->{{3.666868077158166*^9, 3.66686807747722*^9}}],
 
 Cell[BoxData[
  RowBox[{
-  StyleBox[
-   RowBox[{"Import", "::", "chtype"}], "MessageName"], 
-  RowBox[{
-  ":", " "}], "\<\"First argument \[NoBreak]\\!\\(\\*RowBox[{\\\"$Failed\\\", \
-\\\"<>\\\", \\\"\\\\\\\"../pong/PongL.asm\\\\\\\"\\\"}]\\)\[NoBreak] is not a \
-valid file, directory, or URL specification. \\!\\(\\*ButtonBox[\\\"\
-\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
-ButtonData:>\\\"paclet:ref/message/Import/chtype\\\", ButtonNote -> \
-\\\"Import::chtype\\\"]\\)\"\>"}]], "Message", "MSG",
- CellChangeTimes->{3.666867544514942*^9}]
+  RowBox[{"aString", " ", "=", " ", "\"\<abf\\n\>\""}], ";"}]], "Input",
+ CellChangeTimes->{{3.66686940378329*^9, 3.6668694097899427`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"StringDrop", "[", 
+  RowBox[{"aString", ",", 
+   RowBox[{"{", 
+    RowBox[{"5", ",", "10"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.666869395279023*^9, 3.6668694176324673`*^9}}],
+
+Cell[BoxData["\<\"abcdklm\\n\"\>"], "Output",
+ CellChangeTimes->{{3.666869391617527*^9, 3.666869396638083*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"StringTrim", "[", "\"\<\>\"", "]"}], "//", "FullForm"}]], "Input",
+ CellChangeTimes->{{3.666869966573457*^9, 3.666870006538389*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox["\"\<\>\"",
+   ShowSpecialCharacters->False,
+   ShowStringCharacters->True,
+   NumberMarks->True],
+  FullForm]], "Output",
+ CellChangeTimes->{{3.666869968313245*^9, 3.666870007061179*^9}}]
 }, Open  ]]
 },
 WindowSize->{808, 751},
-WindowMargins->{{12, Automatic}, {Automatic, 24}},
+WindowMargins->{{14, Automatic}, {Automatic, 5}},
 FrontEndVersion->"10.4 for Mac OS X x86 (32-bit, 64-bit Kernel) (February 25, \
 2016)",
 StyleDefinitions->"Default.nb"
@@ -92,14 +394,49 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[580, 22, 334, 9, 28, "Input"],
-Cell[917, 33, 688, 13, 34, "Message"],
-Cell[1608, 48, 582, 12, 24, "Message"],
-Cell[2193, 62, 568, 11, 24, "Message"]
+Cell[580, 22, 773, 18, 63, "Input"],
+Cell[1356, 42, 143, 2, 28, "Output"]
+}, Open  ]],
+Cell[1514, 47, 89, 1, 28, "Input"],
+Cell[CellGroupData[{
+Cell[1628, 52, 118, 2, 28, "Input"],
+Cell[1749, 56, 123, 2, 28, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1909, 63, 230, 4, 28, "Input"],
+Cell[2142, 69, 551, 11, 46, "Output"]
+}, Open  ]],
+Cell[2708, 83, 364, 5, 28, "Input"],
+Cell[3075, 90, 3506, 73, 386, "Input"],
+Cell[CellGroupData[{
+Cell[6606, 167, 186, 4, 28, "Input"],
+Cell[CellGroupData[{
+Cell[6817, 175, 264, 4, 22, "Print"],
+Cell[7084, 181, 278, 4, 22, "Print"],
+Cell[7365, 187, 257, 4, 22, "Print"],
+Cell[7625, 193, 261, 4, 22, "Print"],
+Cell[7889, 199, 222, 3, 22, "Print"],
+Cell[8114, 204, 270, 4, 22, "Print"],
+Cell[8387, 210, 220, 3, 22, "Print"]
+}, Open  ]],
+Cell[8622, 216, 425, 12, 28, "Output"]
+}, Open  ]],
+Cell[9062, 231, 2646, 61, 369, "Input"],
+Cell[CellGroupData[{
+Cell[11733, 296, 711, 19, 63, "Input"],
+Cell[12447, 317, 210, 3, 28, "Output"]
+}, Open  ]],
+Cell[12672, 323, 685, 18, 63, "Input"],
+Cell[13360, 343, 163, 3, 28, "Input"],
+Cell[CellGroupData[{
+Cell[13548, 350, 210, 5, 28, "Input"],
+Cell[13761, 357, 111, 1, 46, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13909, 363, 167, 3, 28, "Input"],
+Cell[14079, 368, 222, 7, 39, "Output"]
 }, Open  ]]
 }
 ]
 *)
-
-(* End of internal cache information *)
 

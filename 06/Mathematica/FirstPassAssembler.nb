@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     50812,       1237]
-NotebookOptionsPosition[     50090,       1207]
-NotebookOutlinePosition[     50447,       1223]
-CellTagsIndexPosition[     50404,       1220]
+NotebookDataLength[     52956,       1273]
+NotebookOptionsPosition[     52232,       1243]
+NotebookOutlinePosition[     52591,       1259]
+CellTagsIndexPosition[     52548,       1256]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -860,11 +860,12 @@ Cell[BoxData[
     "\[IndentingNewLine]", 
     RowBox[{"Module", "[", 
      RowBox[{
-      RowBox[{"{", 
+      RowBox[{"{", "\[IndentingNewLine]", " ", 
        RowBox[{
-        RowBox[{"emptyArray", "=", 
-         RowBox[{"{", "}"}]}], ",", " ", 
-        RowBox[{"n", "=", "1"}]}], "}"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"n", "=", "1"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"dropCandidatesArray", "=", 
+         RowBox[{"{", "}"}]}]}], "\[IndentingNewLine]", "}"}], ",", 
+      "\[IndentingNewLine]", 
       RowBox[{
        RowBox[{"While", "[", 
         RowBox[{
@@ -874,25 +875,45 @@ Cell[BoxData[
          RowBox[{
           RowBox[{"If", "[", 
            RowBox[{
-            RowBox[{"Not", "[", 
-             RowBox[{
-              RowBox[{"IsEmptyLineQ", "[", 
-               RowBox[{
-               "textLineArray", "\[LeftDoubleBracket]", "n", 
-                "\[RightDoubleBracket]"}], "]"}], "||", " ", 
-              RowBox[{"IsCommentedLineQ", "[", 
-               RowBox[{
-               "textLineArray", "\[LeftDoubleBracket]", "n", 
-                "\[RightDoubleBracket]"}], "]"}]}], "]"}], ",", 
-            RowBox[{"AppendTo", "[", 
-             RowBox[{"emptyArray", ",", " ", 
+            RowBox[{
+             RowBox[{"StringTrim", "[", 
               RowBox[{
               "textLineArray", "\[LeftDoubleBracket]", "n", 
-               "\[RightDoubleBracket]"}]}], "]"}]}], "]"}], 
-          "\[IndentingNewLine]", 
+               "\[RightDoubleBracket]"}], "]"}], "\[Equal]", "\"\<\>\""}], 
+            ",", "\[IndentingNewLine]", 
+            RowBox[{"(*", " ", "THEN", " ", "*)"}], "\[IndentingNewLine]", 
+            RowBox[{"(*", " ", 
+             RowBox[{
+              RowBox[{"Print", "[", "\"\<-----Empty String-----\>\"", "]"}], 
+              ","}], "*)"}], "\[IndentingNewLine]", 
+            RowBox[{"AppendTo", "[", 
+             RowBox[{"dropCandidatesArray", ",", 
+              RowBox[{"{", "n", "}"}]}], "]"}], ",", "\[IndentingNewLine]", 
+            RowBox[{"(*", " ", "ELSE", " ", "*)"}], "\[IndentingNewLine]", 
+            RowBox[{"If", "[", " ", 
+             RowBox[{
+              RowBox[{"StringStartsQ", "[", 
+               RowBox[{
+                RowBox[{
+                "textLineArray", "\[LeftDoubleBracket]", "n", 
+                 "\[RightDoubleBracket]"}], ",", " ", "\"\<//\>\""}], "]"}], 
+              ",", "\[IndentingNewLine]", 
+              RowBox[{"(*", " ", "THEN", " ", "*)"}], "\[IndentingNewLine]", 
+              RowBox[{"(*", 
+               RowBox[{"Print", "[", 
+                RowBox[{"\"\<Is Comment String:   \>\"", " ", "<>", 
+                 RowBox[{
+                 "textLineArray", "\[LeftDoubleBracket]", "n", 
+                  "\[RightDoubleBracket]"}]}], " ", "]"}], " ", "*)"}], 
+              "\[IndentingNewLine]", 
+              RowBox[{"AppendTo", "[", 
+               RowBox[{"dropCandidatesArray", ",", 
+                RowBox[{"{", "n", "}"}]}], "]"}]}], "\[IndentingNewLine]", 
+             "]"}]}], "\[IndentingNewLine]", "]"}], "\[IndentingNewLine]", 
           RowBox[{"n", "++"}]}]}], " ", "]"}], ";", "\[IndentingNewLine]", 
-       RowBox[{"Return", "[", "emptyArray", "]"}], ";"}]}], 
-     "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
+       RowBox[{"Delete", "[", 
+        RowBox[{"textLineArray", ",", "dropCandidatesArray"}], " ", "]"}]}]}],
+      "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
    "\[IndentingNewLine]", 
    RowBox[{"(*", " ", 
     RowBox[{
@@ -1000,6 +1021,10 @@ Cell[BoxData[
         RowBox[{"asmArray", "=", 
          RowBox[{"CollectInstruction", "[", "arrayOfLines", "]"}]}], ";", 
         "\[IndentingNewLine]", 
+        RowBox[{"(*", " ", 
+         RowBox[{
+          RowBox[{"Print", "[", "asmArray", "]"}], ";"}], " ", "*)"}], 
+        "\[IndentingNewLine]", 
         RowBox[{"binaryCodeArray", "=", 
          RowBox[{"TranslateInstruction", "[", "asmArray", "]"}]}], ";", 
         "\[IndentingNewLine]", 
@@ -1054,7 +1079,12 @@ Cell[BoxData[
    3.666865547199936*^9}, {3.666865594780552*^9, 3.666865595593986*^9}, {
    3.666865672198945*^9, 3.66686568036546*^9}, 3.6668663663859243`*^9, 
    3.666866449898324*^9, 3.6668669293401737`*^9, {3.666868415051179*^9, 
-   3.6668684190562353`*^9}}],
+   3.6668684190562353`*^9}, {3.666872145772684*^9, 3.6668721460916157`*^9}, {
+   3.666872228057001*^9, 3.666872275028352*^9}, {3.666872531046898*^9, 
+   3.666872539159052*^9}, {3.6668725957268763`*^9, 3.666872601557405*^9}, {
+   3.6668727521617193`*^9, 3.6668728092060957`*^9}, {3.666872880006668*^9, 
+   3.6668728907102623`*^9}, {3.6668729412436047`*^9, 3.666872959694767*^9}, {
+   3.666873173632093*^9, 3.666873176365632*^9}}],
 
 Cell[CellGroupData[{
 
@@ -1093,7 +1123,9 @@ Mathematica/Add.hack\"\>"], "Output",
   3.666861460425425*^9, {3.666861532788464*^9, 3.6668616084193153`*^9}, 
    3.666861725574967*^9, {3.666861776562469*^9, 3.666861779257905*^9}, 
    3.666861845053817*^9, 3.66686250062543*^9, {3.666864514646741*^9, 
-   3.666864526017192*^9}}]
+   3.666864526017192*^9}, 3.666872151336823*^9, 3.666872278043153*^9, 
+   3.66687254549827*^9, 3.6668729649576674`*^9, {3.666873178621463*^9, 
+   3.666873183670764*^9}}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -1129,7 +1161,9 @@ Cell[BoxData[
 Cell[BoxData["\<\"/Users/bkoo/Documents/Workspace/GitRepos/nand2tetris/06/\
 Mathematica/MaxL.hack\"\>"], "Output",
  CellChangeTimes->{{3.666862436531673*^9, 3.666862450574032*^9}, {
-   3.666862503704299*^9, 3.6668625080709457`*^9}, 3.666864519780159*^9}]
+   3.666862503704299*^9, 3.6668625080709457`*^9}, 3.666864519780159*^9, 
+   3.66686931184202*^9, 3.666872155171036*^9, 3.6668723021399183`*^9, 
+   3.666872976140698*^9, 3.666873185822233*^9}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -1168,7 +1202,8 @@ Mathematica/RectL.hack\"\>"], "Output",
   3.666864924826742*^9, {3.666864983001502*^9, 3.666864994935381*^9}, 
    3.666865383345323*^9, 3.6668656134143867`*^9, 3.6668656871435623`*^9, 
    3.666865860571377*^9, 3.666866462527972*^9, 3.666866515325835*^9, {
-   3.666866938953689*^9, 3.6668669425531683`*^9}}]
+   3.666866938953689*^9, 3.6668669425531683`*^9}, 3.666872158106258*^9, 
+   3.6668729799735813`*^9, 3.666873187972794*^9}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -1202,11 +1237,12 @@ Cell[BoxData[
 Cell[BoxData["\<\"/Users/bkoo/Documents/Workspace/GitRepos/nand2tetris/06/\
 Mathematica/PongL.hack\"\>"], "Output",
  CellChangeTimes->{3.666866090879084*^9, 3.666866744085896*^9, 
-  3.666867169658174*^9}]
+  3.666867169658174*^9, 3.666872167355117*^9, 3.6668730006399927`*^9, 
+  3.666873201080133*^9}]
 }, Open  ]]
 },
 WindowSize->{808, 751},
-WindowMargins->{{Automatic, 99}, {Automatic, 0}},
+WindowMargins->{{Automatic, 101}, {31, Automatic}},
 FrontEndVersion->"10.4 for Mac OS X x86 (32-bit, 64-bit Kernel) (February 25, \
 2016)",
 StyleDefinitions->"Default.nb"
@@ -1222,22 +1258,22 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 43915, 1036, 4755, "Input"],
+Cell[558, 20, 45652, 1066, 4976, "Input"],
 Cell[CellGroupData[{
-Cell[44498, 1060, 1156, 27, 80, "Input"],
-Cell[45657, 1089, 375, 6, 28, "Output"]
+Cell[46235, 1090, 1156, 27, 80, "Input"],
+Cell[47394, 1119, 518, 8, 28, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[46069, 1100, 1036, 26, 80, "Input"],
-Cell[47108, 1128, 254, 3, 28, "Output"]
+Cell[47949, 1132, 1036, 26, 80, "Input"],
+Cell[48988, 1160, 373, 5, 28, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[47399, 1136, 1085, 26, 80, "Input"],
-Cell[48487, 1164, 402, 6, 28, "Output"]
+Cell[49398, 1170, 1085, 26, 80, "Input"],
+Cell[50486, 1198, 474, 7, 28, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[48926, 1175, 941, 24, 80, "Input"],
-Cell[49870, 1201, 204, 3, 28, "Output"]
+Cell[50997, 1210, 941, 24, 80, "Input"],
+Cell[51941, 1236, 275, 4, 86, "Output"]
 }, Open  ]]
 }
 ]
