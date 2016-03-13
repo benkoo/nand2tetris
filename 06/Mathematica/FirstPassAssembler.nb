@@ -1,0 +1,1072 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.4' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     43457,       1064]
+NotebookOptionsPosition[     43081,       1046]
+NotebookOutlinePosition[     43440,       1062]
+CellTagsIndexPosition[     43397,       1059]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "The", " ", "following", " ", "information", " ", "are", " ", "specific", 
+    " ", "to", " ", "the", " ", "architecture", " ", "of", " ", "Hack", " ", 
+    "Computer"}], " ", "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"Two", " ", "types", " ", "of", " ", "instructions"}], ",", 
+    "    ", "\[IndentingNewLine]", " ", 
+    RowBox[{
+    "A", " ", "Instruction", " ", "and", " ", "C", " ", "Instruction"}]}], 
+   " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"AInstructionDecimalBase", "=", "0"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"AInstructionBase", "=", 
+     RowBox[{"NumberDecompose", "[", 
+      RowBox[{"AInstructionDecimalBase", ",", 
+       RowBox[{"Table", "[", 
+        RowBox[{
+         RowBox[{"10", "^", "i"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"i", ",", "15", ",", "0", ",", 
+           RowBox[{"-", "1"}]}], "}"}]}], "]"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"CInstructionDecimalBase", "=", "1110000000000000"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"CInstructionBase", "=", 
+     RowBox[{"NumberDecompose", "[", 
+      RowBox[{"CInstructionDecimalBase", ",", 
+       RowBox[{"Table", "[", 
+        RowBox[{
+         RowBox[{"10", "^", "i"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"i", ",", "15", ",", "0", ",", 
+           RowBox[{"-", "1"}]}], "}"}]}], "]"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{"For", " ", "C", " ", "Instructions"}], ",", " ", 
+     RowBox[{
+     "the", " ", "following", " ", "\"\<compLookupTable\>\"", " ", "table", 
+      " ", "for", " ", "easy", " ", "transcribing", " ", "from", " ", "the", 
+      " ", 
+      RowBox[{"book", "."}]}]}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"compLookupTable", "=", "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0101010"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<1\>\"", ",", "0111111"}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<-1\>\"", ",", "0111011"}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<D\>\"", ",", "0001100"}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<A\>\"", ",", "0110000"}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<M\>\"", ",", "1110000"}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<!D\>\"", ",", "0001101"}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<!A\>\"", ",", "0110011"}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<!M\>\"", ",", "1110011"}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<-D\>\"", ",", "0001111"}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<-A\>\"", ",", "0110011"}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<-M\>\"", ",", "1110011"}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<D+1\>\"", ",", "0011111"}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<A+1\>\"", ",", "0110111"}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<M+1\>\"", ",", "1110111"}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<D-1\>\"", ",", "0001110"}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<A-1\>\"", ",", "0110010"}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<M-1\>\"", ",", "1110010"}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<D+A\>\"", ",", "0000010"}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<D+M\>\"", ",", "1000010"}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<D-A\>\"", ",", "0010011"}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<D-M\>\"", ",", "1010011"}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<A-D\>\"", ",", "0000111"}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<M-D\>\"", ",", "1000111"}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<D&A\>\"", ",", "0000000"}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<D&M\>\"", ",", "1000000"}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<D|A\>\"", ",", "0010101"}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<D|M\>\"", ",", "1010101"}], "}"}]}], 
+      "\[IndentingNewLine]", "}"}]}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{"Now", ",", " ", 
+     RowBox[{
+     "turn", " ", "this", " ", "into", " ", "a", " ", "set", " ", "of", " ", 
+      "binary", " ", "valued", " ", "decimal", " ", "vectors"}]}], " ", 
+    "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"COMPBITREPRESENTATION", "=", 
+     RowBox[{"Map", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"NumberDecompose", "[", 
+         RowBox[{"#", ",", 
+          RowBox[{"Table", "[", 
+           RowBox[{
+            RowBox[{"10", "^", "i"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"i", ",", "6", ",", "0", ",", 
+              RowBox[{"-", "1"}]}], "}"}]}], "]"}]}], "]"}], "&"}], ",", " ", 
+       
+       RowBox[{
+        RowBox[{"Transpose", "[", "compLookupTable", "]"}], "[", 
+        RowBox[{"[", "2", "]"}], "]"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{"Now", ",", " ", 
+     RowBox[{
+     "convert", " ", "this", " ", "into", " ", "a", " ", "format", " ", 
+      "that", " ", "would", " ", "be", " ", "easy", " ", "for", " ", "later", 
+      " ", "transformation"}]}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"CompInstructionTable", " ", "=", 
+     RowBox[{
+      RowBox[{"Drop", "[", 
+       RowBox[{
+        RowBox[{"Insert", "[", 
+         RowBox[{
+          RowBox[{"compLookupTable", "//", "Transpose"}], ",", " ", 
+          "COMPBITREPRESENTATION", ",", "2"}], "]"}], ",", 
+        RowBox[{"-", "1"}]}], "]"}], "//", "Transpose"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{"For", " ", "C", " ", 
+      RowBox[{"Instructions", "'"}], " ", "destination", " ", "information"}],
+      ",", " ", 
+     RowBox[{
+     "the", " ", "following", " ", "\"\<destLookupTable\>\"", " ", "table", 
+      " ", "for", " ", "easy", " ", "transcribing", " ", "from", " ", "the", 
+      " ", 
+      RowBox[{"book", "."}]}]}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"destLookupTable", "=", 
+     RowBox[{"{", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"\"\<null\>\"", ",", "000"}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<M\>\"", ",", "001"}], "}"}], ",", "\[IndentingNewLine]", 
+       
+       RowBox[{"{", 
+        RowBox[{"\"\<D\>\"", ",", "010"}], "}"}], ",", "\[IndentingNewLine]", 
+       
+       RowBox[{"{", 
+        RowBox[{"\"\<MD\>\"", ",", "011"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<A\>\"", ",", "100"}], "}"}], ",", "\[IndentingNewLine]", 
+       
+       RowBox[{"{", 
+        RowBox[{"\"\<AM\>\"", ",", "101"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<AD\>\"", ",", "110"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<AMD\>\"", ",", "111"}], "}"}]}], "\[IndentingNewLine]", 
+      "}"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{"Now", ",", " ", 
+     RowBox[{
+     "turn", " ", "this", " ", "into", " ", "a", " ", "set", " ", "of", " ", 
+      "binary", " ", "valued", " ", "decimal", " ", "vectors"}]}], " ", 
+    "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"DESTBITREPRESENTATION", "=", 
+     RowBox[{"Map", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"NumberDecompose", "[", 
+         RowBox[{"#", ",", 
+          RowBox[{"Table", "[", 
+           RowBox[{
+            RowBox[{"10", "^", "i"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"i", ",", "2", ",", "0", ",", 
+              RowBox[{"-", "1"}]}], "}"}]}], "]"}]}], "]"}], "&"}], ",", " ", 
+       
+       RowBox[{
+        RowBox[{"Transpose", "[", "destLookupTable", "]"}], "[", 
+        RowBox[{"[", "2", "]"}], "]"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{"Now", ",", " ", 
+     RowBox[{
+     "convert", " ", "this", " ", "into", " ", "a", " ", "format", " ", 
+      "that", " ", "would", " ", "be", " ", "easy", " ", "for", " ", "later", 
+      " ", "transformation"}]}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"DestInstructionTable", " ", "=", 
+     RowBox[{
+      RowBox[{"Drop", "[", 
+       RowBox[{
+        RowBox[{"Insert", "[", 
+         RowBox[{
+          RowBox[{"destLookupTable", "//", "Transpose"}], ",", " ", 
+          "DESTBITREPRESENTATION", ",", "2"}], "]"}], ",", 
+        RowBox[{"-", "1"}]}], "]"}], "//", "Transpose"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{"For", " ", "C", " ", 
+      RowBox[{"Instructions", "'"}], " ", "jump", " ", "location", " ", 
+      "instructions"}], ",", " ", 
+     RowBox[{
+     "the", " ", "following", " ", "\"\<jumpLookupTable\>\"", " ", "table", 
+      " ", "for", " ", "easy", " ", "transcribing", " ", "from", " ", "the", 
+      " ", 
+      RowBox[{"book", "."}]}]}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"jumpLookupTable", "=", 
+     RowBox[{"{", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"\"\<null\>\"", ",", "000"}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<JGT\>\"", ",", "001"}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<JEQ\>\"", ",", "010"}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<JGE\>\"", ",", "011"}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<JLT\>\"", ",", "100"}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<JNE\>\"", ",", "101"}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<JLE\>\"", ",", "110"}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<JMP\>\"", ",", "111"}], "}"}]}], "\[IndentingNewLine]", 
+      "}"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{"Now", ",", " ", 
+     RowBox[{
+     "turn", " ", "this", " ", "into", " ", "a", " ", "set", " ", "of", " ", 
+      "binary", " ", "valued", " ", "decimal", " ", "vectors"}]}], " ", 
+    "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"JUMPBITREPRESENTATION", "=", 
+     RowBox[{"Map", "[", "\[IndentingNewLine]", "\t", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"NumberDecompose", "[", 
+         RowBox[{"#", ",", 
+          RowBox[{"Table", "[", 
+           RowBox[{
+            RowBox[{"10", "^", "i"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"i", ",", "2", ",", "0", ",", 
+              RowBox[{"-", "1"}]}], "}"}]}], "]"}]}], "]"}], "&"}], ",", " ", 
+       "\[IndentingNewLine]", "\t", 
+       RowBox[{
+        RowBox[{"Transpose", "[", "jumpLookupTable", "]"}], 
+        "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}]}], 
+      "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{"Now", ",", " ", 
+     RowBox[{
+     "convert", " ", "this", " ", "into", " ", "a", " ", "format", " ", 
+      "that", " ", "would", " ", "be", " ", "easy", " ", "for", " ", "later", 
+      " ", "transformation"}]}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"JumpInstructionTable", " ", "=", 
+     RowBox[{
+      RowBox[{"Drop", "[", 
+       RowBox[{
+        RowBox[{"Insert", "[", 
+         RowBox[{
+          RowBox[{"jumpLookupTable", "//", "Transpose"}], ",", " ", 
+          "JUMPBITREPRESENTATION", ",", "2"}], "]"}], ",", 
+        RowBox[{"-", "1"}]}], "]"}], "//", "Transpose"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{"*", " ", "Starting", " ", "from", " ", "here"}], ",", " ", 
+     RowBox[{"we", " ", "put", " ", "in", " ", "A", " ", "instructions"}]}], 
+    " ", "**)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{"For", " ", "A", " ", 
+      RowBox[{"Instructions", "'"}], " ", "predefined", " ", "addresses"}], 
+     ",", " ", 
+     RowBox[{
+     "the", " ", "following", " ", "\"\<SymbolTable\>\"", " ", "table", " ", 
+      "for", " ", "easy", " ", "transcribing", " ", "from", " ", "the", " ", 
+      RowBox[{"book", "."}]}]}], " ", "*)"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"SymbolTable", "=", 
+     RowBox[{"{", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"\"\<SP\>\"", ",", "0"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<LCL\>\"", ",", "0"}], "}"}], ",", "\[IndentingNewLine]", 
+       
+       RowBox[{"{", 
+        RowBox[{"\"\<ARG\>\"", ",", "0"}], "}"}], ",", "\[IndentingNewLine]", 
+       
+       RowBox[{"{", 
+        RowBox[{"\"\<THIS\>\"", ",", "0"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<THAT\>\"", ",", "0"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<R0\>\"", ",", "0"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<R1\>\"", ",", "1"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<R2\>\"", ",", "2"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<R3\>\"", ",", "3"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<R4\>\"", ",", "4"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<R5\>\"", ",", "5"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<R6\>\"", ",", "6"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<R7\>\"", ",", "7"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<R8\>\"", ",", "8"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<R9\>\"", ",", "9"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<R10\>\"", ",", "10"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<R11\>\"", ",", "11"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<R12\>\"", ",", "12"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<R13\>\"", ",", "13"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<R14\>\"", ",", "14"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<R15\>\"", ",", "15"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<SCREEN\>\"", ",", "16384"}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<KBD\>\"", ",", "24567"}], "}"}]}], "\[IndentingNewLine]",
+       "}"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{
+     "After", " ", "typying", " ", "in", " ", "all", " ", "the", " ", "given",
+       " ", "information"}], ",", " ", 
+     RowBox[{
+     "these", " ", "keywords", " ", "are", " ", "put", " ", "into", " ", 
+      "these", " ", "keyword", " ", "collections"}]}], " ", "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"SymbolCollection", " ", "=", " ", 
+     RowBox[{
+      RowBox[{"Transpose", "[", "SymbolTable", "]"}], "\[LeftDoubleBracket]", 
+      "1", "\[RightDoubleBracket]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"DestinationCollection", "=", 
+     RowBox[{
+      RowBox[{"Transpose", "[", "DestInstructionTable", "]"}], 
+      "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"CompCollection", "=", 
+     RowBox[{
+      RowBox[{"Transpose", "[", "CompInstructionTable", "]"}], 
+      "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"JumpCollection", "=", 
+     RowBox[{
+      RowBox[{"Transpose", "[", "JumpInstructionTable", "]"}], 
+      "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{"Given", " ", "these", " ", "keywords"}], ",", " ", 
+     RowBox[{
+     "create", " ", "the", " ", "replacement", " ", "rule", " ", 
+      "collections"}]}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"SymbolReplacementRule", "=", 
+     RowBox[{"MapThread", "[", 
+      RowBox[{"Rule", ",", " ", 
+       RowBox[{"Transpose", "[", "SymbolTable", "]"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"JumpReplacementRule", "=", 
+     RowBox[{"MapThread", "[", 
+      RowBox[{"Rule", ",", " ", 
+       RowBox[{"Transpose", "[", "JumpInstructionTable", "]"}]}], "]"}]}], 
+    ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"DestinationReplacementRule", "=", 
+     RowBox[{"MapThread", "[", 
+      RowBox[{"Rule", ",", " ", 
+       RowBox[{"Transpose", "[", "DestInstructionTable", "]"}]}], "]"}]}], 
+    ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"CompInstructionReplacementRule", "=", 
+     RowBox[{"MapThread", "[", 
+      RowBox[{"Rule", ",", " ", 
+       RowBox[{"Transpose", "[", "CompInstructionTable", "]"}]}], "]"}]}], 
+    ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{"Given", " ", "an", " ", "A", " ", "instruction", " ", "inst_"}],
+      ",", " ", 
+     RowBox[{"return", " ", "its", " ", "binary", " ", "string", " ", 
+      RowBox[{"representation", "."}]}]}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"addressCommand", "[", "inst_", "]"}], " ", ":=", " ", 
+    RowBox[{"Module", "[", "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{
+      "*", " ", "This", " ", "function", " ", "is", " ", "for", " ", 
+       "translating", " ", "A", " ", "Instructions"}], " ", "**)"}], 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"{", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"vectAInstruction", "=", "AInstructionBase"}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"addressDecimalValue", "=", "0"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"splitted", "=", 
+         RowBox[{"{", "}"}]}], ",", "\[IndentingNewLine]", 
+        RowBox[{"i", "=", "0"}]}], "\[IndentingNewLine]", "}"}], ",", 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"splitted", "=", 
+        RowBox[{
+         RowBox[{"StringSplit", "[", 
+          RowBox[{"inst", ",", "\"\<@\>\""}], "]"}], "//", "First"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{"StringMatchQ", "[", 
+          RowBox[{"splitted", ",", "NumberString"}], "]"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"addressDecimalValue", "=", " ", 
+          RowBox[{"ToExpression", "[", "splitted", "]"}]}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"addressDecimalValue", "=", 
+          RowBox[{"splitted", " ", "/.", " ", 
+           RowBox[{"MapThread", "[", 
+            RowBox[{"Rule", ",", " ", 
+             RowBox[{"Transpose", "[", "SymbolTable", "]"}]}], "]"}]}]}]}], 
+        "]"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"vectAInstruction", "=", 
+        RowBox[{"NumberDecompose", "[", 
+         RowBox[{"addressDecimalValue", ",", " ", 
+          RowBox[{"Table", "[", 
+           RowBox[{
+            RowBox[{"2", "^", "i"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"i", ",", "15", ",", "0", ",", 
+              RowBox[{"-", "1"}]}], "}"}]}], "]"}]}], "]"}]}], ";", 
+       RowBox[{"StringJoin", "[", 
+        RowBox[{"Map", "[", 
+         RowBox[{"ToString", ",", " ", "vectAInstruction"}], "]"}], "]"}]}]}],
+      "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{"Given", " ", "a", " ", "C", " ", "instruction", " ", "inst_"}], 
+     ",", " ", 
+     RowBox[{"return", " ", "its", " ", "binary", " ", "string", " ", 
+      RowBox[{"representation", "."}]}]}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"compCommand", "[", "inst_", "]"}], " ", ":=", " ", 
+    RowBox[{"Module", "[", "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{
+      "*", " ", "This", " ", "function", " ", "is", " ", "for", " ", 
+       "translating", " ", "COMP", " ", "commands"}], " ", "**)"}], 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"localCInstruction", "=", "Null"}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"vectCInstruction", "=", "CInstructionBase"}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"splitted", "=", 
+         RowBox[{"{", "}"}]}], ",", "\[IndentingNewLine]", 
+        RowBox[{"comp", "=", 
+         RowBox[{"{", "}"}]}], ",", "\[IndentingNewLine]", 
+        RowBox[{"dest", "=", 
+         RowBox[{"{", "}"}]}]}], "\[IndentingNewLine]", "}"}], ",", 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Length", "[", 
+           RowBox[{"StringSplit", "[", 
+            RowBox[{"inst", ",", "\"\<=\>\""}], "]"}], "]"}], "==", " ", 
+          "2"}], ",", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"splitted", "=", 
+           RowBox[{"StringSplit", "[", 
+            RowBox[{"inst", ",", "\"\<=\>\""}], "]"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"(*", " ", 
+           RowBox[{
+            RowBox[{"Print", "[", "splitted", "]"}], ";"}], " ", "*)"}], 
+          "\[IndentingNewLine]", "\[IndentingNewLine]", 
+          RowBox[{"comp", "=", 
+           RowBox[{
+            RowBox[{"Last", "[", "splitted", "]"}], " ", "/.", " ", 
+            "CompInstructionReplacementRule"}]}], ";", "\[IndentingNewLine]", 
+          
+          RowBox[{"(*", " ", 
+           RowBox[{
+            RowBox[{"Print", "[", "comp", "]"}], ";"}], " ", "*)"}], 
+          "\[IndentingNewLine]", 
+          RowBox[{"dest", "=", 
+           RowBox[{
+            RowBox[{"First", "[", "splitted", "]"}], " ", "/.", " ", 
+            "DestinationReplacementRule"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"vectCInstruction", "=", " ", 
+           RowBox[{"ReplacePart", "[", 
+            RowBox[{"vectCInstruction", ",", " ", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"4", "\[Rule]", " ", 
+                RowBox[{
+                "comp", "\[LeftDoubleBracket]", "1", 
+                 "\[RightDoubleBracket]"}]}], ",", " ", 
+               RowBox[{"5", "\[Rule]", " ", 
+                RowBox[{
+                "comp", "\[LeftDoubleBracket]", "2", 
+                 "\[RightDoubleBracket]"}]}], ",", 
+               RowBox[{"6", "\[Rule]", " ", 
+                RowBox[{
+                "comp", "\[LeftDoubleBracket]", "3", 
+                 "\[RightDoubleBracket]"}]}], ",", "\[IndentingNewLine]", 
+               "     \t\t", 
+               RowBox[{"7", "\[Rule]", " ", 
+                RowBox[{
+                "comp", "\[LeftDoubleBracket]", "4", 
+                 "\[RightDoubleBracket]"}]}], ",", " ", 
+               RowBox[{"8", "\[Rule]", " ", 
+                RowBox[{
+                "comp", "\[LeftDoubleBracket]", "5", 
+                 "\[RightDoubleBracket]"}]}], ",", 
+               RowBox[{"9", "\[Rule]", " ", 
+                RowBox[{
+                "comp", "\[LeftDoubleBracket]", "6", 
+                 "\[RightDoubleBracket]"}]}], ",", 
+               RowBox[{"10", "\[Rule]", " ", 
+                RowBox[{
+                "comp", "\[LeftDoubleBracket]", "7", 
+                 "\[RightDoubleBracket]"}]}]}], "}"}]}], "]"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"vectCInstruction", "=", 
+           RowBox[{"ReplacePart", "[", 
+            RowBox[{"vectCInstruction", ",", " ", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"11", "\[Rule]", " ", 
+                RowBox[{
+                "dest", "\[LeftDoubleBracket]", "1", 
+                 "\[RightDoubleBracket]"}]}], ",", " ", 
+               RowBox[{"12", "\[Rule]", " ", 
+                RowBox[{
+                "dest", "\[LeftDoubleBracket]", "2", 
+                 "\[RightDoubleBracket]"}]}], ",", 
+               RowBox[{"13", "\[Rule]", " ", 
+                RowBox[{
+                "dest", "\[LeftDoubleBracket]", "3", 
+                 "\[RightDoubleBracket]"}]}]}], "}"}]}], "]"}]}], ";", 
+          RowBox[{"localCInstruction", "=", " ", 
+           RowBox[{"StringJoin", "[", 
+            RowBox[{"Map", "[", 
+             RowBox[{"ToString", ",", " ", "vectCInstruction"}], "]"}], 
+            "]"}]}], ";"}], "\[IndentingNewLine]", ",", " ", 
+         RowBox[{"Print", "[", "\"\<Not a comp instruction\>\"", "]"}]}], 
+        "]"}], ";", "\[IndentingNewLine]", " ", "localCInstruction"}]}], 
+     "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{
+     "Given", " ", "a", " ", "JUMP", " ", "C", " ", "instruction", " ", 
+      "inst_"}], ",", " ", 
+     RowBox[{"return", " ", "its", " ", "binary", " ", "string", " ", 
+      RowBox[{"representation", "."}]}]}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"jumpCommand", "[", "inst_", "]"}], " ", ":=", " ", 
+    RowBox[{"Module", "[", "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{
+      "*", " ", "This", " ", "function", " ", "is", " ", "for", " ", 
+       "translating", " ", "JUMP", " ", "commands"}], " ", "**)"}], 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"localCInstruction", "=", "Null"}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"vectCInstruction", "=", "CInstructionBase"}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"splitted", "=", 
+         RowBox[{"{", "}"}]}], ",", "\[IndentingNewLine]", 
+        RowBox[{"jump", "=", 
+         RowBox[{"{", "}"}]}], ",", "\[IndentingNewLine]", 
+        RowBox[{"dest", "=", 
+         RowBox[{"{", "}"}]}]}], "\[IndentingNewLine]", "}"}], ",", 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Length", "[", 
+           RowBox[{"StringSplit", "[", 
+            RowBox[{"inst", ",", "\"\<;\>\""}], "]"}], "]"}], "==", " ", 
+          "2"}], ",", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"splitted", "=", 
+           RowBox[{"StringSplit", "[", 
+            RowBox[{"inst", ",", "\"\<;\>\""}], "]"}]}], ";", 
+          "\[IndentingNewLine]", "\[IndentingNewLine]", 
+          RowBox[{"jump", "=", 
+           RowBox[{
+            RowBox[{"Last", "[", "splitted", "]"}], " ", "/.", " ", 
+            "JumpReplacementRule"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"dest", "=", 
+           RowBox[{
+            RowBox[{"First", "[", "splitted", "]"}], " ", "/.", " ", 
+            "DestinationReplacementRule"}]}], ";", "\[IndentingNewLine]", 
+          "\[IndentingNewLine]", 
+          RowBox[{"vectCInstruction", "=", " ", 
+           RowBox[{"ReplacePart", "[", 
+            RowBox[{"vectCInstruction", ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"14", "\[Rule]", " ", 
+                RowBox[{
+                "jump", "\[LeftDoubleBracket]", "1", 
+                 "\[RightDoubleBracket]"}]}], ",", " ", 
+               RowBox[{"15", "\[Rule]", " ", 
+                RowBox[{
+                "jump", "\[LeftDoubleBracket]", "2", 
+                 "\[RightDoubleBracket]"}]}], ",", 
+               RowBox[{"16", "\[Rule]", " ", 
+                RowBox[{
+                "jump", "\[LeftDoubleBracket]", "3", 
+                 "\[RightDoubleBracket]"}]}]}], "}"}]}], "]"}]}], ";", 
+          "\[IndentingNewLine]", "\[IndentingNewLine]", 
+          RowBox[{"vectCInstruction", "=", " ", 
+           RowBox[{"ReplacePart", "[", 
+            RowBox[{"vectCInstruction", ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"11", "\[Rule]", " ", 
+                RowBox[{
+                "dest", "\[LeftDoubleBracket]", "1", 
+                 "\[RightDoubleBracket]"}]}], ",", " ", 
+               RowBox[{"12", "\[Rule]", " ", 
+                RowBox[{
+                "dest", "\[LeftDoubleBracket]", "2", 
+                 "\[RightDoubleBracket]"}]}], ",", 
+               RowBox[{"13", "\[Rule]", " ", 
+                RowBox[{
+                "dest", "\[LeftDoubleBracket]", "3", 
+                 "\[RightDoubleBracket]"}]}]}], "}"}]}], "]"}]}], ";"}], 
+         "\[IndentingNewLine]", "\[IndentingNewLine]", ",", " ", 
+         RowBox[{"Print", "[", "\"\<Not a jump instruction\>\"", "]"}]}], 
+        "]"}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"localCInstruction", "=", " ", 
+        RowBox[{"StringJoin", "[", 
+         RowBox[{"Map", "[", 
+          RowBox[{"ToString", ",", " ", "vectCInstruction"}], "]"}], "]"}]}], 
+       ";", "\[IndentingNewLine]", "localCInstruction"}]}], 
+     "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{"Given", " ", "a", " ", "C", " ", "instruction", " ", "inst_"}], 
+     ",", " ", 
+     RowBox[{
+     "send", " ", "it", " ", "to", " ", "either", " ", "compCommand", " ", 
+      "or", " ", "jumpCommand"}], ",", " ", 
+     RowBox[{
+     "so", " ", "that", " ", "it", " ", "will", " ", "return", " ", "the", 
+      " ", "proper", " ", "binary", " ", "string", " ", 
+      RowBox[{"representation", "."}]}]}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"CCommandTranslate", "[", "inst_", "]"}], ":=", 
+    "\[IndentingNewLine]", 
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Length", "[", 
+        RowBox[{"StringSplit", "[", 
+         RowBox[{"inst", ",", "\"\<=\>\""}], "]"}], "]"}], "==", " ", "2"}], 
+      ",", 
+      RowBox[{"compCommand", "[", "inst", "]"}], ",", 
+      RowBox[{"jumpCommand", "[", "inst", "]"}]}], "]"}]}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{"*", " ", "Starting", " ", "from", " ", "here"}], ",", " ", 
+     RowBox[{
+     "we", " ", "will", " ", "process", " ", "the", " ", "text", " ", 
+      "information", " ", "coming", " ", "from", " ", "ASM", " ", "files"}]}],
+     " ", "**)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"IsEmptyLineQ", "[", "line_", "]"}], ":=", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"StringLength", "[", 
+         RowBox[{"StringTrim", "[", "line", "]"}], "]"}], "\[Equal]", "0"}], 
+       ",", "True", ",", " ", "False"}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"IsAInstructionQ", "[", "line_", "]"}], ":=", 
+     RowBox[{"StringMatchQ", "[", 
+      RowBox[{"line", ",", 
+       RowBox[{
+       "RegularExpression", "[", " ", "\"\<@[a-eA-Z]*[0-9]*\>\"", "]"}]}], 
+      "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"IsCInstructionQ", "[", "line_", "]"}], ":=", 
+     RowBox[{"StringMatchQ", "[", 
+      RowBox[{"line", ",", 
+       RowBox[{
+       "RegularExpression", "[", "\"\<[AMD]{1,3}=-?[AMD10][+-]?[AMD10]?\>\"", 
+        "]"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"IsCommentedLineQ", "[", "line_", "]"}], ":=", " ", 
+     RowBox[{"StringMatchQ", "[", 
+      RowBox[{
+       RowBox[{"StringTrim", "[", "line", "]"}], ",", " ", "\"\<//*\>\""}], 
+      "]"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "The", " ", "following", " ", "code", " ", "create", " ", "an", " ", 
+     "array", " ", "that", " ", "just", " ", "produce", " ", "an", " ", 
+     "array", " ", "with", " ", 
+     RowBox[{"instructions", "."}]}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"CollectInstruction", "[", "textLineArray_", "]"}], ":=", 
+    "\[IndentingNewLine]", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"emptyArray", "=", 
+         RowBox[{"{", "}"}]}], ",", " ", 
+        RowBox[{"n", "=", "1"}]}], "}"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"While", "[", 
+        RowBox[{
+         RowBox[{"n", "<=", 
+          RowBox[{"Length", "[", "textLineArray", "]"}]}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{"Not", "[", 
+             RowBox[{
+              RowBox[{"IsEmptyLineQ", "[", 
+               RowBox[{
+               "textLineArray", "\[LeftDoubleBracket]", "n", 
+                "\[RightDoubleBracket]"}], "]"}], "||", " ", 
+              RowBox[{"IsCommentedLineQ", "[", 
+               RowBox[{
+               "textLineArray", "\[LeftDoubleBracket]", "n", 
+                "\[RightDoubleBracket]"}], "]"}]}], "]"}], ",", 
+            RowBox[{"AppendTo", "[", 
+             RowBox[{"emptyArray", ",", " ", 
+              RowBox[{
+              "textLineArray", "\[LeftDoubleBracket]", "n", 
+               "\[RightDoubleBracket]"}]}], "]"}]}], "]"}], 
+          "\[IndentingNewLine]", 
+          RowBox[{"n", "++"}]}]}], " ", "]"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"Return", "[", "emptyArray", "]"}], ";"}]}], 
+     "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "This", " ", "function", " ", "starts", " ", "the", " ", "translation", 
+     " ", "and", " ", "returns", " ", "an", " ", "array", " ", "of", " ", 
+     "binary", " ", 
+     RowBox[{"strings", "."}]}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"TranslateInstruction", "[", "assemblyArray_", "]"}], ":=", 
+    "\[IndentingNewLine]", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"emptyArray", "=", 
+         RowBox[{"{", "}"}]}], ",", " ", 
+        RowBox[{"n", "=", "1"}]}], "}"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"While", "[", 
+        RowBox[{
+         RowBox[{"n", "<=", 
+          RowBox[{"Length", "[", "assemblyArray", "]"}]}], ",", 
+         "\[IndentingNewLine]", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{"IsAInstructionQ", "[", 
+             RowBox[{
+             "assemblyArray", "\[LeftDoubleBracket]", "n", 
+              "\[RightDoubleBracket]"}], "]"}], ",", "\[IndentingNewLine]", 
+            RowBox[{"AppendTo", "[", 
+             RowBox[{"emptyArray", ",", " ", 
+              RowBox[{"addressCommand", "[", 
+               RowBox[{
+               "assemblyArray", "\[LeftDoubleBracket]", "n", 
+                "\[RightDoubleBracket]"}], "]"}]}], "]"}], ",", 
+            "\[IndentingNewLine]", "\[IndentingNewLine]", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{"IsCInstructionQ", "[", 
+               RowBox[{
+               "assemblyArray", "\[LeftDoubleBracket]", "n", 
+                "\[RightDoubleBracket]"}], "]"}], ",", "\[IndentingNewLine]", 
+              
+              RowBox[{"AppendTo", "[", 
+               RowBox[{"emptyArray", ",", " ", 
+                RowBox[{"CCommandTranslate", "[", 
+                 RowBox[{
+                 "assemblyArray", "\[LeftDoubleBracket]", "n", 
+                  "\[RightDoubleBracket]"}], "]"}]}], "]"}], ",", 
+              "\[IndentingNewLine]", 
+              RowBox[{"Print", "[", "\"\<Not a C instruction\>\"", "]"}]}], 
+             "\[IndentingNewLine]", "]"}], ",", "\[IndentingNewLine]", 
+            RowBox[{"Print", "[", "\"\<Not an A Instruction\>\"", "]"}]}], 
+           "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+          RowBox[{"n", "++"}]}]}], " ", "\[IndentingNewLine]", "]"}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Return", "[", "emptyArray", "]"}], ";"}]}], 
+     "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{
+     "Given", " ", "binary", " ", "string", " ", "represented", " ", "Hack", 
+      " ", "code"}], ",", " ", 
+     RowBox[{
+     "create", " ", "its", " ", "textual", " ", "representation", " ", 
+      "including", " ", "end", " ", "of", " ", 
+      RowBox[{"line", "."}]}]}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"HackCodeInString", "[", "rawText_", "]"}], ":=", " ", 
+     RowBox[{"Module", "[", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"{", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"arrayOfLines", " ", "=", " ", 
+          RowBox[{"{", "}"}]}], ",", "\[IndentingNewLine]", 
+         RowBox[{"asmArray", " ", "=", " ", 
+          RowBox[{"{", "}"}]}], ",", "\[IndentingNewLine]", 
+         RowBox[{"binaryCodeArray", " ", "=", " ", 
+          RowBox[{"{", "}"}]}], ",", "\[IndentingNewLine]", 
+         RowBox[{"binaryCodeString", "=", "\"\<\>\""}]}], 
+        "\[IndentingNewLine]", "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"arrayOfLines", "=", " ", 
+         RowBox[{"StringSplit", "[", 
+          RowBox[{"rawText", ",", " ", "\"\<\\n\>\""}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"Length", "[", "arrayOfLines", "]"}], "\[LessEqual]", 
+           "0"}], ",", " ", "\[IndentingNewLine]", 
+          RowBox[{"(*", "Then", "*)"}], " ", 
+          RowBox[{
+           RowBox[{"Print", "[", "\"\<No Text to be translated\>\"", "]"}], 
+           ";", " ", 
+           RowBox[{"Return", " ", "Null"}]}]}], "\[IndentingNewLine]", "]"}], 
+        ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+        RowBox[{"asmArray", "=", 
+         RowBox[{"CollectInstruction", "[", "arrayOfLines", "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"binaryCodeArray", "=", 
+         RowBox[{"TranslateInstruction", "[", "asmArray", "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"(*", " ", 
+         RowBox[{
+          RowBox[{"Print", "[", "binaryCodeArray", "]"}], ";"}], "*)"}], 
+        "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"Length", "[", "binaryCodeArray", "]"}], "\[LessEqual]", 
+           "0"}], ",", " ", "\[IndentingNewLine]", 
+          RowBox[{"(*", "Then", "*)"}], " ", 
+          RowBox[{"Print", "[", "\"\<No Code to be translated\>\"", "]"}], 
+          ",", "\[IndentingNewLine]", 
+          RowBox[{"(*", "Else", "*)"}], " ", 
+          RowBox[{"binaryCodeString", " ", "=", 
+           RowBox[{"StringJoin", "[", 
+            RowBox[{"Map", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{"#", "<>", "\"\<\\n\>\""}], ")"}], "&"}], ",", " ", 
+              "binaryCodeArray"}], "]"}], "]"}]}]}], "\[IndentingNewLine]", 
+         "]"}], ";", "\[IndentingNewLine]", "binaryCodeString"}]}], 
+      "\[IndentingNewLine]", "]"}]}], ";"}]}]}]], "Input",
+ CellChangeTimes->CompressedData["
+1:eJxTTMoPSmViYGCQAGIQLeDztOBn4GvHOdNmN4DoBZe2tYPok+sEe0B0+DS5
+ySB6qR7DNRDN8jz2Foj+6/3zIYj+oprG/QtIz1Aq4QHRhww8BUD0jfsiYiB6
+0tpqGRBd0/BNHkSXqV1VB9HtKmf0QLTzmo0mIPoAq5o1iL5w54ATiNaKkHIH
+0UordLxBtM0tZX8Q/XDpwQQQfbjXMxVEvzilMg9Ec4TVbQHRJt9Ld4PN6xbY
+A6I35BUcAtHvZvYeB9Fmq0Qvgehne/hvgmiXkCvOv4E0A9cFLxDtdeGDH4g+
+lL8sEETnzJIKB9EpZ38kgmjFjJYiEF2UmF4Bos+IrqsD0dc6BSeC6PRj++eD
+9atyLwTRpxdILgPRd7yWrAXRPHPYLoPoNz4CYBoABd7VVw==
+  "]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"Testing", " ", "Code", " ", "using", " ", "the", " ", 
+    RowBox[{"Add", ".", "asm"}], " ", "Hack", " ", "Assembly", " ", "code"}], 
+   "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"rawText", "=", 
+     RowBox[{"Import", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"NotebookDirectory", "[", "]"}], "<>", "\"\<../add/\>\"", 
+        "<>", "\"\<Add.asm\>\""}], ",", " ", "\"\<Text\>\""}], "]"}]}], ";"}],
+    "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"binaryCodeInString", "=", 
+     RowBox[{"HackCodeInString", "[", "rawText", "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"Export", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"NotebookDirectory", "[", "]"}], "<>", "\"\<Add.hack\>\""}], 
+     ",", "binaryCodeInString", ",", "\"\<Text\>\""}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.666861207104582*^9, 3.6668612691558533`*^9}, 
+   3.6668614137174377`*^9, {3.666861446548067*^9, 3.666861457916408*^9}, 
+   3.6668615459591913`*^9, {3.6668615891055937`*^9, 3.666861607768783*^9}, 
+   3.666861778854773*^9, {3.666861835062961*^9, 3.666861844244604*^9}}],
+
+Cell[BoxData["\<\"/Users/bkoo/Documents/Workspace/GitRepos/nand2tetris/06/\
+Mathematica/Add.hack\"\>"], "Output",
+ CellChangeTimes->{
+  3.666861460425425*^9, {3.666861532788464*^9, 3.6668616084193153`*^9}, 
+   3.666861725574967*^9, {3.666861776562469*^9, 3.666861779257905*^9}, 
+   3.666861845053817*^9}]
+}, Open  ]]
+},
+WindowSize->{808, 751},
+WindowMargins->{{289, Automatic}, {Automatic, 37}},
+FrontEndVersion->"10.4 for Mac OS X x86 (32-bit, 64-bit Kernel) (February 25, \
+2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 41019, 985, 4704, "Input"],
+Cell[CellGroupData[{
+Cell[41602, 1009, 1156, 27, 80, "Input"],
+Cell[42761, 1038, 304, 5, 86, "Output"]
+}, Open  ]]
+}
+]
+*)
+
