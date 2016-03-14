@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     58849,       1400]
-NotebookOptionsPosition[     58125,       1370]
-NotebookOutlinePosition[     58484,       1386]
-CellTagsIndexPosition[     58441,       1383]
+NotebookDataLength[     60318,       1433]
+NotebookOptionsPosition[     59594,       1403]
+NotebookOutlinePosition[     59953,       1419]
+CellTagsIndexPosition[     59910,       1416]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -1101,6 +1101,37 @@ Cell[BoxData[
        "\[IndentingNewLine]", 
        RowBox[{"Return", "[", "emptyArray", "]"}], ";"}]}], 
      "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "Clean", " ", "up", " ", "all", " ", "assembly", " ", "statements", " ", 
+     "by", " ", "stripping", " ", "away", " ", 
+     RowBox[{"comments", "."}]}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"StripComment", "[", "str_", "]"}], ":=", 
+    RowBox[{"Module", "[", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"{", "\[IndentingNewLine]", 
+       RowBox[{"newString", "=", "\"\<\>\""}], "\[IndentingNewLine]", "}"}], 
+      ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{"StringContainsQ", "[", 
+          RowBox[{"str", ",", "\"\<//\>\""}], "]"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"(*", "THEN", "*)"}], "\[IndentingNewLine]", 
+         RowBox[{"newString", "=", " ", 
+          RowBox[{"StringTrim", "[", 
+           RowBox[{"First", "[", 
+            RowBox[{"StringSplit", "[", 
+             RowBox[{"str", ",", " ", "\"\<//\>\""}], "]"}], "]"}], "]"}]}], 
+         ",", " ", "\[IndentingNewLine]", 
+         RowBox[{"(*", "ELSE", "*)"}], "\[IndentingNewLine]", 
+         RowBox[{"newString", "=", 
+          RowBox[{"StringTrim", "[", "str", "]"}]}]}], "]"}], ";", 
+       "\[IndentingNewLine]", "newString"}]}], "\[IndentingNewLine]", "]"}]}],
+    "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{"(*", " ", 
     RowBox[{
      RowBox[{
@@ -1211,7 +1242,8 @@ Cell[BoxData[
    3.6668789897568483`*^9}, {3.666880511638749*^9, 3.66688051803411*^9}, {
    3.6668807317432833`*^9, 3.666880732285095*^9}, {3.666880973831843*^9, 
    3.666880999869153*^9}, {3.666881118968672*^9, 3.6668811849814367`*^9}, 
-   3.6668812192507477`*^9, {3.666881290485959*^9, 3.666881375870873*^9}}],
+   3.6668812192507477`*^9, {3.666881290485959*^9, 3.666881375870873*^9}, {
+   3.666882577763412*^9, 3.666882579273123*^9}}],
 
 Cell[CellGroupData[{
 
@@ -1290,7 +1322,8 @@ Mathematica/MaxL.hack\"\>"], "Output",
  CellChangeTimes->{{3.666862436531673*^9, 3.666862450574032*^9}, {
    3.666862503704299*^9, 3.6668625080709457`*^9}, 3.666864519780159*^9, 
    3.66686931184202*^9, 3.666872155171036*^9, 3.6668723021399183`*^9, 
-   3.666872976140698*^9, 3.666873185822233*^9, 3.666880576524137*^9}]
+   3.666872976140698*^9, 3.666873185822233*^9, 3.666880576524137*^9, 
+   3.66688324002847*^9}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -1385,22 +1418,22 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 51460, 1193, 5707, "Input"],
+Cell[558, 20, 52904, 1225, 5996, "Input"],
 Cell[CellGroupData[{
-Cell[52043, 1217, 1156, 27, 80, "Input"],
-Cell[53202, 1246, 538, 8, 28, "Output"]
+Cell[53487, 1249, 1156, 27, 80, "Input"],
+Cell[54646, 1278, 538, 8, 28, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[53777, 1259, 1036, 26, 80, "Input"],
-Cell[54816, 1287, 395, 5, 28, "Output"]
+Cell[55221, 1291, 1036, 26, 80, "Input"],
+Cell[56260, 1319, 420, 6, 28, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[55248, 1297, 1085, 26, 80, "Input"],
-Cell[56336, 1325, 495, 7, 28, "Output"]
+Cell[56717, 1330, 1085, 26, 80, "Input"],
+Cell[57805, 1358, 495, 7, 28, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[56868, 1337, 941, 24, 80, "Input"],
-Cell[57812, 1363, 297, 4, 28, "Output"]
+Cell[58337, 1370, 941, 24, 80, "Input"],
+Cell[59281, 1396, 297, 4, 28, "Output"]
 }, Open  ]]
 }
 ]
