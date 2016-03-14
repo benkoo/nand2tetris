@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     60318,       1433]
-NotebookOptionsPosition[     59594,       1403]
-NotebookOutlinePosition[     59953,       1419]
-CellTagsIndexPosition[     59910,       1416]
+NotebookDataLength[     61091,       1448]
+NotebookOptionsPosition[     60367,       1418]
+NotebookOutlinePosition[     60726,       1434]
+CellTagsIndexPosition[     60683,       1431]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -377,15 +377,15 @@ Cell[BoxData[
        RowBox[{"{", 
         RowBox[{"\"\<SP\>\"", ",", "0"}], "}"}], ",", "\[IndentingNewLine]", 
        RowBox[{"{", 
-        RowBox[{"\"\<LCL\>\"", ",", "0"}], "}"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"\"\<LCL\>\"", ",", "1"}], "}"}], ",", "\[IndentingNewLine]", 
        
        RowBox[{"{", 
-        RowBox[{"\"\<ARG\>\"", ",", "0"}], "}"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"\"\<ARG\>\"", ",", "2"}], "}"}], ",", "\[IndentingNewLine]", 
        
        RowBox[{"{", 
-        RowBox[{"\"\<THIS\>\"", ",", "0"}], "}"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"\"\<THIS\>\"", ",", "3"}], "}"}], ",", "\[IndentingNewLine]", 
        RowBox[{"{", 
-        RowBox[{"\"\<THAT\>\"", ",", "0"}], "}"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"\"\<THAT\>\"", ",", "4"}], "}"}], ",", "\[IndentingNewLine]", 
        RowBox[{"{", 
         RowBox[{"\"\<R0\>\"", ",", "0"}], "}"}], ",", "\[IndentingNewLine]", 
        RowBox[{"{", 
@@ -497,8 +497,10 @@ Cell[BoxData[
         RowBox[{"addressDecimalValue", "=", "0"}], ",", "\[IndentingNewLine]", 
         RowBox[{"splitted", "=", 
          RowBox[{"{", "}"}]}], ",", "\[IndentingNewLine]", 
-        RowBox[{"i", "=", "0"}]}], "\[IndentingNewLine]", "}"}], ",", 
-      "\[IndentingNewLine]", "\[IndentingNewLine]", 
+        RowBox[{"i", "=", "0"}], ",", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"debug", "=", "False"}], ";"}]}], "\[IndentingNewLine]", 
+       "}"}], ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
       RowBox[{
        RowBox[{"splitted", "=", 
         RowBox[{
@@ -514,10 +516,12 @@ Cell[BoxData[
           RowBox[{"ToExpression", "[", "splitted", "]"}]}], ",", 
          "\[IndentingNewLine]", 
          RowBox[{
-          RowBox[{"Print", "[", 
-           RowBox[{
-           "\"\<To be used to look up address\>\"", "<>", " ", "splitted"}], 
-           "]"}], ";", "\[IndentingNewLine]", 
+          RowBox[{"If", "[", 
+           RowBox[{"debug", ",", 
+            RowBox[{"Print", "[", 
+             RowBox[{
+             "\"\<To be used to look up address\>\"", "<>", " ", "splitted"}],
+              "]"}]}], "]"}], ";", "\[IndentingNewLine]", 
           RowBox[{"addressDecimalValue", "=", 
            RowBox[{"splitted", " ", "/.", " ", 
             RowBox[{"MapThread", "[", 
@@ -564,8 +568,9 @@ Cell[BoxData[
          RowBox[{"{", "}"}]}], ",", "\[IndentingNewLine]", 
         RowBox[{"updatedSymbols", "=", "symbolTable"}], ",", 
         "\[IndentingNewLine]", 
-        RowBox[{"i", "=", "0"}]}], "\[IndentingNewLine]", "}"}], ",", 
-      "\[IndentingNewLine]", "\[IndentingNewLine]", 
+        RowBox[{"i", "=", "0"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"debug", "=", " ", "False"}]}], "\[IndentingNewLine]", "}"}], 
+      ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
       RowBox[{
        RowBox[{"splitted", "=", 
         RowBox[{
@@ -581,10 +586,12 @@ Cell[BoxData[
           RowBox[{"ToExpression", "[", "splitted", "]"}]}], ",", 
          "\[IndentingNewLine]", 
          RowBox[{
-          RowBox[{"Print", "[", 
-           RowBox[{
-           "\"\<To be used to look up address:\>\"", "<>", " ", "splitted"}], 
-           "]"}], ";", "\[IndentingNewLine]", 
+          RowBox[{"If", "[", 
+           RowBox[{"debug", ",", " ", 
+            RowBox[{"Print", "[", 
+             RowBox[{
+             "\"\<To be used to look up address:\>\"", "<>", " ", 
+              "splitted"}], "]"}]}], "]"}], ";", "\[IndentingNewLine]", 
           RowBox[{"addressDecimalValue", "=", 
            RowBox[{"splitted", " ", "/.", " ", 
             RowBox[{"MapThread", "[", 
@@ -881,12 +888,17 @@ Cell[BoxData[
    RowBox[{
     RowBox[{
      RowBox[{"IsAInstructionQ", "[", "line_", "]"}], ":=", 
-     RowBox[{"StringMatchQ", "[", 
-      RowBox[{"line", ",", 
-       RowBox[{
-       "RegularExpression", "[", " ", 
-        "\"\<@[a-eA-Z]*[0-9]*[_]*[a-eA-Z]*[0-9]*\>\"", "]"}]}], "]"}]}], 
-    ";"}], "\[IndentingNewLine]", 
+     RowBox[{"Or", "[", 
+      RowBox[{
+       RowBox[{"StringMatchQ", "[", 
+        RowBox[{"line", ",", 
+         RowBox[{
+         "RegularExpression", "[", " ", 
+          "\"\<@[a-eA-Z]*[0-9]*[_]*[a-eA-Z]*[0-9]*\>\"", "]"}]}], "]"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"StringStartsQ", "[", 
+        RowBox[{"line", ",", " ", "\"\<@\>\""}], "]"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{
      RowBox[{"IsCInstructionQ", "[", "line_", "]"}], ":=", 
@@ -1243,7 +1255,9 @@ Cell[BoxData[
    3.6668807317432833`*^9, 3.666880732285095*^9}, {3.666880973831843*^9, 
    3.666880999869153*^9}, {3.666881118968672*^9, 3.6668811849814367`*^9}, 
    3.6668812192507477`*^9, {3.666881290485959*^9, 3.666881375870873*^9}, {
-   3.666882577763412*^9, 3.666882579273123*^9}}],
+   3.666882577763412*^9, 3.666882579273123*^9}, {3.6669069094363823`*^9, 
+   3.6669069465178957`*^9}, {3.6669237404787283`*^9, 
+   3.6669237946853657`*^9}, {3.666924372403615*^9, 3.666924383231229*^9}}],
 
 Cell[CellGroupData[{
 
@@ -1284,7 +1298,7 @@ Mathematica/Add.hack\"\>"], "Output",
    3.666861845053817*^9, 3.66686250062543*^9, {3.666864514646741*^9, 
    3.666864526017192*^9}, 3.666872151336823*^9, 3.666872278043153*^9, 
    3.66687254549827*^9, 3.6668729649576674`*^9, {3.666873178621463*^9, 
-   3.666873183670764*^9}, 3.6668805738922*^9}]
+   3.666873183670764*^9}, 3.6668805738922*^9, 3.666904023874161*^9}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -1323,7 +1337,7 @@ Mathematica/MaxL.hack\"\>"], "Output",
    3.666862503704299*^9, 3.6668625080709457`*^9}, 3.666864519780159*^9, 
    3.66686931184202*^9, 3.666872155171036*^9, 3.6668723021399183`*^9, 
    3.666872976140698*^9, 3.666873185822233*^9, 3.666880576524137*^9, 
-   3.66688324002847*^9}]
+   3.66688324002847*^9, 3.666904025710999*^9}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -1363,7 +1377,8 @@ Mathematica/RectL.hack\"\>"], "Output",
    3.666865383345323*^9, 3.6668656134143867`*^9, 3.6668656871435623`*^9, 
    3.666865860571377*^9, 3.666866462527972*^9, 3.666866515325835*^9, {
    3.666866938953689*^9, 3.6668669425531683`*^9}, 3.666872158106258*^9, 
-   3.6668729799735813`*^9, 3.666873187972794*^9, 3.66688057902155*^9}]
+   3.6668729799735813`*^9, 3.666873187972794*^9, 3.66688057902155*^9, 
+   3.666904027997179*^9}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -1398,7 +1413,7 @@ Cell[BoxData["\<\"/Users/bkoo/Documents/Workspace/GitRepos/nand2tetris/06/\
 Mathematica/PongL.hack\"\>"], "Output",
  CellChangeTimes->{3.666866090879084*^9, 3.666866744085896*^9, 
   3.666867169658174*^9, 3.666872167355117*^9, 3.6668730006399927`*^9, 
-  3.666873201080133*^9, 3.666880586880739*^9}]
+  3.666873201080133*^9, 3.666880586880739*^9, 3.66690403601553*^9}]
 }, Open  ]]
 },
 WindowSize->{808, 751},
@@ -1418,22 +1433,22 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 52904, 1225, 5996, "Input"],
+Cell[558, 20, 53586, 1239, 6013, "Input"],
 Cell[CellGroupData[{
-Cell[53487, 1249, 1156, 27, 80, "Input"],
-Cell[54646, 1278, 538, 8, 28, "Output"]
+Cell[54169, 1263, 1156, 27, 80, "Input"],
+Cell[55328, 1292, 560, 8, 28, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[55221, 1291, 1036, 26, 80, "Input"],
-Cell[56260, 1319, 420, 6, 28, "Output"]
+Cell[55925, 1305, 1036, 26, 80, "Input"],
+Cell[56964, 1333, 442, 6, 28, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[56717, 1330, 1085, 26, 80, "Input"],
-Cell[57805, 1358, 495, 7, 28, "Output"]
+Cell[57443, 1344, 1085, 26, 80, "Input"],
+Cell[58531, 1372, 521, 8, 28, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[58337, 1370, 941, 24, 80, "Input"],
-Cell[59281, 1396, 297, 4, 28, "Output"]
+Cell[59089, 1385, 941, 24, 80, "Input"],
+Cell[60033, 1411, 318, 4, 28, "Output"]
 }, Open  ]]
 }
 ]

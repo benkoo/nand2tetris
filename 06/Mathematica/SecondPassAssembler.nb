@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     31472,        749]
-NotebookOptionsPosition[     29131,        675]
-NotebookOutlinePosition[     29489,        691]
-CellTagsIndexPosition[     29446,        688]
+NotebookDataLength[     29709,        701]
+NotebookOptionsPosition[     27997,        642]
+NotebookOutlinePosition[     28355,        658]
+CellTagsIndexPosition[     28312,        655]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -148,8 +148,10 @@ Cell[BoxData[
          RowBox[{"{", "}"}]}], ",", "\[IndentingNewLine]", 
         RowBox[{"updatedSymbols", "=", "symbolTable"}], ",", 
         "\[IndentingNewLine]", 
-        RowBox[{"candidateNewSymbol", "=", "\"\<\>\""}]}], 
-       "\[IndentingNewLine]", "}"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"candidateNewSymbol", "=", "\"\<\>\""}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"debug", "=", "False"}]}], "\[IndentingNewLine]", "}"}], ",", 
+      "\[IndentingNewLine]", 
       RowBox[{
        RowBox[{"While", "[", 
         RowBox[{
@@ -183,10 +185,13 @@ Cell[BoxData[
                ",", "\[IndentingNewLine]", 
                RowBox[{"(*", " ", "THEN", " ", "*)"}], "\[IndentingNewLine]", 
                
-               RowBox[{"Print", "[", 
-                RowBox[{
-                "\"\<Not a new symbol:\>\"", "<>", " ", 
-                 "candidateNewSymbol"}], "]"}], ",", "\[IndentingNewLine]", 
+               RowBox[{"If", "[", 
+                RowBox[{"debug", ",", " ", 
+                 RowBox[{"Print", "[", 
+                  RowBox[{
+                  "\"\<Not a new symbol:\>\"", "<>", " ", 
+                   "candidateNewSymbol"}], "]"}]}], "]"}], ",", 
+               "\[IndentingNewLine]", 
                RowBox[{"(*", " ", "ELSE", " ", "*)"}], "\[IndentingNewLine]", 
                
                RowBox[{"If", "[", 
@@ -206,10 +211,12 @@ Cell[BoxData[
                    RowBox[{
                     RowBox[{"don", "'"}], "t", " ", "do", " ", "anything"}]}],
                    " ", "*)"}], "\[IndentingNewLine]", 
-                 RowBox[{"Print", "[", 
-                  RowBox[{
-                  "\"\< Already Exists: \>\"", "<>", " ", 
-                   "candidateNewSymbol"}], " ", "]"}], ",", " ", 
+                 RowBox[{"If", "[", 
+                  RowBox[{"debug", ",", " ", 
+                   RowBox[{"Print", "[", 
+                    RowBox[{
+                    "\"\< Already Exists: \>\"", "<>", " ", 
+                    "candidateNewSymbol"}], " ", "]"}]}], "]"}], ",", " ", 
                  "\[IndentingNewLine]", 
                  RowBox[{"(*", " ", 
                   RowBox[{
@@ -233,7 +240,7 @@ Cell[BoxData[
                    RowBox[{"updatedSymbols", ",", 
                     RowBox[{"{", 
                     RowBox[{"candidateNewSymbol", ",", "ramAddress"}], 
-                    "}"}]}], "]"}], " ", ";", "\[IndentingNewLine]", 
+                    "}"}]}], "]"}], ";", "\[IndentingNewLine]", 
                   RowBox[{"(*", " ", 
                    RowBox[{"Now", ",", " ", 
                     RowBox[{
@@ -248,7 +255,9 @@ Cell[BoxData[
    "\[IndentingNewLine]"}]}]], "Input",
  CellChangeTimes->{{3.666882120707466*^9, 3.6668821263716183`*^9}, {
   3.666882160788023*^9, 3.666882186912692*^9}, {3.6668822172830677`*^9, 
-  3.666882235120153*^9}, {3.6669082382399263`*^9, 3.666908248576109*^9}}],
+  3.666882235120153*^9}, {3.6669082382399263`*^9, 3.666908248576109*^9}, {
+  3.666911025477974*^9, 3.666911028619557*^9}, {3.666923470590888*^9, 
+  3.6669234759332457`*^9}, {3.666923579461853*^9, 3.66692362338118*^9}}],
 
 Cell[BoxData[""], "Input",
  CellChangeTimes->{{3.6668839084620447`*^9, 3.666883988663362*^9}, {
@@ -413,18 +422,21 @@ Cell[BoxData[
 Cell[CellGroupData[{
 
 Cell[BoxData["\<\"Not a new symbol:2\"\>"], "Print",
- CellChangeTimes->{3.666885122062189*^9, 3.666908257051626*^9}],
+ CellChangeTimes->{3.666885122062189*^9, 3.666908257051626*^9, 
+  3.66691269158281*^9}],
 
 Cell[BoxData["\<\"Not a new symbol:3\"\>"], "Print",
- CellChangeTimes->{3.666885122062189*^9, 3.6669082570590973`*^9}],
+ CellChangeTimes->{3.666885122062189*^9, 3.666908257051626*^9, 
+  3.6669126916391687`*^9}],
 
 Cell[BoxData["\<\"Not a new symbol:0\"\>"], "Print",
- CellChangeTimes->{3.666885122062189*^9, 3.666908257069292*^9}]
+ CellChangeTimes->{3.666885122062189*^9, 3.666908257051626*^9, 
+  3.666912691686367*^9}]
 }, Open  ]],
 
 Cell[BoxData["\<\"/Users/bkoo/Documents/Workspace/GitRepos/nand2tetris/06/\
 Mathematica/Add.hack\"\>"], "Output",
- CellChangeTimes->{3.666908257119307*^9}]
+ CellChangeTimes->{3.666908257119307*^9, 3.666912691768972*^9}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -458,75 +470,52 @@ Cell[BoxData[
 
 Cell[CellGroupData[{
 
-Cell[BoxData["\<\" Already Exists: R0\"\>"], "Print",
- CellChangeTimes->{{3.666883209899167*^9, 3.6668832431624727`*^9}, 
-   3.666883322808284*^9, 3.666883392169442*^9, 3.666908262536708*^9}],
-
-Cell[BoxData["\<\" Already Exists: R1\"\>"], "Print",
- CellChangeTimes->{{3.666883209899167*^9, 3.6668832431624727`*^9}, 
-   3.666883322808284*^9, 3.666883392169442*^9, 3.666908262546542*^9}],
-
-Cell[BoxData["\<\" Already Exists: OUTPUT_FIRST\"\>"], "Print",
- CellChangeTimes->{{3.666883209899167*^9, 3.6668832431624727`*^9}, 
-   3.666883322808284*^9, 3.666883392169442*^9, 3.66690826255665*^9}],
-
-Cell[BoxData["\<\" Already Exists: R1\"\>"], "Print",
- CellChangeTimes->{{3.666883209899167*^9, 3.6668832431624727`*^9}, 
-   3.666883322808284*^9, 3.666883392169442*^9, 3.666908262566471*^9}],
-
-Cell[BoxData["\<\" Already Exists: OUTPUT_D\"\>"], "Print",
- CellChangeTimes->{{3.666883209899167*^9, 3.6668832431624727`*^9}, 
-   3.666883322808284*^9, 3.666883392169442*^9, 3.666908262576473*^9}],
-
-Cell[BoxData["\<\" Already Exists: R0\"\>"], "Print",
- CellChangeTimes->{{3.666883209899167*^9, 3.6668832431624727`*^9}, 
-   3.666883322808284*^9, 3.666883392169442*^9, 3.666908262586398*^9}],
-
-Cell[BoxData["\<\" Already Exists: R2\"\>"], "Print",
- CellChangeTimes->{{3.666883209899167*^9, 3.6668832431624727`*^9}, 
-   3.666883322808284*^9, 3.666883392169442*^9, 3.666908262596306*^9}],
-
-Cell[BoxData["\<\" Already Exists: INFINITE_LOOP\"\>"], "Print",
- CellChangeTimes->{{3.666883209899167*^9, 3.6668832431624727`*^9}, 
-   3.666883322808284*^9, 3.666883392169442*^9, 3.6669082626060762`*^9}],
-
 Cell[BoxData["\<\"To be used to look up address:R0\"\>"], "Print",
  CellChangeTimes->{{3.666883209899167*^9, 3.6668832431624727`*^9}, 
-   3.666883322808284*^9, 3.666883392169442*^9, 3.66690826261591*^9}],
+   3.666883322808284*^9, 3.666883392169442*^9, 3.666908262536708*^9, 
+   3.6669126973239317`*^9, 3.666923642665023*^9}],
 
 Cell[BoxData["\<\"To be used to look up address:R1\"\>"], "Print",
  CellChangeTimes->{{3.666883209899167*^9, 3.6668832431624727`*^9}, 
-   3.666883322808284*^9, 3.666883392169442*^9, 3.666908262625848*^9}],
+   3.666883322808284*^9, 3.666883392169442*^9, 3.666908262536708*^9, 
+   3.6669126973239317`*^9, 3.666923642729478*^9}],
 
 Cell[BoxData["\<\"To be used to look up address:OUTPUT_FIRST\"\>"], "Print",
  CellChangeTimes->{{3.666883209899167*^9, 3.6668832431624727`*^9}, 
-   3.666883322808284*^9, 3.666883392169442*^9, 3.666908262638143*^9}],
+   3.666883322808284*^9, 3.666883392169442*^9, 3.666908262536708*^9, 
+   3.6669126973239317`*^9, 3.666923642788506*^9}],
 
 Cell[BoxData["\<\"To be used to look up address:R1\"\>"], "Print",
  CellChangeTimes->{{3.666883209899167*^9, 3.6668832431624727`*^9}, 
-   3.666883322808284*^9, 3.666883392169442*^9, 3.666908262650401*^9}],
+   3.666883322808284*^9, 3.666883392169442*^9, 3.666908262536708*^9, 
+   3.6669126973239317`*^9, 3.66692364284312*^9}],
 
 Cell[BoxData["\<\"To be used to look up address:OUTPUT_D\"\>"], "Print",
  CellChangeTimes->{{3.666883209899167*^9, 3.6668832431624727`*^9}, 
-   3.666883322808284*^9, 3.666883392169442*^9, 3.666908262662554*^9}],
+   3.666883322808284*^9, 3.666883392169442*^9, 3.666908262536708*^9, 
+   3.6669126973239317`*^9, 3.66692364289804*^9}],
 
 Cell[BoxData["\<\"To be used to look up address:R0\"\>"], "Print",
  CellChangeTimes->{{3.666883209899167*^9, 3.6668832431624727`*^9}, 
-   3.666883322808284*^9, 3.666883392169442*^9, 3.666908262674861*^9}],
+   3.666883322808284*^9, 3.666883392169442*^9, 3.666908262536708*^9, 
+   3.6669126973239317`*^9, 3.666923642949894*^9}],
 
 Cell[BoxData["\<\"To be used to look up address:R2\"\>"], "Print",
  CellChangeTimes->{{3.666883209899167*^9, 3.6668832431624727`*^9}, 
-   3.666883322808284*^9, 3.666883392169442*^9, 3.6669082626874123`*^9}],
+   3.666883322808284*^9, 3.666883392169442*^9, 3.666908262536708*^9, 
+   3.6669126973239317`*^9, 3.666923643001172*^9}],
 
 Cell[BoxData["\<\"To be used to look up address:INFINITE_LOOP\"\>"], "Print",
  CellChangeTimes->{{3.666883209899167*^9, 3.6668832431624727`*^9}, 
-   3.666883322808284*^9, 3.666883392169442*^9, 3.666908262699641*^9}]
+   3.666883322808284*^9, 3.666883392169442*^9, 3.666908262536708*^9, 
+   3.6669126973239317`*^9, 3.666923643052356*^9}]
 }, Open  ]],
 
 Cell[BoxData["\<\"/Users/bkoo/Documents/Workspace/GitRepos/nand2tetris/06/\
 Mathematica/Max.hack\"\>"], "Output",
  CellChangeTimes->{{3.666883209962481*^9, 3.666883243214982*^9}, 
-   3.666883322858802*^9, 3.666883392221766*^9, 3.6669082627529373`*^9}]
+   3.666883322858802*^9, 3.666883392221766*^9, 3.6669082627529373`*^9, 
+   3.666912698317128*^9, 3.6669236431837463`*^9}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -560,91 +549,64 @@ Cell[BoxData[
 
 Cell[CellGroupData[{
 
-Cell[BoxData["\<\"Not a new symbol:0\"\>"], "Print",
- CellChangeTimes->{3.6668835556364517`*^9, 3.666885071387656*^9, 
-  3.666908266564046*^9}],
-
-Cell[BoxData["\<\" Already Exists: INFINITE_LOOP\"\>"], "Print",
- CellChangeTimes->{3.6668835556364517`*^9, 3.666885071387656*^9, 
-  3.66690826656911*^9}],
-
-Cell[BoxData["\<\" Already Exists: SCREEN\"\>"], "Print",
- CellChangeTimes->{3.6668835556364517`*^9, 3.666885071387656*^9, 
-  3.666908266576729*^9}],
-
-Cell[BoxData["\<\" Already Exists: address\"\>"], "Print",
- CellChangeTimes->{3.6668835556364517`*^9, 3.666885071387656*^9, 
-  3.6669082665795097`*^9}],
-
-Cell[BoxData["\<\" Already Exists: address\"\>"], "Print",
- CellChangeTimes->{3.6668835556364517`*^9, 3.666885071387656*^9, 
-  3.66690826658223*^9}],
-
-Cell[BoxData["\<\"Not a new symbol:32\"\>"], "Print",
- CellChangeTimes->{3.6668835556364517`*^9, 3.666885071387656*^9, 
-  3.6669082665848837`*^9}],
-
-Cell[BoxData["\<\" Already Exists: address\"\>"], "Print",
- CellChangeTimes->{3.6668835556364517`*^9, 3.666885071387656*^9, 
-  3.6669082665877037`*^9}],
-
-Cell[BoxData["\<\" Already Exists: counter\"\>"], "Print",
- CellChangeTimes->{3.6668835556364517`*^9, 3.666885071387656*^9, 
-  3.666908266590494*^9}],
-
-Cell[BoxData["\<\" Already Exists: LOOP\"\>"], "Print",
- CellChangeTimes->{3.6668835556364517`*^9, 3.666885071387656*^9, 
-  3.666908266593184*^9}],
-
-Cell[BoxData["\<\" Already Exists: INFINITE_LOOP\"\>"], "Print",
- CellChangeTimes->{3.6668835556364517`*^9, 3.666885071387656*^9, 
-  3.6669082665958643`*^9}],
-
 Cell[BoxData["\<\"To be used to look up address:INFINITE_LOOP\"\>"], "Print",
  CellChangeTimes->{3.6668835556364517`*^9, 3.666885071387656*^9, 
-  3.666908266600938*^9}],
+  3.666908266564046*^9, 3.6669127676750393`*^9, 3.666923488123643*^9, 
+  3.666923699998026*^9}],
 
 Cell[BoxData["\<\"To be used to look up address:counter\"\>"], "Print",
  CellChangeTimes->{3.6668835556364517`*^9, 3.666885071387656*^9, 
-  3.666908266605975*^9}],
+  3.666908266564046*^9, 3.6669127676750393`*^9, 3.666923488123643*^9, 
+  3.6669237000238323`*^9}],
 
 Cell[BoxData["\<\"To be used to look up address:SCREEN\"\>"], "Print",
  CellChangeTimes->{3.6668835556364517`*^9, 3.666885071387656*^9, 
-  3.666908266611026*^9}],
+  3.666908266564046*^9, 3.6669127676750393`*^9, 3.666923488123643*^9, 
+  3.666923700045168*^9}],
 
 Cell[BoxData["\<\"To be used to look up address:address\"\>"], "Print",
  CellChangeTimes->{3.6668835556364517`*^9, 3.666885071387656*^9, 
-  3.666908266616064*^9}],
+  3.666908266564046*^9, 3.6669127676750393`*^9, 3.666923488123643*^9, 
+  3.666923700065563*^9}],
 
 Cell[BoxData["\<\"To be used to look up address:address\"\>"], "Print",
  CellChangeTimes->{3.6668835556364517`*^9, 3.666885071387656*^9, 
-  3.6669082666210403`*^9}],
+  3.666908266564046*^9, 3.6669127676750393`*^9, 3.666923488123643*^9, 
+  3.6669237000859947`*^9}],
 
 Cell[BoxData["\<\"To be used to look up address:address\"\>"], "Print",
  CellChangeTimes->{3.6668835556364517`*^9, 3.666885071387656*^9, 
-  3.666908266626067*^9}],
+  3.666908266564046*^9, 3.6669127676750393`*^9, 3.666923488123643*^9, 
+  3.6669237001059637`*^9}],
 
 Cell[BoxData["\<\"To be used to look up address:address\"\>"], "Print",
  CellChangeTimes->{3.6668835556364517`*^9, 3.666885071387656*^9, 
-  3.6669082666310253`*^9}],
+  3.666908266564046*^9, 3.6669127676750393`*^9, 3.666923488123643*^9, 
+  3.666923700125864*^9}],
 
 Cell[BoxData["\<\"To be used to look up address:counter\"\>"], "Print",
  CellChangeTimes->{3.6668835556364517`*^9, 3.666885071387656*^9, 
-  3.6669082666360283`*^9}],
+  3.666908266564046*^9, 3.6669127676750393`*^9, 3.666923488123643*^9, 
+  3.666923700145781*^9}],
 
 Cell[BoxData["\<\"To be used to look up address:LOOP\"\>"], "Print",
  CellChangeTimes->{3.6668835556364517`*^9, 3.666885071387656*^9, 
-  3.666908266641078*^9}],
+  3.666908266564046*^9, 3.6669127676750393`*^9, 3.666923488123643*^9, 
+  3.666923700165456*^9}],
 
 Cell[BoxData["\<\"To be used to look up address:INFINITE_LOOP\"\>"], "Print",
  CellChangeTimes->{3.6668835556364517`*^9, 3.666885071387656*^9, 
-  3.666908266646039*^9}]
+  3.666908266564046*^9, 3.6669127676750393`*^9, 3.666923488123643*^9, 
+  3.6669237001850233`*^9}]
 }, Open  ]],
 
 Cell[BoxData["\<\"/Users/bkoo/Documents/Workspace/GitRepos/nand2tetris/06/\
 Mathematica/Rect.hack\"\>"], "Output",
- CellChangeTimes->{3.6669082666692257`*^9}]
+ CellChangeTimes->{3.6669082666692257`*^9, 3.666912769000636*^9, 
+  3.6669234891803627`*^9, 3.666923700256654*^9}]
 }, Open  ]],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{
@@ -669,9 +631,14 @@ Cell[BoxData[
    RowBox[{"Export", "[", 
     RowBox[{
      RowBox[{
-      RowBox[{"NotebookDirectory", "[", "]"}], "<>", "\"\<Rect.hack\>\""}], 
+      RowBox[{"NotebookDirectory", "[", "]"}], "<>", "\"\<Pong.hack\>\""}], 
      ",", "binaryCodeInString", ",", "\"\<Text\>\""}], "]"}]}]}]], "Input",
- CellChangeTimes->{{3.6669083521154222`*^9, 3.666908356682304*^9}}]
+ CellChangeTimes->{{3.6669083521154222`*^9, 3.666908361361865*^9}}],
+
+Cell[BoxData["\<\"/Users/bkoo/Documents/Workspace/GitRepos/nand2tetris/06/\
+Mathematica/Pong.hack\"\>"], "Output",
+ CellChangeTimes->{3.66690861713964*^9, 3.666911372176874*^9}]
+}, Open  ]]
 },
 WindowSize->{808, 811},
 WindowMargins->{{Automatic, 186}, {Automatic, 0}},
@@ -690,67 +657,52 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 10836, 230, 1185, "Input"],
-Cell[11397, 252, 438, 6, 28, "Input"],
-Cell[11838, 260, 5691, 120, 709, "Input"],
+Cell[558, 20, 11265, 239, 1202, "Input"],
+Cell[11826, 261, 438, 6, 28, "Input"],
+Cell[12267, 269, 5691, 120, 709, "Input"],
 Cell[CellGroupData[{
-Cell[17554, 384, 1019, 26, 80, "Input"],
+Cell[17983, 393, 1019, 26, 80, "Input"],
 Cell[CellGroupData[{
-Cell[18598, 414, 116, 1, 22, "Print"],
-Cell[18717, 417, 118, 1, 22, "Print"],
-Cell[18838, 420, 116, 1, 22, "Print"]
+Cell[19027, 423, 140, 2, 22, "Print"],
+Cell[19170, 427, 143, 2, 22, "Print"],
+Cell[19316, 431, 141, 2, 22, "Print"]
 }, Open  ]],
-Cell[18969, 424, 155, 2, 28, "Output"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[19161, 431, 990, 25, 80, "Input"],
-Cell[CellGroupData[{
-Cell[20176, 460, 191, 2, 22, "Print"],
-Cell[20370, 464, 191, 2, 22, "Print"],
-Cell[20564, 468, 200, 2, 22, "Print"],
-Cell[20767, 472, 191, 2, 22, "Print"],
-Cell[20961, 476, 197, 2, 22, "Print"],
-Cell[21161, 480, 191, 2, 22, "Print"],
-Cell[21355, 484, 191, 2, 22, "Print"],
-Cell[21549, 488, 204, 2, 22, "Print"],
-Cell[21756, 492, 203, 2, 22, "Print"],
-Cell[21962, 496, 204, 2, 22, "Print"],
-Cell[22169, 500, 214, 2, 22, "Print"],
-Cell[22386, 504, 204, 2, 22, "Print"],
-Cell[22593, 508, 210, 2, 22, "Print"],
-Cell[22806, 512, 204, 2, 22, "Print"],
-Cell[23013, 516, 206, 2, 22, "Print"],
-Cell[23222, 520, 215, 2, 22, "Print"]
-}, Open  ]],
-Cell[23452, 525, 251, 3, 28, "Output"]
+Cell[19472, 436, 177, 2, 28, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[23740, 533, 994, 25, 80, "Input"],
+Cell[19686, 443, 990, 25, 80, "Input"],
 Cell[CellGroupData[{
-Cell[24759, 562, 143, 2, 22, "Print"],
-Cell[24905, 566, 154, 2, 22, "Print"],
-Cell[25062, 570, 148, 2, 22, "Print"],
-Cell[25213, 574, 151, 2, 22, "Print"],
-Cell[25367, 578, 148, 2, 22, "Print"],
-Cell[25518, 582, 146, 2, 22, "Print"],
-Cell[25667, 586, 151, 2, 22, "Print"],
-Cell[25821, 590, 149, 2, 22, "Print"],
-Cell[25973, 594, 146, 2, 22, "Print"],
-Cell[26122, 598, 157, 2, 22, "Print"],
-Cell[26282, 602, 168, 2, 22, "Print"],
-Cell[26453, 606, 162, 2, 22, "Print"],
-Cell[26618, 610, 161, 2, 22, "Print"],
-Cell[26782, 614, 162, 2, 22, "Print"],
-Cell[26947, 618, 164, 2, 22, "Print"],
-Cell[27114, 622, 162, 2, 22, "Print"],
-Cell[27279, 626, 164, 2, 22, "Print"],
-Cell[27446, 630, 164, 2, 22, "Print"],
-Cell[27613, 634, 159, 2, 22, "Print"],
-Cell[27775, 638, 168, 2, 22, "Print"]
+Cell[20701, 472, 254, 3, 22, "Print"],
+Cell[20958, 477, 254, 3, 22, "Print"],
+Cell[21215, 482, 264, 3, 22, "Print"],
+Cell[21482, 487, 253, 3, 22, "Print"],
+Cell[21738, 492, 259, 3, 22, "Print"],
+Cell[22000, 497, 254, 3, 22, "Print"],
+Cell[22257, 502, 254, 3, 22, "Print"],
+Cell[22514, 507, 265, 3, 22, "Print"]
 }, Open  ]],
-Cell[27958, 643, 158, 2, 28, "Output"]
+Cell[22794, 513, 301, 4, 28, "Output"]
 }, Open  ]],
-Cell[28131, 648, 996, 25, 80, "Input"]
+Cell[CellGroupData[{
+Cell[23132, 522, 994, 25, 80, "Input"],
+Cell[CellGroupData[{
+Cell[24151, 551, 239, 3, 22, "Print"],
+Cell[24393, 556, 235, 3, 22, "Print"],
+Cell[24631, 561, 232, 3, 22, "Print"],
+Cell[24866, 566, 233, 3, 22, "Print"],
+Cell[25102, 571, 235, 3, 22, "Print"],
+Cell[25340, 576, 235, 3, 22, "Print"],
+Cell[25578, 581, 233, 3, 22, "Print"],
+Cell[25814, 586, 233, 3, 22, "Print"],
+Cell[26050, 591, 230, 3, 22, "Print"],
+Cell[26283, 596, 241, 3, 22, "Print"]
+}, Open  ]],
+Cell[26539, 602, 229, 3, 28, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[26805, 610, 996, 25, 80, "Input"],
+Cell[27804, 637, 177, 2, 28, "Output"]
+}, Open  ]]
 }
 ]
 *)
