@@ -1,16 +1,1 @@
-0000000000000000
-1111110000010000
-0000000000000001
-1111010011010000
-0000000000001010
-1110001100000001
-0000000000000001
-1111110000010000
-0000000000001100
-1110101010000111
-0000000000000000
-1111110000010000
-0000000000000010
-1110001100001000
-0000000000001110
-1110101010000111
+HackCodeInString["// This file is part of www.nand2tetris.org\n// and the book \"The Elements of Computing Systems\"\n// by Nisan and Schocken, MIT Press.\n// File name: projects/06/max/MaxL.asm\n\n// Symbol-less version of the Max.asm program.\n\n@0\nD=M\n@1\nD=D-M\n@10\nD;JGT\n@1\nD=M\n@12\n0;JMP\n@0\nD=M\n@2\nM=D\n@14\n0;JMP"]
