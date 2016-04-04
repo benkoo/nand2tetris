@@ -10,384 +10,20 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     29709,        701]
-NotebookOptionsPosition[     27997,        642]
-NotebookOutlinePosition[     28355,        658]
-CellTagsIndexPosition[     28312,        655]
+NotebookDataLength[      6870,        206]
+NotebookOptionsPosition[      6143,        175]
+NotebookOutlinePosition[      6532,        192]
+CellTagsIndexPosition[      6489,        189]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
 Cell[BoxData[
- RowBox[{
-  RowBox[{"(*", " ", 
-   RowBox[{
-   "Go", " ", "through", " ", "textLineArray", " ", "and", " ", "create", " ",
-     "a", " ", "new", " ", "symbolTable", " ", "as", " ", "well", " ", "as", 
-    " ", "a", " ", "Label", " ", "removal", " ", 
-    RowBox[{"array", "."}]}], "*)"}], "\[IndentingNewLine]", 
+ RowBox[{"Get", "[", 
   RowBox[{
-   RowBox[{
-    RowBox[{"CollectLabels", "[", 
-     RowBox[{"textLineArray_", ",", " ", "symbolTable_"}], "]"}], ":=", 
-    "\[IndentingNewLine]", 
-    RowBox[{"Module", "[", 
-     RowBox[{
-      RowBox[{"{", "\[IndentingNewLine]", " ", 
-       RowBox[{
-        RowBox[{"n", "=", "1"}], ",", "\[IndentingNewLine]", 
-        RowBox[{"romAddress", " ", "=", "1"}], ",", "\[IndentingNewLine]", 
-        RowBox[{"labelCandidatesIndexArray", "=", 
-         RowBox[{"{", "}"}]}], ",", "\[IndentingNewLine]", 
-        RowBox[{"labelCandidatesArray", "=", "symbolTable"}], ",", 
-        "\[IndentingNewLine]", 
-        RowBox[{"labelCandidate", "=", "\"\<\>\""}]}], "\[IndentingNewLine]", 
-       "}"}], ",", "\[IndentingNewLine]", 
-      RowBox[{
-       RowBox[{"While", "[", 
-        RowBox[{
-         RowBox[{"n", "<=", 
-          RowBox[{"Length", "[", "textLineArray", "]"}]}], ",", 
-         "\[IndentingNewLine]", 
-         RowBox[{
-          RowBox[{"If", "[", " ", 
-           RowBox[{
-            RowBox[{"StringStartsQ", "[", 
-             RowBox[{
-              RowBox[{
-              "textLineArray", "\[LeftDoubleBracket]", "n", 
-               "\[RightDoubleBracket]"}], ",", " ", "\"\<(\>\""}], "]"}], ",",
-             "\[IndentingNewLine]", 
-            RowBox[{"(*", " ", "THEN", " ", "*)"}], "\[IndentingNewLine]", 
-            RowBox[{
-             RowBox[{"romAddress", "=", 
-              RowBox[{"romAddress", "-", "1"}]}], ";", "\[IndentingNewLine]", 
-             
-             RowBox[{"labelCandidate", " ", "=", 
-              RowBox[{"StringDrop", "[", 
-               RowBox[{
-                RowBox[{"StringDrop", "[", 
-                 RowBox[{
-                  RowBox[{
-                  "textLineArray", "\[LeftDoubleBracket]", "n", 
-                   "\[RightDoubleBracket]"}], ",", "1"}], "]"}], ",", 
-                RowBox[{"-", "1"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
-             RowBox[{"If", "[", 
-              RowBox[{
-               RowBox[{"MemberQ", "[", 
-                RowBox[{
-                 RowBox[{
-                  RowBox[{"Transpose", "[", "labelCandidatesArray", "]"}], 
-                  "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], ",",
-                  "labelCandidate"}], " ", "]"}], ",", "\[IndentingNewLine]", 
-               
-               RowBox[{"(*", " ", 
-                RowBox[{
-                 RowBox[{
-                 "If", " ", "this", " ", "is", " ", "a", " ", "member", " ", 
-                  "of", " ", "SymbolTable"}], ",", " ", "then", ",", " ", 
-                 RowBox[{
-                  RowBox[{"don", "'"}], "t", " ", "do", " ", "anything"}]}], 
-                " ", "*)"}], "\[IndentingNewLine]", 
-               RowBox[{"Print", "[", 
-                RowBox[{
-                "labelCandidate", " ", "<>", " ", "\"\<Already Exists\>\""}], 
-                "]"}], ",", "\[IndentingNewLine]", 
-               RowBox[{"(*", " ", 
-                RowBox[{
-                 RowBox[{
-                 "Else", " ", "if", " ", "this", " ", "is", " ", "a", " ", 
-                  "new", " ", "symbol", " ", "member"}], ","}], "*)"}], 
-               "\[IndentingNewLine]", 
-               RowBox[{"(*", "\[IndentingNewLine]", 
-                RowBox[{
-                 RowBox[{"Print", "[", 
-                  RowBox[{
-                  "\"\<Candidate Label:\>\"", "<>", " ", "\"\<Line[\>\"", "<>",
-                    " ", 
-                   RowBox[{"ToString", "[", "n", "]"}], "<>", "\"\<]\>\"", 
-                   " ", "<>", "labelCandidate", "<>", " ", "\"\<->\>\"", "<>",
-                    " ", 
-                   RowBox[{"ToString", "[", "romAddress", "]"}]}], "]"}], " ",
-                  ";"}], "\[IndentingNewLine]", "*)"}], "\[IndentingNewLine]", 
-               RowBox[{
-                RowBox[{"AppendTo", "[", 
-                 RowBox[{"labelCandidatesArray", ",", 
-                  RowBox[{"{", 
-                   RowBox[{"labelCandidate", ",", "romAddress"}], "}"}]}], 
-                 "]"}], ";", "\[IndentingNewLine]", 
-                RowBox[{"AppendTo", "[", 
-                 RowBox[{"labelCandidatesIndexArray", ",", 
-                  RowBox[{"{", "n", "}"}]}], "]"}]}]}], "\[IndentingNewLine]",
-               "]"}]}]}], "\[IndentingNewLine]", "]"}], "\[IndentingNewLine]", 
-          RowBox[{"(*", " ", "ELSE", " ", "*)"}], "\[IndentingNewLine]", 
-          RowBox[{"romAddress", "++"}], " ", "\[IndentingNewLine]", 
-          RowBox[{"n", "++"}]}]}], " ", "]"}], ";", "\[IndentingNewLine]", 
-       RowBox[{"{", 
-        RowBox[{
-        "labelCandidatesArray", ",", " ", "labelCandidatesIndexArray"}], 
-        "}"}]}]}], "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
-   "\[IndentingNewLine]", 
-   RowBox[{"(*", " ", 
-    RowBox[{
-    "Go", " ", "through", " ", "textLineArray", " ", "and", " ", "create", 
-     " ", "a", " ", "new", " ", "symbolTable", " ", "as", " ", "well", " ", 
-     "as", " ", "a", " ", "Label", " ", "removal", " ", 
-     RowBox[{"array", "."}]}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"CollectRamAddress", "[", 
-     RowBox[{"textLineArray_", ",", " ", "symbolTable_"}], "]"}], ":=", 
-    "\[IndentingNewLine]", 
-    RowBox[{"Module", "[", 
-     RowBox[{
-      RowBox[{"{", "\[IndentingNewLine]", " ", 
-       RowBox[{
-        RowBox[{"n", "=", "1"}], ",", "\[IndentingNewLine]", 
-        RowBox[{"ramAddress", " ", "=", "16"}], ",", "\[IndentingNewLine]", 
-        RowBox[{"labelCandidatesIndexArray", "=", 
-         RowBox[{"{", "}"}]}], ",", "\[IndentingNewLine]", 
-        RowBox[{"updatedSymbols", "=", "symbolTable"}], ",", 
-        "\[IndentingNewLine]", 
-        RowBox[{"candidateNewSymbol", "=", "\"\<\>\""}], ",", 
-        "\[IndentingNewLine]", 
-        RowBox[{"debug", "=", "False"}]}], "\[IndentingNewLine]", "}"}], ",", 
-      "\[IndentingNewLine]", 
-      RowBox[{
-       RowBox[{"While", "[", 
-        RowBox[{
-         RowBox[{"n", "<=", 
-          RowBox[{"Length", "[", "textLineArray", "]"}]}], ",", 
-         "\[IndentingNewLine]", 
-         RowBox[{
-          RowBox[{"If", "[", " ", 
-           RowBox[{
-            RowBox[{"StringStartsQ", "[", 
-             RowBox[{
-              RowBox[{
-              "textLineArray", "\[LeftDoubleBracket]", "n", 
-               "\[RightDoubleBracket]"}], ",", " ", "\"\<@\>\""}], "]"}], ",",
-             "\[IndentingNewLine]", 
-            RowBox[{"(*", " ", "THEN", " ", "*)"}], "\[IndentingNewLine]", 
-            "\[IndentingNewLine]", 
-            RowBox[{
-             RowBox[{"candidateNewSymbol", "=", 
-              RowBox[{
-               RowBox[{"StringSplit", "[", 
-                RowBox[{
-                 RowBox[{
-                 "textLineArray", "\[LeftDoubleBracket]", "n", 
-                  "\[RightDoubleBracket]"}], ",", "\"\<@\>\""}], "]"}], "//", 
-               "First"}]}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
-             RowBox[{"If", "[", 
-              RowBox[{
-               RowBox[{"StringMatchQ", "[", 
-                RowBox[{"candidateNewSymbol", ",", "NumberString"}], "]"}], 
-               ",", "\[IndentingNewLine]", 
-               RowBox[{"(*", " ", "THEN", " ", "*)"}], "\[IndentingNewLine]", 
-               
-               RowBox[{"If", "[", 
-                RowBox[{"debug", ",", " ", 
-                 RowBox[{"Print", "[", 
-                  RowBox[{
-                  "\"\<Not a new symbol:\>\"", "<>", " ", 
-                   "candidateNewSymbol"}], "]"}]}], "]"}], ",", 
-               "\[IndentingNewLine]", 
-               RowBox[{"(*", " ", "ELSE", " ", "*)"}], "\[IndentingNewLine]", 
-               
-               RowBox[{"If", "[", 
-                RowBox[{
-                 RowBox[{"MemberQ", "[", 
-                  RowBox[{
-                   RowBox[{
-                    RowBox[{"Transpose", "[", "updatedSymbols", "]"}], 
-                    "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
-                   ",", "candidateNewSymbol"}], " ", "]"}], ",", 
-                 "\[IndentingNewLine]", 
-                 RowBox[{"(*", " ", 
-                  RowBox[{
-                   RowBox[{
-                   "If", " ", "this", " ", "is", " ", "a", " ", "member", " ",
-                     "of", " ", "SymbolTable"}], ",", " ", "then", ",", " ", 
-                   RowBox[{
-                    RowBox[{"don", "'"}], "t", " ", "do", " ", "anything"}]}],
-                   " ", "*)"}], "\[IndentingNewLine]", 
-                 RowBox[{"If", "[", 
-                  RowBox[{"debug", ",", " ", 
-                   RowBox[{"Print", "[", 
-                    RowBox[{
-                    "\"\< Already Exists: \>\"", "<>", " ", 
-                    "candidateNewSymbol"}], " ", "]"}]}], "]"}], ",", " ", 
-                 "\[IndentingNewLine]", 
-                 RowBox[{"(*", " ", 
-                  RowBox[{
-                   RowBox[{
-                   "Else", " ", "if", " ", "this", " ", "is", " ", "a", " ", 
-                    "new", " ", "symbol", " ", "member"}], ","}], "*)"}], 
-                 "\[IndentingNewLine]", 
-                 RowBox[{"(*", 
-                  RowBox[{
-                   RowBox[{"Print", "[", 
-                    RowBox[{
-                    "\"\<Candidate Label:\>\"", "<>", " ", "\"\<Line[\>\"", "<>",
-                     " ", 
-                    RowBox[{"ToString", "[", "n", "]"}], "<>", "\"\<]\>\"", 
-                    " ", "<>", "candidateNewSymbol", "<>", " ", "\"\<->\>\"", 
-                    "<>", " ", 
-                    RowBox[{"ToString", "[", "ramAddress", "]"}]}], "]"}], 
-                   " ", ";"}], "*)"}], "\[IndentingNewLine]", 
-                 RowBox[{
-                  RowBox[{"AppendTo", "[", 
-                   RowBox[{"updatedSymbols", ",", 
-                    RowBox[{"{", 
-                    RowBox[{"candidateNewSymbol", ",", "ramAddress"}], 
-                    "}"}]}], "]"}], ";", "\[IndentingNewLine]", 
-                  RowBox[{"(*", " ", 
-                   RowBox[{"Now", ",", " ", 
-                    RowBox[{
-                    "increment", " ", "ramAddress", " ", "by", " ", "1"}]}], 
-                   "*)"}], "\[IndentingNewLine]", 
-                  RowBox[{"ramAddress", "++"}], " ", ";"}]}], 
-                "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
-              "]"}]}]}], "\[IndentingNewLine]", "]"}], "\[IndentingNewLine]", 
-          
-          RowBox[{"n", "++"}]}]}], " ", "]"}], ";", "\[IndentingNewLine]", 
-       "updatedSymbols"}]}], "\[IndentingNewLine]", "]"}]}], 
-   "\[IndentingNewLine]"}]}]], "Input",
- CellChangeTimes->{{3.666882120707466*^9, 3.6668821263716183`*^9}, {
-  3.666882160788023*^9, 3.666882186912692*^9}, {3.6668822172830677`*^9, 
-  3.666882235120153*^9}, {3.6669082382399263`*^9, 3.666908248576109*^9}, {
-  3.666911025477974*^9, 3.666911028619557*^9}, {3.666923470590888*^9, 
-  3.6669234759332457`*^9}, {3.666923579461853*^9, 3.66692362338118*^9}}],
-
-Cell[BoxData[""], "Input",
- CellChangeTimes->{{3.6668839084620447`*^9, 3.666883988663362*^9}, {
-   3.6668840585048237`*^9, 3.666884077217606*^9}, 3.666884191453286*^9, {
-   3.666884259499053*^9, 3.666884262928982*^9}, {3.6668844465865917`*^9, 
-   3.666884529241643*^9}, {3.666884587093356*^9, 3.666884689445179*^9}, {
-   3.666884831781748*^9, 3.666884874574876*^9}, {3.666884907793552*^9, 
-   3.666884957081893*^9}, 3.666904353168388*^9}],
-
-Cell[BoxData[
- RowBox[{
-  RowBox[{"(*", " ", 
-   RowBox[{
-    RowBox[{
-    "Given", " ", "binary", " ", "string", " ", "represented", " ", "Hack", 
-     " ", "code"}], ",", " ", 
-    RowBox[{
-    "create", " ", "its", " ", "textual", " ", "representation", " ", 
-     "including", " ", "end", " ", "of", " ", 
-     RowBox[{"line", "."}]}]}], "*)"}], "\[IndentingNewLine]", 
-  RowBox[{
-   RowBox[{
-    RowBox[{"HackCodeInStringWithUpdatedSymbols", "[", 
-     RowBox[{"rawText_", ",", " ", "initialSymbols_"}], "]"}], ":=", " ", 
-    RowBox[{"Module", "[", "\[IndentingNewLine]", 
-     RowBox[{
-      RowBox[{"{", "\[IndentingNewLine]", 
-       RowBox[{
-        RowBox[{"arrayOfLines", " ", "=", " ", 
-         RowBox[{"{", "}"}]}], ",", "\[IndentingNewLine]", 
-        RowBox[{"asmArray", " ", "=", " ", 
-         RowBox[{"{", "}"}]}], ",", "\[IndentingNewLine]", 
-        RowBox[{"binaryCodeArray", " ", "=", " ", 
-         RowBox[{"{", "}"}]}], ",", "\[IndentingNewLine]", 
-        RowBox[{"binaryCodeString", "=", "\"\<\>\""}], ",", 
-        "\[IndentingNewLine]", 
-        RowBox[{"rawTextualInstructions", "=", 
-         RowBox[{"{", "}"}]}], ",", "\[IndentingNewLine]", 
-        RowBox[{"instructionSetWithoutLineComments", "=", 
-         RowBox[{"{", "}"}]}], ",", "\[IndentingNewLine]", 
-        RowBox[{"labelCollectionResult", "=", 
-         RowBox[{"{", "}"}]}], ",", "\[IndentingNewLine]", 
-        RowBox[{"updatedSymbols", "=", 
-         RowBox[{"{", "}"}]}], ",", "\[IndentingNewLine]", 
-        RowBox[{"symbolsWithRamAddress", " ", "=", 
-         RowBox[{"{", "}"}]}]}], "\[IndentingNewLine]", "}"}], ",", 
-      "\[IndentingNewLine]", 
-      RowBox[{
-       RowBox[{"arrayOfLines", "=", " ", 
-        RowBox[{"StringSplit", "[", 
-         RowBox[{"rawText", ",", " ", "\"\<\\n\>\""}], "]"}]}], ";", 
-       "\[IndentingNewLine]", 
-       RowBox[{"If", "[", 
-        RowBox[{
-         RowBox[{
-          RowBox[{"Length", "[", "arrayOfLines", "]"}], "\[LessEqual]", "0"}],
-          ",", " ", "\[IndentingNewLine]", 
-         RowBox[{"(*", "Then", "*)"}], " ", 
-         RowBox[{
-          RowBox[{"Print", "[", "\"\<No Text to be translated\>\"", "]"}], 
-          ";", " ", 
-          RowBox[{"Return", " ", "Null"}]}]}], "\[IndentingNewLine]", "]"}], 
-       ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
-       RowBox[{"rawTextualInstructions", "=", 
-        RowBox[{"CollectInstruction", "[", "arrayOfLines", "]"}]}], ";", 
-       "\[IndentingNewLine]", 
-       RowBox[{"(*", " ", 
-        RowBox[{
-         RowBox[{"Print", "[", "rawTextualInstructions", "]"}], ";"}], " ", 
-        "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
-       RowBox[{"labelCollectionResult", " ", "=", 
-        RowBox[{"CollectLabels", "[", 
-         RowBox[{"rawTextualInstructions", ",", "initialSymbols"}], "]"}]}], 
-       ";", "\[IndentingNewLine]", 
-       RowBox[{"updatedSymbols", "=", " ", 
-        RowBox[{
-        "labelCollectionResult", "\[LeftDoubleBracket]", "1", 
-         "\[RightDoubleBracket]"}]}], ";", "\[IndentingNewLine]", 
-       "\[IndentingNewLine]", 
-       RowBox[{"instructionSetWithoutLineComments", "=", 
-        RowBox[{"Map", "[", 
-         RowBox[{"StripComment", ",", 
-          RowBox[{"Delete", "[", 
-           RowBox[{"rawTextualInstructions", ",", " ", 
-            RowBox[{
-            "labelCollectionResult", "\[LeftDoubleBracket]", "2", 
-             "\[RightDoubleBracket]"}]}], "]"}]}], "]"}]}], ";", 
-       "\[IndentingNewLine]", "\[IndentingNewLine]", 
-       RowBox[{"symbolsWithRamAddress", "=", 
-        RowBox[{"CollectRamAddress", "[", 
-         RowBox[{
-         "instructionSetWithoutLineComments", ",", " ", "updatedSymbols"}], 
-         "]"}]}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
-       RowBox[{"binaryCodeArray", "=", 
-        RowBox[{"TranslateInstructionWithUpdatedSymbols", "[", 
-         RowBox[{
-         "instructionSetWithoutLineComments", ",", "\[IndentingNewLine]", 
-          "symbolsWithRamAddress"}], "]"}]}], ";", "\[IndentingNewLine]", 
-       RowBox[{"(*", " ", 
-        RowBox[{
-         RowBox[{"Print", "[", "binaryCodeArray", "]"}], ";"}], "*)"}], 
-       "\[IndentingNewLine]", 
-       RowBox[{"If", "[", 
-        RowBox[{
-         RowBox[{
-          RowBox[{"Length", "[", "binaryCodeArray", "]"}], "\[LessEqual]", 
-          "0"}], ",", " ", "\[IndentingNewLine]", 
-         RowBox[{"(*", "Then", "*)"}], " ", 
-         RowBox[{"Print", "[", "\"\<No Code to be translated\>\"", "]"}], ",",
-          "\[IndentingNewLine]", 
-         RowBox[{"(*", "Else", "*)"}], " ", 
-         RowBox[{"binaryCodeString", " ", "=", 
-          RowBox[{"StringJoin", "[", 
-           RowBox[{"Map", "[", 
-            RowBox[{
-             RowBox[{
-              RowBox[{"(", 
-               RowBox[{"#", "<>", "\"\<\\n\>\""}], ")"}], "&"}], ",", " ", 
-             "binaryCodeArray"}], "]"}], "]"}]}]}], "\[IndentingNewLine]", 
-        "]"}], ";", "\[IndentingNewLine]", "binaryCodeString"}]}], 
-     "\[IndentingNewLine]", "]"}]}], ";"}]}]], "Input",
- CellChangeTimes->{{3.66688195209089*^9, 3.6668819555206337`*^9}, {
-   3.6668822876602182`*^9, 3.666882329170483*^9}, {3.666882370939492*^9, 
-   3.6668824807621202`*^9}, {3.666882622107411*^9, 3.6668826619486217`*^9}, {
-   3.666882741518502*^9, 3.666882742902194*^9}, {3.666882790589274*^9, 
-   3.6668828673569517`*^9}, {3.6668829111788692`*^9, 3.666882968283072*^9}, {
-   3.666883115614708*^9, 3.666883118069502*^9}, {3.666883310809683*^9, 
-   3.666883313183803*^9}, {3.6668850137391987`*^9, 3.6668850604985313`*^9}, {
-   3.6669048111458597`*^9, 3.666904836140476*^9}, {3.666904910486253*^9, 
-   3.6669049150767393`*^9}, 3.666908225848999*^9}],
+   RowBox[{"NotebookDirectory", "[", "]"}], "<>", " ", 
+   "\"\<Translation.wl\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.668731442880534*^9, 3.668731509616424*^9}}],
 
 Cell[CellGroupData[{
 
@@ -408,7 +44,7 @@ Cell[BoxData[
     "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"binaryCodeInString", "=", 
-     RowBox[{"HackCodeInStringWithUpdatedSymbols", "[", 
+     RowBox[{"TranslateHackCodeWithUpdatedSymbols", "[", 
       RowBox[{"rawText", ",", " ", "SymbolTable"}], "]"}]}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{"Export", "[", 
@@ -417,26 +53,13 @@ Cell[BoxData[
       RowBox[{"NotebookDirectory", "[", "]"}], "<>", "\"\<Add.hack\>\""}], 
      ",", "binaryCodeInString", ",", "\"\<Text\>\""}], "]"}]}]}]], "Input",
  CellChangeTimes->{
-  3.666882058720066*^9, {3.666882994476836*^9, 3.6668829994491787`*^9}}],
-
-Cell[CellGroupData[{
-
-Cell[BoxData["\<\"Not a new symbol:2\"\>"], "Print",
- CellChangeTimes->{3.666885122062189*^9, 3.666908257051626*^9, 
-  3.66691269158281*^9}],
-
-Cell[BoxData["\<\"Not a new symbol:3\"\>"], "Print",
- CellChangeTimes->{3.666885122062189*^9, 3.666908257051626*^9, 
-  3.6669126916391687`*^9}],
-
-Cell[BoxData["\<\"Not a new symbol:0\"\>"], "Print",
- CellChangeTimes->{3.666885122062189*^9, 3.666908257051626*^9, 
-  3.666912691686367*^9}]
-}, Open  ]],
+  3.666882058720066*^9, {3.666882994476836*^9, 3.6668829994491787`*^9}, 
+   3.668732561261632*^9}],
 
 Cell[BoxData["\<\"/Users/bkoo/Documents/Workspace/GitRepos/nand2tetris/06/\
 Mathematica/Add.hack\"\>"], "Output",
- CellChangeTimes->{3.666908257119307*^9, 3.666912691768972*^9}]
+ CellChangeTimes->{3.666908257119307*^9, 3.666912691768972*^9, 
+  3.668732860072242*^9, 3.668733278436391*^9, 3.66873346210227*^9}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -458,7 +81,7 @@ Cell[BoxData[
     "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"binaryCodeInString", "=", 
-     RowBox[{"HackCodeInStringWithUpdatedSymbols", "[", 
+     RowBox[{"TranslateHackCodeWithUpdatedSymbols", "[", 
       RowBox[{"rawText", ",", " ", "SymbolTable"}], "]"}]}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{"Export", "[", 
@@ -466,56 +89,15 @@ Cell[BoxData[
      RowBox[{
       RowBox[{"NotebookDirectory", "[", "]"}], "<>", "\"\<Max.hack\>\""}], 
      ",", "binaryCodeInString", ",", "\"\<Text\>\""}], "]"}]}]}]], "Input",
- CellChangeTimes->{{3.666883197466*^9, 3.666883223183661*^9}}],
-
-Cell[CellGroupData[{
-
-Cell[BoxData["\<\"To be used to look up address:R0\"\>"], "Print",
- CellChangeTimes->{{3.666883209899167*^9, 3.6668832431624727`*^9}, 
-   3.666883322808284*^9, 3.666883392169442*^9, 3.666908262536708*^9, 
-   3.6669126973239317`*^9, 3.666923642665023*^9}],
-
-Cell[BoxData["\<\"To be used to look up address:R1\"\>"], "Print",
- CellChangeTimes->{{3.666883209899167*^9, 3.6668832431624727`*^9}, 
-   3.666883322808284*^9, 3.666883392169442*^9, 3.666908262536708*^9, 
-   3.6669126973239317`*^9, 3.666923642729478*^9}],
-
-Cell[BoxData["\<\"To be used to look up address:OUTPUT_FIRST\"\>"], "Print",
- CellChangeTimes->{{3.666883209899167*^9, 3.6668832431624727`*^9}, 
-   3.666883322808284*^9, 3.666883392169442*^9, 3.666908262536708*^9, 
-   3.6669126973239317`*^9, 3.666923642788506*^9}],
-
-Cell[BoxData["\<\"To be used to look up address:R1\"\>"], "Print",
- CellChangeTimes->{{3.666883209899167*^9, 3.6668832431624727`*^9}, 
-   3.666883322808284*^9, 3.666883392169442*^9, 3.666908262536708*^9, 
-   3.6669126973239317`*^9, 3.66692364284312*^9}],
-
-Cell[BoxData["\<\"To be used to look up address:OUTPUT_D\"\>"], "Print",
- CellChangeTimes->{{3.666883209899167*^9, 3.6668832431624727`*^9}, 
-   3.666883322808284*^9, 3.666883392169442*^9, 3.666908262536708*^9, 
-   3.6669126973239317`*^9, 3.66692364289804*^9}],
-
-Cell[BoxData["\<\"To be used to look up address:R0\"\>"], "Print",
- CellChangeTimes->{{3.666883209899167*^9, 3.6668832431624727`*^9}, 
-   3.666883322808284*^9, 3.666883392169442*^9, 3.666908262536708*^9, 
-   3.6669126973239317`*^9, 3.666923642949894*^9}],
-
-Cell[BoxData["\<\"To be used to look up address:R2\"\>"], "Print",
- CellChangeTimes->{{3.666883209899167*^9, 3.6668832431624727`*^9}, 
-   3.666883322808284*^9, 3.666883392169442*^9, 3.666908262536708*^9, 
-   3.6669126973239317`*^9, 3.666923643001172*^9}],
-
-Cell[BoxData["\<\"To be used to look up address:INFINITE_LOOP\"\>"], "Print",
- CellChangeTimes->{{3.666883209899167*^9, 3.6668832431624727`*^9}, 
-   3.666883322808284*^9, 3.666883392169442*^9, 3.666908262536708*^9, 
-   3.6669126973239317`*^9, 3.666923643052356*^9}]
-}, Open  ]],
+ CellChangeTimes->{{3.666883197466*^9, 3.666883223183661*^9}, 
+   3.668732561267984*^9}],
 
 Cell[BoxData["\<\"/Users/bkoo/Documents/Workspace/GitRepos/nand2tetris/06/\
 Mathematica/Max.hack\"\>"], "Output",
  CellChangeTimes->{{3.666883209962481*^9, 3.666883243214982*^9}, 
    3.666883322858802*^9, 3.666883392221766*^9, 3.6669082627529373`*^9, 
-   3.666912698317128*^9, 3.6669236431837463`*^9}]
+   3.666912698317128*^9, 3.6669236431837463`*^9, 3.668733282595092*^9, 
+   3.6687334650053263`*^9}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -537,7 +119,7 @@ Cell[BoxData[
     ";"}], "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"binaryCodeInString", "=", 
-     RowBox[{"HackCodeInStringWithUpdatedSymbols", "[", 
+     RowBox[{"TranslateHackCodeWithUpdatedSymbols", "[", 
       RowBox[{"rawText", ",", "SymbolTable"}], "]"}]}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{"Export", "[", 
@@ -545,65 +127,14 @@ Cell[BoxData[
      RowBox[{
       RowBox[{"NotebookDirectory", "[", "]"}], "<>", "\"\<Rect.hack\>\""}], 
      ",", "binaryCodeInString", ",", "\"\<Text\>\""}], "]"}]}]}]], "Input",
- CellChangeTimes->{{3.666883539387471*^9, 3.666883553981019*^9}}],
-
-Cell[CellGroupData[{
-
-Cell[BoxData["\<\"To be used to look up address:INFINITE_LOOP\"\>"], "Print",
- CellChangeTimes->{3.6668835556364517`*^9, 3.666885071387656*^9, 
-  3.666908266564046*^9, 3.6669127676750393`*^9, 3.666923488123643*^9, 
-  3.666923699998026*^9}],
-
-Cell[BoxData["\<\"To be used to look up address:counter\"\>"], "Print",
- CellChangeTimes->{3.6668835556364517`*^9, 3.666885071387656*^9, 
-  3.666908266564046*^9, 3.6669127676750393`*^9, 3.666923488123643*^9, 
-  3.6669237000238323`*^9}],
-
-Cell[BoxData["\<\"To be used to look up address:SCREEN\"\>"], "Print",
- CellChangeTimes->{3.6668835556364517`*^9, 3.666885071387656*^9, 
-  3.666908266564046*^9, 3.6669127676750393`*^9, 3.666923488123643*^9, 
-  3.666923700045168*^9}],
-
-Cell[BoxData["\<\"To be used to look up address:address\"\>"], "Print",
- CellChangeTimes->{3.6668835556364517`*^9, 3.666885071387656*^9, 
-  3.666908266564046*^9, 3.6669127676750393`*^9, 3.666923488123643*^9, 
-  3.666923700065563*^9}],
-
-Cell[BoxData["\<\"To be used to look up address:address\"\>"], "Print",
- CellChangeTimes->{3.6668835556364517`*^9, 3.666885071387656*^9, 
-  3.666908266564046*^9, 3.6669127676750393`*^9, 3.666923488123643*^9, 
-  3.6669237000859947`*^9}],
-
-Cell[BoxData["\<\"To be used to look up address:address\"\>"], "Print",
- CellChangeTimes->{3.6668835556364517`*^9, 3.666885071387656*^9, 
-  3.666908266564046*^9, 3.6669127676750393`*^9, 3.666923488123643*^9, 
-  3.6669237001059637`*^9}],
-
-Cell[BoxData["\<\"To be used to look up address:address\"\>"], "Print",
- CellChangeTimes->{3.6668835556364517`*^9, 3.666885071387656*^9, 
-  3.666908266564046*^9, 3.6669127676750393`*^9, 3.666923488123643*^9, 
-  3.666923700125864*^9}],
-
-Cell[BoxData["\<\"To be used to look up address:counter\"\>"], "Print",
- CellChangeTimes->{3.6668835556364517`*^9, 3.666885071387656*^9, 
-  3.666908266564046*^9, 3.6669127676750393`*^9, 3.666923488123643*^9, 
-  3.666923700145781*^9}],
-
-Cell[BoxData["\<\"To be used to look up address:LOOP\"\>"], "Print",
- CellChangeTimes->{3.6668835556364517`*^9, 3.666885071387656*^9, 
-  3.666908266564046*^9, 3.6669127676750393`*^9, 3.666923488123643*^9, 
-  3.666923700165456*^9}],
-
-Cell[BoxData["\<\"To be used to look up address:INFINITE_LOOP\"\>"], "Print",
- CellChangeTimes->{3.6668835556364517`*^9, 3.666885071387656*^9, 
-  3.666908266564046*^9, 3.6669127676750393`*^9, 3.666923488123643*^9, 
-  3.6669237001850233`*^9}]
-}, Open  ]],
+ CellChangeTimes->{{3.666883539387471*^9, 3.666883553981019*^9}, 
+   3.668732561274713*^9}],
 
 Cell[BoxData["\<\"/Users/bkoo/Documents/Workspace/GitRepos/nand2tetris/06/\
 Mathematica/Rect.hack\"\>"], "Output",
  CellChangeTimes->{3.6669082666692257`*^9, 3.666912769000636*^9, 
-  3.6669234891803627`*^9, 3.666923700256654*^9}]
+  3.6669234891803627`*^9, 3.666923700256654*^9, 3.668733285721809*^9, 
+  3.668733467053878*^9}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -625,7 +156,7 @@ Cell[BoxData[
     ";"}], "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"binaryCodeInString", "=", 
-     RowBox[{"HackCodeInStringWithUpdatedSymbols", "[", 
+     RowBox[{"TranslateHackCodeWithUpdatedSymbols", "[", 
       RowBox[{"rawText", ",", "SymbolTable"}], "]"}]}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{"Export", "[", 
@@ -633,15 +164,18 @@ Cell[BoxData[
      RowBox[{
       RowBox[{"NotebookDirectory", "[", "]"}], "<>", "\"\<Pong.hack\>\""}], 
      ",", "binaryCodeInString", ",", "\"\<Text\>\""}], "]"}]}]}]], "Input",
- CellChangeTimes->{{3.6669083521154222`*^9, 3.666908361361865*^9}}],
+ CellChangeTimes->{{3.6669083521154222`*^9, 3.666908361361865*^9}, 
+   3.6687325612810917`*^9}],
 
 Cell[BoxData["\<\"/Users/bkoo/Documents/Workspace/GitRepos/nand2tetris/06/\
 Mathematica/Pong.hack\"\>"], "Output",
- CellChangeTimes->{3.66690861713964*^9, 3.666911372176874*^9}]
+ CellChangeTimes->{3.66690861713964*^9, 3.666911372176874*^9, 
+  3.668733299637887*^9, 3.668733480480239*^9}]
 }, Open  ]]
 },
+AutoGeneratedPackage->Manual,
 WindowSize->{808, 811},
-WindowMargins->{{Automatic, 186}, {Automatic, 0}},
+WindowMargins->{{130, Automatic}, {Automatic, 12}},
 FrontEndVersion->"10.4 for Mac OS X x86 (32-bit, 64-bit Kernel) (February 25, \
 2016)",
 StyleDefinitions->"Default.nb"
@@ -657,51 +191,22 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 11265, 239, 1202, "Input"],
-Cell[11826, 261, 438, 6, 28, "Input"],
-Cell[12267, 269, 5691, 120, 709, "Input"],
+Cell[558, 20, 216, 5, 28, "Input"],
 Cell[CellGroupData[{
-Cell[17983, 393, 1019, 26, 80, "Input"],
-Cell[CellGroupData[{
-Cell[19027, 423, 140, 2, 22, "Print"],
-Cell[19170, 427, 143, 2, 22, "Print"],
-Cell[19316, 431, 141, 2, 22, "Print"]
-}, Open  ]],
-Cell[19472, 436, 177, 2, 28, "Output"]
+Cell[799, 29, 1046, 27, 80, "Input"],
+Cell[1848, 58, 245, 3, 28, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[19686, 443, 990, 25, 80, "Input"],
-Cell[CellGroupData[{
-Cell[20701, 472, 254, 3, 22, "Print"],
-Cell[20958, 477, 254, 3, 22, "Print"],
-Cell[21215, 482, 264, 3, 22, "Print"],
-Cell[21482, 487, 253, 3, 22, "Print"],
-Cell[21738, 492, 259, 3, 22, "Print"],
-Cell[22000, 497, 254, 3, 22, "Print"],
-Cell[22257, 502, 254, 3, 22, "Print"],
-Cell[22514, 507, 265, 3, 22, "Print"]
-}, Open  ]],
-Cell[22794, 513, 301, 4, 28, "Output"]
+Cell[2130, 66, 1017, 26, 80, "Input"],
+Cell[3150, 94, 351, 5, 28, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[23132, 522, 994, 25, 80, "Input"],
-Cell[CellGroupData[{
-Cell[24151, 551, 239, 3, 22, "Print"],
-Cell[24393, 556, 235, 3, 22, "Print"],
-Cell[24631, 561, 232, 3, 22, "Print"],
-Cell[24866, 566, 233, 3, 22, "Print"],
-Cell[25102, 571, 235, 3, 22, "Print"],
-Cell[25340, 576, 235, 3, 22, "Print"],
-Cell[25578, 581, 233, 3, 22, "Print"],
-Cell[25814, 586, 233, 3, 22, "Print"],
-Cell[26050, 591, 230, 3, 22, "Print"],
-Cell[26283, 596, 241, 3, 22, "Print"]
-}, Open  ]],
-Cell[26539, 602, 229, 3, 28, "Output"]
+Cell[3538, 104, 1021, 26, 80, "Input"],
+Cell[4562, 132, 276, 4, 28, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[26805, 610, 996, 25, 80, "Input"],
-Cell[27804, 637, 177, 2, 28, "Output"]
+Cell[4875, 141, 1025, 26, 80, "Input"],
+Cell[5903, 169, 224, 3, 86, "Output"]
 }, Open  ]]
 }
 ]
