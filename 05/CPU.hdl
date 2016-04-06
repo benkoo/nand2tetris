@@ -52,6 +52,13 @@ CHIP CPU {
 	out[12]=compAbit); 
 
 
+    //Data Bits
+    //Using the 6 c-bits of the C-instruction compute field to configure ALU.
+    ALU(x=aluX, y=aluY, 
+	zx=c1, nx=c2, zy=c3, ny=c4, f=c5, no=c6, 
+	zr=zr, ng=ng, 
+	out=outM, out=ALUOut);
+
 
     //when d1 ==1, store the ALU computed result to ARegister
     Mux16(a=instruction, b=ALUOut, sel=d1, out=ARegIn);
@@ -105,11 +112,5 @@ CHIP CPU {
 	
 
 
-    //Data Bits
-    //Using the 6 c-bits of the C-instruction compute field to configure ALU.
-    ALU(x=aluX, y=aluY, 
-	zx=c1, nx=c2, zy=c3, ny=c4, f=c5, no=c6, 
-	zr=zr, ng=ng, 
-	out=outM, out=ALUOut);
 
 }

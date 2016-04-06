@@ -17,16 +17,19 @@ CHIP PC {
 
     PARTS:
 
-    Inc16(in=registerV, out=incV);
-			
-    Mux16(a=in, b=incV, sel=inc, out=incOut);
+    //Register chip stores the address value 
+    Register(in=resetValue, load=true, out=out, out=registerV);
 
+    //This Mux16 determines when to reset.
+    Mux16(a=loadV, b=false, sel=reset, out=resetValue);
+
+    //This Mux16 determines when to load.
     Mux16(a=incOut, b=in, sel=load, out=loadV);
 
-    Mux16(a=loadV, b=false, sel=reset, out=resetValue);
-	
-    Register(in=resetValue, load=true, out=out, out=registerV);
-	
-
+    //Increment the value in register by 1
+    Inc16(in=registerV, out=incV);
+			
+    //This Mux16 determines either to increment registerV by 1 or take input value “in”.
+    Mux16(a=in, b=incV, sel=inc, out=incOut);
 
 }
