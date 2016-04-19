@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     27763,        767]
-NotebookOptionsPosition[     24745,        665]
-NotebookOutlinePosition[     25218,        683]
-CellTagsIndexPosition[     25175,        680]
+NotebookDataLength[     79422,       1908]
+NotebookOptionsPosition[     74172,       1740]
+NotebookOutlinePosition[     74675,       1759]
+CellTagsIndexPosition[     74632,       1756]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -34,23 +34,24 @@ Cell[TextData[{
  "0.",
  
  CounterBox["Section"],
- ". Learning must take place in meaningful context"
+ ". Learning in proper context"
 }], "Section",
  CellChangeTimes->{{3.666573556558523*^9, 3.66657359623905*^9}, {
   3.668717078394359*^9, 3.6687170888467493`*^9}, {3.668759876364588*^9, 
-  3.668759876697201*^9}}],
+  3.668759876697201*^9}, {3.668993780740492*^9, 3.668993794593432*^9}}],
 
 Cell["\<\
-As computing devices are becoming ever more pervasive, we started to realize \
-that computation as a kind of process is actually taking place everywhere, \
-all the time. This view has been explicitly stated by well-known proponent of \
-physical computing, such as Seth Lloyd[In his Universe as a Computer]. We \
-want to use this book as a way to lead readers to build computing devices as \
-also to create an operational discipline that helps people to use the \
-knowledge of computing science to better construct systems. In other words, \
-we believe that all systems are a part of a bigger computing system, and they \
-all follow a similar mechanism to manage their complexity. Due to this \
-self-similarity, we believe that all systems can learn from their \
+This book is about preparing people to use a computaitonal approach in the \
+physical world. As computing devices are becoming ever more pervasive, we \
+started to realize that computation as a kind of process is actually taking \
+place everywhere, all the time. This view has been explicitly stated by \
+well-known proponent of physical computing, such as Seth Lloyd[Programming \
+the Universe]. We want to use this book as a way to lead readers to build \
+computing devices as also to create an operational discipline that helps \
+people to use the knowledge of computing science to better construct systems. \
+In other words, we believe that all systems are a part of a bigger computing \
+system, and they all follow a similar mechanism to manage their complexity. \
+Due to this self-similarity, we believe that all systems can learn from their \
 environmentally generated data. This idea has also been stated explicitly by \
 Leslie Valiant\[CloseCurlyQuote]s Probably Approximately Correct (PAC) \
 doctrine. Popular concepts, such as machine learning and artificial \
@@ -61,7 +62,8 @@ keep up with the latest technologies.\
  CellChangeTimes->{{3.6687598957708282`*^9, 3.668760000656006*^9}, {
   3.668760078649006*^9, 3.668760161068492*^9}, {3.66876023499984*^9, 
   3.668760271228109*^9}, {3.66876031036313*^9, 3.6687603736550922`*^9}, {
-  3.6687775630399446`*^9, 3.668777630405223*^9}}],
+  3.6687775630399446`*^9, 3.668777630405223*^9}, {3.668993423089123*^9, 
+  3.668993501397818*^9}, {3.6694544074034433`*^9, 3.6694544207417583`*^9}}],
 
 Cell["\<\
 To facilitate better learning in the context of fast-moving targets, we will \
@@ -77,42 +79,6 @@ rationale should be self-evident when we get to that chapter.\
    3.666576345944644*^9}, {3.668717096431456*^9, 3.668717250576509*^9}, 
    3.668759894962381*^9, {3.6687603813474894`*^9, 3.668760390881856*^9}, {
    3.668777635374116*^9, 3.668777770524788*^9}}],
-
-Cell[CellGroupData[{
-
-Cell[TextData[{
- "0.",
- 
- CounterBox["Section"],
- ".",
- 
- CounterBox["Subsection"],
- ". An Agent-based Architecture"
-}], "Subsection",
- CellChangeTimes->{{3.666575338578443*^9, 3.666575347326777*^9}, {
-  3.668759884636153*^9, 3.668759884905202*^9}, {3.668777801149188*^9, 
-  3.668777810275137*^9}, {3.668777947267273*^9, 3.668777947497579*^9}}],
-
-Cell["\<\
-This book presents a basic learning framework by treating every thing as \
-learning agent. Here, we describe agents as organizations, human, and even \
-man-made objects, such as computing devices, and computer programs as agents. \
-Agents can be wrap around in other agents. In those cases, the containing \
-agents can be considered as a kind of agency. An agency is also an \
-operational context for other agents. As one might imagine, if a clever \
-student ask: \[OpenCurlyDoubleQuote]What are the next thing within an agent?\
-\[CloseCurlyDoubleQuote] The trivial answer would be: it will be agents all \
-the way down. This will also become an implementation choice, when we start \
-introducing programming langauges, such as NetLogo. It does use the old \
-naming convention, by calling all agents: turtles.\
-\>", "Text",
- CellChangeTimes->{{3.666573601464292*^9, 3.66657369394256*^9}, {
-   3.666573726018475*^9, 3.666573726023479*^9}, {3.666576283845158*^9, 
-   3.666576345944644*^9}, {3.668717096431456*^9, 3.668717250576509*^9}, 
-   3.668759894962381*^9, {3.6687603813474894`*^9, 3.668760390881856*^9}, {
-   3.668777635374116*^9, 3.668777673219153*^9}, {3.668777816227862*^9, 
-   3.668778061133172*^9}}]
-}, Open  ]],
 
 Cell[CellGroupData[{
 
@@ -154,44 +120,7 @@ Alan Turing. Then, readers can modify the project to suit their own need. \
  CellChangeTimes->{{3.666573601464292*^9, 3.66657369394256*^9}, {
   3.666573726018475*^9, 3.6665737866074667`*^9}, {3.666573873121557*^9, 
   3.666573985906039*^9}, {3.6687172562333612`*^9, 3.66871743059262*^9}}]
-}, Open  ]]
 }, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[TextData[{
- "0.",
- 
- CounterBox["Section"],
- ". Why Turing Machines?"
-}], "Section",
- CellChangeTimes->{{3.666573556558523*^9, 3.66657359623905*^9}, {
-   3.668717078394359*^9, 3.6687170888467493`*^9}, {3.668717510279929*^9, 
-   3.668717522364758*^9}, 3.668717765017746*^9, {3.6687598809537983`*^9, 
-   3.668759881297378*^9}}],
-
-Cell["\<\
-What we believe is that understanding the basic building blocks of a \
-computing system is pervasive in many places. Not only does it come in shape \
-and sizes that one may artificially build with software and hardware \
-technologies. It also comes in shapes and sizes that permeates our natural \
-world. Turing Machine is a kind of perpetual machine that lives on the energy \
-of contextual information. Once its Godilock conditions get satified, it will \
-immediately kicks in to perform computation.\
-\>", "Text",
- CellChangeTimes->{{3.6665754101192017`*^9, 3.666575565250828*^9}, {
-   3.666575648530707*^9, 3.666575673525852*^9}, 3.668717471851375*^9, {
-   3.6687175270777817`*^9, 3.668717639792591*^9}}],
-
-Cell["\<\
-The context that I am writing this book is in a computational tool, called \
-Mathematica. This is a programming language and an interactive environment \
-that exhibits many properties of Turing Computation.\
-\>", "Text",
- CellChangeTimes->{{3.6665754101192017`*^9, 3.666575565250828*^9}, {
-   3.666575648530707*^9, 3.666575673525852*^9}, 3.668717471851375*^9, {
-   3.6687175270777817`*^9, 3.668717689605752*^9}, {3.6687781062323112`*^9, 
-   3.6687781062531233`*^9}}],
 
 Cell[CellGroupData[{
 
@@ -202,11 +131,408 @@ Cell[TextData[{
  ".",
  
  CounterBox["Subsection"],
- ". Technology Stack"
+ ". Managing Knowledge in a Crowd"
+}], "Subsection",
+ CellChangeTimes->{{3.666575338578443*^9, 3.666575347326777*^9}, {
+  3.668759884636153*^9, 3.668759884905202*^9}, {3.668777801149188*^9, 
+  3.668777810275137*^9}, {3.668777947267273*^9, 3.668777947497579*^9}, {
+  3.66908501533069*^9, 3.669085023754601*^9}}],
+
+Cell["\<\
+This book presents a basic learning framework by treating every thing as \
+learning agent. Here, we describe agents as organizations, human, and even \
+man-made objects, such as computing devices, and computer programs as agents. \
+Agents can be wrap around in other agents. In those cases, the containing \
+agents can be considered as a kind of agency. An agency is also an \
+operational context for other agents. As one might imagine, if a clever \
+student ask: \[OpenCurlyDoubleQuote]What are the next thing within an agent?\
+\[CloseCurlyDoubleQuote] The trivial answer would be: it will be agents all \
+the way down. This will also become an implementation choice, when we start \
+introducing programming langauges, such as NetLogo. It does use the old \
+naming convention, by calling all agents: turtles.\
+\>", "Text",
+ CellChangeTimes->{{3.666573601464292*^9, 3.66657369394256*^9}, {
+   3.666573726018475*^9, 3.666573726023479*^9}, {3.666576283845158*^9, 
+   3.666576345944644*^9}, {3.668717096431456*^9, 3.668717250576509*^9}, 
+   3.668759894962381*^9, {3.6687603813474894`*^9, 3.668760390881856*^9}, {
+   3.668777635374116*^9, 3.668777673219153*^9}, {3.668777816227862*^9, 
+   3.668778061133172*^9}}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "0.",
+ 
+ CounterBox["Section"],
+ ". System Consicousness and XLP"
+}], "Section",
+ CellChangeTimes->{{3.668778676826725*^9, 3.668778688519457*^9}, {
+  3.668779002592306*^9, 3.668779008055846*^9}, {3.668990231710446*^9, 
+  3.6689902481618547`*^9}, {3.6690850486365147`*^9, 3.669085072586411*^9}}],
+
+Cell["\<\
+To ensure that everyone who comes to this system could learn, we want to \
+introduce the notion of Extreme Learning Process (XLP). XLP is a way to get a \
+crowd of cooperative individuals to learn together as a crowd. This is \
+particularly feasible in the modern internet age. There are many leanring \
+activities that can take place in digital spaces. Clearly, we will also \
+continue to conduct learning activities in physical places, but we want to \
+make sure that students are constantly helping each other using computational \
+and communication equipment. This idea can be summarized into a single \
+diagram. We want the crowd to build a learning consciousness, so that they \
+can explore a part of the solution space and content areas, then, use either \
+synchronous or asynchronous workflows to combine their leanring results. So \
+that people and machines can learn together. An increasingly popular term: \
+holacracy, is a well stated framework to manage distributed organizations\
+\:ff3bhttp://holacracy.org\:ff3d. The followin diagram categorize the key \
+motivating forces or regulatory constraints as the four modalities as Prof. \
+Lawrence Lessig puts it:\
+\>", "Text",
+ CellChangeTimes->{{3.668778691593501*^9, 3.668778716902544*^9}, {
+  3.668778983146747*^9, 3.668779269436256*^9}, {3.668990253443614*^9, 
+  3.668990546231656*^9}, {3.6694544367105427`*^9, 3.6694544867477713`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ GraphicsBox[
+  TagBox[RasterBox[CompressedData["
+1:eJzt2LFr1GAch/Gii6P/gv+Fqzi5nrgKLdbqckIrFSdxc3DooHTQSV0cBBEE
+cdFFwUXo4CLiIg4iOIiIW/3qD17iXXunFk0eeD6kJZfk3ivvk+RCDy2dG53e
+t7CwsHYgv0aLF46sri5ePH4wL06M186ujJdPHRufX15ZXj28tD8br+VnIz8/
+1reFsnl03YW19H3K6HfZi8VeLPZisReLvVjsxWIvFnux2IvFXiz2YrEXi71Y
+7MViLxZ7sdiLxV4s9mKxF4u9WOzFYi8We7HYi8VeLPZisReLvVjsxWIvFnux
+2IvFXiz2YrEXi71Y7MViLxZ7sdiLxV4s9mKxF4u9WOzFYi8We7HYi8VeLPZi
+sReLvVjsxWIvFnux2IvFXiz2YrEXi71Y7MViLxZ7sdiLpcde10frbbm7tvHx
+7fu2fe8j//Vhe//0f6rfXm391eMXDy7fmN6+95H/9DB77WZiZtpLe80wkF4v
+7z99dPVOd3tuj7nisn77zJU3z7Zq17cvX5/felgbc0nWlieb926evJQlI+Rl
+jZC92dJ9b95Yh2Wl+0FthBpzYuOOw/6P2dnFEL6/ak4mvr/yjfZu6/X2z3Bt
+ijKHWdrGzx8+5WVa196s1N6MUFFyWMZpuzLtFaLeUh/UxqxdbeOOw+bvrL+q
+LwO5vqa3Z/ZyMmeu6oKqXbkE6lRvUq373FJls9IOq/d235iVvGy78pa2KydA
+2zh72L4MtlduhimVk7nN4favc5trJ+u5fLpzWCd/d+S5vSZ2tat79rB9GWyv
+pKk7ZC6xdmS7TdX9MFPabnS1t74Ep3vNuB/mrJi+H84dti+D7ZWbYc78egbI
+tVYz1h4D2rdbPYHU7av7YDD9KXOfN7K0c2PusH3x/xss9mKxF4u9WOzFYi8W
+e7HYi8VeLPZisReLvVjsxWIvFnux2IvFXiz2YrEXi71Y7MViLxZ7sdiLxV4s
+9mKxF4u9WOzFYi8We7HYi8VeLPZisReLvVjsxWIvFnux2IvFXiz2YrEXi71Y
+7MViLxZ7sdiLxV4s9mKxF4u9WOzFYi8We7HYi8VeLPZisReLvVjsxWIvFnux
+2IvFXiz2YrEXS/VyAS19nzKSNBTfASHlGWk=
+    "], {{0, 148}, {144, 0}}, {0, 255},
+    ColorFunction->RGBColor],
+   BoxForm`ImageTag["Byte", ColorSpace -> "RGB", Interleaving -> True],
+   Selectable->False],
+  BaseStyle->"ImageGraphics",
+  ImageSize->{144., 148.},
+  ImageSizeRaw->{144, 148},
+  PlotRange->{{0, 144}, {0, 148}}]], "Picture"],
+
+Cell[TextData[{
+ StyleBox["Picture ", "PictureCaptionLabel"],
+ StyleBox[
+ CounterBox["BookChapterNumber"], "PictureCaptionLabel"],
+ StyleBox[".", "PictureCaptionLabel"],
+ StyleBox[
+ CounterBox["PictureCaption"], "PictureCaptionLabel"],
+ StyleBox[".\[ThickSpace]\[ThickSpace]\[ThickSpace]The Four Fo", 
+  "PictureCaptionLabel"],
+ "."
+}], "PictureCaption",
+ CellChangeTimes->{{3.6689905491294193`*^9, 3.66899055313404*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "0.",
+ 
+ CounterBox["Section"],
+ ".",
+ 
+ CounterBox["Subsection"],
+ ". Grounding Metaphors"
+}], "Subsection",
+ CellChangeTimes->{{3.666575338578443*^9, 3.666575347326777*^9}, {
+  3.668759884636153*^9, 3.668759884905202*^9}, {3.668777801149188*^9, 
+  3.668777810275137*^9}, {3.668777947267273*^9, 3.668777947497579*^9}, {
+  3.6687780770846*^9, 3.668778082931982*^9}, {3.668989604767406*^9, 
+  3.6689896110651484`*^9}, {3.6689905803062677`*^9, 3.668990584320836*^9}, {
+  3.669085873595111*^9, 3.669085876407566*^9}}],
+
+Cell["\<\
+According to Prof. George Lakoff, and Douglas Hofstadter, metaphors and \
+analogies are the foundational mechanism for thinking. We brand this kind of \
+learning approach as XLP, because the learning capabilities of these wired \
+communities can vary a lot by the communication tools they choose to employ. \
+Moreover, whether they are aware of the functionalities of these \
+communication systems is critical to their success.\
+\>", "Text",
+ CellChangeTimes->{{3.666573601464292*^9, 3.66657369394256*^9}, {
+   3.666573726018475*^9, 3.666573726023479*^9}, {3.666576283845158*^9, 
+   3.666576345944644*^9}, {3.668717096431456*^9, 3.668717250576509*^9}, 
+   3.668759894962381*^9, {3.6687603813474894`*^9, 3.668760390881856*^9}, {
+   3.668777635374116*^9, 3.668777673219153*^9}, {3.668777816227862*^9, 
+   3.6687779534758663`*^9}, {3.668989614584765*^9, 3.668989630471133*^9}, {
+   3.6689896619273443`*^9, 3.6689898542326*^9}, {3.668990591202464*^9, 
+   3.668990657761986*^9}, {3.669085892216905*^9, 3.66908597614622*^9}, {
+   3.669086027505547*^9, 3.669086030144099*^9}}],
+
+Cell["\<\
+XLP explicitly manages elements of crowd coordination into the learning \
+orgnaization. This organization can also have their mathcing metaphorical \
+objects in a computing system. For example, the source code is like the code \
+of honor or code of behavior of an operating system, the computational \
+resources can be considered as resources in the market place, the particular \
+functionality or intelligence can be considered as a kind of technological \
+architecture, and the popularized content can be linked to cultural norms. \
+These matching elements should have their data structures and operational \
+institutions to support these operations.\
+\>", "Text",
+ CellChangeTimes->{{3.666573601464292*^9, 3.66657369394256*^9}, {
+  3.666573726018475*^9, 3.6665737866074667`*^9}, {3.666573873121557*^9, 
+  3.666573985906039*^9}, {3.6687172562333612`*^9, 3.66871743059262*^9}, {
+  3.66898986131295*^9, 3.668989994145988*^9}, {3.668990868680933*^9, 
+  3.668991027007187*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ StyleBox["Table ", "TableTitleLabel"],
+ StyleBox[
+ CounterBox["BookChapterNumber"], "TableTitleLabel"],
+ StyleBox[".", "TableTitleLabel"],
+ StyleBox[
+ CounterBox["TableTitle"], "TableTitleLabel"],
+ StyleBox[".\[ThickSpace]\[ThickSpace]\[ThickSpace]", "TableTitleLabel"],
+ "Languages used in the course"
+}], "TableTitle",
+ CellChangeTimes->{{3.668895885375147*^9, 3.668895889068252*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  TagBox[GridBox[{
+     {
+      InterpretationBox[Cell["Elements of Computing",
+        Editable->True,
+        FontSlant->Italic],
+       TextCell["Enter column head here", Italic, Editable -> True]], 
+      InterpretationBox[Cell["Metaphors",
+        Editable->True,
+        FontSlant->Italic],
+       TextCell["Enter column head here", Italic, Editable -> True]]},
+     {
+      InterpretationBox[Cell["RISC/CISC Computer Architecture",
+        Editable->True],
+       TextCell["Enter data here", Editable -> True]], 
+      InterpretationBox[Cell["Technological Architecture",
+        Editable->True],
+       TextCell["Enter data here", Editable -> True]]},
+     {
+      InterpretationBox[Cell["Operating System",
+        Editable->True],
+       TextCell["Enter data here", Editable -> True]], 
+      InterpretationBox[Cell["Legal Code",
+        Editable->True],
+       TextCell["Enter data here", Editable -> True]]},
+     {
+      InterpretationBox[Cell["Computational Resources/Memory/Bandwidth",
+        Editable->True],
+       TextCell["Enter data here", Editable -> True]], 
+      RowBox[{"Market", " ", "Resources"}]},
+     {
+      InterpretationBox[Cell["Visual Reprsesentation/Formal Representation",
+        Editable->True],
+       TextCell["Enter data here", Editable -> True]], 
+      InterpretationBox[Cell["Cultural Norms",
+        Editable->True],
+       TextCell["Enter data here", Editable -> True]]}
+    },
+    AutoDelete->False,
+    BaseStyle->{TextJustification -> 0, ParagraphIndent -> 0},
+    GridBoxAlignment->{"Columns" -> {Left, Center}, "Rows" -> {Bottom, Top}},
+    GridBoxDividers->{
+     "Columns" -> {False}, 
+      "RowsIndexed" -> {
+       1 -> AbsoluteThickness[2.], 2 -> AbsoluteThickness[0.5], -1 -> 
+        AbsoluteThickness[0.5]}},
+    GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+    GridBoxSpacings->{"Columns" -> {{10.}}, "Rows" -> {1, 0.5}}],
+   "Grid"], TraditionalForm]], "Table",
+ CellChangeTimes->{{3.66889574334603*^9, 3.6688957440942087`*^9}, {
+  3.6688958411883583`*^9, 3.668895877312763*^9}, {3.6689911003629313`*^9, 
+  3.6689912236782713`*^9}}],
+
+Cell["Enter table note here.", "TableNote"]
+}, Open  ]],
+
+Cell["\<\
+To help student better understand the meaning of these systems, we also \
+recommend students to learn about historyof technology, history of \
+constitutions, and history of personalities. These historical contenxt will \
+better ground students understanding to a system of inter-relationships, so \
+that they can draw analogies to solidify their understanding and applications \
+of their knowledge.\
+\>", "Text",
+ CellChangeTimes->{{3.668895910304702*^9, 3.66889593782977*^9}, {
+  3.6689912380419703`*^9, 3.668991340096443*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ StyleBox["Table ", "TableTitleLabel"],
+ StyleBox[
+ CounterBox["BookChapterNumber"], "TableTitleLabel"],
+ StyleBox[".", "TableTitleLabel"],
+ StyleBox[
+ CounterBox["TableTitle"], "TableTitleLabel"],
+ StyleBox[".\[ThickSpace]\[ThickSpace]\[ThickSpace]", "TableTitleLabel"],
+ "Referenced Text"
+}], "TableTitle",
+ CellChangeTimes->{{3.6688959647197323`*^9, 3.668895967444385*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  TagBox[GridBox[{
+     {
+      InterpretationBox[Cell["Subjects",
+        Editable->True,
+        FontSlant->Italic],
+       TextCell["Enter column head here", Italic, Editable -> True]], "Book", 
+      
+      InterpretationBox[Cell["Author",
+        Editable->True,
+        FontSlant->Italic],
+       TextCell["Enter column head here", Italic, Editable -> True]]},
+     {
+      InterpretationBox[Cell["History of Mathematics",
+        Editable->True],
+       TextCell["Enter data here", Editable -> True]], 
+      InterpretationBox[Cell["Form and Function of Mathematics",
+        Editable->True],
+       TextCell["Enter data here", Editable -> True]], 
+      InterpretationBox[Cell["Saunder McLane",
+        Editable->True],
+       TextCell["Enter data here", Editable -> True]]},
+     {
+      InterpretationBox[Cell["History of Video Games",
+        Editable->True],
+       TextCell["Enter data here", Editable -> True]], 
+      InterpretationBox[Cell["Enter data here",
+        Editable->True],
+       TextCell["Enter data here", Editable -> True]], 
+      InterpretationBox[Cell["Enter data here",
+        Editable->True],
+       TextCell["Enter data here", Editable -> True]]},
+     {
+      InterpretationBox[Cell["History of Constitutional Laws",
+        Editable->True],
+       TextCell["Enter data here", Editable -> True]], 
+      InterpretationBox[Cell["Constitution for Dummies",
+        Editable->True],
+       TextCell["Enter data here", Editable -> True]], 
+      InterpretationBox[Cell["Enter data here",
+        Editable->True],
+       TextCell["Enter data here", Editable -> True]]},
+     {
+      InterpretationBox[Cell["History of Computing Scientists",
+        Editable->True],
+       TextCell["Enter data here", Editable -> True]], 
+      InterpretationBox[Cell["Enter data here",
+        Editable->True],
+       TextCell["Enter data here", Editable -> True]], 
+      InterpretationBox[Cell["Enter data here",
+        Editable->True],
+       TextCell["Enter data here", Editable -> True]]}
+    },
+    AutoDelete->False,
+    BaseStyle->{TextJustification -> 0, ParagraphIndent -> 0},
+    GridBoxAlignment->{"Columns" -> {Left, Center}, "Rows" -> {Bottom, Top}},
+    GridBoxDividers->{
+     "Columns" -> {False}, 
+      "RowsIndexed" -> {
+       1 -> AbsoluteThickness[2.], 2 -> AbsoluteThickness[0.5], -1 -> 
+        AbsoluteThickness[0.5]}},
+    GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+    GridBoxSpacings->{"Columns" -> {{6.666666666666666}}, "Rows" -> {1, 0.5}}],
+   "Grid"], TraditionalForm]], "Table",
+ CellChangeTimes->{{3.6688959710671062`*^9, 3.668896015838662*^9}, {
+  3.668991348419058*^9, 3.66899144928409*^9}, {3.668993906625669*^9, 
+  3.668993912630583*^9}}],
+
+Cell["Enter table note here.", "TableNote"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "0.",
+ 
+ CounterBox["Section"],
+ ". Why Start with Computers?"
+}], "Section",
+ CellChangeTimes->{{3.666573556558523*^9, 3.66657359623905*^9}, {
+   3.668717078394359*^9, 3.6687170888467493`*^9}, {3.668717510279929*^9, 
+   3.668717522364758*^9}, 3.668717765017746*^9, {3.6687598809537983`*^9, 
+   3.668759881297378*^9}, {3.6689938237191277`*^9, 3.668993829899928*^9}}],
+
+Cell["\<\
+Using the crowd as a knowledge management device, we might be able to get the \
+surrounding people to help individuals to learn about many subjects. To make \
+this course having a specific focus, we decided to focus on one subject \
+matter: building a physical computing system from scratch. This subject is \
+meaningful to many people. The first reason is due to the pervasiveness of \
+computing devices. The second reason is that we computing systems are built \
+for encoding and decoding information. We need to use this extensible \
+(programmable) devices as both a physical device to help us manage \
+information, as well as using the vocabulary and technical principles of \
+computing industry to help us better understand the functions and application \
+forms of modern information processing. Based on our experience, computation \
+and mathematics are pervasive in our thought processes, and they have been \
+formally linked at the birth of the computing science disicipline. Knowing \
+the roots of computing sciences, can help us better understand the other \
+branches of computing, and many parallel disciplines.\
+\>", "Text",
+ CellChangeTimes->{{3.6665754101192017`*^9, 3.666575565250828*^9}, {
+   3.666575648530707*^9, 3.666575673525852*^9}, 3.668717471851375*^9, {
+   3.6687175270777817`*^9, 3.668717639792591*^9}, {3.6689939246113567`*^9, 
+   3.66899399963888*^9}, {3.668994030362934*^9, 3.668994323793961*^9}, {
+   3.668995137716735*^9, 3.668995145784584*^9}}],
+
+Cell["\<\
+We also recommend readers to go through the process of \
+\[OpenCurlyDoubleQuote]building\[CloseCurlyDoubleQuote] a physical computer \
+by following our tutorial material accomanies with this book. We believe that \
+the engineering process of constructing a computer is also a rich context for \
+the participants to ground their understanding of the abstract ideas. The \
+field of computing science is about abstraction, but different layers of a \
+physical computing usually represent a unique style or approach of \
+abstraction. Having direct experience in implementing some of these \
+abstractions in the concrete form, can also solidify the depth and breadth of \
+abstration skills.\
+\>", "Text",
+ CellChangeTimes->{{3.6665754101192017`*^9, 3.666575565250828*^9}, {
+   3.666575648530707*^9, 3.666575673525852*^9}, 3.668717471851375*^9, {
+   3.6687175270777817`*^9, 3.668717639792591*^9}, {3.6689939246113567`*^9, 
+   3.66899399963888*^9}, {3.668994030362934*^9, 3.668994075210375*^9}, {
+   3.6689943369712563`*^9, 3.668994485974777*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "0.",
+ 
+ CounterBox["Section"],
+ ".",
+ 
+ CounterBox["Subsection"],
+ ". Stack of Metaphors"
 }], "Subsection",
  CellChangeTimes->{{3.666575338578443*^9, 3.666575347326777*^9}, {
   3.668759884636153*^9, 3.668759884905202*^9}, {3.668778245907095*^9, 
-  3.6687782494896803`*^9}}],
+  3.6687782494896803`*^9}, {3.668994496945973*^9, 3.6689945055652313`*^9}, {
+  3.669085088572371*^9, 3.669085089809469*^9}}],
 
 Cell["\<\
 Our approach to build this book, is to incrementally add tools and invite \
@@ -217,12 +543,18 @@ network-centric environment. As one might already know, the existence of \
 IPython, and many web-based authoring tool is becoming very attractive to \
 serve as an alteranive to Mathematica Notebook authoring. Since IPython also \
 offer a Mathematica Notebook-inspired user interface. Temporarily, we will \
-proceed with Mathematica, and the content will be transferred to other system.\
+proceed with Mathematica, and the content will be transferred to other \
+system. As Gregory Chaitin and his wife Virginia Chaitin says, managing \
+abstractions is about managing metaphors and analogies. However, managing a \
+pluristic epistomology, or a wide and deep analogy structure may require a \
+new kind of computing framework, which they coin-phrased it as metabiology. \
+This book will attempt to capture some of their ideas in terms of hands-on \
+computational exercises, using tools such as NetLogo and networked services.\
 \>", "Text",
  CellChangeTimes->{{3.6665754101192017`*^9, 3.666575565250828*^9}, {
    3.666575648530707*^9, 3.666575673525852*^9}, 3.668717471851375*^9, {
    3.6687175270777817`*^9, 3.668717689605752*^9}, {3.6687781062323112`*^9, 
-   3.6687782759958982`*^9}}]
+   3.6687782759958982`*^9}, {3.669454500572792*^9, 3.669454643760632*^9}}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -234,11 +566,11 @@ Cell[TextData[{
  ".",
  
  CounterBox["Subsection"],
- ". Test Driven Design"
+ ". Design by Contract"
 }], "Subsection",
  CellChangeTimes->{{3.666575338578443*^9, 3.666575347326777*^9}, {
   3.668759884636153*^9, 3.668759884905202*^9}, {3.668778284366571*^9, 
-  3.6687782907717752`*^9}}],
+  3.6687782907717752`*^9}, {3.668994520172278*^9, 3.668994522537661*^9}}],
 
 Cell["\<\
 A critical discipline that must be upheld is the concept of writing test \
@@ -248,11 +580,10 @@ before we implement the software. This will show in the book by starting the \
 whole book with Design by Contract as its first chapter. In the natural \
 language world, we will probably shuffle the content of this book through a \
 natural language processing tool as a starting point to demonstrate \
-everything, including natural language text could be tested. At the time of \
-this writing, we plan to use NLTK3.0, the natural langauge tool kit written \
-in Python to perform this task.\
+everything, including natural language text could be tested. \
 \>", "Text",
- CellChangeTimes->{{3.6687782946147223`*^9, 3.66877846455866*^9}}]
+ CellChangeTimes->{{3.6687782946147223`*^9, 3.66877846455866*^9}, 
+   3.668995165251951*^9}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -270,39 +601,24 @@ Cell[TextData[{
   3.668778475207168*^9, 3.6687784830935163`*^9}}],
 
 Cell["\<\
-Clearly, natural language processing is limited by the tool and the corporas \
-made available to our text writing. We hope that as time proceeds, we will \
-have more implementation of natural languages.\
+Human brains are a kind of computer. It may run on a different architecture \
+than the silicon-based computers that we are seeing everyday. Like computers, \
+human brains can be programmed by many kinds of languages, including the \
+sights and sounds in the physical environments as well as natural langauges. \
+In this course, natural language processing will also be discussed, since \
+that some of the logical structures of natural language happens to be the \
+corner stone of modern computer programming languages. This is particularly \
+made known by the Chomsky assumption, and parsing formal languages often \
+follow the \[OpenCurlyDoubleQuote]Chomsky Normal \
+Form\[CloseCurlyDoubleQuote]. As the course proceed, we will show that \
+natural language processing techniques shows up on many levels of complex \
+systems. We will also incorporate concepts and ideas throught the weeks. At \
+the time of this writing, we plan to use NLTK3.0, the natural langauge tool \
+kit written in Python to perform this task.\
 \>", "Text",
- CellChangeTimes->{{3.668778533719355*^9, 3.6687785818498793`*^9}}],
-
-Cell[CellGroupData[{
-
-Cell["English", "Item1",
- CellChangeTimes->{{3.66877859425979*^9, 3.6687785950678988`*^9}}],
-
-Cell[CellGroupData[{
-
-Cell["Enter item1paragraph text here.", "Item1Paragraph"],
-
-Cell[CellGroupData[{
-
-Cell["Enter item2 text here.", "Item2"],
-
-Cell[CellGroupData[{
-
-Cell["Enter item2paragraph text here.", "Item2Paragraph"],
-
-Cell[CellGroupData[{
-
-Cell["Enter item3 text here.", "Item3"],
-
-Cell["Enter item3paragraph text here.", "Item3Paragraph"]
-}, Open  ]]
-}, Open  ]]
-}, Open  ]]
-}, Open  ]]
-}, Open  ]]
+ CellChangeTimes->{{3.668778533719355*^9, 3.6687785818498793`*^9}, {
+  3.668993551491947*^9, 3.668993761083682*^9}, {3.668995168530624*^9, 
+  3.668995168946855*^9}}]
 }, Open  ]]
 }, Open  ]],
 
@@ -318,9 +634,12 @@ Cell[TextData[{
   3.668779002592306*^9, 3.668779008055846*^9}}],
 
 Cell["\<\
-This book is written under the strong influence of the work of Noam Nisan and \
-Shimon Sckocken\[CloseCurlyQuote]s The Elements of Computing Systems. This \
-course is also known as From Nand to Tetris, as it starts instructing a \
+A major motivating force for me to write the book is to support learning and \
+teaching responsibilities at school and at home. The organization of my \
+course has been inspired by many sources, one of the most excellent example \
+is \[OpenCurlyDoubleQuote]The Elements of Computing Systems\
+\[CloseCurlyDoubleQuote] by Noam Nisan and Shimon Sckocken. This course is \
+also known as From Nand to Tetris (Nand2Tetris), as it starts instructing a \
 complete novice of computing systems to construct both hardware and software \
 systems of a computing device, from simple nand gate to a full-blown \
 application such as a Tetris game. This course is very inspiring to us, \
@@ -335,7 +654,56 @@ Nand2Tetris\[CloseCurlyQuote] authors\[CloseCurlyQuote] original paper on how \
 to teach students to build a complex engineering system.\
 \>", "Text",
  CellChangeTimes->{{3.668778691593501*^9, 3.668778716902544*^9}, {
-  3.668778983146747*^9, 3.668779269436256*^9}}],
+  3.668778983146747*^9, 3.668779269436256*^9}, {3.669092928944551*^9, 
+  3.6690930421875143`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "0.",
+ 
+ CounterBox["Section"],
+ ".",
+ 
+ CounterBox["Subsection"],
+ ". Going from both ends"
+}], "Subsection",
+ CellChangeTimes->{{3.666575338578443*^9, 3.666575347326777*^9}, {
+   3.668759884636153*^9, 3.668759884905202*^9}, {3.668777801149188*^9, 
+   3.668777810275137*^9}, {3.668777947267273*^9, 3.668777947497579*^9}, {
+   3.6687780770846*^9, 3.668778082931982*^9}, {3.668989604767406*^9, 
+   3.6689896110651484`*^9}, {3.668994577834383*^9, 3.668994586367429*^9}, {
+   3.669093060558916*^9, 3.669093080995695*^9}, {3.669093374538353*^9, 
+   3.6690933826954536`*^9}, 3.6690934621666594`*^9}],
+
+Cell["\<\
+After testing this course by learning it on my own, and teach it to many \
+different age groups, I learned that this course must be folded in half, and \
+be taught to students simultaneously. One way to do it is to teach novices \
+how to use high level programming tools, and software engineering services, \
+such as version control data services, and physically build some simple \
+eletronics or biological components, that mimics certain logical reduction \
+and induction processes. These kind of activities would better support the \
+notion of computation on a broader base, therefore, helping more people to \
+grasp the power and implications of computing. Without teaching the course \
+from both hardware and software angles at the same time, it is likely that \
+students will miss interpret the whole picture of computation. Computation is \
+both simple and concrete, so that it can be implemented using low cost \
+elements. Computation is also both complex and abstract, so that it must be \
+managed using many symbolisms and analogies, so that we can temporarily \
+ignore the implementation details. Therefore, this course should be best \
+taught as a software course, to help people learn to document their findings, \
+and in the mean time, learn to identify physical implementation instruments, \
+so that they can see various grounding metaphors and engineering traits.\
+\>", "Text",
+ CellChangeTimes->{{3.666573601464292*^9, 3.66657369394256*^9}, {
+   3.666573726018475*^9, 3.666573726023479*^9}, {3.666576283845158*^9, 
+   3.666576345944644*^9}, {3.668717096431456*^9, 3.668717250576509*^9}, 
+   3.668759894962381*^9, {3.6687603813474894`*^9, 3.668760390881856*^9}, {
+   3.668777635374116*^9, 3.668777673219153*^9}, {3.668777816227862*^9, 
+   3.6687779534758663`*^9}, {3.668989614584765*^9, 3.668989630471133*^9}, {
+   3.6689896619273443`*^9, 3.6689898542326*^9}, {3.6689945922563343`*^9, 
+   3.6689946824160223`*^9}, {3.669093087267379*^9, 3.6690934501033993`*^9}}],
 
 Cell[CellGroupData[{
 
@@ -380,14 +748,223 @@ Cell[TextData[{
  StyleBox[".\[ThickSpace]\[ThickSpace]\[ThickSpace]", "PictureCaptionLabel"],
  "Picture caption."
 }], "PictureCaption"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "0.",
+ 
+ CounterBox["Section"],
+ ".",
+ 
+ CounterBox["Subsection"],
+ ". Physical Devices"
+}], "Subsection",
+ CellChangeTimes->{{3.666575338578443*^9, 3.666575347326777*^9}, {
+  3.668759884636153*^9, 3.668759884905202*^9}, {3.668777801149188*^9, 
+  3.668777810275137*^9}, {3.668777947267273*^9, 3.668777947497579*^9}, {
+  3.6687780770846*^9, 3.668778082931982*^9}, {3.668989604767406*^9, 
+  3.6689896110651484`*^9}, {3.668994577834383*^9, 3.668994586367429*^9}}],
+
+Cell["\<\
+Nand2Tetris course is really a software engineering course. Every device has \
+a software component matching its functions. Therefore, students can \
+\[OpenCurlyDoubleQuote]simulate\[CloseCurlyDoubleQuote] a physical computer \
+using software. However, to best understanding the \
+\[OpenCurlyDoubleQuote]platonistic\[CloseCurlyDoubleQuote] view of computing \
+science, it would be nice to have direct experience in building these devices \
+as the course proceeds. We recommend the following steps.\
+\>", "Text",
+ CellChangeTimes->{{3.666573601464292*^9, 3.66657369394256*^9}, {
+   3.666573726018475*^9, 3.666573726023479*^9}, {3.666576283845158*^9, 
+   3.666576345944644*^9}, {3.668717096431456*^9, 3.668717250576509*^9}, 
+   3.668759894962381*^9, {3.6687603813474894`*^9, 3.668760390881856*^9}, {
+   3.668777635374116*^9, 3.668777673219153*^9}, {3.668777816227862*^9, 
+   3.6687779534758663`*^9}, {3.668989614584765*^9, 3.668989630471133*^9}, {
+   3.6689896619273443`*^9, 3.6689898542326*^9}, {3.6689945922563343`*^9, 
+   3.6689946824160223`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ StyleBox["Table ", "TableTitleLabel"],
+ StyleBox[
+ CounterBox["BookChapterNumber"], "TableTitleLabel"],
+ StyleBox[".", "TableTitleLabel"],
+ StyleBox[
+ CounterBox["TableTitle"], "TableTitleLabel"],
+ StyleBox[".\[ThickSpace]\[ThickSpace]\[ThickSpace]", "TableTitleLabel"],
+ "Referenced Text"
+}], "TableTitle",
+ CellChangeTimes->{{3.6688959647197323`*^9, 3.668895967444385*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  TagBox[GridBox[{
+     {
+      InterpretationBox[Cell["Devices",
+        Editable->True,
+        FontSlant->Italic],
+       TextCell["Enter column head here", Italic, Editable -> True]], 
+      "Resource", 
+      InterpretationBox[Cell["Software",
+        Editable->True,
+        FontSlant->Italic],
+       TextCell["Enter column head here", Italic, Editable -> True]]},
+     {
+      InterpretationBox[Cell["Logic Gates and 4-bit Adder",
+        Editable->True],
+       TextCell["Enter data here", Editable -> True]], 
+      InterpretationBox[Cell["Breadborad",
+        Editable->True],
+       TextCell["Enter data here", Editable -> True]], 
+      InterpretationBox[Cell["Fritzing",
+        Editable->True],
+       TextCell["Enter data here", Editable -> True]]},
+     {
+      InterpretationBox[Cell[TextData[Cell[BoxData[
+        FormBox[Cell["FPGA implemented CPU and Memory",
+          Editable->True], TraditionalForm]],
+        CellChangeTimes->{{3.66889574334603*^9, 3.6688957440942087`*^9}, {
+         3.6688958411883583`*^9, 3.668895877312763*^9}, {3.668991041125516*^9,
+          3.668991068473166*^9}, {3.6689946985593357`*^9, 
+         3.6689947175174837`*^9}, {3.668994754884741*^9, 
+         3.668994870136155*^9}}]],
+        Editable->True],
+       TextCell["Enter data here", Editable -> True]], "Altera", 
+      InterpretationBox[Cell["Altera Software",
+        Editable->True],
+       TextCell["Enter data here", Editable -> True]]},
+     {
+      InterpretationBox[Cell["Secure Moible Devices",
+        Editable->True],
+       TextCell["Enter data here", Editable -> True]], 
+      RowBox[{"ARM", " ", "Secure", " ", "CPU"}], 
+      InterpretationBox[Cell["ARM-based",
+        Editable->True],
+       TextCell["Enter data here", Editable -> True]]},
+     {
+      InterpretationBox[Cell["Distributed OS and IoT-based Network Services",
+        Editable->True],
+       TextCell["Enter data here", Editable -> True]], 
+      RowBox[{
+       RowBox[{"Jini", "/", "River"}], "/", "SORCER"}], 
+      RowBox[{"SORCER", "/", "NetLogo"}]}
+    },
+    AutoDelete->False,
+    BaseStyle->{TextJustification -> 0, ParagraphIndent -> 0},
+    GridBoxAlignment->{"Columns" -> {Left, Center}, "Rows" -> {Bottom, Top}},
+    GridBoxDividers->{
+     "Columns" -> {False}, 
+      "RowsIndexed" -> {
+       1 -> AbsoluteThickness[2.], 2 -> AbsoluteThickness[0.5], -1 -> 
+        AbsoluteThickness[0.5]}},
+    GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+    GridBoxSpacings->{"Columns" -> {{6.666666666666666}}, "Rows" -> {1, 0.5}}],
+   "Grid"], TraditionalForm]], "Table",
+ CellChangeTimes->{{3.6688959710671062`*^9, 3.668896015838662*^9}, {
+  3.668994945769376*^9, 3.6689950812543287`*^9}, {3.668995477611801*^9, 
+  3.668995482072933*^9}}],
+
+Cell["Enter table note here.", "TableNote"]
 }, Open  ]],
 
 Cell["\<\
-We decided to incorporate ideas and exercises from Nand2Tetris, becuase it \
-provides a concrete example of how computers and computation arre releveant \
-to everyday objects.\
+We know for sure that younger children, age as low as 5 to 8, can take the \
+first half of this course. With physical device construction exercise, we can \
+stimulate their interest, and further test their understanding.\
 \>", "Text",
- CellChangeTimes->{{3.668895803359461*^9, 3.668895837542151*^9}}],
+ CellChangeTimes->{{3.668997419637939*^9, 3.668997471193225*^9}}],
+
+Cell["\<\
+Biological analogies and devices are also a critical part of our daily \
+experience. To relate it to computation directly, there are many exciting \
+approaches. One of the most direct implementation of using biological agents \
+to perform computation, is documented in a recent Science journal article:\
+\[CloseCurlyDoubleQuote]Genetic Circuit Design Automation\
+\[CloseCurlyDoubleQuote] by Nielson et al. This paper shows how one can use \
+DNA strands to emulate the logical circuit functions by coding the DNA up \
+using Hardware Description Language, often dedicated to design \
+micro-electronic circuits. This concept and implementation of computational \
+instrument is rather new and important. We will try to mention it throughout \
+our course, so that students would be able to keep a good perspective of what \
+computations can be.\
+\>", "Text",
+ CellChangeTimes->{{3.6690934912529593`*^9, 3.6690937007307796`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "0.",
+ 
+ CounterBox["Section"],
+ ".",
+ 
+ CounterBox["Subsection"],
+ ". The Language Game"
+}], "Subsection",
+ CellChangeTimes->{{3.666575338578443*^9, 3.666575347326777*^9}, {
+  3.668759884636153*^9, 3.668759884905202*^9}, {3.668777801149188*^9, 
+  3.668777810275137*^9}, {3.668777947267273*^9, 3.668777947497579*^9}, {
+  3.6687780770846*^9, 3.668778082931982*^9}, {3.668989604767406*^9, 
+  3.6689896110651484`*^9}}],
+
+Cell["\<\
+A fundamental reason for us to adopt Nand2Tetris course as a pedagogical \
+model is to leverage its multi-language approach throught the course. To get \
+silicon devices to perform computation, one must translate human symbolism \
+into electronic signals or to certiain mathematical expressions, so that \
+translation can be grounded to a reliable system of metaphors. Even the \
+Nand2Tetris course didn\[CloseCurlyQuote]t explicitly emphasize this idea, \
+the exercises and the way problems are solved in every chapter, are all \
+exhibiting this philosophy.\
+\>", "Text",
+ CellChangeTimes->{{3.666573601464292*^9, 3.66657369394256*^9}, {
+   3.666573726018475*^9, 3.666573726023479*^9}, {3.666576283845158*^9, 
+   3.666576345944644*^9}, {3.668717096431456*^9, 3.668717250576509*^9}, 
+   3.668759894962381*^9, {3.6687603813474894`*^9, 3.668760390881856*^9}, {
+   3.668777635374116*^9, 3.668777673219153*^9}, {3.668777816227862*^9, 
+   3.6687779534758663`*^9}, {3.668989614584765*^9, 3.668989630471133*^9}, {
+   3.6689896619273443`*^9, 3.6689898542326*^9}}],
+
+Cell["\<\
+ To further amplify this notion, that problem solving can be translated to \
+adequate langauge system, and then, translate back to certain implementation \
+strategy, we will get all the students to learn more about formal languages. \
+They must be consciously aware that they are learning languages. Each \
+language would be suited to solve a particular kind of problem. Moreover, \
+formal languages have strict language syntax and semantics, so that \
+formalized translation can reliably take place between different languages.\
+\>", "Text",
+ CellChangeTimes->{{3.666573601464292*^9, 3.66657369394256*^9}, {
+  3.666573726018475*^9, 3.6665737866074667`*^9}, {3.666573873121557*^9, 
+  3.666573985906039*^9}, {3.6687172562333612`*^9, 3.66871743059262*^9}, {
+  3.66898986131295*^9, 3.668989994145988*^9}}],
+
+Cell["\<\
+For certain people, one language may be more convenient than the others. \
+Therefore, we will introduce a number of automatic tools to demonstrate that \
+certain languages are easier in expressing questions, and certain languages \
+are easier in presenting solutions. Some forms of languages are easier in \
+visualizing the nature of the problems.\
+\>", "Text",
+ CellChangeTimes->{{3.666573601464292*^9, 3.66657369394256*^9}, {
+  3.666573726018475*^9, 3.6665737866074667`*^9}, {3.666573873121557*^9, 
+  3.666573985906039*^9}, {3.6687172562333612`*^9, 3.66871743059262*^9}, {
+  3.66898986131295*^9, 3.668989908154567*^9}, {3.6689900032901907`*^9, 
+  3.668990085332485*^9}}],
+
+Cell["\<\
+Particularly, we plan to use Mathematica and IPython to help students write \
+down their ideas and problem formulations at every stage.  Once they build up \
+this habit, they can learn more about how to incrementally solve problems at \
+different scales.\
+\>", "Text",
+ CellChangeTimes->{{3.668895803359461*^9, 3.668895837542151*^9}, {
+  3.6689901488670177`*^9, 3.668990206544812*^9}}],
 
 Cell[CellGroupData[{
 
@@ -440,9 +1017,11 @@ Cell[BoxData[
       InterpretationBox[Cell["Jack/Hack Assembly",
         Editable->True],
        TextCell["Enter data here", Editable -> True]], 
-      InterpretationBox[Cell["Enter data here",
-        Editable->True],
-       TextCell["Enter data here", Editable -> True]]}
+      RowBox[{
+       InterpretationBox[Cell["Enter data here",
+         Editable->True],
+        TextCell["Enter data here", Editable -> True]], "\[IndentingNewLine]",
+        "NetLogo"}]}
     },
     AutoDelete->False,
     BaseStyle->{TextJustification -> 0, ParagraphIndent -> 0},
@@ -456,17 +1035,52 @@ Cell[BoxData[
     GridBoxSpacings->{"Columns" -> {{10.}}, "Rows" -> {1, 0.5}}],
    "Grid"], TraditionalForm]], "Table",
  CellChangeTimes->{{3.66889574334603*^9, 3.6688957440942087`*^9}, {
-  3.6688958411883583`*^9, 3.668895877312763*^9}}],
+  3.6688958411883583`*^9, 3.668895877312763*^9}, {3.668991041125516*^9, 
+  3.668991068473166*^9}}],
 
 Cell["Enter table note here.", "TableNote"]
+}, Open  ]]
 }, Open  ]],
 
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "0.",
+ 
+ CounterBox["Section"],
+ ".",
+ 
+ CounterBox["Subsection"],
+ ". Language-Oriented Methods"
+}], "Subsection",
+ CellChangeTimes->{{3.666575338578443*^9, 3.666575347326777*^9}, {
+  3.668759884636153*^9, 3.668759884905202*^9}, {3.668777801149188*^9, 
+  3.668777810275137*^9}, {3.668777947267273*^9, 3.668777947497579*^9}, {
+  3.6687780770846*^9, 3.668778082931982*^9}, {3.668989604767406*^9, 
+  3.6689896110651484`*^9}, {3.668994577834383*^9, 3.668994586367429*^9}, {
+  3.668995613228459*^9, 3.668995622208859*^9}}],
+
 Cell["\<\
-After talking to many students who took this course, we realized that there \
-are a lot of opportunities that coud lbe developed from this starting \
-foundation.\
+In computing science, the term \[OpenCurlyDoubleQuote]machine\
+\[CloseCurlyDoubleQuote] is often marked as being exchangeable with \
+\[OpenCurlyDoubleQuote]language\[CloseCurlyDoubleQuote]. Therefore, we hope \
+that students who study with us would try to realize that a language is often \
+designed to help compress a domain of knowledge into a set of basic \
+vocabulary, a convenient syntax, and a set of relevant semantic constructs. \
+Then, many information can be expressed using these linguistic tools. This is \
+also called: Language-Oriented Engineering. In other words, langauges are a \
+malleable form of abstraction. They are the concrete instrumentation to \
+manage abstraction.\
 \>", "Text",
- CellChangeTimes->{{3.668895910304702*^9, 3.66889593782977*^9}}],
+ CellChangeTimes->{{3.666573601464292*^9, 3.66657369394256*^9}, {
+   3.666573726018475*^9, 3.666573726023479*^9}, {3.666576283845158*^9, 
+   3.666576345944644*^9}, {3.668717096431456*^9, 3.668717250576509*^9}, 
+   3.668759894962381*^9, {3.6687603813474894`*^9, 3.668760390881856*^9}, {
+   3.668777635374116*^9, 3.668777673219153*^9}, {3.668777816227862*^9, 
+   3.6687779534758663`*^9}, {3.668989614584765*^9, 3.668989630471133*^9}, {
+   3.6689896619273443`*^9, 3.6689898542326*^9}, {3.6689945922563343`*^9, 
+   3.6689946824160223`*^9}, {3.668995630291586*^9, 3.668995731075213*^9}, {
+   3.668995909254183*^9, 3.668995941752207*^9}}],
 
 Cell[CellGroupData[{
 
@@ -485,56 +1099,57 @@ Cell[TextData[{
 Cell[BoxData[
  FormBox[
   TagBox[GridBox[{
-     {
-      InterpretationBox[Cell["Books/Papers",
-        Editable->True,
-        FontSlant->Italic],
-       TextCell["Enter column head here", Italic, Editable -> True]], 
-      "Author", 
-      InterpretationBox[Cell["Type",
+     {"Concepts", 
+      RowBox[{"Key", " ", "Ideas"}], 
+      InterpretationBox[Cell["Language",
         Editable->True,
         FontSlant->Italic],
        TextCell["Enter column head here", Italic, Editable -> True]]},
      {
-      InterpretationBox[Cell["Programming the Unvierse",
+      InterpretationBox[Cell["Domain Specific Langauges",
         Editable->True],
        TextCell["Enter data here", Editable -> True]], 
-      InterpretationBox[Cell["Enter data here",
+      InterpretationBox[Cell["DSL",
         Editable->True],
        TextCell["Enter data here", Editable -> True]], 
-      InterpretationBox[Cell["Enter data here",
+      InterpretationBox[Cell["Meta-Language",
         Editable->True],
        TextCell["Enter data here", Editable -> True]]},
      {
-      InterpretationBox[Cell["The Elements of Computing Systems",
+      InterpretationBox[Cell[TextData[Cell[BoxData[
+        FormBox[Cell["English Language",
+          Editable->True], TraditionalForm]],
+        CellChangeTimes->{{3.66889574334603*^9, 3.6688957440942087`*^9}, {
+         3.6688958411883583`*^9, 3.668895877312763*^9}, {3.668991041125516*^9,
+          3.668991068473166*^9}, {3.6689946985593357`*^9, 
+         3.6689947175174837`*^9}, {3.668994754884741*^9, 
+         3.668994870136155*^9}}]],
         Editable->True],
        TextCell["Enter data here", Editable -> True]], 
-      InterpretationBox[Cell["Enter data here",
-        Editable->True],
-       TextCell["Enter data here", Editable -> True]], 
-      InterpretationBox[Cell["Enter data here",
+      RowBox[{
+       RowBox[{
+        RowBox[{"Dictionary", "/", "Grammar"}], "/", "Usage"}], " ", 
+       "Context"}], 
+      InterpretationBox[Cell["ML",
         Editable->True],
        TextCell["Enter data here", Editable -> True]]},
      {
-      InterpretationBox[Cell["Enter data here",
+      InterpretationBox[Cell["Functional Programming",
         Editable->True],
        TextCell["Enter data here", Editable -> True]], 
-      InterpretationBox[Cell["Enter data here",
-        Editable->True],
-       TextCell["Enter data here", Editable -> True]], 
-      InterpretationBox[Cell["Enter data here",
+      RowBox[{"Lambda", " ", "Expression"}], 
+      InterpretationBox[Cell["Haskell",
         Editable->True],
        TextCell["Enter data here", Editable -> True]]},
      {
-      InterpretationBox[Cell["Enter data here",
+      InterpretationBox[Cell["Programming Languages",
         Editable->True],
        TextCell["Enter data here", Editable -> True]], 
-      InterpretationBox[Cell["Enter data here",
-        Editable->True],
-       TextCell["Enter data here", Editable -> True]], 
-      InterpretationBox[Cell["Enter data here",
-        Editable->True],
-       TextCell["Enter data here", Editable -> True]]}
+      RowBox[{
+       RowBox[{
+        RowBox[{"Declarative", "/", "Procedural"}], "/", "Object"}], "-", 
+       "based"}], 
+      RowBox[{"ANTLR", "/", "YACC"}]}
     },
     AutoDelete->False,
     BaseStyle->{TextJustification -> 0, ParagraphIndent -> 0},
@@ -547,9 +1162,462 @@ Cell[BoxData[
     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
     GridBoxSpacings->{"Columns" -> {{6.666666666666666}}, "Rows" -> {1, 0.5}}],
    "Grid"], TraditionalForm]], "Table",
- CellChangeTimes->{{3.6688959710671062`*^9, 3.668896015838662*^9}}],
+ CellChangeTimes->{{3.6688959710671062`*^9, 3.668896015838662*^9}, {
+  3.668994945769376*^9, 3.6689950812543287`*^9}, {3.668995477611801*^9, 
+  3.668995482072933*^9}, {3.6689957376331463`*^9, 3.668995903586525*^9}}],
 
 Cell["Enter table note here.", "TableNote"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "0.",
+ 
+ CounterBox["Section"],
+ ".",
+ 
+ CounterBox["Subsection"],
+ ". Building Confidence and Trust"
+}], "Subsection",
+ CellChangeTimes->{{3.666575338578443*^9, 3.666575347326777*^9}, {
+  3.668759884636153*^9, 3.668759884905202*^9}, {3.668777801149188*^9, 
+  3.668777810275137*^9}, {3.668777947267273*^9, 3.668777947497579*^9}, {
+  3.6687780770846*^9, 3.668778082931982*^9}, {3.668989604767406*^9, 
+  3.6689896110651484`*^9}, {3.668994577834383*^9, 3.668994586367429*^9}, {
+  3.668995988113818*^9, 3.668995996806539*^9}, {3.669085133260476*^9, 
+  3.669085141233325*^9}}],
+
+Cell["\<\
+We hope that students can eventually learn about learning as a concrete way \
+to managing layers of abstractions. One should be aware of the \
+instrumentation in collecting and compressing information, as well as the way \
+to present information in different languages. We believe that by carefully \
+studying with this book, you will gain an over-arching view of how knowledge \
+can be managed.\
+\>", "Text",
+ CellChangeTimes->{{3.666573601464292*^9, 3.66657369394256*^9}, {
+   3.666573726018475*^9, 3.666573726023479*^9}, {3.666576283845158*^9, 
+   3.666576345944644*^9}, {3.668717096431456*^9, 3.668717250576509*^9}, 
+   3.668759894962381*^9, {3.6687603813474894`*^9, 3.668760390881856*^9}, {
+   3.668777635374116*^9, 3.668777673219153*^9}, {3.668777816227862*^9, 
+   3.6687779534758663`*^9}, {3.668989614584765*^9, 3.668989630471133*^9}, {
+   3.6689896619273443`*^9, 3.6689898542326*^9}, {3.6689945922563343`*^9, 
+   3.6689946824160223`*^9}, {3.668996030755959*^9, 3.66899608306361*^9}, {
+   3.668996120417*^9, 3.668996143701079*^9}, {3.668996396221168*^9, 
+   3.6689963964100723`*^9}, 3.66899648770569*^9, {3.668998281360816*^9, 
+   3.668998281364809*^9}}],
+
+Cell["\<\
+A well known theory called Byzantine General\[CloseCurlyQuote]s Problem, and \
+its famouns application, Bitcoin/Blockchain is a mathematical approach to \
+ensure the trust-worthiness of knowledge content.\
+\>", "Text",
+ CellChangeTimes->{{3.666573601464292*^9, 3.66657369394256*^9}, {
+   3.666573726018475*^9, 3.666573726023479*^9}, {3.666576283845158*^9, 
+   3.666576345944644*^9}, {3.668717096431456*^9, 3.668717250576509*^9}, 
+   3.668759894962381*^9, {3.6687603813474894`*^9, 3.668760390881856*^9}, {
+   3.668777635374116*^9, 3.668777673219153*^9}, {3.668777816227862*^9, 
+   3.6687779534758663`*^9}, {3.668989614584765*^9, 3.668989630471133*^9}, {
+   3.6689896619273443`*^9, 3.6689898542326*^9}, {3.6689945922563343`*^9, 
+   3.6689946824160223`*^9}, {3.668996030755959*^9, 3.66899608306361*^9}, {
+   3.668996120417*^9, 3.668996143701079*^9}, {3.668996396221168*^9, 
+   3.6689963964100723`*^9}, 3.66899648770569*^9, {3.668998281360816*^9, 
+   3.668998336849785*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ StyleBox["Table ", "TableTitleLabel"],
+ StyleBox[
+ CounterBox["BookChapterNumber"], "TableTitleLabel"],
+ StyleBox[".", "TableTitleLabel"],
+ StyleBox[
+ CounterBox["TableTitle"], "TableTitleLabel"],
+ StyleBox[".\[ThickSpace]\[ThickSpace]\[ThickSpace]", "TableTitleLabel"],
+ "Branches of Knowledge Management Practices"
+}], "TableTitle",
+ CellChangeTimes->{{3.6688959647197323`*^9, 3.668895967444385*^9}, {
+  3.6689961100414543`*^9, 3.6689961187985992`*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  TagBox[GridBox[{
+     {
+      InterpretationBox[Cell["Branches",
+        Editable->True,
+        FontSlant->Italic],
+       TextCell["Enter column head here", Italic, Editable -> True]], 
+      RowBox[{"Key", " ", "Publications"}], 
+      InterpretationBox[Cell["Author",
+        Editable->True,
+        FontSlant->Italic],
+       TextCell["Enter column head here", Italic, Editable -> True]]},
+     {
+      InterpretationBox[Cell["Corporate Knowledge Management",
+        Editable->True],
+       TextCell["Enter data here", Editable -> True]], 
+      RowBox[{"Theory", " ", 
+       RowBox[{"U", "/", "The"}], " ", "Fifth", " ", "Discipline"}], 
+      InterpretationBox[Cell["Otto Scharmer/Peter Senge",
+        Editable->True],
+       TextCell["Enter data here", Editable -> True]]},
+     {
+      InterpretationBox[Cell[TextData[Cell[BoxData[
+        FormBox[Cell["Engineering Knowledge Management",
+          Editable->True], TraditionalForm]],
+        CellChangeTimes->{{3.66889574334603*^9, 3.6688957440942087`*^9}, {
+         3.6688958411883583`*^9, 3.668895877312763*^9}, {3.668991041125516*^9,
+          3.668991068473166*^9}, {3.6689946985593357`*^9, 
+         3.6689947175174837`*^9}, {3.668994754884741*^9, 
+         3.668994870136155*^9}}]],
+        Editable->True],
+       TextCell["Enter data here", Editable -> True]], 
+      RowBox[{
+       RowBox[{"Wikinomics", "/", "Management"}], " ", "3.0"}], 
+      InterpretationBox[Cell["TBD",
+        Editable->True],
+       TextCell["Enter data here", Editable -> True]]},
+     {
+      InterpretationBox[Cell["Scientific Knowledge Management",
+        Editable->True],
+       TextCell["Enter data here", Editable -> True]], 
+      RowBox[{"Science", " ", "of", " ", 
+       RowBox[{"Artificials", "/", "Artificial"}], " ", 
+       RowBox[{"Intelligence", "/", "PAC"}]}], 
+      RowBox[{
+       RowBox[{
+        InterpretationBox[Cell["Herbert Simon",
+          Editable->True],
+         TextCell["Enter data here", Editable -> True]], "/", "Stuart"}], " ", 
+       RowBox[{"Kuafman", "/", "Leslie"}], " ", "Valiant"}]},
+     {
+      InterpretationBox[Cell["Societal Knowledge Management",
+        Editable->True],
+       TextCell["Enter data here", Editable -> True]], 
+      RowBox[{"Byzantine", " ", 
+       RowBox[{"General", "'"}], "s", " ", 
+       RowBox[{"Problem", "/", "Social"}], " ", 
+       RowBox[{"Physics", "/", "Code"}], " ", "v2"}], 
+      RowBox[{"Pentland", "/", "Lessig"}]}
+    },
+    AutoDelete->False,
+    BaseStyle->{TextJustification -> 0, ParagraphIndent -> 0},
+    GridBoxAlignment->{"Columns" -> {Left, Center}, "Rows" -> {Bottom, Top}},
+    GridBoxDividers->{
+     "Columns" -> {False}, 
+      "RowsIndexed" -> {
+       1 -> AbsoluteThickness[2.], 2 -> AbsoluteThickness[0.5], -1 -> 
+        AbsoluteThickness[0.5]}},
+    GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+    GridBoxSpacings->{"Columns" -> {{6.666666666666666}}, "Rows" -> {1, 0.5}}],
+   "Grid"], TraditionalForm]], "Table",
+ CellChangeTimes->{{3.6688959710671062`*^9, 3.668896015838662*^9}, {
+  3.668994945769376*^9, 3.6689950812543287`*^9}, {3.668995477611801*^9, 
+  3.668995482072933*^9}, {3.6689961505553093`*^9, 3.668996278485339*^9}, {
+  3.668996325920629*^9, 3.668996379593835*^9}, {3.668996412144019*^9, 
+  3.668996460812711*^9}, {3.6689982672996387`*^9, 3.668998273282436*^9}}],
+
+Cell["Enter table note here.", "TableNote"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "0.",
+ 
+ CounterBox["Section"],
+ ".",
+ 
+ CounterBox["Subsection"],
+ ". The Ongoing Frontiers"
+}], "Subsection",
+ CellChangeTimes->{{3.666575338578443*^9, 3.666575347326777*^9}, {
+  3.668759884636153*^9, 3.668759884905202*^9}, {3.668777801149188*^9, 
+  3.668777810275137*^9}, {3.668777947267273*^9, 3.668777947497579*^9}, {
+  3.6687780770846*^9, 3.668778082931982*^9}, {3.668989604767406*^9, 
+  3.6689896110651484`*^9}, {3.668994577834383*^9, 3.668994586367429*^9}, {
+  3.668995988113818*^9, 3.668995996806539*^9}, {3.668996522426779*^9, 
+  3.66899652749599*^9}}],
+
+Cell["\<\
+We live in a world that are filled with exponential growth patterns. There \
+will be many more topics and tools that are relevant to this finite book. To \
+capture and manage those ideas, we will list a number of fields that are \
+going to be relevant to our development effort. We plan to incorporate life \
+sciences, neural network, probablistic theories and other foundational models \
+of computation as a part of this book. We pick these topics, since these \
+topics are relevant to the most basic models of computation. Moreover, these \
+areas are also experience the highest degree of growth rate, due to their \
+mutal relevance. Therefore, we will explicitly draw references and tools \
+while proceeding with each chapter.\
+\>", "Text",
+ CellChangeTimes->{{3.666573601464292*^9, 3.66657369394256*^9}, {
+   3.666573726018475*^9, 3.666573726023479*^9}, {3.666576283845158*^9, 
+   3.666576345944644*^9}, {3.668717096431456*^9, 3.668717250576509*^9}, 
+   3.668759894962381*^9, {3.6687603813474894`*^9, 3.668760390881856*^9}, {
+   3.668777635374116*^9, 3.668777673219153*^9}, {3.668777816227862*^9, 
+   3.6687779534758663`*^9}, {3.668989614584765*^9, 3.668989630471133*^9}, {
+   3.6689896619273443`*^9, 3.6689898542326*^9}, {3.6689945922563343`*^9, 
+   3.6689946824160223`*^9}, {3.668996030755959*^9, 3.66899608306361*^9}, {
+   3.668996120417*^9, 3.668996143701079*^9}, {3.668996396221168*^9, 
+   3.6689963964100723`*^9}, 3.66899648770569*^9, {3.668996535370598*^9, 
+   3.668996657297183*^9}, {3.6689968298517637`*^9, 3.668996890107957*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ StyleBox["Table ", "TableTitleLabel"],
+ StyleBox[
+ CounterBox["BookChapterNumber"], "TableTitleLabel"],
+ StyleBox[".", "TableTitleLabel"],
+ StyleBox[
+ CounterBox["TableTitle"], "TableTitleLabel"],
+ StyleBox[".\[ThickSpace]\[ThickSpace]\[ThickSpace]", "TableTitleLabel"],
+ "Branches of Knowledge Management Practices"
+}], "TableTitle",
+ CellChangeTimes->{{3.6688959647197323`*^9, 3.668895967444385*^9}, {
+  3.6689961100414543`*^9, 3.6689961187985992`*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  TagBox[GridBox[{
+     {
+      InterpretationBox[Cell["Topics",
+        Editable->True,
+        FontSlant->Italic],
+       TextCell["Enter column head here", Italic, Editable -> True]], 
+      RowBox[{"Key", " ", "Publications"}], 
+      InterpretationBox[Cell["Author",
+        Editable->True,
+        FontSlant->Italic],
+       TextCell["Enter column head here", Italic, Editable -> True]]},
+     {
+      InterpretationBox[Cell["Life Sciences",
+        Editable->True],
+       TextCell["Enter data here", Editable -> True]], 
+      RowBox[{"What", " ", "is", " ", 
+       RowBox[{"Life", "?"}]}], 
+      InterpretationBox[Cell["Erwin Schrodinger",
+        Editable->True],
+       TextCell["Enter data here", Editable -> True]]},
+     {
+      InterpretationBox[Cell[TextData[Cell[BoxData[
+        FormBox[Cell["Neural Network",
+          Editable->True], TraditionalForm]],
+        CellChangeTimes->{{3.66889574334603*^9, 3.6688957440942087`*^9}, {
+         3.6688958411883583`*^9, 3.668895877312763*^9}, {3.668991041125516*^9,
+          3.668991068473166*^9}, {3.6689946985593357`*^9, 
+         3.6689947175174837`*^9}, {3.668994754884741*^9, 
+         3.668994870136155*^9}}]],
+        Editable->True],
+       TextCell["Enter data here", Editable -> True]], "TBD", 
+      InterpretationBox[Cell["TBD",
+        Editable->True],
+       TextCell["Enter data here", Editable -> True]]},
+     {
+      InterpretationBox[Cell["Statistical/Probablistic Models",
+        Editable->True],
+       TextCell["Enter data here", Editable -> True]], 
+      RowBox[{"Logic", " ", "of", " ", 
+       RowBox[{"Science", "/", "Causality"}]}], 
+      RowBox[{"Judea", " ", "Pearl"}]},
+     {
+      InterpretationBox[Cell["Category Theory",
+        Editable->True],
+       TextCell["Enter data here", Editable -> True]], 
+      RowBox[{
+      "Category", " ", "Theory", " ", "for", " ", "Working", " ", 
+       "Mathematicians"}], 
+      RowBox[{"Saunder", " ", "McLane"}]}
+    },
+    AutoDelete->False,
+    BaseStyle->{TextJustification -> 0, ParagraphIndent -> 0},
+    GridBoxAlignment->{"Columns" -> {Left, Center}, "Rows" -> {Bottom, Top}},
+    GridBoxDividers->{
+     "Columns" -> {False}, 
+      "RowsIndexed" -> {
+       1 -> AbsoluteThickness[2.], 2 -> AbsoluteThickness[0.5], -1 -> 
+        AbsoluteThickness[0.5]}},
+    GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+    GridBoxSpacings->{"Columns" -> {{6.666666666666666}}, "Rows" -> {1, 0.5}}],
+   "Grid"], TraditionalForm]], "Table",
+ CellChangeTimes->{{3.6688959710671062`*^9, 3.668896015838662*^9}, {
+  3.668994945769376*^9, 3.6689950812543287`*^9}, {3.668995477611801*^9, 
+  3.668995482072933*^9}, {3.6689961505553093`*^9, 3.668996278485339*^9}, {
+  3.668996325920629*^9, 3.668996379593835*^9}, {3.668996412144019*^9, 
+  3.668996460812711*^9}, {3.668996663400182*^9, 3.668996802259468*^9}}],
+
+Cell["Enter table note here.", "TableNote"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "0.",
+ 
+ CounterBox["Section"],
+ ". Closing the Loop"
+}], "Section",
+ CellChangeTimes->{{3.668778676826725*^9, 3.668778688519457*^9}, {
+  3.668779002592306*^9, 3.668779008055846*^9}, {3.668996928980611*^9, 
+  3.668996932601921*^9}}],
+
+Cell["\<\
+A useful pedagogical approach should always come with a set of complimentary \
+feedback mechanism. Due to the computational nature and the data-intensive \
+nature of this course, we will also instruct all our students to use a set of \
+popular, yet extensible set of data collection and sharing tools. We can use \
+the process data collected by these tools to help us assess the results of \
+the overal system. Our approach includes the following elements:\
+\>", "Text",
+ CellChangeTimes->{{3.668778691593501*^9, 3.668778716902544*^9}, {
+   3.668778983146747*^9, 3.668779269436256*^9}, {3.668996937404217*^9, 
+   3.6689970246018267`*^9}, 3.668997078363037*^9}],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ StyleBox["Table ", "TableTitleLabel"],
+ StyleBox[
+ CounterBox["BookChapterNumber"], "TableTitleLabel"],
+ StyleBox[".", "TableTitleLabel"],
+ StyleBox[
+ CounterBox["TableTitle"], "TableTitleLabel"],
+ StyleBox[".\[ThickSpace]\[ThickSpace]\[ThickSpace]Learning Outcome Feedback",
+   "TableTitleLabel"]
+}], "TableTitle",
+ CellChangeTimes->{{3.6688959647197323`*^9, 3.668895967444385*^9}, {
+  3.6689961100414543`*^9, 3.6689961187985992`*^9}, {3.6689970446194057`*^9, 
+  3.668997059935882*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  TagBox[GridBox[{
+     {
+      InterpretationBox[Cell["Area",
+        Editable->True,
+        FontSlant->Italic],
+       TextCell["Enter column head here", Italic, Editable -> True]], 
+      RowBox[{"Key", " ", "Data", " ", "Collector"}], 
+      InterpretationBox[Cell["Executors",
+        Editable->True,
+        FontSlant->Italic],
+       TextCell["Enter column head here", Italic, Editable -> True]]},
+     {
+      InterpretationBox[Cell["In-Presence Learning",
+        Editable->True],
+       TextCell["Enter data here", Editable -> True]], 
+      RowBox[{"On", " ", "Site", " ", 
+       RowBox[{"Videos", "/", "Interviews"}]}], 
+      InterpretationBox[Cell["Instructors/Asssitants",
+        Editable->True],
+       TextCell["Enter data here", Editable -> True]]},
+     {
+      InterpretationBox[Cell[TextData[Cell[BoxData[
+        FormBox[Cell["Off-site Learning",
+          Editable->True], TraditionalForm]],
+        CellChangeTimes->{{3.66889574334603*^9, 3.6688957440942087`*^9}, {
+         3.6688958411883583`*^9, 3.668895877312763*^9}, {3.668991041125516*^9,
+          3.668991068473166*^9}, {3.6689946985593357`*^9, 
+         3.6689947175174837`*^9}, {3.668994754884741*^9, 
+         3.668994870136155*^9}}]],
+        Editable->True],
+       TextCell["Enter data here", Editable -> True]], 
+      RowBox[{
+       RowBox[{"Git", "/", "Wiki"}], "/", "Teambition"}], 
+      InterpretationBox[Cell["Project managers",
+        Editable->True],
+       TextCell["Enter data here", Editable -> True]]},
+     {
+      InterpretationBox[Cell["Statistical Data",
+        Editable->True],
+       TextCell["Enter data here", Editable -> True]], 
+      RowBox[{"Learning", " ", "Analytics"}], 
+      RowBox[{"Software", " ", "Packages"}]},
+     {
+      InterpretationBox[Cell["Simulation",
+        Editable->True],
+       TextCell["Enter data here", Editable -> True]], 
+      RowBox[{"NetLogo", " ", "Simulation"}], 
+      RowBox[{"Agent", "-", 
+       RowBox[{"based", " ", "Modelers"}]}]}
+    },
+    AutoDelete->False,
+    BaseStyle->{TextJustification -> 0, ParagraphIndent -> 0},
+    GridBoxAlignment->{"Columns" -> {Left, Center}, "Rows" -> {Bottom, Top}},
+    GridBoxDividers->{
+     "Columns" -> {False}, 
+      "RowsIndexed" -> {
+       1 -> AbsoluteThickness[2.], 2 -> AbsoluteThickness[0.5], -1 -> 
+        AbsoluteThickness[0.5]}},
+    GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+    GridBoxSpacings->{"Columns" -> {{6.666666666666666}}, "Rows" -> {1, 0.5}}],
+   "Grid"], TraditionalForm]], "Table",
+ CellChangeTimes->{{3.6688959710671062`*^9, 3.668896015838662*^9}, {
+  3.668994945769376*^9, 3.6689950812543287`*^9}, {3.668995477611801*^9, 
+  3.668995482072933*^9}, {3.6689961505553093`*^9, 3.668996278485339*^9}, {
+  3.668996325920629*^9, 3.668996379593835*^9}, {3.668996412144019*^9, 
+  3.668996460812711*^9}, {3.668996663400182*^9, 3.668996802259468*^9}, {
+  3.668997039479208*^9, 3.668997039877749*^9}, {3.6689970821587257`*^9, 
+  3.668997165327611*^9}, {3.668997221971204*^9, 3.6689972440480824`*^9}}],
+
+Cell["Enter table note here.", "TableNote"]
+}, Open  ]],
+
+Cell["\<\
+In theory, as we run many courses, we will reveal our learning experience \
+using the data collected and computational tools that we taught our students. \
+Ideally, students should be authoring their personal websites, and publish \
+their content as they wish.\
+\>", "Text",
+ CellChangeTimes->{{3.668997273422306*^9, 3.668997352988551*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "0.",
+ 
+ CounterBox["Section"],
+ ".",
+ 
+ CounterBox["Subsection"],
+ ". For Your Eyes Only"
+}], "Subsection",
+ CellChangeTimes->{{3.666575338578443*^9, 3.666575347326777*^9}, {
+  3.668759884636153*^9, 3.668759884905202*^9}, {3.668777801149188*^9, 
+  3.668777810275137*^9}, {3.668777947267273*^9, 3.668777947497579*^9}, {
+  3.6687780770846*^9, 3.668778082931982*^9}, {3.668989604767406*^9, 
+  3.6689896110651484`*^9}, {3.668994577834383*^9, 3.668994586367429*^9}, {
+  3.668995988113818*^9, 3.668995996806539*^9}, {3.668996522426779*^9, 
+  3.66899652749599*^9}, {3.6690072986623383`*^9, 3.6690073058434343`*^9}}],
+
+Cell["\<\
+Over time, we wish that we may use the whole stack of Nand2Tetris-based \
+computing system to implement a secure Knowledge Management platform on a \
+Internet scale. We hope that, collectively, we may include the notion of \
+Byzantine General\[CloseCurlyQuote]s Problem as a way to mutally witness the \
+transparency of data, while keeping the identity of participating individuals \
+private. Moreover, we also wish that we can show people that using \
+agent-based modeling language, we can allow students to build secure, yet \
+flexible/recombinable systems in relatively short amount of time.\
+\>", "Text",
+ CellChangeTimes->{{3.666573601464292*^9, 3.66657369394256*^9}, {
+   3.666573726018475*^9, 3.666573726023479*^9}, {3.666576283845158*^9, 
+   3.666576345944644*^9}, {3.668717096431456*^9, 3.668717250576509*^9}, 
+   3.668759894962381*^9, {3.6687603813474894`*^9, 3.668760390881856*^9}, {
+   3.668777635374116*^9, 3.668777673219153*^9}, {3.668777816227862*^9, 
+   3.6687779534758663`*^9}, {3.668989614584765*^9, 3.668989630471133*^9}, {
+   3.6689896619273443`*^9, 3.6689898542326*^9}, {3.6689945922563343`*^9, 
+   3.6689946824160223`*^9}, {3.668996030755959*^9, 3.66899608306361*^9}, {
+   3.668996120417*^9, 3.668996143701079*^9}, {3.668996396221168*^9, 
+   3.6689963964100723`*^9}, 3.66899648770569*^9, {3.668996535370598*^9, 
+   3.668996657297183*^9}, {3.6689968298517637`*^9, 3.668996890107957*^9}, {
+   3.669007312029107*^9, 3.6690074927823143`*^9}}]
 }, Open  ]]
 }, Open  ]],
 
@@ -561,15 +1629,20 @@ Cell["References", "ReferenceSection",
 Cell[CellGroupData[{
 
 Cell[TextData[{
- "Authorlast, \[OpenCurlyDoubleQuote]Article Title,\[CloseCurlyDoubleQuote] \
-",
- StyleBox["Journal Title",
+ "Virginia Maria Fontes Goncalves Chaitin, \
+\[OpenCurlyDoubleQuote]Metabiology, Interdisciplinarity and the Human \
+Self-Image,\[CloseCurlyDoubleQuote] ",
+ StyleBox["Academica.edu",
   FontSlant->"Italic"],
  ", ",
- StyleBox["Volume",
+ StyleBox["Web Resource:",
   FontWeight->"Bold"],
- "(Issue), 2005 pp. #\[Dash]#."
-}], "Reference"],
+ "https://www.academia.edu/24199324/Metabiology_interdisciplinarity_and_the_\
+human_self-image last accessed 2016 April, 12"
+}], "Reference",
+ CellChangeTimes->{{3.6694431556614857`*^9, 3.669443218861005*^9}, {
+  3.669443303560491*^9, 3.669443307604013*^9}, {3.669443677398922*^9, 
+  3.669443701036471*^9}, {3.669443746701963*^9, 3.6694438237215757`*^9}}],
 
 Cell[TextData[{
  "Authorlast1 and B. Authorlast2, \[OpenCurlyDoubleQuote]Article Title,\
@@ -594,14 +1667,16 @@ Cell[TextData[{
 }], "Reference"],
 
 Cell[TextData[{
- "Authorlast, ",
- StyleBox["Book Title",
+ "Alex Pentland, ",
+ StyleBox["Social Physics",
   FontSlant->"Italic"],
  ", ",
- StyleBox["n",
+ StyleBox["1st",
   FontSlant->"Italic"],
- "th ed., Publisher Location: Publisher Name, 2005."
-}], "Reference"],
+ " ed., New York: Penguin, 2014."
+}], "Reference",
+ CellChangeTimes->{{3.669085179595676*^9, 3.66908519212784*^9}, {
+  3.669085229528656*^9, 3.669085247774262*^9}}],
 
 Cell[TextData[{
  "Authorlast1 and B. Authorlast2, ",
@@ -663,8 +1738,9 @@ from CompanyN\[LongDash]A CompanyN Web Resource. URL.\
 }, Open  ]]
 }, Open  ]]
 },
-WindowSize->{748, 821},
-WindowMargins->{{344, Automatic}, {Automatic, 0}},
+WindowSize->{1096, 778},
+WindowMargins->{{42, Automatic}, {Automatic, 31}},
+Magnification:>2. Inherited,
 FrontEndVersion->"10.4 for Mac OS X x86 (32-bit, 64-bit Kernel) (February 25, \
 2016)",
 StyleDefinitions->FrontEnd`FileName[{"Book"}, "Textbook.nb", 
@@ -683,89 +1759,154 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[580, 22, 96, 1, 147, "BookChapterNumber"],
-Cell[679, 25, 214, 3, 126, "BookChapterTitle"],
+Cell[580, 22, 96, 1, 293, "BookChapterNumber"],
+Cell[679, 25, 214, 3, 251, "BookChapterTitle"],
 Cell[CellGroupData[{
-Cell[918, 32, 280, 8, 55, "Section"],
-Cell[1201, 42, 1460, 21, 140, "Text"],
-Cell[2664, 65, 880, 13, 65, "Text"],
+Cell[918, 32, 306, 8, 109, "Section"],
+Cell[1227, 42, 1647, 23, 370, "Text"],
+Cell[2877, 67, 880, 13, 160, "Text"],
 Cell[CellGroupData[{
-Cell[3569, 82, 344, 11, 32, "Subsection"],
-Cell[3916, 95, 1218, 18, 95, "Text"]
+Cell[3782, 84, 384, 12, 63, "Subsection"],
+Cell[4169, 98, 713, 11, 100, "Text"],
+Cell[4885, 111, 686, 10, 160, "Text"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[5171, 118, 384, 12, 32, "Subsection"],
-Cell[5558, 132, 713, 11, 50, "Text"],
-Cell[6274, 145, 686, 10, 65, "Text"]
+Cell[5608, 126, 394, 12, 63, "Subsection"],
+Cell[6005, 140, 1218, 18, 250, "Text"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[7009, 161, 330, 9, 55, "Section"],
-Cell[7342, 172, 718, 11, 65, "Text"],
-Cell[8063, 185, 476, 8, 35, "Text"],
+Cell[7272, 164, 311, 8, 109, "Section"],
+Cell[7586, 174, 1410, 20, 370, "Text"],
 Cell[CellGroupData[{
-Cell[8564, 197, 289, 11, 32, "Subsection"],
-Cell[8856, 210, 953, 14, 80, "Text"]
+Cell[9021, 198, 1498, 29, 324, "Picture"],
+Cell[10522, 229, 421, 11, 35, "PictureCaption"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[9846, 229, 291, 11, 32, "Subsection"],
-Cell[10140, 242, 804, 12, 80, "Text"]
+Cell[10980, 245, 531, 14, 63, "Subsection"],
+Cell[11514, 261, 1079, 16, 160, "Text"],
+Cell[12596, 279, 985, 15, 220, "Text"],
+Cell[CellGroupData[{
+Cell[13606, 298, 403, 10, 40, "TableTitle"],
+Cell[14012, 310, 2147, 52, 195, "Table"],
+Cell[16162, 364, 43, 0, 28, "TableNote"]
 }, Open  ]],
+Cell[16220, 367, 538, 9, 130, "Text"],
 Cell[CellGroupData[{
-Cell[10981, 259, 253, 10, 32, "Subsection"],
-Cell[11237, 271, 294, 5, 35, "Text"],
-Cell[CellGroupData[{
-Cell[11556, 280, 91, 1, 16, "Item1"],
-Cell[CellGroupData[{
-Cell[11672, 285, 57, 0, 15, "Item1Paragraph"],
-Cell[CellGroupData[{
-Cell[11754, 289, 39, 0, 15, "Item2"],
-Cell[CellGroupData[{
-Cell[11818, 293, 57, 0, 15, "Item2Paragraph"],
-Cell[CellGroupData[{
-Cell[11900, 297, 39, 0, 15, "Item3"],
-Cell[11942, 299, 57, 0, 15, "Item3Paragraph"]
-}, Open  ]]
-}, Open  ]]
-}, Open  ]]
-}, Open  ]]
+Cell[16783, 380, 392, 10, 40, "TableTitle"],
+Cell[17178, 392, 2748, 67, 285, "Table"],
+Cell[19929, 461, 43, 0, 28, "TableNote"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[12108, 310, 203, 7, 55, "Section"],
-Cell[12314, 319, 1256, 18, 125, "Text"],
+Cell[20033, 468, 383, 9, 109, "Section"],
+Cell[20419, 479, 1485, 21, 340, "Text"],
+Cell[21907, 502, 1050, 16, 190, "Text"],
 Cell[CellGroupData[{
-Cell[13595, 341, 1498, 29, 162, "Picture"],
-Cell[15096, 372, 355, 9, 20, "PictureCaption"]
+Cell[22982, 522, 388, 12, 63, "Subsection"],
+Cell[23373, 536, 1454, 20, 370, "Text"]
 }, Open  ]],
-Cell[15466, 384, 265, 5, 35, "Text"],
 Cell[CellGroupData[{
-Cell[15756, 393, 403, 10, 20, "TableTitle"],
-Cell[16162, 405, 2106, 53, 99, "Table"],
-Cell[18271, 460, 43, 0, 16, "TableNote"]
+Cell[24864, 561, 337, 11, 63, "Subsection"],
+Cell[25204, 574, 704, 11, 190, "Text"]
 }, Open  ]],
-Cell[18329, 463, 250, 5, 35, "Text"],
 Cell[CellGroupData[{
-Cell[18604, 472, 392, 10, 20, "TableTitle"],
-Cell[18999, 484, 2612, 65, 99, "Table"],
-Cell[21614, 551, 43, 0, 16, "TableNote"]
+Cell[25945, 590, 253, 10, 63, "Subsection"],
+Cell[26201, 602, 1206, 18, 310, "Text"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[21706, 557, 104, 1, 275, "ReferenceSection"],
+Cell[27456, 626, 203, 7, 109, "Section"],
+Cell[27662, 635, 1523, 22, 400, "Text"],
 Cell[CellGroupData[{
-Cell[21835, 562, 246, 9, 16, "Reference"],
-Cell[22084, 573, 266, 9, 16, "Reference"],
-Cell[22353, 584, 283, 9, 16, "Reference"],
-Cell[22639, 595, 196, 8, 16, "Reference"],
-Cell[22838, 605, 216, 8, 16, "Reference"],
-Cell[23057, 615, 233, 8, 16, "Reference"],
-Cell[23293, 625, 325, 6, 30, "Reference"],
-Cell[23621, 633, 364, 7, 30, "Reference"],
-Cell[23988, 642, 364, 7, 30, "Reference"],
-Cell[24355, 651, 189, 4, 16, "Reference"],
-Cell[24547, 657, 158, 3, 16, "Reference"]
+Cell[29210, 661, 611, 15, 63, "Subsection"],
+Cell[29824, 678, 1988, 27, 430, "Text"],
+Cell[CellGroupData[{
+Cell[31837, 709, 1498, 29, 324, "Picture"],
+Cell[33338, 740, 355, 9, 35, "PictureCaption"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[33742, 755, 477, 13, 63, "Subsection"],
+Cell[34222, 770, 1058, 16, 130, "Text"],
+Cell[CellGroupData[{
+Cell[35305, 790, 392, 10, 40, "TableTitle"],
+Cell[35700, 802, 2788, 66, 286, "Table"],
+Cell[38491, 870, 43, 0, 28, "TableNote"]
+}, Open  ]],
+Cell[38549, 873, 310, 5, 100, "Text"],
+Cell[38862, 880, 933, 14, 250, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[39832, 899, 432, 13, 63, "Subsection"],
+Cell[40267, 914, 1065, 16, 190, "Text"],
+Cell[41335, 932, 812, 12, 160, "Text"],
+Cell[42150, 946, 682, 11, 130, "Text"],
+Cell[42835, 959, 395, 7, 100, "Text"],
+Cell[CellGroupData[{
+Cell[43255, 970, 403, 10, 40, "TableTitle"],
+Cell[43661, 982, 2217, 56, 225, "Table"],
+Cell[45881, 1040, 43, 0, 28, "TableNote"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[45973, 1046, 535, 14, 63, "Subsection"],
+Cell[46511, 1062, 1347, 20, 190, "Text"],
+Cell[CellGroupData[{
+Cell[47883, 1086, 392, 10, 40, "TableTitle"],
+Cell[48278, 1098, 2803, 68, 285, "Table"],
+Cell[51084, 1168, 43, 0, 28, "TableNote"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[51176, 1174, 588, 15, 63, "Subsection"],
+Cell[51767, 1191, 1171, 18, 130, "Text"],
+Cell[52941, 1211, 980, 15, 70, "Text"],
+Cell[CellGroupData[{
+Cell[53946, 1230, 472, 11, 40, "TableTitle"],
+Cell[54421, 1243, 3387, 76, 406, "Table"],
+Cell[57811, 1321, 43, 0, 28, "TableNote"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[57903, 1327, 579, 15, 63, "Subsection"],
+Cell[58485, 1344, 1553, 22, 220, "Text"],
+Cell[CellGroupData[{
+Cell[60063, 1370, 472, 11, 40, "TableTitle"],
+Cell[60538, 1383, 2887, 67, 285, "Table"],
+Cell[63428, 1452, 43, 0, 28, "TableNote"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[63532, 1459, 249, 8, 109, "Section"],
+Cell[63784, 1469, 670, 10, 160, "Text"],
+Cell[CellGroupData[{
+Cell[64479, 1483, 504, 12, 40, "TableTitle"],
+Cell[64986, 1497, 3070, 69, 255, "Table"],
+Cell[68059, 1568, 43, 0, 28, "TableNote"]
+}, Open  ]],
+Cell[68117, 1571, 350, 6, 100, "Text"],
+Cell[CellGroupData[{
+Cell[68492, 1581, 626, 15, 63, "Subsection"],
+Cell[69121, 1598, 1470, 21, 190, "Text"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[70640, 1625, 104, 1, 549, "ReferenceSection"],
+Cell[CellGroupData[{
+Cell[70769, 1630, 635, 14, 88, "Reference"],
+Cell[71407, 1646, 266, 9, 32, "Reference"],
+Cell[71676, 1657, 283, 9, 60, "Reference"],
+Cell[71962, 1668, 300, 10, 32, "Reference"],
+Cell[72265, 1680, 216, 8, 32, "Reference"],
+Cell[72484, 1690, 233, 8, 60, "Reference"],
+Cell[72720, 1700, 325, 6, 60, "Reference"],
+Cell[73048, 1708, 364, 7, 88, "Reference"],
+Cell[73415, 1717, 364, 7, 88, "Reference"],
+Cell[73782, 1726, 189, 4, 60, "Reference"],
+Cell[73974, 1732, 158, 3, 32, "Reference"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
