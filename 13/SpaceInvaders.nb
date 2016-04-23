@@ -1,0 +1,185 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.4' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      6394,        177]
+NotebookOptionsPosition[      6062,        160]
+NotebookOutlinePosition[      6420,        176]
+CellTagsIndexPosition[      6377,        173]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"BallPosition", " ", "=", " ", 
+   RowBox[{"{", 
+    RowBox[{"100", ",", "100"}], "}"}]}], ";", "  ", 
+  RowBox[{"BallSpeed", " ", "=", " ", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "2"}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"BallSize", "=", "10"}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"Graphics", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"Green", ",", "\[IndentingNewLine]", 
+     RowBox[{"Dynamic", "[", "\[IndentingNewLine]", 
+      RowBox[{"(*", " ", 
+       RowBox[{"Move", " ", "the", " ", "ball"}], "*)"}], 
+      "\[IndentingNewLine]", "\t", 
+      RowBox[{
+       RowBox[{"BallPosition", " ", "+=", "BallSpeed"}], ";", 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"(*", " ", 
+        RowBox[{
+        "Bounce", " ", "the", " ", "ball", " ", "around", " ", "the", " ", 
+         "sides", " ", "if", " ", "needed"}], " ", "*)"}], 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{
+           "BallPosition", "\[LeftDoubleBracket]", "1", 
+            "\[RightDoubleBracket]"}], " ", "<", " ", "BallSize"}], " ", "||",
+           "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{
+           "BallPosition", "\[LeftDoubleBracket]", "1", 
+            "\[RightDoubleBracket]"}], " ", ">", " ", 
+           RowBox[{"224", " ", "-", " ", "BallSize"}]}]}], ",", " ", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+           "BallSpeed", "\[LeftDoubleBracket]", "1", 
+            "\[RightDoubleBracket]"}], "*=", 
+           RowBox[{"-", "1"}]}], ";"}]}], "]"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{
+           "BallPosition", "\[LeftDoubleBracket]", "2", 
+            "\[RightDoubleBracket]"}], " ", "<", " ", "BallSize"}], " ", "||",
+           "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{
+           "BallPosition", "\[LeftDoubleBracket]", "2", 
+            "\[RightDoubleBracket]"}], " ", ">", " ", 
+           RowBox[{"256", " ", "-", " ", "BallSize"}]}]}], ",", " ", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+           "BallSpeed", "\[LeftDoubleBracket]", "2", 
+            "\[RightDoubleBracket]"}], "*=", " ", 
+           RowBox[{"-", "1"}]}], ";"}]}], "]"}], ";", "\[IndentingNewLine]", 
+       "\[IndentingNewLine]", 
+       RowBox[{"(*", " ", 
+        RowBox[{"Draw", " ", "the", " ", "ball"}], "*)"}], 
+       "\[IndentingNewLine]", 
+       RowBox[{"Disk", "[", 
+        RowBox[{"BallPosition", ",", " ", "BallSize"}], "]"}]}], 
+      "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{"Fix", " ", "the", " ", "plot", " ", "range"}], ",", " ", 
+     RowBox[{
+     "so", " ", "that", " ", "there", " ", "is", " ", "no", " ", "need", " ", 
+      "to", " ", "redraw"}]}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"PlotRange", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"0", ",", "224"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", "256"}], "}"}]}], "}"}]}], ",", 
+   RowBox[{"ImageSize", " ", "\[Rule]", " ", 
+    RowBox[{"{", 
+     RowBox[{"224", ",", "256"}], "}"}]}], ",", "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{
+     "By", " ", "setting", " ", "the", " ", "background", " ", "to", " ", 
+      "be", " ", "Black"}], ","}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"Background", "\[Rule]", "Black"}], ",", "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "PlotRange", " ", "Padding", " ", "and", " ", "Image", " ", "Padding"}], 
+    "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"PlotRangePadding", "\[Rule]", " ", "None"}], ",", " ", 
+   RowBox[{"ImagePadding", "\[Rule]", " ", "None"}]}], "\[IndentingNewLine]", 
+  "]"}]}], "Input",
+ CellChangeTimes->{{3.670363857379225*^9, 3.670363858164727*^9}, {
+  3.6703680810799913`*^9, 3.67036828096455*^9}, {3.6703684025172663`*^9, 
+  3.670368476396183*^9}, {3.6703685188640213`*^9, 3.670368537222702*^9}, {
+  3.670368572807761*^9, 3.670368595189241*^9}, {3.670368637216303*^9, 
+  3.6703688856117*^9}, {3.670369287399601*^9, 3.670369344240344*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[
+  {RGBColor[0, 1, 0], 
+   DynamicBox[Typeset`ToBoxes[
+    AddTo[$CellContext`BallPosition, $CellContext`BallSpeed]; If[
+       Or[
+       Part[$CellContext`BallPosition, 1] < $CellContext`BallSize, 
+        Part[$CellContext`BallPosition, 1] > 224 - $CellContext`BallSize], 
+       TimesBy[
+         Part[$CellContext`BallSpeed, 1], -1]; Null]; If[
+       Or[
+       Part[$CellContext`BallPosition, 2] < $CellContext`BallSize, 
+        Part[$CellContext`BallPosition, 2] > 256 - $CellContext`BallSize], 
+       TimesBy[
+         Part[$CellContext`BallSpeed, 2], -1]; Null]; 
+     Disk[$CellContext`BallPosition, $CellContext`BallSize], StandardForm, 
+     Graphics],
+    ImageSizeCache->{{146., 166.}, {-36., -16.}}]},
+  Background->GrayLevel[0],
+  ImagePadding->None,
+  ImageSize->{224, 256},
+  PlotRange->{{0, 224}, {0, 256}},
+  PlotRangePadding->None]], "Output",
+ CellChangeTimes->{{3.6703688591435204`*^9, 3.670368885952344*^9}, {
+  3.6703692887547503`*^9, 3.6703693447594337`*^9}}]
+}, Open  ]]
+},
+WindowSize->{808, 851},
+WindowMargins->{{Automatic, 299}, {Automatic, 0}},
+FrontEndVersion->"10.4 for Mac OS X x86 (32-bit, 64-bit Kernel) (February 25, \
+2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 4448, 109, 488, "Input"],
+Cell[5031, 133, 1015, 24, 305, "Output"]
+}, Open  ]]
+}
+]
+*)
+
