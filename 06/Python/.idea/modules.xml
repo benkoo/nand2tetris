@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../../07/Python/.idea/Python.iml" filepath="$PROJECT_DIR$/../../07/Python/.idea/Python.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../GitRepos/nand2tetris/07/StackArithmetic/SimpleAdd/.idea/SimpleAdd.iml" filepath="$PROJECT_DIR$/../../../GitRepos/nand2tetris/07/StackArithmetic/SimpleAdd/.idea/SimpleAdd.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../GitRepos/nand2tetris/13/SpaceInvaders-master/.idea/SpaceInvaders-master.iml" filepath="$PROJECT_DIR$/../../../GitRepos/nand2tetris/13/SpaceInvaders-master/.idea/SpaceInvaders-master.iml" />
+    </modules>
+  </component>
+</project>
