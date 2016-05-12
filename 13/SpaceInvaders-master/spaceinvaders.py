@@ -2,8 +2,10 @@
 
 import pygame
 from pygame.locals import *
-import sys
+
+
 import random
+
 
 class SpaceInvaders:
     def __init__(self):
@@ -32,6 +34,7 @@ class SpaceInvaders:
                          [1,1,1,1,1,0,0,0,0,0,0,0,1,1,1,1,1]]
 
         self.screen = pygame.display.set_mode((800, 600))
+
         self.enemySprites = {
                 0:[pygame.image.load("assets/a1_0.png").convert(), pygame.image.load("assets/a1_1.png").convert()],
                 1:[pygame.image.load("assets/a2_0.png").convert(), pygame.image.load("assets/a2_1.png").convert()],

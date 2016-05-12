@@ -65,7 +65,7 @@ class Parser(object):
         self.rawline = self.rawline.rstrip()
         self.lineNumber += 1
         self.line = self.rawline
-                
+
         i = self.line.find('//')
         if i != -1:
             self.line = self.line[:i]
