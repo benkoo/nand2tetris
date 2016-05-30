@@ -49,6 +49,19 @@ class Parser(object):
             return False
 
 
+    def CommandType(self):
+        """
+        Returns the type of the current command:
+        A_COMMAND for @Xxx where Xxx is either a symbol or a decimal number
+        C_COMMAND for dest=comp;jump
+        L_COMMAND (actually, pseudocommand) for (Xxx) where Xxx is a symbol
+        NO_COMMAND a blank line or comment
+        """
+        return self.commandType
+
+    def Symbol(self):
+        return self.symbol
+
     def loadCompletFile(self):
         try:
             self.file = open(self.sourceFileName, 'r')
