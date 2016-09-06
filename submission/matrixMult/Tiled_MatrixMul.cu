@@ -1,3 +1,21 @@
+/**
+ * Matrix multiplication Exercise : P = M . N.
+ *
+ * This program basically follows the tutorial in class.
+ *
+ * Given the 1024*1024 matrix test case, this program got the best performance
+ * boost using TILE_WIDTH = 16. This was also suggested in the slide set.
+ *
+ * This exercise was executed on a MacBook Pro, with GeForce GT 650M
+ * Using the CPU matrixMultiplication code, it takes about 18 seconds
+ * Using this TILED approach, it only take about 0.13 ~0.15 seconds
+ * 
+ * See also:
+ * Zhou Bin@ Nvidia & USTC, 2014, October, "CUDA Programming (2)" Lecture Slides
+ * 
+ *
+ */
+
 #include "stdio.h" 
 #include "stdlib.h"
 
@@ -5,8 +23,8 @@
 #include "cuda_runtime.h"
 
 
-#define W 80
-#define TILE_WIDTH 2
+#define W 1024
+#define TILE_WIDTH 16
 #define DEBUG 1
 
 void printMatrix(float *Matrix)
@@ -32,7 +50,7 @@ void printMatrix(float *Matrix)
 		
 	if (W > MAX_SIZE_PRINTED){
 		
-		printf("   The RIGHT_LOWER CORNER OF the %d * %d matrix\n", W, W);
+		printf("   The LOWER_RIGHT CORNER OF the %d * %d matrix\n", W, W);
 		
 		for(int i=W-MAX_SIZE_PRINTED;i<W;i++)
 		{
@@ -46,100 +64,26 @@ void printMatrix(float *Matrix)
 		
 }
 
-//This is for transposing a matrix
-__global__ void transposeMatrix(float *oData, float *iData, int width, int height)
-{
-	int xIndex = blockIdx.x *TILE_WIDTH + threadIdx.x;
-	int yIndex = blockIdx.y *TILE_WIDTH + threadIdx.y;
 
-        int index_in  = xIndex + width  * yIndex;
-	int index_out = yIndex + height * xIndex; 
-
-	oData[index_out] = iData[index_in];
-
-}
-
-int matrixMul_cpu(float *M, float *N, float *P)
-{
-  for(int i=0;i<W;i++)
-    for(int j=0;j<W;j++)
-    {
-	float sum=0;
-	for (int k=0;k<W;k++)
-	  {
-	    float a = *(M+i*W+k);
-        float b = *(N+k*W+j);
-	    sum += a * b;
-	  }
-	  
-	*(P+i*W+j) = sum;
-
-    }	
-
-    return 0;  
-}
-
-__global__ void MatrixMulKernel_basic(float* Md, float* Nd, float* Pd, int Width)
-{
-  int Row = blockIdx.y * blockDim.y + threadIdx.y;
-  int Col = blockIdx.x * blockDim.x + threadIdx.x;
-  
-  float Pvalue = 0;
-  if(Row < Width && Col < Width){
-  for (int k = 0; k < Width; ++k)
-	Pvalue += Md[Row * Width + k] * Nd[k * Width + Col];
-	
-  Pd[Row * Width + Col] = Pvalue;
-  }
-}
-
-//Matrix Multiplication Kernel
-__global__ void matrixMulKernel_1(float* Md, float* Nd, float* Pd, int Width)
-{
-	//2D Thread ID
-
-	int tx = threadIdx.x;
-	int ty = threadIdx.y;
-
-	//Pvalue stores the Pd value computed by the thread
-	float Pvalue = 0;
-
-	for (int k = 0; k < Width; k++)
-	{
-	    float Mdelement = Md[ty * W + k];
-	    float Ndelement = Nd[k * W + tx];
-	    Pvalue += Mdelement * Ndelement;
-	}	
-
-	//Write the matrix to device memory each thread writes one element
-	Pd[ty*Width + tx] = Pvalue;
-}
-
-__global__ void matrixMul_gpu(float *M,float *N, float *P, int width)
-{
-	int i = threadIdx.y;
-	int j = threadIdx.x;
-
-
-	float sum =0;
-    for (int k = 0;k<width;k++)
-	  {
-	     float a = *(M+i*width+k);
-             float b = *(N+k*width+j);
-             sum += a*b;
-	  }  
-
-	*(P+i*width+j) = sum;
-
-}
-
-__global__ void matrixMulKernel(float* Md, float* Nd, float* Pd, int Width)
+/*
+ *  This code is mostly copied from the slide set with some comments written by Ben Koo.
+ *  
+ *  In this test case, W = 1024, TILE_WIDTH = 16, making the dimGrid = 64 * 64
+ *  Within each block, there are 16 * 16 threads.
+ *
+ *
+ */
+__global__ void matrixMulKernel_usingTile(float* Md, float* Nd, float* Pd, int Width)
 {
 
+	//This delcares the device memory as 16 * 16 float matrices
 	__shared__ float Mds[TILE_WIDTH][TILE_WIDTH];
 	__shared__ float Nds[TILE_WIDTH][TILE_WIDTH];
 
+    // When W = 1024,t he block IDs (x * y) should be (64 * 64)
 	int bx = blockIdx.x; int by = blockIdx.y;
+	
+    // When W = 1024, the thread IDs (x * y) should be (16 * 16)
 	int tx = threadIdx.x; int ty = threadIdx.y;
 
 	int Row = by * TILE_WIDTH + ty;
@@ -148,15 +92,23 @@ __global__ void matrixMulKernel(float* Md, float* Nd, float* Pd, int Width)
 
 
 	float PValue = 0;
+	
+	// When W = 1024, m should go from 0 to 63
 	for (int m =0; m < Width/TILE_WIDTH; ++m){
+	  // The following memory access takes place in shared memory
 	  Mds[ty][tx] = Md[Row*Width + (m*TILE_WIDTH + tx)];
 	  Nds[ty][tx] = Nd[Col + (m*TILE_WIDTH+ty)*Width];
+	  
+	  //Make sure that all data are written in sync.
 	  __syncthreads();
 
+	  //Perform TILE level matrix multiplication and addition in synchrony.
 	  for (int k = 0; k< TILE_WIDTH; ++k)	
 		PValue += Mds[ty][k] * Nds[k][tx];
 		__syncthreads();
 	}
+	
+	//Take individually caldulated PValue and place it to the Pd (device memory array).
 	Pd[Row * Width + Col] = PValue;
 }
  
@@ -168,41 +120,30 @@ int main()
 
 	int size = W*W*sizeof(float);
  
-	float *M,*N,*P,*T;
+	float *M,*N,*P;
 	float *d_M,*d_N,*d_P;
 
 	M = (float *) malloc(size);
 	N = (float *) malloc(size);
 	P = (float *) malloc(size);
-	T = (float *) malloc(size);
 
 	cudaMalloc((void **)&d_M,size);
 	cudaMalloc((void **)&d_N,size);
 	cudaMalloc((void **)&d_P,size);
 
 
+    //Populate initial values to the M, N and P matrices
 	for(int i=0;i<W*W;i++)
 	{
 	  *(M+i) = i;
       *(N+i) = i+1;
       *(P+i) = 0;
-      *(T+i) = 0;	  
 	}
-	
-	clock_t startT, finishT;
-
-	startT = clock();
-	int err = matrixMul_cpu(M,N,P);
-	finishT = clock();
-        printf("CPU elapsed time:%f\n\n", (float)(finishT - startT)/CLOCKS_PER_SEC);
-		
-	printMatrix(P);
-
 
     cudaMemcpy(d_M, M,size,cudaMemcpyHostToDevice);
     cudaMemcpy(d_N, N,size,cudaMemcpyHostToDevice);
 	
-	//Starting from here, set up the timing for CUDA devices
+	//Starting from here, set up CUDA timing mechanism
 	float time_elapsed = 0;
 	
 	cudaEvent_t start, stop;
@@ -215,19 +156,21 @@ int main()
 	dim3 dimGrid(W /TILE_WIDTH, W / TILE_WIDTH);
 	dim3 dimBlock(TILE_WIDTH, TILE_WIDTH);
 		
-//	matrixMulKernel<<< dimGrid, dimBlock >>>(d_M,d_N,d_P,W);
-	MatrixMulKernel_basic<<< dimGrid, dimBlock >>>(d_M,d_N,d_P,W);
+	matrixMulKernel_usingTile<<< dimGrid, dimBlock >>>(d_M,d_N,d_P,W);
+	
     cudaEventRecord(stop,0);
 
 	cudaEventSynchronize(start);
 
 	cudaEventSynchronize(stop);
 
+	//The following function returns time_elapsed using milli-seconds as time units
 	cudaEventElapsedTime(&time_elapsed, start, stop);
 	
 	//Finished timing for CUDA execution
 
-	printf("\n\nGPU Elapsed Time:%f\n", time_elapsed);
+    //To display time_elapsed into a number, divide it by 1000 first.
+	printf("\n\nGPU Elapsed Time:%f\n", time_elapsed/1000);
 	
         
     cudaMemcpy(P,d_P,size,cudaMemcpyDeviceToHost);

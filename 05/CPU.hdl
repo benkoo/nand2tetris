@@ -89,7 +89,7 @@ CHIP CPU {
 	
     //Addressing bits
     //Use logic gates to determine whether to jump or not
-    //with the 3 j-bits of the C-instruction jump field.
+    //withth the 3 j-bits of the C-instruction jump field.
 
     // First test the out result and create jump conditions using And gates
     And(a=j1, b=ng, out=j1-outng);
