@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     79422,       1908]
-NotebookOptionsPosition[     74172,       1740]
-NotebookOutlinePosition[     74675,       1759]
-CellTagsIndexPosition[     74632,       1756]
+NotebookDataLength[     79474,       1909]
+NotebookOptionsPosition[     74223,       1741]
+NotebookOutlinePosition[     74727,       1760]
+CellTagsIndexPosition[     74684,       1757]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -1600,7 +1600,7 @@ Cell["\<\
 Over time, we wish that we may use the whole stack of Nand2Tetris-based \
 computing system to implement a secure Knowledge Management platform on a \
 Internet scale. We hope that, collectively, we may include the notion of \
-Byzantine General\[CloseCurlyQuote]s Problem as a way to mutally witness the \
+Byzantine General\[CloseCurlyQuote]s Problem as a way to mutually witness the \
 transparency of data, while keeping the identity of participating individuals \
 private. Moreover, we also wish that we can show people that using \
 agent-based modeling language, we can allow students to build secure, yet \
@@ -1617,7 +1617,8 @@ flexible/recombinable systems in relatively short amount of time.\
    3.668996120417*^9, 3.668996143701079*^9}, {3.668996396221168*^9, 
    3.6689963964100723`*^9}, 3.66899648770569*^9, {3.668996535370598*^9, 
    3.668996657297183*^9}, {3.6689968298517637`*^9, 3.668996890107957*^9}, {
-   3.669007312029107*^9, 3.6690074927823143`*^9}}]
+   3.669007312029107*^9, 3.6690074927823143`*^9}, {3.684974182927084*^9, 
+   3.684974186317761*^9}}]
 }, Open  ]]
 }, Open  ]],
 
@@ -1739,10 +1740,10 @@ from CompanyN\[LongDash]A CompanyN Web Resource. URL.\
 }, Open  ]]
 },
 WindowSize->{1096, 778},
-WindowMargins->{{42, Automatic}, {Automatic, 31}},
+WindowMargins->{{106, Automatic}, {Automatic, 0}},
 Magnification:>2. Inherited,
-FrontEndVersion->"10.4 for Mac OS X x86 (32-bit, 64-bit Kernel) (February 25, \
-2016)",
+FrontEndVersion->"11.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (September \
+21, 2016)",
 StyleDefinitions->FrontEnd`FileName[{"Book"}, "Textbook.nb", 
   CharacterEncoding -> "UTF-8"],
 PrivateNotebookOptions -> {"NotebookAuthor" -> ""}
@@ -1890,23 +1891,23 @@ Cell[68059, 1568, 43, 0, 28, "TableNote"]
 Cell[68117, 1571, 350, 6, 100, "Text"],
 Cell[CellGroupData[{
 Cell[68492, 1581, 626, 15, 63, "Subsection"],
-Cell[69121, 1598, 1470, 21, 190, "Text"]
+Cell[69121, 1598, 1521, 22, 190, "Text"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[70640, 1625, 104, 1, 549, "ReferenceSection"],
+Cell[70691, 1626, 104, 1, 549, "ReferenceSection"],
 Cell[CellGroupData[{
-Cell[70769, 1630, 635, 14, 88, "Reference"],
-Cell[71407, 1646, 266, 9, 32, "Reference"],
-Cell[71676, 1657, 283, 9, 60, "Reference"],
-Cell[71962, 1668, 300, 10, 32, "Reference"],
-Cell[72265, 1680, 216, 8, 32, "Reference"],
-Cell[72484, 1690, 233, 8, 60, "Reference"],
-Cell[72720, 1700, 325, 6, 60, "Reference"],
-Cell[73048, 1708, 364, 7, 88, "Reference"],
-Cell[73415, 1717, 364, 7, 88, "Reference"],
-Cell[73782, 1726, 189, 4, 60, "Reference"],
-Cell[73974, 1732, 158, 3, 32, "Reference"]
+Cell[70820, 1631, 635, 14, 88, "Reference"],
+Cell[71458, 1647, 266, 9, 32, "Reference"],
+Cell[71727, 1658, 283, 9, 60, "Reference"],
+Cell[72013, 1669, 300, 10, 32, "Reference"],
+Cell[72316, 1681, 216, 8, 32, "Reference"],
+Cell[72535, 1691, 233, 8, 60, "Reference"],
+Cell[72771, 1701, 325, 6, 60, "Reference"],
+Cell[73099, 1709, 364, 7, 88, "Reference"],
+Cell[73466, 1718, 364, 7, 88, "Reference"],
+Cell[73833, 1727, 189, 4, 60, "Reference"],
+Cell[74025, 1733, 158, 3, 32, "Reference"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
