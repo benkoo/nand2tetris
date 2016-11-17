@@ -1,0 +1,3863 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[    158467,       3854]
+NotebookOptionsPosition[    154215,       3725]
+NotebookOutlinePosition[    155835,       3775]
+CellTagsIndexPosition[    155499,       3763]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Shape Descender", "DemoTitle",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.463515055186277*^9, 3.463515057639323*^9}, 
+   3.463849263644513*^9}],
+
+Cell[CellGroupData[{
+
+Cell["", "InitializationSection"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"allBlocks", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"1", ",", "0", ",", "0", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"1", ",", "1", ",", "1", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0", ",", "0"}], "}"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", "1", ",", "1", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "1", ",", "0", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "1", ",", "0", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0", ",", "0"}], "}"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"1", ",", "1", ",", "1", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "1", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0", ",", "0"}], "}"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", "1", ",", "0", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "1", ",", "0", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"1", ",", "1", ",", "0", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0", ",", "0"}], "}"}]}], "}"}]}], 
+      "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", "2", ",", "0", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"2", ",", "2", ",", "2", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0", ",", "0"}], "}"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", "2", ",", "0", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "2", ",", "2", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "2", ",", "0", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0", ",", "0"}], "}"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"2", ",", "2", ",", "2", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "2", ",", "0", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0", ",", "0"}], "}"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", "2", ",", "0", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"2", ",", "2", ",", "0", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "2", ",", "0", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0", ",", "0"}], "}"}]}], "}"}]}], 
+      "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "3", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"3", ",", "3", ",", "3", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0", ",", "0"}], "}"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", "3", ",", "0", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "3", ",", "0", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "3", ",", "3", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0", ",", "0"}], "}"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"3", ",", "3", ",", "3", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"3", ",", "0", ",", "0", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0", ",", "0"}], "}"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"3", ",", "3", ",", "0", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "3", ",", "0", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "3", ",", "0", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0", ",", "0"}], "}"}]}], "}"}]}], 
+      "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "4", ",", "4", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "4", ",", "4", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0", ",", "0"}], "}"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "4", ",", "4", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "4", ",", "4", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0", ",", "0"}], "}"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "4", ",", "4", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "4", ",", "4", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0", ",", "0"}], "}"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "4", ",", "4", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "4", ",", "4", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0", ",", "0"}], "}"}]}], "}"}]}], 
+      "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"5", ",", "5", ",", "5", ",", "5"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0", ",", "0"}], "}"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "5", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "5", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "5", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "5", ",", "0"}], "}"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"5", ",", "5", ",", "5", ",", "5"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0", ",", "0"}], "}"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "5", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "5", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "5", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "5", ",", "0"}], "}"}]}], "}"}]}], 
+      "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"6", ",", "6", ",", "0", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "6", ",", "6", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0", ",", "0"}], "}"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "6", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "6", ",", "6", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "6", ",", "0", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0", ",", "0"}], "}"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"6", ",", "6", ",", "0", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "6", ",", "6", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0", ",", "0"}], "}"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "6", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "6", ",", "6", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "6", ",", "0", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0", ",", "0"}], "}"}]}], "}"}]}], 
+      "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", "7", ",", "7", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"7", ",", "7", ",", "0", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0", ",", "0"}], "}"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", "7", ",", "0", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "7", ",", "7", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "7", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0", ",", "0"}], "}"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", "7", ",", "7", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"7", ",", "7", ",", "0", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0", ",", "0"}], "}"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", "7", ",", "0", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "7", ",", "7", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "7", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0", ",", "0"}], "}"}]}], "}"}]}], 
+      "}"}]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"smallBoard", " ", "=", " ", 
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"i", "\[Equal]", "1"}], "||", 
+         RowBox[{"j", "\[Equal]", "1"}], "||", 
+         RowBox[{"i", "\[Equal]", "6"}], "||", 
+         RowBox[{"j", "\[Equal]", "6"}]}], ",", "9", ",", "0"}], "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"i", ",", "1", ",", "6"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"j", ",", "1", ",", "6"}], "}"}]}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"color", "[", "v_", "]"}], ":=", 
+   RowBox[{"Switch", "[", 
+    RowBox[{
+    "v", ",", "0", ",", "Black", ",", "1", ",", "Yellow", ",", "2", ",", 
+     "Blue", ",", "3", ",", "Magenta", ",", "4", ",", "Cyan", ",", "5", ",", 
+     "Red", ",", "6", ",", "Orange", ",", "7", ",", "Green", ",", "9", ",", 
+     "Gray", ",", "_", ",", "Gray"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"showSquare", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"i_", ",", "j_"}], "}"}], ",", "v_"}], "]"}], ":=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"color", "[", "v", "]"}], ",", 
+     RowBox[{"Rectangle", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"i", "+", "0.05"}], ",", 
+         RowBox[{"j", "+", "0.05"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"i", "+", "0.95"}], ",", 
+         RowBox[{"j", "+", "0.95"}]}], "}"}]}], "]"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"showHintBlock", "[", 
+     RowBox[{"n_", ",", "p_", ",", "x_", ",", "y_"}], "]"}], ":=", 
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{"showSquare", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"i", "+", "x"}], ",", 
+          RowBox[{"j", "+", "y"}]}], "}"}], ",", 
+        RowBox[{"allBlocks", "[", 
+         RowBox[{"[", 
+          RowBox[{"n", ",", "p", ",", "i", ",", "j"}], "]"}], "]"}]}], "]"}], 
+      ",", 
+      RowBox[{"{", 
+       RowBox[{"i", ",", "1", ",", "4"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"j", ",", "1", ",", "4"}], "}"}]}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]", "\n"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"initBoard", "[", 
+     RowBox[{"Hold", "[", 
+      RowBox[{"board_", ",", "num_"}], "]"}], "]"}], ":=", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"board", " ", "=", " ", 
+       RowBox[{"Table", "[", 
+        RowBox[{
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"i", "\[LessEqual]", "3"}], "||", 
+            RowBox[{"j", "\[LessEqual]", "3"}], "||", 
+            RowBox[{"i", "\[GreaterEqual]", "14"}], "||", 
+            RowBox[{"j", "\[GreaterEqual]", "24"}]}], ",", "9", ",", "0"}], 
+          "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"i", ",", "1", ",", "16"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"j", ",", "1", ",", "28"}], "}"}]}], "]"}]}], ",", 
+      RowBox[{
+       RowBox[{"Table", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{"board", "[", 
+            RowBox[{"[", 
+             RowBox[{"i", ",", "24"}], "]"}], "]"}], "=", "0"}], ";", 
+          RowBox[{
+           RowBox[{"board", "[", 
+            RowBox[{"[", 
+             RowBox[{"i", ",", "25"}], "]"}], "]"}], "=", "0"}], ";", 
+          RowBox[{
+           RowBox[{"board", "[", 
+            RowBox[{"[", 
+             RowBox[{"i", ",", "26"}], "]"}], "]"}], "=", "0"}]}], ",", 
+         RowBox[{"{", 
+          RowBox[{"i", ",", "7", ",", "10"}], "}"}]}], "]"}], ";", 
+       RowBox[{"Table", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"board", "[", 
+           RowBox[{"[", 
+            RowBox[{"i", ",", "25"}], "]"}], "]"}], "=", "0"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"i", ",", "1", ",", "16"}], "}"}]}], "]"}], ";", 
+       RowBox[{
+        RowBox[{"board", "[", 
+         RowBox[{"[", 
+          RowBox[{"6", ",", "25"}], "]"}], "]"}], "=", "9"}]}], ",", 
+      RowBox[{
+       RowBox[{"board", "[", 
+        RowBox[{"[", 
+         RowBox[{"11", ",", "25"}], "]"}], "]"}], "=", "9"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"Mod", "[", 
+            RowBox[{
+             RowBox[{"j", "+", "i"}], ",", "2"}], "]"}], "\[Equal]", "0"}], 
+          ",", 
+          RowBox[{
+           RowBox[{"board", "[", 
+            RowBox[{"[", 
+             RowBox[{"j", ",", 
+              RowBox[{"i", "+", "3"}]}], "]"}], "]"}], "=", "9"}]}], "]"}], 
+        ",", 
+        RowBox[{"{", 
+         RowBox[{"i", ",", "1", ",", "num"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"j", ",", "4", ",", "13"}], "}"}]}], "]"}]}], "}"}]}], ";"}],
+   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"bMoveTo", "[", 
+    RowBox[{"n_", ",", "p_", ",", "x_", ",", "y_", ",", 
+     RowBox[{"Hold", "[", "board_", "]"}]}], "]"}], ":=", 
+   RowBox[{
+    RowBox[{"Total", "[", 
+     RowBox[{
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"allBlocks", "[", 
+          RowBox[{"[", 
+           RowBox[{"n", ",", "p", ",", "i", ",", "j"}], "]"}], "]"}], "*", 
+         " ", 
+         RowBox[{"board", "[", 
+          RowBox[{"[", 
+           RowBox[{
+            RowBox[{"i", "+", "x"}], ",", 
+            RowBox[{"j", "+", "y"}]}], "]"}], "]"}]}], ",", 
+        RowBox[{"{", 
+         RowBox[{"i", ",", "1", ",", "4"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"j", ",", "1", ",", "4"}], "}"}]}], "]"}], ",", "2"}], "]"}],
+     "\[Equal]", "0"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"bGameOver", "[", 
+    RowBox[{"n_", ",", "p_", ",", 
+     RowBox[{"Hold", "[", "board_", "]"}]}], "]"}], ":=", 
+   RowBox[{"Not", "[", 
+    RowBox[{"bMoveTo", "[", 
+     RowBox[{"n", ",", "p", ",", "6", ",", "22", ",", 
+      RowBox[{"Hold", "[", "board", "]"}]}], "]"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"bLeft", "[", 
+    RowBox[{"n_", ",", "p_", ",", "x_", ",", "y_", ",", 
+     RowBox[{"Hold", "[", "board_", "]"}]}], "]"}], ":=", 
+   RowBox[{"bMoveTo", "[", 
+    RowBox[{"n", ",", "p", ",", 
+     RowBox[{"x", "-", "1"}], ",", "y", ",", 
+     RowBox[{"Hold", "[", "board", "]"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"bRight", "[", 
+    RowBox[{"n_", ",", "p_", ",", "x_", ",", "y_", ",", 
+     RowBox[{"Hold", "[", "board_", "]"}]}], "]"}], ":=", 
+   RowBox[{"bMoveTo", "[", 
+    RowBox[{"n", ",", "p", ",", 
+     RowBox[{"x", "+", "1"}], ",", "y", ",", 
+     RowBox[{"Hold", "[", "board", "]"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"bDown", "[", 
+    RowBox[{"n_", ",", "p_", ",", "x_", ",", "y_", ",", 
+     RowBox[{"Hold", "[", "board_", "]"}]}], "]"}], ":=", 
+   RowBox[{"bMoveTo", "[", 
+    RowBox[{"n", ",", "p", ",", "x", ",", 
+     RowBox[{"y", "-", "1"}], ",", 
+     RowBox[{"Hold", "[", "board", "]"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"bRotateAnticlock", "[", 
+    RowBox[{"n_", ",", "p_", ",", "x_", ",", "y_", ",", 
+     RowBox[{"Hold", "[", "board_", "]"}]}], "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", "tp", "}"}], ",", 
+     RowBox[{
+      RowBox[{"tp", "=", 
+       RowBox[{"p", "-", "1"}]}], ";", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"tp", "\[Equal]", "0"}], ",", 
+        RowBox[{"tp", "=", "4"}]}], "]"}], ";", 
+      RowBox[{"bMoveTo", "[", 
+       RowBox[{"n", ",", "tp", ",", "x", ",", "y", ",", 
+        RowBox[{"Hold", "[", "board", "]"}]}], "]"}]}]}], "]"}]}], ";", 
+  RowBox[{
+   RowBox[{"bRotateClockwise", "[", 
+    RowBox[{"n_", ",", "p_", ",", "x_", ",", "y_", ",", 
+     RowBox[{"Hold", "[", "board_", "]"}]}], "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", "tp", "}"}], ",", 
+     RowBox[{
+      RowBox[{"tp", "=", 
+       RowBox[{"p", "+", "1"}]}], ";", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"tp", "\[Equal]", "5"}], ",", 
+        RowBox[{"tp", "=", "1"}]}], "]"}], ";", 
+      RowBox[{"bMoveTo", "[", 
+       RowBox[{"n", ",", "tp", ",", "x", ",", "y", ",", 
+        RowBox[{"Hold", "[", "board", "]"}]}], "]"}]}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"showBoard", "[", 
+    RowBox[{"Hold", "[", "board_", "]"}], "]"}], ":=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"showSquare", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"i", ",", "j"}], "}"}], ",", 
+       RowBox[{"board", "[", 
+        RowBox[{"[", 
+         RowBox[{"i", ",", "j"}], "]"}], "]"}]}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", "3", ",", "14"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"j", ",", "3", ",", "25"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"showDropBlock", "[", 
+     RowBox[{"n_", ",", "p_", ",", "x_", ",", "y_"}], "]"}], ":=", 
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"allBlocks", "[", 
+          RowBox[{"[", 
+           RowBox[{"n", ",", "p", ",", "i", ",", "j"}], "]"}], "]"}], 
+         "\[NotEqual]", "0"}], ",", 
+        RowBox[{"showSquare", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"i", "+", "x"}], ",", 
+            RowBox[{"j", "+", "y"}]}], "}"}], ",", 
+          RowBox[{"allBlocks", "[", 
+           RowBox[{"[", 
+            RowBox[{"n", ",", "p", ",", "i", ",", "j"}], "]"}], "]"}]}], 
+         "]"}], ",", "Black"}], "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"i", ",", "1", ",", "4"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"j", ",", "1", ",", "4"}], "}"}]}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"updateBoard", "[", 
+    RowBox[{"n_", ",", "p_", ",", "x_", ",", "y_", ",", 
+     RowBox[{"Hold", "[", 
+      RowBox[{"board_", ",", "score_"}], "]"}]}], "]"}], ":=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"board", "[", 
+         RowBox[{"[", 
+          RowBox[{
+           RowBox[{"i", "+", "x"}], ",", 
+           RowBox[{"j", "+", "y"}]}], "]"}], "]"}], "+=", 
+        RowBox[{"allBlocks", "[", 
+         RowBox[{"[", 
+          RowBox[{"n", ",", "p", ",", "i", ",", "j"}], "]"}], "]"}]}], ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "1", ",", "4"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"j", ",", "1", ",", "4"}], "}"}]}], "]"}], ";", 
+     RowBox[{"score", "+=", 
+      RowBox[{"10", "+", 
+       RowBox[{"100", "*", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"2", "^", 
+           RowBox[{"Sum", "[", 
+            RowBox[{
+             RowBox[{"updateLine", "[", 
+              RowBox[{"i", ",", 
+               RowBox[{"Hold", "[", "board", "]"}]}], "]"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"i", ",", 
+               RowBox[{"y", "+", "4"}], ",", 
+               RowBox[{"y", "+", "1"}], ",", 
+               RowBox[{"-", "1"}]}], "}"}]}], "]"}]}], "-", "1"}], 
+         ")"}]}]}]}]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"updateLine", "[", 
+    RowBox[{"line_", ",", 
+     RowBox[{"Hold", "[", "board_", "]"}]}], "]"}], ":=", 
+   RowBox[{"If", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"line", "\[LessEqual]", "23"}], "&&", 
+      RowBox[{"line", "\[GreaterEqual]", "4"}], "&&", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"Apply", "[", 
+         RowBox[{"And", ",", 
+          RowBox[{"Table", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"board", "[", 
+              RowBox[{"[", 
+               RowBox[{"i", ",", "line"}], "]"}], "]"}], "\[NotEqual]", "0"}],
+             ",", 
+            RowBox[{"{", 
+             RowBox[{"i", ",", "4", ",", "13"}], "}"}]}], "]"}]}], "]"}], 
+        ")"}], "\[Equal]", "True"}]}], ",", 
+     RowBox[{
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"board", "[", 
+          RowBox[{"[", 
+           RowBox[{"i", ",", "j"}], "]"}], "]"}], "=", " ", 
+         RowBox[{"board", "[", 
+          RowBox[{"[", 
+           RowBox[{"i", ",", 
+            RowBox[{"j", "+", "1"}]}], "]"}], "]"}]}], ",", 
+        RowBox[{"{", 
+         RowBox[{"i", ",", "4", ",", "13"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"j", ",", "line", ",", "22"}], "}"}]}], "]"}], ";", 
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"board", "[", 
+          RowBox[{"[", 
+           RowBox[{"i", ",", "23"}], "]"}], "]"}], "=", " ", "0"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"i", ",", "4", ",", "13"}], "}"}]}], "]"}], ";", "1"}], ",", 
+     "0"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"newGame", "[", 
+    RowBox[{"Hold", "[", 
+     RowBox[{
+     "n_", ",", "p_", ",", "x_", ",", "y_", ",", "board_", ",", "nextItem_", 
+      ",", "gameOver_", ",", "pause_", ",", "num_"}], "]"}], "]"}], ":=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"initBoard", "[", 
+      RowBox[{"Hold", "[", 
+       RowBox[{"board", ",", "num"}], "]"}], "]"}], ";", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"n", ",", "p", ",", "x", ",", "y"}], "}"}], "=", 
+      RowBox[{"{", 
+       RowBox[{"nextItem", ",", "2", ",", "6", ",", "22"}], "}"}]}], ";", 
+     RowBox[{"nextItem", "=", 
+      RowBox[{
+       RowBox[{"RandomInteger", "[", "6", "]"}], "+", "1"}]}], ";", 
+     RowBox[{"gameOver", "=", "False"}], ";", 
+     RowBox[{"pause", " ", "=", " ", "False"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"newBlock", "[", 
+     RowBox[{"Hold", "[", 
+      RowBox[{
+      "n_", ",", "p_", ",", "x_", ",", "y_", ",", "board_", ",", "score_", 
+       ",", "gameOver_", ",", "nextItem_", ",", "pause_"}], "]"}], "]"}], ":=", 
+    RowBox[{"{", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"!", "pause"}], "&&", 
+        RowBox[{"!", "gameOver"}]}], ",", 
+       RowBox[{
+        RowBox[{"updateBoard", "[", 
+         RowBox[{"n", ",", "p", ",", "x", ",", "y", ",", 
+          RowBox[{"Hold", "[", 
+           RowBox[{"board", ",", "score"}], "]"}]}], "]"}], ";", 
+        RowBox[{"gameOver", "=", 
+         RowBox[{"bGameOver", "[", 
+          RowBox[{"nextItem", ",", "2", ",", 
+           RowBox[{"Hold", "[", "board", "]"}]}], "]"}]}], ";", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"gameOver", "\[Equal]", "False"}], ",", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"n", ",", "p", ",", "x", ",", "y"}], "}"}], " ", "=", 
+            RowBox[{"{", 
+             RowBox[{"nextItem", ",", "2", ",", "6", ",", "22"}], "}"}]}], 
+           ";", 
+           RowBox[{"nextItem", "=", 
+            RowBox[{
+             RowBox[{"RandomInteger", "[", "6", "]"}], "+", "1"}]}]}]}], 
+         "]"}]}]}], "]"}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"shapeDescend", "[", 
+    RowBox[{"Hold", "[", 
+     RowBox[{"level_", ",", "state_", ",", "num_"}], "]"}], "]"}], ":=", 
+   RowBox[{"DynamicModule", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"score", "=", "0"}], ",", 
+       RowBox[{"gameOver", "=", "False"}], ",", 
+       RowBox[{"pause", "=", "False"}], ",", 
+       RowBox[{"board", "=", " ", 
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"i", "\[LessEqual]", "3"}], "||", 
+             RowBox[{"j", "\[LessEqual]", "3"}], "||", 
+             RowBox[{"i", "\[GreaterEqual]", "14"}], "||", 
+             RowBox[{"j", "\[GreaterEqual]", "24"}]}], ",", "0", ",", "0"}], 
+           "]"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"i", ",", "1", ",", "16"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"j", ",", "1", ",", "28"}], "}"}]}], "]"}]}], ",", "n", 
+       ",", "p", ",", "x", ",", "y", ",", "nextItem"}], "}"}], ",", 
+     RowBox[{
+      RowBox[{"SeedRandom", "[", 
+       RowBox[{
+        RowBox[{"level", "*", "10"}], "+", "num"}], "]"}], ";", 
+      RowBox[{"nextItem", "=", 
+       RowBox[{
+        RowBox[{"RandomInteger", "[", "6", "]"}], "+", "1"}]}], ";", 
+      RowBox[{"newGame", "[", 
+       RowBox[{"Hold", "[", 
+        RowBox[{
+        "n", ",", "p", ",", "x", ",", "y", ",", "board", ",", "nextItem", ",",
+          "gameOver", ",", "pause", ",", "num"}], "]"}], "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"EventHandler", "[", 
+       RowBox[{
+        RowBox[{"Graphics", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Text", "[", 
+             RowBox[{
+              RowBox[{"Style", "[", 
+               RowBox[{
+               "\"\<Level\>\"", ",", "Blue", ",", "Italic", ",", "24"}], 
+               "]"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"18", ",", "12"}], "}"}]}], "]"}], ",", 
+            RowBox[{"Text", "[", 
+             RowBox[{
+              RowBox[{"Style", "[", 
+               RowBox[{
+               "\"\<Score\>\"", ",", "Blue", ",", "Italic", ",", "24"}], 
+               "]"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"18", ",", "9"}], "}"}]}], "]"}], ",", 
+            RowBox[{"Table", "[", 
+             RowBox[{
+              RowBox[{"showSquare", "[", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"i", "+", "16"}], ",", 
+                  RowBox[{"j", "+", "13"}]}], "}"}], ",", 
+                RowBox[{"smallBoard", "[", 
+                 RowBox[{"[", 
+                  RowBox[{"i", ",", "j"}], "]"}], "]"}]}], "]"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"i", ",", "1", ",", "6"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"j", ",", "1", ",", "6"}], "}"}]}], "]"}], ",", 
+            RowBox[{"Dynamic", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"Refresh", "[", 
+                RowBox[{
+                 RowBox[{"Switch", "[", 
+                  RowBox[{"state", ",", "1", ",", 
+                   RowBox[{
+                    RowBox[{"newGame", "[", 
+                    RowBox[{"Hold", "[", 
+                    RowBox[{
+                    "n", ",", "p", ",", "x", ",", "y", ",", "board", ",", 
+                    "nextItem", ",", "gameOver", ",", "pause", ",", "num"}], 
+                    "]"}], "]"}], ";", 
+                    RowBox[{"state", "=", "3"}]}], ",", "\[IndentingNewLine]",
+                    "2", ",", 
+                   RowBox[{"pause", " ", "=", " ", "True"}], ",", 
+                   "\[IndentingNewLine]", "3", ",", 
+                   RowBox[{"pause", " ", "=", " ", "False"}]}], "]"}], ",", 
+                 RowBox[{"UpdateInterval", "\[Rule]", "Infinity"}], ",", 
+                 RowBox[{"TrackedSymbols", "\[Rule]", 
+                  RowBox[{"{", "state", "}"}]}]}], "]"}], ";", 
+               RowBox[{"Refresh", "[", 
+                RowBox[{
+                 RowBox[{"If", "[", 
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{"!", "pause"}], " ", "&&", " ", 
+                    RowBox[{"!", "gameOver"}], " ", "&&", 
+                    RowBox[{"bDown", "[", 
+                    RowBox[{"n", ",", "p", ",", "x", ",", "y", ",", 
+                    RowBox[{"Hold", "[", "board", "]"}]}], "]"}]}], ",", 
+                   RowBox[{"y", "--"}], ",", 
+                   RowBox[{"newBlock", "[", 
+                    RowBox[{"Hold", "[", 
+                    RowBox[{
+                    "n", ",", "p", ",", "x", ",", "y", ",", "board", ",", 
+                    "score", ",", "gameOver", ",", "nextItem", ",", "pause"}],
+                     "]"}], "]"}]}], "]"}], ",", 
+                 RowBox[{"UpdateInterval", "\[Rule]", 
+                  RowBox[{"3.", "/", "level"}]}], ",", 
+                 RowBox[{"TrackedSymbols", "\[Rule]", 
+                  RowBox[{"{", "}"}]}]}], "]"}], ";", "\[IndentingNewLine]", 
+               RowBox[{"Join", "[", 
+                RowBox[{
+                 RowBox[{"{", 
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{"Text", "[", 
+                    RowBox[{
+                    RowBox[{"Style", "[", 
+                    RowBox[{
+                    RowBox[{"ToString", "[", "level", "]"}], ",", "Green", 
+                    ",", "Italic", ",", "24"}], "]"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"20", ",", "11"}], "}"}]}], "]"}], ",", 
+                    RowBox[{"Text", "[", 
+                    RowBox[{
+                    RowBox[{"Style", "[", 
+                    RowBox[{
+                    RowBox[{"ToString", "[", "score", "]"}], ",", "Green", 
+                    ",", "Italic", ",", "24"}], "]"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"20", ",", "8"}], "}"}]}], "]"}]}], "}"}], "}"}], 
+                 ",", 
+                 RowBox[{"showBoard", "[", 
+                  RowBox[{"Hold", "[", "board", "]"}], "]"}], ",", 
+                 RowBox[{"showDropBlock", "[", 
+                  RowBox[{"n", ",", "p", ",", "x", ",", "y"}], "]"}], ",", 
+                 RowBox[{"showHintBlock", "[", 
+                  RowBox[{"nextItem", ",", "2", ",", "17", ",", "14"}], 
+                  "]"}]}], "]"}]}], ",", 
+              RowBox[{"TrackedSymbols", "\[Rule]", 
+               RowBox[{"{", 
+                RowBox[{"x", ",", "y", ",", "n", ",", "p", ",", "level"}], 
+                "}"}]}]}], "]"}]}], "}"}], ",", 
+          RowBox[{"Background", "\[Rule]", "Black"}], ",", 
+          RowBox[{"ImageSize", "\[Rule]", 
+           RowBox[{"{", 
+            RowBox[{"400", ",", "400"}], "}"}]}]}], "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"\"\<LeftArrowKeyDown\>\"", "\[RuleDelayed]", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"!", "pause"}], " ", "&&", " ", 
+              RowBox[{"!", "gameOver"}], " ", "&&", " ", 
+              RowBox[{"bLeft", "[", 
+               RowBox[{"n", ",", "p", ",", "x", ",", "y", ",", 
+                RowBox[{"Hold", "[", "board", "]"}]}], "]"}]}], ",", 
+             RowBox[{"x", "--"}]}], "]"}]}], ",", "\[IndentingNewLine]", 
+          RowBox[{"\"\<RightArrowKeyDown\>\"", "\[RuleDelayed]", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"!", "pause"}], " ", "&&", " ", 
+              RowBox[{"!", "gameOver"}], " ", "&&", " ", 
+              RowBox[{"bRight", "[", 
+               RowBox[{"n", ",", "p", ",", "x", ",", "y", ",", 
+                RowBox[{"Hold", "[", "board", "]"}]}], "]"}]}], ",", 
+             RowBox[{"x", "++"}]}], "]"}]}], ",", 
+          RowBox[{"\"\<DownArrowKeyDown\>\"", "\[RuleDelayed]", 
+           RowBox[{"(", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"!", "pause"}], " ", "&&", " ", 
+               RowBox[{"!", "gameOver"}], " ", "&&", " ", 
+               RowBox[{"bRotateClockwise", "[", 
+                RowBox[{"n", ",", "p", ",", "x", ",", "y", ",", 
+                 RowBox[{"Hold", "[", "board", "]"}]}], "]"}]}], ",", 
+              RowBox[{
+               RowBox[{"p", "++"}], ";", 
+               RowBox[{"If", "[", 
+                RowBox[{
+                 RowBox[{"p", "\[Equal]", "5"}], ",", 
+                 RowBox[{"p", "=", "1"}]}], "]"}]}]}], "]"}], ")"}]}], ",", 
+          RowBox[{"\"\<UpArrowKeyDown\>\"", "\[RuleDelayed]", 
+           RowBox[{"(", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"!", "pause"}], " ", "&&", " ", 
+               RowBox[{"!", "gameOver"}], " ", "&&", " ", 
+               RowBox[{"bRotateAnticlock", "[", 
+                RowBox[{"n", ",", "p", ",", "x", ",", "y", ",", 
+                 RowBox[{"Hold", "[", "board", "]"}]}], "]"}]}], ",", 
+              RowBox[{
+               RowBox[{"p", "--"}], ";", 
+               RowBox[{"If", "[", 
+                RowBox[{
+                 RowBox[{"p", "\[Equal]", "0"}], ",", 
+                 RowBox[{"p", "=", "4"}]}], "]"}]}]}], "]"}], ")"}]}], ",", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"\"\<KeyDown\>\"", ",", "\"\< \>\""}], "}"}], 
+           "\[RuleDelayed]", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"!", "pause"}], " ", "&&", " ", 
+              RowBox[{"!", "gameOver"}], " ", "&&", " ", 
+              RowBox[{"bDown", "[", 
+               RowBox[{"n", ",", "p", ",", "x", ",", "y", ",", 
+                RowBox[{"Hold", "[", "board", "]"}]}], "]"}]}], ",", 
+             RowBox[{"y", "--"}], ",", 
+             RowBox[{"newBlock", "[", 
+              RowBox[{"Hold", "[", 
+               RowBox[{
+               "n", ",", "p", ",", "x", ",", "y", ",", "board", ",", "score", 
+                ",", "gameOver", ",", "nextItem", ",", "pause"}], "]"}], 
+              "]"}]}], "]"}]}], ",", "\[IndentingNewLine]", 
+          RowBox[{"\"\<EscapeKeyDown\>\"", "\[RuleDelayed]", 
+           RowBox[{"{", 
+            RowBox[{"newGame", "[", 
+             RowBox[{"Hold", "[", 
+              RowBox[{
+              "n", ",", "p", ",", "x", ",", "y", ",", "board", ",", 
+               "nextItem", ",", "gameOver", ",", "pause", ",", "num"}], "]"}],
+              "]"}], "}"}]}]}], "}"}]}], "]"}]}]}], "]"}]}], ";"}]}], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.4638499782235403`*^9, 3.463849983519099*^9}, {
+   3.463850100194249*^9, 3.4638501047134905`*^9}, {3.4638501511275125`*^9, 
+   3.46385020986594*^9}, {3.4638502624032073`*^9, 3.4638502850407953`*^9}, {
+   3.4638504440332284`*^9, 3.463850511588557*^9}, {3.463850553741543*^9, 
+   3.4638505614644957`*^9}, {3.463850931310728*^9, 3.463850940145052*^9}, {
+   3.4638520233498173`*^9, 3.4638520434824257`*^9}, {3.4638522713564105`*^9, 
+   3.4638522718281083`*^9}, {3.4638525280938077`*^9, 3.463852528813562*^9}, {
+   3.463852579785246*^9, 3.4638525806964135`*^9}, {3.463852740557044*^9, 
+   3.463852741123472*^9}, 3.4638535153254986`*^9, 3.4638536992746625`*^9, {
+   3.4638738118777723`*^9, 3.4638738892351665`*^9}, 3.4638740556205626`*^9, {
+   3.4638742190215836`*^9, 3.4638742479112835`*^9}, {3.4638744581701803`*^9, 
+   3.4638744633262653`*^9}, {3.463875333069704*^9, 3.463875353578464*^9}, {
+   3.463927471120873*^9, 3.4639275265573087`*^9}, {3.463927556900476*^9, 
+   3.4639276340552444`*^9}, {3.4639276709920354`*^9, 3.463927697788396*^9}, {
+   3.4639277757401733`*^9, 3.4639278341769257`*^9}, {3.4639278678796186`*^9, 
+   3.463927991940531*^9}, {3.463928030549412*^9, 3.463928034752483*^9}, {
+   3.4639281652664375`*^9, 3.463928172000726*^9}, {3.463928279614005*^9, 
+   3.463928285473605*^9}, {3.4639283286783895`*^9, 3.4639283497416983`*^9}, {
+   3.463928531544144*^9, 3.463928588623*^9}, {3.463928634107957*^9, 
+   3.4639286573270044`*^9}, {3.4639291670876513`*^9, 3.463929172431367*^9}, {
+   3.4639293796788936`*^9, 3.463929397475541*^9}, {3.4639294996148586`*^9, 
+   3.463929508239798*^9}, {3.4639295473176727`*^9, 3.4639295588488493`*^9}, {
+   3.4639296041141844`*^9, 3.463929605614175*^9}, {3.463929933565201*^9, 
+   3.4639299579244204`*^9}, {3.4639304783943996`*^9, 
+   3.4639305224566183`*^9}, {3.463930677194665*^9, 3.463930700569515*^9}, {
+   3.4639308103500624`*^9, 3.4639308195531287`*^9}, {3.4639308624122295`*^9, 
+   3.463930870880925*^9}, {3.4639311755821*^9, 3.463931189863259*^9}, {
+   3.4639312222224264`*^9, 3.4639312267692723`*^9}, {3.4645417423366175`*^9, 
+   3.464541742789734*^9}, {3.4645417827889657`*^9, 3.464541783617075*^9}, {
+   3.464541976927408*^9, 3.464541977286781*^9}, {3.4645421639574614`*^9, 
+   3.4645422179571157`*^9}, {3.464542409580889*^9, 3.4645424408775635`*^9}, {
+   3.464542553658092*^9, 3.464542563517404*^9}, {3.464542596251672*^9, 
+   3.464542601267297*^9}, {3.4645428928140917`*^9, 3.4645429074389977`*^9}, {
+   3.4645429537512016`*^9, 3.464543124625108*^9}, {3.464543154687415*^9, 
+   3.4645432465149527`*^9}, {3.4645433040927095`*^9, 
+   3.4645433168426275`*^9}, {3.464543389248414*^9, 3.464543517450719*^9}, {
+   3.464543574434729*^9, 3.464543871571513*^9}, {3.4645439025885277`*^9, 
+   3.464543902838539*^9}, {3.4645439874334173`*^9, 3.4645441225601473`*^9}, {
+   3.464544154716809*^9, 3.4645442043424435`*^9}, {3.464544496014318*^9, 
+   3.464544539435968*^9}, 3.464544650841794*^9, 3.46454576071205*^9, {
+   3.4645458088535995`*^9, 3.4645458237288847`*^9}, {3.4645458541513443`*^9, 
+   3.464545866370329*^9}, 3.464545965731439*^9, 3.4645460759196444`*^9, {
+   3.464546313311398*^9, 3.4645463140145235`*^9}, {3.464546409311398*^9, 
+   3.4645464186082735`*^9}, 3.464546575717498*^9, {3.46454669268571*^9, 
+   3.464546730857829*^9}, {3.464546788811325*^9, 3.4645468137489843`*^9}, {
+   3.4645468453898115`*^9, 3.46454684670232*^9}, {3.464546936171643*^9, 
+   3.464546946952962*^9}, {3.4645469995312743`*^9, 3.4645470004219*^9}, {
+   3.4645470599375243`*^9, 3.4645470713125243`*^9}, {3.4645472777187743`*^9, 
+   3.4645473361250243`*^9}, {3.4645476957794914`*^9, 3.464547716154564*^9}, 
+   3.4645488797895336`*^9, {3.4657532388694024`*^9, 3.465753325155919*^9}, {
+   3.4657533569178805`*^9, 3.465753451651987*^9}, {3.4657535579920077`*^9, 
+   3.465753562725588*^9}, {3.465753609258625*^9, 3.4657537442862706`*^9}, {
+   3.4657537832164764`*^9, 3.465753901528637*^9}, 3.465754023814582*^9, {
+   3.46575405597402*^9, 3.4657540813529243`*^9}, {3.465754188770135*^9, 
+   3.4657541890377235`*^9}, {3.465754356383993*^9, 3.465754363337385*^9}, {
+   3.465754740038373*^9, 3.465754767486693*^9}, {3.4657548137199135`*^9, 
+   3.4657548945071955`*^9}, {3.465754925569167*^9, 3.465754959184203*^9}, {
+   3.4657552180094347`*^9, 3.465755263043661*^9}, {3.465755419955493*^9, 
+   3.465755461605171*^9}, {3.465755543438801*^9, 3.465755546487434*^9}, {
+   3.4657556529649935`*^9, 3.4657556559491777`*^9}, {3.4657557958435445`*^9, 
+   3.4657558401571145`*^9}, {3.465756080009927*^9, 3.4657561265117054`*^9}, {
+   3.465756206221797*^9, 3.4657562074142256`*^9}, {3.465756240278769*^9, 
+   3.4657562898793063`*^9}, {3.465756348144239*^9, 3.4657563965357456`*^9}, {
+   3.4657564539451766`*^9, 3.4657564801551676`*^9}, {3.465756527130604*^9, 
+   3.4657566041521163`*^9}, {3.4657566851728053`*^9, 
+   3.4657568614266434`*^9}, {3.465756921870371*^9, 3.465757007477174*^9}, {
+   3.4657570624626837`*^9, 3.465757197260828*^9}, {3.46575724430658*^9, 
+   3.465757433033553*^9}, 3.4657575567707267`*^9, {3.4657575878490686`*^9, 
+   3.465757598950081*^9}, {3.465757637853918*^9, 3.4657576460007153`*^9}, {
+   3.4657577120218053`*^9, 3.4657578585635653`*^9}, 3.465757948760388*^9, {
+   3.4657580380567856`*^9, 3.4657580460082626`*^9}, {3.46575829166125*^9, 
+   3.4657582947805104`*^9}, 3.465758379057184*^9, {3.4657585102855473`*^9, 
+   3.465758514812138*^9}, {3.465758623239405*^9, 3.4657586416162295`*^9}, {
+   3.465758713365031*^9, 3.465758734480657*^9}, {3.4657588161455593`*^9, 
+   3.465758823024026*^9}, {3.4657589323266*^9, 3.465758952903408*^9}, 
+   3.465759593635836*^9, {3.46575995807848*^9, 3.465760264936942*^9}, {
+   3.465760524070916*^9, 3.4657605268171153`*^9}, {3.465760649383345*^9, 
+   3.4657606497085533`*^9}, {3.465760792904481*^9, 3.465760938066305*^9}, {
+   3.465760976593175*^9, 3.4657610052583385`*^9}, {3.4657619452924814`*^9, 
+   3.4657620973578906`*^9}, {3.465762300751316*^9, 3.4657623132915287`*^9}, {
+   3.4657623797169647`*^9, 3.4657623968242683`*^9}, 3.465762432059318*^9, {
+   3.465762678820868*^9, 3.465762701174906*^9}, 3.465762825207983*^9, {
+   3.4657628577635164`*^9, 3.465762881480748*^9}, {3.4657629468437524`*^9, 
+   3.4657629581994705`*^9}, {3.4657630263288994`*^9, 3.465763027509488*^9}, {
+   3.465763059128558*^9, 3.4657631872951593`*^9}, {3.4657642279554987`*^9, 
+   3.465764277691784*^9}, {3.4657645638072624`*^9, 3.4657646145064745`*^9}, {
+   3.4657647710994015`*^9, 3.465764776394527*^9}, 3.4657648366009407`*^9, {
+   3.4657648791904664`*^9, 3.465764880360433*^9}, {3.465764920169579*^9, 
+   3.465764924545724*^9}, {3.465764986662367*^9, 3.4657650260437613`*^9}, {
+   3.465765083701249*^9, 3.4657650841563444`*^9}, {3.465765680230014*^9, 
+   3.4657656809819965`*^9}, 3.4657658895964923`*^9, {3.465766161499988*^9, 
+   3.4657661693178473`*^9}, {3.4657662871345253`*^9, 
+   3.4657662941223593`*^9}, {3.465766337232881*^9, 3.4657663404719315`*^9}, {
+   3.4657664760755568`*^9, 3.4657664779465313`*^9}, {3.4657665796480293`*^9, 
+   3.4657665815658755`*^9}, {3.465766941867498*^9, 3.465766971155732*^9}, {
+   3.4657670604120893`*^9, 3.4657670607363205`*^9}},
+ CellID->140853134]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["", "ManipulateSection"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"shapeDescend", "[", 
+    RowBox[{"Hold", "[", 
+     RowBox[{"level", ",", "state", ",", "initLine"}], "]"}], "]"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"level", ",", "5"}], "}"}], ",", "1", ",", "9", ",", "1"}], 
+    "}"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"initLine", ",", "3", ",", "\"\<height of bottom level\>\""}], 
+      "}"}], ",", "0", ",", "9", ",", "1"}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"state", ",", "3", ",", "\"\<\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"1", "\[Rule]", "\"\<new game\>\""}], ",", 
+       RowBox[{"2", "\[Rule]", "\"\<pause\>\""}], ",", 
+       RowBox[{"3", "\[Rule]", "\"\<continue\>\""}]}], "}"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"ContentSize", "\[Rule]", " ", 
+    RowBox[{"{", 
+     RowBox[{"480", ",", "450"}], "}"}]}], ",", 
+   RowBox[{"SynchronousUpdating", "\[Rule]", "False"}], ",", 
+   RowBox[{"SaveDefinitions", "\[Rule]", "True"}], ",", 
+   RowBox[{"Alignment", "\[Rule]", "Center"}], ",", 
+   RowBox[{"TrackedSymbols", "\[Rule]", 
+    RowBox[{"{", "}"}]}]}], "]"}]], "Input",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.4638494739687047`*^9, 3.46384947774483*^9}, {
+   3.4638497440725107`*^9, 3.4638497475976763`*^9}, {3.463849800977072*^9, 
+   3.4638498017280006`*^9}, {3.463849990922922*^9, 3.4638500053966055`*^9}, {
+   3.463850588757536*^9, 3.4638506251690903`*^9}, 3.4638506829828334`*^9, {
+   3.463850872175645*^9, 3.4638508802706823`*^9}, {3.463851131060586*^9, 
+   3.463851131555722*^9}, {3.463851210775561*^9, 3.4638512194760904`*^9}, {
+   3.4638512730758047`*^9, 3.463851279644416*^9}, {3.463851671354807*^9, 
+   3.463851691693349*^9}, {3.463851766190534*^9, 3.4638517803644314`*^9}, 
+   3.463851974611765*^9, {3.463852059938136*^9, 3.463852063635544*^9}, {
+   3.4638535488712025`*^9, 3.463853551645439*^9}, {3.463874063542184*^9, 
+   3.463874064448405*^9}, {3.463874448217374*^9, 3.4638744530453444`*^9}, {
+   3.463874958417165*^9, 3.463875037891347*^9}, {3.4638751973097878`*^9, 
+   3.4638752212523255`*^9}, {3.463875258778248*^9, 3.463875259435279*^9}, {
+   3.46387529350704*^9, 3.463875312341934*^9}, {3.463875387994384*^9, 
+   3.4638753978654957`*^9}, {3.4639273189865856`*^9, 
+   3.4639273406418653`*^9}, {3.463927436887553*^9, 3.463927438028127*^9}, {
+   3.463927647633109*^9, 3.463927660195368*^9}, {3.463928265050946*^9, 
+   3.4639282708324184`*^9}, {3.463928457011442*^9, 3.4639284574489594`*^9}, {
+   3.4639290043129044`*^9, 3.4639290043910294`*^9}, {3.4645474113594*^9, 
+   3.4645474117187743`*^9}, 3.4657572083120337`*^9, {3.4657626064846773`*^9, 
+   3.465762660870845*^9}, {3.465762762583085*^9, 3.465762796739102*^9}, {
+   3.4657654113808236`*^9, 3.4657654461429005`*^9}, 3.465765995442257*^9, {
+   3.4657661906123824`*^9, 3.465766197913673*^9}, {3.46576651865584*^9, 
+   3.4657665362660403`*^9}, 3.465766610227127*^9, {3.4659205880968513`*^9, 
+   3.4659206281324153`*^9}},
+ CellID->1055884519],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`initLine$$ = 3, $CellContext`level$$ = 
+    5, $CellContext`state$$ = 3, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`level$$], 5}, 1, 9, 1}, {{
+       Hold[$CellContext`initLine$$], 3, "height of bottom level"}, 0, 9, 
+      1}, {{
+       Hold[$CellContext`state$$], 3, ""}, {
+      1 -> "new game", 2 -> "pause", 3 -> "continue"}}}, Typeset`size$$ = {
+    400., {198., 202.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = False, $CellContext`level$3148$$ = 
+    0, $CellContext`initLine$3149$$ = 0, $CellContext`state$3150$$ = False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`initLine$$ = 3, $CellContext`level$$ = 
+        5, $CellContext`state$$ = 3}, "ControllerVariables" :> {
+        Hold[$CellContext`level$$, $CellContext`level$3148$$, 0], 
+        Hold[$CellContext`initLine$$, $CellContext`initLine$3149$$, 0], 
+        Hold[$CellContext`state$$, $CellContext`state$3150$$, False]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> $CellContext`shapeDescend[
+        Hold[$CellContext`level$$, $CellContext`state$$, \
+$CellContext`initLine$$]], 
+      "Specifications" :> {{{$CellContext`level$$, 5}, 1, 9, 
+         1}, {{$CellContext`initLine$$, 3, "height of bottom level"}, 0, 9, 
+         1}, {{$CellContext`state$$, 3, ""}, {
+         1 -> "new game", 2 -> "pause", 3 -> "continue"}}}, 
+      "Options" :> {
+       ContentSize -> {480, 450}, SynchronousUpdating -> False, Alignment -> 
+        Center, TrackedSymbols -> {}}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{500., {283., 288.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`shapeDescend[
+         Hold[
+          Pattern[$CellContext`level, 
+           Blank[]], 
+          Pattern[$CellContext`state, 
+           Blank[]], 
+          Pattern[$CellContext`num, 
+           Blank[]]]] := 
+       DynamicModule[{$CellContext`score = 0, $CellContext`gameOver = 
+          False, $CellContext`pause = False, $CellContext`board = Table[
+            If[
+             
+             Or[$CellContext`i <= 3, $CellContext`j <= 3, $CellContext`i >= 
+              14, $CellContext`j >= 24], 0, 0], {$CellContext`i, 1, 
+             16}, {$CellContext`j, 1, 
+             28}], $CellContext`n, $CellContext`p, $CellContext`x, \
+$CellContext`y, $CellContext`nextItem}, 
+         SeedRandom[$CellContext`level 
+            10 + $CellContext`num]; $CellContext`nextItem = 
+          RandomInteger[6] + 1; $CellContext`newGame[
+           
+           Hold[$CellContext`n, $CellContext`p, $CellContext`x, \
+$CellContext`y, $CellContext`board, $CellContext`nextItem, \
+$CellContext`gameOver, $CellContext`pause, $CellContext`num]]; EventHandler[
+           Graphics[{
+             Text[
+              Style["Level", Blue, Italic, 24], {18, 12}], 
+             Text[
+              Style["Score", Blue, Italic, 24], {18, 9}], 
+             Table[
+              $CellContext`showSquare[{$CellContext`i + 16, $CellContext`j + 
+                13}, 
+               
+               Part[$CellContext`smallBoard, $CellContext`i, \
+$CellContext`j]], {$CellContext`i, 1, 6}, {$CellContext`j, 1, 6}], 
+             Dynamic[Refresh[
+                Switch[$CellContext`state, 1, $CellContext`newGame[
+                   
+                   Hold[$CellContext`n, $CellContext`p, $CellContext`x, \
+$CellContext`y, $CellContext`board, $CellContext`nextItem, \
+$CellContext`gameOver, $CellContext`pause, $CellContext`num]]; \
+$CellContext`state = 3, 2, $CellContext`pause = True, 3, $CellContext`pause = 
+                 False], UpdateInterval -> Infinity, 
+                TrackedSymbols -> {$CellContext`state}]; Refresh[
+                If[
+                 And[
+                  Not[$CellContext`pause], 
+                  Not[$CellContext`gameOver], 
+                  $CellContext`bDown[$CellContext`n, $CellContext`p, \
+$CellContext`x, $CellContext`y, 
+                   Hold[$CellContext`board]]], 
+                 Decrement[$CellContext`y], 
+                 $CellContext`newBlock[
+                  
+                  Hold[$CellContext`n, $CellContext`p, $CellContext`x, \
+$CellContext`y, $CellContext`board, $CellContext`score, \
+$CellContext`gameOver, $CellContext`nextItem, $CellContext`pause]]], 
+                UpdateInterval -> 3./$CellContext`level, 
+                TrackedSymbols -> {}]; Join[{{
+                  Text[
+                   Style[
+                    ToString[$CellContext`level], Green, Italic, 24], {20, 
+                   11}], 
+                  Text[
+                   Style[
+                    ToString[$CellContext`score], Green, Italic, 24], {20, 
+                   8}]}}, 
+                $CellContext`showBoard[
+                 Hold[$CellContext`board]], 
+                $CellContext`showDropBlock[$CellContext`n, $CellContext`p, \
+$CellContext`x, $CellContext`y], 
+                $CellContext`showHintBlock[$CellContext`nextItem, 2, 17, 14]],
+               TrackedSymbols -> {$CellContext`x, $CellContext`y, \
+$CellContext`n, $CellContext`p, $CellContext`level}]}, Background -> Black, 
+            ImageSize -> {400, 400}], {"LeftArrowKeyDown" :> If[
+              And[
+               Not[$CellContext`pause], 
+               Not[$CellContext`gameOver], 
+               $CellContext`bLeft[$CellContext`n, $CellContext`p, \
+$CellContext`x, $CellContext`y, 
+                Hold[$CellContext`board]]], 
+              Decrement[$CellContext`x]], "RightArrowKeyDown" :> If[
+              And[
+               Not[$CellContext`pause], 
+               Not[$CellContext`gameOver], 
+               $CellContext`bRight[$CellContext`n, $CellContext`p, \
+$CellContext`x, $CellContext`y, 
+                Hold[$CellContext`board]]], 
+              Increment[$CellContext`x]], "DownArrowKeyDown" :> If[
+              And[
+               Not[$CellContext`pause], 
+               Not[$CellContext`gameOver], 
+               $CellContext`bRotateClockwise[$CellContext`n, $CellContext`p, \
+$CellContext`x, $CellContext`y, 
+                Hold[$CellContext`board]]], Increment[$CellContext`p]; 
+              If[$CellContext`p == 5, $CellContext`p = 1]], "UpArrowKeyDown" :> 
+            If[
+              And[
+               Not[$CellContext`pause], 
+               Not[$CellContext`gameOver], 
+               $CellContext`bRotateAnticlock[$CellContext`n, $CellContext`p, \
+$CellContext`x, $CellContext`y, 
+                Hold[$CellContext`board]]], Decrement[$CellContext`p]; 
+              If[$CellContext`p == 0, $CellContext`p = 4]], {"KeyDown", " "} :> 
+            If[
+              And[
+               Not[$CellContext`pause], 
+               Not[$CellContext`gameOver], 
+               $CellContext`bDown[$CellContext`n, $CellContext`p, \
+$CellContext`x, $CellContext`y, 
+                Hold[$CellContext`board]]], 
+              Decrement[$CellContext`y], 
+              $CellContext`newBlock[
+               
+               Hold[$CellContext`n, $CellContext`p, $CellContext`x, \
+$CellContext`y, $CellContext`board, $CellContext`score, \
+$CellContext`gameOver, $CellContext`nextItem, $CellContext`pause]]], 
+            "EscapeKeyDown" :> {
+              $CellContext`newGame[
+               
+               Hold[$CellContext`n, $CellContext`p, $CellContext`x, \
+$CellContext`y, $CellContext`board, $CellContext`nextItem, \
+$CellContext`gameOver, $CellContext`pause, $CellContext`num]]}}]], \
+$CellContext`newGame[
+         Hold[
+          Pattern[$CellContext`n, 
+           Blank[]], 
+          Pattern[$CellContext`p, 
+           Blank[]], 
+          Pattern[$CellContext`x, 
+           Blank[]], 
+          Pattern[$CellContext`y, 
+           Blank[]], 
+          Pattern[$CellContext`board, 
+           Blank[]], 
+          Pattern[$CellContext`nextItem, 
+           Blank[]], 
+          Pattern[$CellContext`gameOver, 
+           Blank[]], 
+          Pattern[$CellContext`pause, 
+           Blank[]], 
+          Pattern[$CellContext`num, 
+           Blank[]]]] := {$CellContext`initBoard[
+           
+           Hold[$CellContext`board, $CellContext`num]]; {$CellContext`n, \
+$CellContext`p, $CellContext`x, $CellContext`y} = {$CellContext`nextItem, 2, 
+            6, 22}; $CellContext`nextItem = 
+          RandomInteger[6] + 1; $CellContext`gameOver = 
+          False; $CellContext`pause = False}, $CellContext`initBoard[
+         Hold[
+          Pattern[$CellContext`board, 
+           Blank[]], 
+          Pattern[$CellContext`num, 
+           Blank[]]]] := {$CellContext`board = Table[
+           If[
+            
+            Or[$CellContext`i <= 3, $CellContext`j <= 3, $CellContext`i >= 
+             14, $CellContext`j >= 24], 9, 0], {$CellContext`i, 1, 
+            16}, {$CellContext`j, 1, 28}], 
+         Table[Part[$CellContext`board, $CellContext`i, 24] = 0; 
+           Part[$CellContext`board, $CellContext`i, 25] = 0; 
+           Part[$CellContext`board, $CellContext`i, 26] = 0, {$CellContext`i, 
+            7, 10}]; Table[
+          Part[$CellContext`board, $CellContext`i, 25] = 
+           0, {$CellContext`i, 1, 16}]; Part[$CellContext`board, 6, 25] = 9, 
+         Part[$CellContext`board, 11, 25] = 9, 
+         Table[
+          If[
+          Mod[$CellContext`j + $CellContext`i, 2] == 0, 
+           Part[$CellContext`board, $CellContext`j, $CellContext`i + 3] = 
+           9], {$CellContext`i, 1, $CellContext`num}, {$CellContext`j, 4, 
+           13}]}, $CellContext`showSquare[{
+          Pattern[$CellContext`i, 
+           Blank[]], 
+          Pattern[$CellContext`j, 
+           Blank[]]}, 
+         Pattern[$CellContext`v, 
+          Blank[]]] := {
+         $CellContext`color[$CellContext`v], 
+         Rectangle[{$CellContext`i + 0.05, $CellContext`j + 
+           0.05}, {$CellContext`i + 0.95, $CellContext`j + 
+           0.95}]}, $CellContext`color[
+         Pattern[$CellContext`v, 
+          Blank[]]] := 
+       Switch[$CellContext`v, 0, Black, 1, Yellow, 2, Blue, 3, Magenta, 4, 
+         Cyan, 5, Red, 6, Orange, 7, Green, 9, Gray, 
+         Blank[], Gray], $CellContext`smallBoard = {{9, 9, 9, 9, 9, 9}, {9, 0,
+         0, 0, 0, 9}, {9, 0, 0, 0, 0, 9}, {9, 0, 0, 0, 0, 9}, {9, 0, 0, 0, 0, 
+        9}, {9, 9, 9, 9, 9, 9}}, $CellContext`bDown[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`p, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]], 
+         Pattern[$CellContext`y, 
+          Blank[]], 
+         Hold[
+          Pattern[$CellContext`board, 
+           
+           Blank[]]]] := $CellContext`bMoveTo[$CellContext`n, $CellContext`p, \
+$CellContext`x, $CellContext`y - 1, 
+         Hold[$CellContext`board]], $CellContext`bMoveTo[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`p, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]], 
+         Pattern[$CellContext`y, 
+          Blank[]], 
+         Hold[
+          Pattern[$CellContext`board, 
+           Blank[]]]] := Total[
+          Table[
+          Part[$CellContext`allBlocks, $CellContext`n, $CellContext`p, \
+$CellContext`i, $CellContext`j] 
+           Part[$CellContext`board, $CellContext`i + $CellContext`x, \
+$CellContext`j + $CellContext`y], {$CellContext`i, 1, 4}, {$CellContext`j, 1, 
+            4}], 2] == 0, $CellContext`allBlocks = CompressedData["
+1:eJydS9sNwCAIRECZoyt1BBfo/n+VgkL6UZNeOLwHHv06OwOADHJiURbdDtXF
+ixWlwOX6gmMQ41il+hxlj1ZHT0BEcUyTkWlPS6ebCWbjT18HoqwvfvetjedZ
+E828R7seRHQCYpmJfX8DUB0Dfg==
+        "], $CellContext`newBlock[
+         Hold[
+          Pattern[$CellContext`n, 
+           Blank[]], 
+          Pattern[$CellContext`p, 
+           Blank[]], 
+          Pattern[$CellContext`x, 
+           Blank[]], 
+          Pattern[$CellContext`y, 
+           Blank[]], 
+          Pattern[$CellContext`board, 
+           Blank[]], 
+          Pattern[$CellContext`score, 
+           Blank[]], 
+          Pattern[$CellContext`gameOver, 
+           Blank[]], 
+          Pattern[$CellContext`nextItem, 
+           Blank[]], 
+          Pattern[$CellContext`pause, 
+           Blank[]]]] := {
+         If[
+          And[
+           Not[$CellContext`pause], 
+           
+           Not[$CellContext`gameOver]], \
+$CellContext`updateBoard[$CellContext`n, $CellContext`p, $CellContext`x, \
+$CellContext`y, 
+            
+            Hold[$CellContext`board, $CellContext`score]]; \
+$CellContext`gameOver = $CellContext`bGameOver[$CellContext`nextItem, 2, 
+             Hold[$CellContext`board]]; 
+          If[$CellContext`gameOver == 
+            False, {$CellContext`n, $CellContext`p, $CellContext`x, \
+$CellContext`y} = {$CellContext`nextItem, 2, 6, 22}; $CellContext`nextItem = 
+             RandomInteger[6] + 1]]}, $CellContext`updateBoard[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`p, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]], 
+         Pattern[$CellContext`y, 
+          Blank[]], 
+         Hold[
+          Pattern[$CellContext`board, 
+           Blank[]], 
+          Pattern[$CellContext`score, 
+           Blank[]]]] := {Table[
+           AddTo[
+            
+            Part[$CellContext`board, $CellContext`i + $CellContext`x, \
+$CellContext`j + $CellContext`y], 
+            
+            Part[$CellContext`allBlocks, $CellContext`n, $CellContext`p, \
+$CellContext`i, $CellContext`j]], {$CellContext`i, 1, 4}, {$CellContext`j, 1, 
+            4}]; AddTo[$CellContext`score, 10 + 100 (2^Sum[
+                $CellContext`updateLine[$CellContext`i, 
+                 Hold[$CellContext`board]], {$CellContext`i, $CellContext`y + 
+                 4, $CellContext`y + 1, -1}] - 1)]}, $CellContext`updateLine[
+         Pattern[$CellContext`line, 
+          Blank[]], 
+         Hold[
+          Pattern[$CellContext`board, 
+           Blank[]]]] := If[
+         And[$CellContext`line <= 23, $CellContext`line >= 4, Apply[And, 
+            Table[
+            Part[$CellContext`board, $CellContext`i, $CellContext`line] != 
+             0, {$CellContext`i, 4, 13}]] == True], 
+         Table[Part[$CellContext`board, $CellContext`i, $CellContext`j] = 
+           Part[$CellContext`board, $CellContext`i, $CellContext`j + 
+             1], {$CellContext`i, 4, 13}, {$CellContext`j, $CellContext`line, 
+            22}]; Table[
+          Part[$CellContext`board, $CellContext`i, 23] = 
+           0, {$CellContext`i, 4, 13}]; 1, 0], $CellContext`bGameOver[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`p, 
+          Blank[]], 
+         Hold[
+          Pattern[$CellContext`board, 
+           Blank[]]]] := Not[
+         $CellContext`bMoveTo[$CellContext`n, $CellContext`p, 6, 22, 
+          Hold[$CellContext`board]]], $CellContext`showBoard[
+         Hold[
+          Pattern[$CellContext`board, 
+           Blank[]]]] := Table[
+         $CellContext`showSquare[{$CellContext`i, $CellContext`j}, 
+          
+          Part[$CellContext`board, $CellContext`i, $CellContext`j]], \
+{$CellContext`i, 3, 14}, {$CellContext`j, 3, 25}], $CellContext`showDropBlock[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`p, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]], 
+         Pattern[$CellContext`y, 
+          Blank[]]] := Table[
+         If[
+         Part[$CellContext`allBlocks, $CellContext`n, $CellContext`p, \
+$CellContext`i, $CellContext`j] != 0, 
+          $CellContext`showSquare[{$CellContext`i + $CellContext`x, \
+$CellContext`j + $CellContext`y}, 
+           
+           Part[$CellContext`allBlocks, $CellContext`n, $CellContext`p, \
+$CellContext`i, $CellContext`j]], Black], {$CellContext`i, 1, 
+          4}, {$CellContext`j, 1, 4}], $CellContext`showHintBlock[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`p, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]], 
+         Pattern[$CellContext`y, 
+          Blank[]]] := Table[
+         $CellContext`showSquare[{$CellContext`i + $CellContext`x, \
+$CellContext`j + $CellContext`y}, 
+          
+          Part[$CellContext`allBlocks, $CellContext`n, $CellContext`p, \
+$CellContext`i, $CellContext`j]], {$CellContext`i, 1, 4}, {$CellContext`j, 1, 
+          4}], $CellContext`bLeft[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`p, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]], 
+         Pattern[$CellContext`y, 
+          Blank[]], 
+         Hold[
+          Pattern[$CellContext`board, 
+           
+           Blank[]]]] := $CellContext`bMoveTo[$CellContext`n, $CellContext`p, \
+$CellContext`x - 1, $CellContext`y, 
+         Hold[$CellContext`board]], $CellContext`bRight[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`p, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]], 
+         Pattern[$CellContext`y, 
+          Blank[]], 
+         Hold[
+          Pattern[$CellContext`board, 
+           
+           Blank[]]]] := $CellContext`bMoveTo[$CellContext`n, $CellContext`p, \
+$CellContext`x + 1, $CellContext`y, 
+         Hold[$CellContext`board]], $CellContext`bRotateClockwise[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`p, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]], 
+         Pattern[$CellContext`y, 
+          Blank[]], 
+         Hold[
+          Pattern[$CellContext`board, 
+           Blank[]]]] := 
+       Module[{$CellContext`tp}, $CellContext`tp = $CellContext`p + 1; 
+         If[$CellContext`tp == 5, $CellContext`tp = 
+           1]; $CellContext`bMoveTo[$CellContext`n, $CellContext`tp, \
+$CellContext`x, $CellContext`y, 
+           Hold[$CellContext`board]]], $CellContext`bRotateAnticlock[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`p, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]], 
+         Pattern[$CellContext`y, 
+          Blank[]], 
+         Hold[
+          Pattern[$CellContext`board, 
+           Blank[]]]] := 
+       Module[{$CellContext`tp}, $CellContext`tp = $CellContext`p - 1; 
+         If[$CellContext`tp == 0, $CellContext`tp = 
+           4]; $CellContext`bMoveTo[$CellContext`n, $CellContext`tp, \
+$CellContext`x, $CellContext`y, 
+           Hold[$CellContext`board]]]}; Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->153250097]
+}, {2}]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "ManipulateCaptionSection"],
+
+Cell[TextData[{
+ "This is a simple tetris game in ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ "."
+}], "ManipulateCaption",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.4635164553699093`*^9, 3.4635165090726905`*^9}, {
+   3.4635175481927133`*^9, 3.4635175492551994`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "ThumbnailSection"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`initLine$$ = 1, $CellContext`level$$ = 
+    3, $CellContext`state$$ = 3, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`level$$], 3}, 1, 9, 1}, {{
+       Hold[$CellContext`initLine$$], 1, "height of bottom level"}, 0, 9, 
+      1}, {{
+       Hold[$CellContext`state$$], 3, ""}, {
+      1 -> "new game", 2 -> "pause", 3 -> "continue"}}}, Typeset`size$$ = 
+    Automatic, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = False, $CellContext`level$3218$$ = 
+    0, $CellContext`initLine$3219$$ = 0, $CellContext`state$3220$$ = False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`initLine$$ = 1, $CellContext`level$$ = 
+        3, $CellContext`state$$ = 3}, "ControllerVariables" :> {
+        Hold[$CellContext`level$$, $CellContext`level$3218$$, 0], 
+        Hold[$CellContext`initLine$$, $CellContext`initLine$3219$$, 0], 
+        Hold[$CellContext`state$$, $CellContext`state$3220$$, False]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> $CellContext`shapeDescend[
+        Hold[$CellContext`level$$, $CellContext`state$$, \
+$CellContext`initLine$$]], 
+      "Specifications" :> {{{$CellContext`level$$, 3}, 1, 9, 
+         1}, {{$CellContext`initLine$$, 1, "height of bottom level"}, 0, 9, 
+         1}, {{$CellContext`state$$, 3, ""}, {
+         1 -> "new game", 2 -> "pause", 3 -> "continue"}}}, 
+      "Options" :> {
+       ContentSize -> {480, 450}, SynchronousUpdating -> False, Alignment -> 
+        Center, TrackedSymbols -> {}}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`shapeDescend[
+         Hold[
+          Pattern[$CellContext`level, 
+           Blank[]], 
+          Pattern[$CellContext`state, 
+           Blank[]], 
+          Pattern[$CellContext`num, 
+           Blank[]]]] := 
+       DynamicModule[{$CellContext`score = 0, $CellContext`gameOver = 
+          False, $CellContext`pause = False, $CellContext`board = Table[
+            If[
+             
+             Or[$CellContext`i <= 3, $CellContext`j <= 3, $CellContext`i >= 
+              14, $CellContext`j >= 24], 0, 0], {$CellContext`i, 1, 
+             16}, {$CellContext`j, 1, 
+             28}], $CellContext`n, $CellContext`p, $CellContext`x, \
+$CellContext`y, $CellContext`nextItem}, 
+         SeedRandom[$CellContext`level 
+            10 + $CellContext`num]; $CellContext`nextItem = 
+          RandomInteger[6] + 1; $CellContext`newGame[
+           
+           Hold[$CellContext`n, $CellContext`p, $CellContext`x, \
+$CellContext`y, $CellContext`board, $CellContext`nextItem, \
+$CellContext`gameOver, $CellContext`pause, $CellContext`num]]; EventHandler[
+           Graphics[{
+             Text[
+              Style["Level", Blue, Italic, 24], {18, 12}], 
+             Text[
+              Style["Score", Blue, Italic, 24], {18, 9}], 
+             Table[
+              $CellContext`showSquare[{$CellContext`i + 16, $CellContext`j + 
+                13}, 
+               
+               Part[$CellContext`smallBoard, $CellContext`i, \
+$CellContext`j]], {$CellContext`i, 1, 6}, {$CellContext`j, 1, 6}], 
+             Dynamic[Refresh[
+                Switch[$CellContext`state, 1, $CellContext`newGame[
+                   
+                   Hold[$CellContext`n, $CellContext`p, $CellContext`x, \
+$CellContext`y, $CellContext`board, $CellContext`nextItem, \
+$CellContext`gameOver, $CellContext`pause, $CellContext`num]]; \
+$CellContext`state = 3, 2, $CellContext`pause = True, 3, $CellContext`pause = 
+                 False], UpdateInterval -> Infinity, 
+                TrackedSymbols -> {$CellContext`state}]; Refresh[
+                If[
+                 And[
+                  Not[$CellContext`pause], 
+                  Not[$CellContext`gameOver], 
+                  $CellContext`bDown[$CellContext`n, $CellContext`p, \
+$CellContext`x, $CellContext`y, 
+                   Hold[$CellContext`board]]], 
+                 Decrement[$CellContext`y], 
+                 $CellContext`newBlock[
+                  
+                  Hold[$CellContext`n, $CellContext`p, $CellContext`x, \
+$CellContext`y, $CellContext`board, $CellContext`score, \
+$CellContext`gameOver, $CellContext`nextItem, $CellContext`pause]]], 
+                UpdateInterval -> 3./$CellContext`level, 
+                TrackedSymbols -> {}]; Join[{{
+                  Text[
+                   Style[
+                    ToString[$CellContext`level], Green, Italic, 24], {20, 
+                   11}], 
+                  Text[
+                   Style[
+                    ToString[$CellContext`score], Green, Italic, 24], {20, 
+                   8}]}}, 
+                $CellContext`showBoard[
+                 Hold[$CellContext`board]], 
+                $CellContext`showDropBlock[$CellContext`n, $CellContext`p, \
+$CellContext`x, $CellContext`y], 
+                $CellContext`showHintBlock[$CellContext`nextItem, 2, 17, 14]],
+               TrackedSymbols -> {$CellContext`x, $CellContext`y, \
+$CellContext`n, $CellContext`p, $CellContext`level}]}, Background -> Black, 
+            ImageSize -> {400, 400}], {"LeftArrowKeyDown" :> If[
+              And[
+               Not[$CellContext`pause], 
+               Not[$CellContext`gameOver], 
+               $CellContext`bLeft[$CellContext`n, $CellContext`p, \
+$CellContext`x, $CellContext`y, 
+                Hold[$CellContext`board]]], 
+              Decrement[$CellContext`x]], "RightArrowKeyDown" :> If[
+              And[
+               Not[$CellContext`pause], 
+               Not[$CellContext`gameOver], 
+               $CellContext`bRight[$CellContext`n, $CellContext`p, \
+$CellContext`x, $CellContext`y, 
+                Hold[$CellContext`board]]], 
+              Increment[$CellContext`x]], "DownArrowKeyDown" :> If[
+              And[
+               Not[$CellContext`pause], 
+               Not[$CellContext`gameOver], 
+               $CellContext`bRotateClockwise[$CellContext`n, $CellContext`p, \
+$CellContext`x, $CellContext`y, 
+                Hold[$CellContext`board]]], Increment[$CellContext`p]; 
+              If[$CellContext`p == 5, $CellContext`p = 1]], "UpArrowKeyDown" :> 
+            If[
+              And[
+               Not[$CellContext`pause], 
+               Not[$CellContext`gameOver], 
+               $CellContext`bRotateAnticlock[$CellContext`n, $CellContext`p, \
+$CellContext`x, $CellContext`y, 
+                Hold[$CellContext`board]]], Decrement[$CellContext`p]; 
+              If[$CellContext`p == 0, $CellContext`p = 4]], {"KeyDown", " "} :> 
+            If[
+              And[
+               Not[$CellContext`pause], 
+               Not[$CellContext`gameOver], 
+               $CellContext`bDown[$CellContext`n, $CellContext`p, \
+$CellContext`x, $CellContext`y, 
+                Hold[$CellContext`board]]], 
+              Decrement[$CellContext`y], 
+              $CellContext`newBlock[
+               
+               Hold[$CellContext`n, $CellContext`p, $CellContext`x, \
+$CellContext`y, $CellContext`board, $CellContext`score, \
+$CellContext`gameOver, $CellContext`nextItem, $CellContext`pause]]], 
+            "EscapeKeyDown" :> {
+              $CellContext`newGame[
+               
+               Hold[$CellContext`n, $CellContext`p, $CellContext`x, \
+$CellContext`y, $CellContext`board, $CellContext`nextItem, \
+$CellContext`gameOver, $CellContext`pause, $CellContext`num]]}}]], \
+$CellContext`newGame[
+         Hold[
+          Pattern[$CellContext`n, 
+           Blank[]], 
+          Pattern[$CellContext`p, 
+           Blank[]], 
+          Pattern[$CellContext`x, 
+           Blank[]], 
+          Pattern[$CellContext`y, 
+           Blank[]], 
+          Pattern[$CellContext`board, 
+           Blank[]], 
+          Pattern[$CellContext`nextItem, 
+           Blank[]], 
+          Pattern[$CellContext`gameOver, 
+           Blank[]], 
+          Pattern[$CellContext`pause, 
+           Blank[]], 
+          Pattern[$CellContext`num, 
+           Blank[]]]] := {$CellContext`initBoard[
+           
+           Hold[$CellContext`board, $CellContext`num]]; {$CellContext`n, \
+$CellContext`p, $CellContext`x, $CellContext`y} = {$CellContext`nextItem, 2, 
+            6, 22}; $CellContext`nextItem = 
+          RandomInteger[6] + 1; $CellContext`gameOver = 
+          False; $CellContext`pause = False}, $CellContext`initBoard[
+         Hold[
+          Pattern[$CellContext`board, 
+           Blank[]], 
+          Pattern[$CellContext`num, 
+           Blank[]]]] := {$CellContext`board = Table[
+           If[
+            
+            Or[$CellContext`i <= 3, $CellContext`j <= 3, $CellContext`i >= 
+             14, $CellContext`j >= 24], 9, 0], {$CellContext`i, 1, 
+            16}, {$CellContext`j, 1, 28}], 
+         Table[Part[$CellContext`board, $CellContext`i, 24] = 0; 
+           Part[$CellContext`board, $CellContext`i, 25] = 0; 
+           Part[$CellContext`board, $CellContext`i, 26] = 0, {$CellContext`i, 
+            7, 10}]; Table[
+          Part[$CellContext`board, $CellContext`i, 25] = 
+           0, {$CellContext`i, 1, 16}]; Part[$CellContext`board, 6, 25] = 9, 
+         Part[$CellContext`board, 11, 25] = 9, 
+         Table[
+          If[
+          Mod[$CellContext`j + $CellContext`i, 2] == 0, 
+           Part[$CellContext`board, $CellContext`j, $CellContext`i + 3] = 
+           9], {$CellContext`i, 1, $CellContext`num}, {$CellContext`j, 4, 
+           13}]}, $CellContext`showSquare[{
+          Pattern[$CellContext`i, 
+           Blank[]], 
+          Pattern[$CellContext`j, 
+           Blank[]]}, 
+         Pattern[$CellContext`v, 
+          Blank[]]] := {
+         $CellContext`color[$CellContext`v], 
+         Rectangle[{$CellContext`i + 0.05, $CellContext`j + 
+           0.05}, {$CellContext`i + 0.95, $CellContext`j + 
+           0.95}]}, $CellContext`color[
+         Pattern[$CellContext`v, 
+          Blank[]]] := 
+       Switch[$CellContext`v, 0, Black, 1, Yellow, 2, Blue, 3, Magenta, 4, 
+         Cyan, 5, Red, 6, Orange, 7, Green, 9, Gray, 
+         Blank[], Gray], $CellContext`smallBoard = {{9, 9, 9, 9, 9, 9}, {9, 0,
+         0, 0, 0, 9}, {9, 0, 0, 0, 0, 9}, {9, 0, 0, 0, 0, 9}, {9, 0, 0, 0, 0, 
+        9}, {9, 9, 9, 9, 9, 9}}, $CellContext`bDown[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`p, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]], 
+         Pattern[$CellContext`y, 
+          Blank[]], 
+         Hold[
+          Pattern[$CellContext`board, 
+           
+           Blank[]]]] := $CellContext`bMoveTo[$CellContext`n, $CellContext`p, \
+$CellContext`x, $CellContext`y - 1, 
+         Hold[$CellContext`board]], $CellContext`bMoveTo[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`p, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]], 
+         Pattern[$CellContext`y, 
+          Blank[]], 
+         Hold[
+          Pattern[$CellContext`board, 
+           Blank[]]]] := Total[
+          Table[
+          Part[$CellContext`allBlocks, $CellContext`n, $CellContext`p, \
+$CellContext`i, $CellContext`j] 
+           Part[$CellContext`board, $CellContext`i + $CellContext`x, \
+$CellContext`j + $CellContext`y], {$CellContext`i, 1, 4}, {$CellContext`j, 1, 
+            4}], 2] == 0, $CellContext`allBlocks = CompressedData["
+1:eJydS9sNwCAIRECZoyt1BBfo/n+VgkL6UZNeOLwHHv06OwOADHJiURbdDtXF
+ixWlwOX6gmMQ41il+hxlj1ZHT0BEcUyTkWlPS6ebCWbjT18HoqwvfvetjedZ
+E828R7seRHQCYpmJfX8DUB0Dfg==
+        "], $CellContext`newBlock[
+         Hold[
+          Pattern[$CellContext`n, 
+           Blank[]], 
+          Pattern[$CellContext`p, 
+           Blank[]], 
+          Pattern[$CellContext`x, 
+           Blank[]], 
+          Pattern[$CellContext`y, 
+           Blank[]], 
+          Pattern[$CellContext`board, 
+           Blank[]], 
+          Pattern[$CellContext`score, 
+           Blank[]], 
+          Pattern[$CellContext`gameOver, 
+           Blank[]], 
+          Pattern[$CellContext`nextItem, 
+           Blank[]], 
+          Pattern[$CellContext`pause, 
+           Blank[]]]] := {
+         If[
+          And[
+           Not[$CellContext`pause], 
+           
+           Not[$CellContext`gameOver]], \
+$CellContext`updateBoard[$CellContext`n, $CellContext`p, $CellContext`x, \
+$CellContext`y, 
+            
+            Hold[$CellContext`board, $CellContext`score]]; \
+$CellContext`gameOver = $CellContext`bGameOver[$CellContext`nextItem, 2, 
+             Hold[$CellContext`board]]; 
+          If[$CellContext`gameOver == 
+            False, {$CellContext`n, $CellContext`p, $CellContext`x, \
+$CellContext`y} = {$CellContext`nextItem, 2, 6, 22}; $CellContext`nextItem = 
+             RandomInteger[6] + 1]]}, $CellContext`updateBoard[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`p, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]], 
+         Pattern[$CellContext`y, 
+          Blank[]], 
+         Hold[
+          Pattern[$CellContext`board, 
+           Blank[]], 
+          Pattern[$CellContext`score, 
+           Blank[]]]] := {Table[
+           AddTo[
+            
+            Part[$CellContext`board, $CellContext`i + $CellContext`x, \
+$CellContext`j + $CellContext`y], 
+            
+            Part[$CellContext`allBlocks, $CellContext`n, $CellContext`p, \
+$CellContext`i, $CellContext`j]], {$CellContext`i, 1, 4}, {$CellContext`j, 1, 
+            4}]; AddTo[$CellContext`score, 10 + 100 (2^Sum[
+                $CellContext`updateLine[$CellContext`i, 
+                 Hold[$CellContext`board]], {$CellContext`i, $CellContext`y + 
+                 4, $CellContext`y + 1, -1}] - 1)]}, $CellContext`updateLine[
+         Pattern[$CellContext`line, 
+          Blank[]], 
+         Hold[
+          Pattern[$CellContext`board, 
+           Blank[]]]] := If[
+         And[$CellContext`line <= 23, $CellContext`line >= 4, Apply[And, 
+            Table[
+            Part[$CellContext`board, $CellContext`i, $CellContext`line] != 
+             0, {$CellContext`i, 4, 13}]] == True], 
+         Table[Part[$CellContext`board, $CellContext`i, $CellContext`j] = 
+           Part[$CellContext`board, $CellContext`i, $CellContext`j + 
+             1], {$CellContext`i, 4, 13}, {$CellContext`j, $CellContext`line, 
+            22}]; Table[
+          Part[$CellContext`board, $CellContext`i, 23] = 
+           0, {$CellContext`i, 4, 13}]; 1, 0], $CellContext`bGameOver[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`p, 
+          Blank[]], 
+         Hold[
+          Pattern[$CellContext`board, 
+           Blank[]]]] := Not[
+         $CellContext`bMoveTo[$CellContext`n, $CellContext`p, 6, 22, 
+          Hold[$CellContext`board]]], $CellContext`showBoard[
+         Hold[
+          Pattern[$CellContext`board, 
+           Blank[]]]] := Table[
+         $CellContext`showSquare[{$CellContext`i, $CellContext`j}, 
+          
+          Part[$CellContext`board, $CellContext`i, $CellContext`j]], \
+{$CellContext`i, 3, 14}, {$CellContext`j, 3, 25}], $CellContext`showDropBlock[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`p, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]], 
+         Pattern[$CellContext`y, 
+          Blank[]]] := Table[
+         If[
+         Part[$CellContext`allBlocks, $CellContext`n, $CellContext`p, \
+$CellContext`i, $CellContext`j] != 0, 
+          $CellContext`showSquare[{$CellContext`i + $CellContext`x, \
+$CellContext`j + $CellContext`y}, 
+           
+           Part[$CellContext`allBlocks, $CellContext`n, $CellContext`p, \
+$CellContext`i, $CellContext`j]], Black], {$CellContext`i, 1, 
+          4}, {$CellContext`j, 1, 4}], $CellContext`showHintBlock[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`p, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]], 
+         Pattern[$CellContext`y, 
+          Blank[]]] := Table[
+         $CellContext`showSquare[{$CellContext`i + $CellContext`x, \
+$CellContext`j + $CellContext`y}, 
+          
+          Part[$CellContext`allBlocks, $CellContext`n, $CellContext`p, \
+$CellContext`i, $CellContext`j]], {$CellContext`i, 1, 4}, {$CellContext`j, 1, 
+          4}], $CellContext`bLeft[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`p, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]], 
+         Pattern[$CellContext`y, 
+          Blank[]], 
+         Hold[
+          Pattern[$CellContext`board, 
+           
+           Blank[]]]] := $CellContext`bMoveTo[$CellContext`n, $CellContext`p, \
+$CellContext`x - 1, $CellContext`y, 
+         Hold[$CellContext`board]], $CellContext`bRight[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`p, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]], 
+         Pattern[$CellContext`y, 
+          Blank[]], 
+         Hold[
+          Pattern[$CellContext`board, 
+           
+           Blank[]]]] := $CellContext`bMoveTo[$CellContext`n, $CellContext`p, \
+$CellContext`x + 1, $CellContext`y, 
+         Hold[$CellContext`board]], $CellContext`bRotateClockwise[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`p, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]], 
+         Pattern[$CellContext`y, 
+          Blank[]], 
+         Hold[
+          Pattern[$CellContext`board, 
+           Blank[]]]] := 
+       Module[{$CellContext`tp}, $CellContext`tp = $CellContext`p + 1; 
+         If[$CellContext`tp == 5, $CellContext`tp = 
+           1]; $CellContext`bMoveTo[$CellContext`n, $CellContext`tp, \
+$CellContext`x, $CellContext`y, 
+           Hold[$CellContext`board]]], $CellContext`bRotateAnticlock[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`p, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]], 
+         Pattern[$CellContext`y, 
+          Blank[]], 
+         Hold[
+          Pattern[$CellContext`board, 
+           Blank[]]]] := 
+       Module[{$CellContext`tp}, $CellContext`tp = $CellContext`p - 1; 
+         If[$CellContext`tp == 0, $CellContext`tp = 
+           4]; $CellContext`bMoveTo[$CellContext`n, $CellContext`tp, \
+$CellContext`x, $CellContext`y, 
+           Hold[$CellContext`board]]]}; Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->2590956]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "SnapshotsSection"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`initLine$$ = 8, $CellContext`level$$ = 
+    4, $CellContext`state$$ = 3, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`level$$], 4}, 1, 9, 1}, {{
+       Hold[$CellContext`initLine$$], 8, "height of bottom level"}, 0, 9, 
+      1}, {{
+       Hold[$CellContext`state$$], 3, ""}, {
+      1 -> "new game", 2 -> "pause", 3 -> "continue"}}}, Typeset`size$$ = 
+    Automatic, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = False, $CellContext`level$3288$$ = 
+    0, $CellContext`initLine$3289$$ = 0, $CellContext`state$3290$$ = False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`initLine$$ = 8, $CellContext`level$$ = 
+        4, $CellContext`state$$ = 3}, "ControllerVariables" :> {
+        Hold[$CellContext`level$$, $CellContext`level$3288$$, 0], 
+        Hold[$CellContext`initLine$$, $CellContext`initLine$3289$$, 0], 
+        Hold[$CellContext`state$$, $CellContext`state$3290$$, False]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> $CellContext`shapeDescend[
+        Hold[$CellContext`level$$, $CellContext`state$$, \
+$CellContext`initLine$$]], 
+      "Specifications" :> {{{$CellContext`level$$, 4}, 1, 9, 
+         1}, {{$CellContext`initLine$$, 8, "height of bottom level"}, 0, 9, 
+         1}, {{$CellContext`state$$, 3, ""}, {
+         1 -> "new game", 2 -> "pause", 3 -> "continue"}}}, 
+      "Options" :> {
+       ContentSize -> {480, 450}, SynchronousUpdating -> False, Alignment -> 
+        Center, TrackedSymbols -> {}}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`shapeDescend[
+         Hold[
+          Pattern[$CellContext`level, 
+           Blank[]], 
+          Pattern[$CellContext`state, 
+           Blank[]], 
+          Pattern[$CellContext`num, 
+           Blank[]]]] := 
+       DynamicModule[{$CellContext`score = 0, $CellContext`gameOver = 
+          False, $CellContext`pause = False, $CellContext`board = Table[
+            If[
+             
+             Or[$CellContext`i <= 3, $CellContext`j <= 3, $CellContext`i >= 
+              14, $CellContext`j >= 24], 0, 0], {$CellContext`i, 1, 
+             16}, {$CellContext`j, 1, 
+             28}], $CellContext`n, $CellContext`p, $CellContext`x, \
+$CellContext`y, $CellContext`nextItem}, 
+         SeedRandom[$CellContext`level 
+            10 + $CellContext`num]; $CellContext`nextItem = 
+          RandomInteger[6] + 1; $CellContext`newGame[
+           
+           Hold[$CellContext`n, $CellContext`p, $CellContext`x, \
+$CellContext`y, $CellContext`board, $CellContext`nextItem, \
+$CellContext`gameOver, $CellContext`pause, $CellContext`num]]; EventHandler[
+           Graphics[{
+             Text[
+              Style["Level", Blue, Italic, 24], {18, 12}], 
+             Text[
+              Style["Score", Blue, Italic, 24], {18, 9}], 
+             Table[
+              $CellContext`showSquare[{$CellContext`i + 16, $CellContext`j + 
+                13}, 
+               
+               Part[$CellContext`smallBoard, $CellContext`i, \
+$CellContext`j]], {$CellContext`i, 1, 6}, {$CellContext`j, 1, 6}], 
+             Dynamic[Refresh[
+                Switch[$CellContext`state, 1, $CellContext`newGame[
+                   
+                   Hold[$CellContext`n, $CellContext`p, $CellContext`x, \
+$CellContext`y, $CellContext`board, $CellContext`nextItem, \
+$CellContext`gameOver, $CellContext`pause, $CellContext`num]]; \
+$CellContext`state = 3, 2, $CellContext`pause = True, 3, $CellContext`pause = 
+                 False], UpdateInterval -> Infinity, 
+                TrackedSymbols -> {$CellContext`state}]; Refresh[
+                If[
+                 And[
+                  Not[$CellContext`pause], 
+                  Not[$CellContext`gameOver], 
+                  $CellContext`bDown[$CellContext`n, $CellContext`p, \
+$CellContext`x, $CellContext`y, 
+                   Hold[$CellContext`board]]], 
+                 Decrement[$CellContext`y], 
+                 $CellContext`newBlock[
+                  
+                  Hold[$CellContext`n, $CellContext`p, $CellContext`x, \
+$CellContext`y, $CellContext`board, $CellContext`score, \
+$CellContext`gameOver, $CellContext`nextItem, $CellContext`pause]]], 
+                UpdateInterval -> 3./$CellContext`level, 
+                TrackedSymbols -> {}]; Join[{{
+                  Text[
+                   Style[
+                    ToString[$CellContext`level], Green, Italic, 24], {20, 
+                   11}], 
+                  Text[
+                   Style[
+                    ToString[$CellContext`score], Green, Italic, 24], {20, 
+                   8}]}}, 
+                $CellContext`showBoard[
+                 Hold[$CellContext`board]], 
+                $CellContext`showDropBlock[$CellContext`n, $CellContext`p, \
+$CellContext`x, $CellContext`y], 
+                $CellContext`showHintBlock[$CellContext`nextItem, 2, 17, 14]],
+               TrackedSymbols -> {$CellContext`x, $CellContext`y, \
+$CellContext`n, $CellContext`p, $CellContext`level}]}, Background -> Black, 
+            ImageSize -> {400, 400}], {"LeftArrowKeyDown" :> If[
+              And[
+               Not[$CellContext`pause], 
+               Not[$CellContext`gameOver], 
+               $CellContext`bLeft[$CellContext`n, $CellContext`p, \
+$CellContext`x, $CellContext`y, 
+                Hold[$CellContext`board]]], 
+              Decrement[$CellContext`x]], "RightArrowKeyDown" :> If[
+              And[
+               Not[$CellContext`pause], 
+               Not[$CellContext`gameOver], 
+               $CellContext`bRight[$CellContext`n, $CellContext`p, \
+$CellContext`x, $CellContext`y, 
+                Hold[$CellContext`board]]], 
+              Increment[$CellContext`x]], "DownArrowKeyDown" :> If[
+              And[
+               Not[$CellContext`pause], 
+               Not[$CellContext`gameOver], 
+               $CellContext`bRotateClockwise[$CellContext`n, $CellContext`p, \
+$CellContext`x, $CellContext`y, 
+                Hold[$CellContext`board]]], Increment[$CellContext`p]; 
+              If[$CellContext`p == 5, $CellContext`p = 1]], "UpArrowKeyDown" :> 
+            If[
+              And[
+               Not[$CellContext`pause], 
+               Not[$CellContext`gameOver], 
+               $CellContext`bRotateAnticlock[$CellContext`n, $CellContext`p, \
+$CellContext`x, $CellContext`y, 
+                Hold[$CellContext`board]]], Decrement[$CellContext`p]; 
+              If[$CellContext`p == 0, $CellContext`p = 4]], {"KeyDown", " "} :> 
+            If[
+              And[
+               Not[$CellContext`pause], 
+               Not[$CellContext`gameOver], 
+               $CellContext`bDown[$CellContext`n, $CellContext`p, \
+$CellContext`x, $CellContext`y, 
+                Hold[$CellContext`board]]], 
+              Decrement[$CellContext`y], 
+              $CellContext`newBlock[
+               
+               Hold[$CellContext`n, $CellContext`p, $CellContext`x, \
+$CellContext`y, $CellContext`board, $CellContext`score, \
+$CellContext`gameOver, $CellContext`nextItem, $CellContext`pause]]], 
+            "EscapeKeyDown" :> {
+              $CellContext`newGame[
+               
+               Hold[$CellContext`n, $CellContext`p, $CellContext`x, \
+$CellContext`y, $CellContext`board, $CellContext`nextItem, \
+$CellContext`gameOver, $CellContext`pause, $CellContext`num]]}}]], \
+$CellContext`newGame[
+         Hold[
+          Pattern[$CellContext`n, 
+           Blank[]], 
+          Pattern[$CellContext`p, 
+           Blank[]], 
+          Pattern[$CellContext`x, 
+           Blank[]], 
+          Pattern[$CellContext`y, 
+           Blank[]], 
+          Pattern[$CellContext`board, 
+           Blank[]], 
+          Pattern[$CellContext`nextItem, 
+           Blank[]], 
+          Pattern[$CellContext`gameOver, 
+           Blank[]], 
+          Pattern[$CellContext`pause, 
+           Blank[]], 
+          Pattern[$CellContext`num, 
+           Blank[]]]] := {$CellContext`initBoard[
+           
+           Hold[$CellContext`board, $CellContext`num]]; {$CellContext`n, \
+$CellContext`p, $CellContext`x, $CellContext`y} = {$CellContext`nextItem, 2, 
+            6, 22}; $CellContext`nextItem = 
+          RandomInteger[6] + 1; $CellContext`gameOver = 
+          False; $CellContext`pause = False}, $CellContext`initBoard[
+         Hold[
+          Pattern[$CellContext`board, 
+           Blank[]], 
+          Pattern[$CellContext`num, 
+           Blank[]]]] := {$CellContext`board = Table[
+           If[
+            
+            Or[$CellContext`i <= 3, $CellContext`j <= 3, $CellContext`i >= 
+             14, $CellContext`j >= 24], 9, 0], {$CellContext`i, 1, 
+            16}, {$CellContext`j, 1, 28}], 
+         Table[Part[$CellContext`board, $CellContext`i, 24] = 0; 
+           Part[$CellContext`board, $CellContext`i, 25] = 0; 
+           Part[$CellContext`board, $CellContext`i, 26] = 0, {$CellContext`i, 
+            7, 10}]; Table[
+          Part[$CellContext`board, $CellContext`i, 25] = 
+           0, {$CellContext`i, 1, 16}]; Part[$CellContext`board, 6, 25] = 9, 
+         Part[$CellContext`board, 11, 25] = 9, 
+         Table[
+          If[
+          Mod[$CellContext`j + $CellContext`i, 2] == 0, 
+           Part[$CellContext`board, $CellContext`j, $CellContext`i + 3] = 
+           9], {$CellContext`i, 1, $CellContext`num}, {$CellContext`j, 4, 
+           13}]}, $CellContext`showSquare[{
+          Pattern[$CellContext`i, 
+           Blank[]], 
+          Pattern[$CellContext`j, 
+           Blank[]]}, 
+         Pattern[$CellContext`v, 
+          Blank[]]] := {
+         $CellContext`color[$CellContext`v], 
+         Rectangle[{$CellContext`i + 0.05, $CellContext`j + 
+           0.05}, {$CellContext`i + 0.95, $CellContext`j + 
+           0.95}]}, $CellContext`color[
+         Pattern[$CellContext`v, 
+          Blank[]]] := 
+       Switch[$CellContext`v, 0, Black, 1, Yellow, 2, Blue, 3, Magenta, 4, 
+         Cyan, 5, Red, 6, Orange, 7, Green, 9, Gray, 
+         Blank[], Gray], $CellContext`smallBoard = {{9, 9, 9, 9, 9, 9}, {9, 0,
+         0, 0, 0, 9}, {9, 0, 0, 0, 0, 9}, {9, 0, 0, 0, 0, 9}, {9, 0, 0, 0, 0, 
+        9}, {9, 9, 9, 9, 9, 9}}, $CellContext`bDown[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`p, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]], 
+         Pattern[$CellContext`y, 
+          Blank[]], 
+         Hold[
+          Pattern[$CellContext`board, 
+           
+           Blank[]]]] := $CellContext`bMoveTo[$CellContext`n, $CellContext`p, \
+$CellContext`x, $CellContext`y - 1, 
+         Hold[$CellContext`board]], $CellContext`bMoveTo[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`p, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]], 
+         Pattern[$CellContext`y, 
+          Blank[]], 
+         Hold[
+          Pattern[$CellContext`board, 
+           Blank[]]]] := Total[
+          Table[
+          Part[$CellContext`allBlocks, $CellContext`n, $CellContext`p, \
+$CellContext`i, $CellContext`j] 
+           Part[$CellContext`board, $CellContext`i + $CellContext`x, \
+$CellContext`j + $CellContext`y], {$CellContext`i, 1, 4}, {$CellContext`j, 1, 
+            4}], 2] == 0, $CellContext`allBlocks = CompressedData["
+1:eJydS9sNwCAIRECZoyt1BBfo/n+VgkL6UZNeOLwHHv06OwOADHJiURbdDtXF
+ixWlwOX6gmMQ41il+hxlj1ZHT0BEcUyTkWlPS6ebCWbjT18HoqwvfvetjedZ
+E828R7seRHQCYpmJfX8DUB0Dfg==
+        "], $CellContext`newBlock[
+         Hold[
+          Pattern[$CellContext`n, 
+           Blank[]], 
+          Pattern[$CellContext`p, 
+           Blank[]], 
+          Pattern[$CellContext`x, 
+           Blank[]], 
+          Pattern[$CellContext`y, 
+           Blank[]], 
+          Pattern[$CellContext`board, 
+           Blank[]], 
+          Pattern[$CellContext`score, 
+           Blank[]], 
+          Pattern[$CellContext`gameOver, 
+           Blank[]], 
+          Pattern[$CellContext`nextItem, 
+           Blank[]], 
+          Pattern[$CellContext`pause, 
+           Blank[]]]] := {
+         If[
+          And[
+           Not[$CellContext`pause], 
+           
+           Not[$CellContext`gameOver]], \
+$CellContext`updateBoard[$CellContext`n, $CellContext`p, $CellContext`x, \
+$CellContext`y, 
+            
+            Hold[$CellContext`board, $CellContext`score]]; \
+$CellContext`gameOver = $CellContext`bGameOver[$CellContext`nextItem, 2, 
+             Hold[$CellContext`board]]; 
+          If[$CellContext`gameOver == 
+            False, {$CellContext`n, $CellContext`p, $CellContext`x, \
+$CellContext`y} = {$CellContext`nextItem, 2, 6, 22}; $CellContext`nextItem = 
+             RandomInteger[6] + 1]]}, $CellContext`updateBoard[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`p, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]], 
+         Pattern[$CellContext`y, 
+          Blank[]], 
+         Hold[
+          Pattern[$CellContext`board, 
+           Blank[]], 
+          Pattern[$CellContext`score, 
+           Blank[]]]] := {Table[
+           AddTo[
+            
+            Part[$CellContext`board, $CellContext`i + $CellContext`x, \
+$CellContext`j + $CellContext`y], 
+            
+            Part[$CellContext`allBlocks, $CellContext`n, $CellContext`p, \
+$CellContext`i, $CellContext`j]], {$CellContext`i, 1, 4}, {$CellContext`j, 1, 
+            4}]; AddTo[$CellContext`score, 10 + 100 (2^Sum[
+                $CellContext`updateLine[$CellContext`i, 
+                 Hold[$CellContext`board]], {$CellContext`i, $CellContext`y + 
+                 4, $CellContext`y + 1, -1}] - 1)]}, $CellContext`updateLine[
+         Pattern[$CellContext`line, 
+          Blank[]], 
+         Hold[
+          Pattern[$CellContext`board, 
+           Blank[]]]] := If[
+         And[$CellContext`line <= 23, $CellContext`line >= 4, Apply[And, 
+            Table[
+            Part[$CellContext`board, $CellContext`i, $CellContext`line] != 
+             0, {$CellContext`i, 4, 13}]] == True], 
+         Table[Part[$CellContext`board, $CellContext`i, $CellContext`j] = 
+           Part[$CellContext`board, $CellContext`i, $CellContext`j + 
+             1], {$CellContext`i, 4, 13}, {$CellContext`j, $CellContext`line, 
+            22}]; Table[
+          Part[$CellContext`board, $CellContext`i, 23] = 
+           0, {$CellContext`i, 4, 13}]; 1, 0], $CellContext`bGameOver[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`p, 
+          Blank[]], 
+         Hold[
+          Pattern[$CellContext`board, 
+           Blank[]]]] := Not[
+         $CellContext`bMoveTo[$CellContext`n, $CellContext`p, 6, 22, 
+          Hold[$CellContext`board]]], $CellContext`showBoard[
+         Hold[
+          Pattern[$CellContext`board, 
+           Blank[]]]] := Table[
+         $CellContext`showSquare[{$CellContext`i, $CellContext`j}, 
+          
+          Part[$CellContext`board, $CellContext`i, $CellContext`j]], \
+{$CellContext`i, 3, 14}, {$CellContext`j, 3, 25}], $CellContext`showDropBlock[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`p, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]], 
+         Pattern[$CellContext`y, 
+          Blank[]]] := Table[
+         If[
+         Part[$CellContext`allBlocks, $CellContext`n, $CellContext`p, \
+$CellContext`i, $CellContext`j] != 0, 
+          $CellContext`showSquare[{$CellContext`i + $CellContext`x, \
+$CellContext`j + $CellContext`y}, 
+           
+           Part[$CellContext`allBlocks, $CellContext`n, $CellContext`p, \
+$CellContext`i, $CellContext`j]], Black], {$CellContext`i, 1, 
+          4}, {$CellContext`j, 1, 4}], $CellContext`showHintBlock[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`p, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]], 
+         Pattern[$CellContext`y, 
+          Blank[]]] := Table[
+         $CellContext`showSquare[{$CellContext`i + $CellContext`x, \
+$CellContext`j + $CellContext`y}, 
+          
+          Part[$CellContext`allBlocks, $CellContext`n, $CellContext`p, \
+$CellContext`i, $CellContext`j]], {$CellContext`i, 1, 4}, {$CellContext`j, 1, 
+          4}], $CellContext`bLeft[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`p, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]], 
+         Pattern[$CellContext`y, 
+          Blank[]], 
+         Hold[
+          Pattern[$CellContext`board, 
+           
+           Blank[]]]] := $CellContext`bMoveTo[$CellContext`n, $CellContext`p, \
+$CellContext`x - 1, $CellContext`y, 
+         Hold[$CellContext`board]], $CellContext`bRight[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`p, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]], 
+         Pattern[$CellContext`y, 
+          Blank[]], 
+         Hold[
+          Pattern[$CellContext`board, 
+           
+           Blank[]]]] := $CellContext`bMoveTo[$CellContext`n, $CellContext`p, \
+$CellContext`x + 1, $CellContext`y, 
+         Hold[$CellContext`board]], $CellContext`bRotateClockwise[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`p, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]], 
+         Pattern[$CellContext`y, 
+          Blank[]], 
+         Hold[
+          Pattern[$CellContext`board, 
+           Blank[]]]] := 
+       Module[{$CellContext`tp}, $CellContext`tp = $CellContext`p + 1; 
+         If[$CellContext`tp == 5, $CellContext`tp = 
+           1]; $CellContext`bMoveTo[$CellContext`n, $CellContext`tp, \
+$CellContext`x, $CellContext`y, 
+           Hold[$CellContext`board]]], $CellContext`bRotateAnticlock[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`p, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]], 
+         Pattern[$CellContext`y, 
+          Blank[]], 
+         Hold[
+          Pattern[$CellContext`board, 
+           Blank[]]]] := 
+       Module[{$CellContext`tp}, $CellContext`tp = $CellContext`p - 1; 
+         If[$CellContext`tp == 0, $CellContext`tp = 
+           4]; $CellContext`bMoveTo[$CellContext`n, $CellContext`tp, \
+$CellContext`x, $CellContext`y, 
+           Hold[$CellContext`board]]]}; Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->290403707],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`initLine$$ = 5, $CellContext`level$$ = 
+    9, $CellContext`state$$ = 3, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`level$$], 9}, 1, 9, 1}, {{
+       Hold[$CellContext`initLine$$], 5, "height of bottom level"}, 0, 9, 
+      1}, {{
+       Hold[$CellContext`state$$], 3, ""}, {
+      1 -> "new game", 2 -> "pause", 3 -> "continue"}}}, Typeset`size$$ = 
+    Automatic, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = False, $CellContext`level$3358$$ = 
+    0, $CellContext`initLine$3359$$ = 0, $CellContext`state$3360$$ = False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`initLine$$ = 5, $CellContext`level$$ = 
+        9, $CellContext`state$$ = 3}, "ControllerVariables" :> {
+        Hold[$CellContext`level$$, $CellContext`level$3358$$, 0], 
+        Hold[$CellContext`initLine$$, $CellContext`initLine$3359$$, 0], 
+        Hold[$CellContext`state$$, $CellContext`state$3360$$, False]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> $CellContext`shapeDescend[
+        Hold[$CellContext`level$$, $CellContext`state$$, \
+$CellContext`initLine$$]], 
+      "Specifications" :> {{{$CellContext`level$$, 9}, 1, 9, 
+         1}, {{$CellContext`initLine$$, 5, "height of bottom level"}, 0, 9, 
+         1}, {{$CellContext`state$$, 3, ""}, {
+         1 -> "new game", 2 -> "pause", 3 -> "continue"}}}, 
+      "Options" :> {
+       ContentSize -> {480, 450}, SynchronousUpdating -> False, Alignment -> 
+        Center, TrackedSymbols -> {}}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`shapeDescend[
+         Hold[
+          Pattern[$CellContext`level, 
+           Blank[]], 
+          Pattern[$CellContext`state, 
+           Blank[]], 
+          Pattern[$CellContext`num, 
+           Blank[]]]] := 
+       DynamicModule[{$CellContext`score = 0, $CellContext`gameOver = 
+          False, $CellContext`pause = False, $CellContext`board = Table[
+            If[
+             
+             Or[$CellContext`i <= 3, $CellContext`j <= 3, $CellContext`i >= 
+              14, $CellContext`j >= 24], 0, 0], {$CellContext`i, 1, 
+             16}, {$CellContext`j, 1, 
+             28}], $CellContext`n, $CellContext`p, $CellContext`x, \
+$CellContext`y, $CellContext`nextItem}, 
+         SeedRandom[$CellContext`level 
+            10 + $CellContext`num]; $CellContext`nextItem = 
+          RandomInteger[6] + 1; $CellContext`newGame[
+           
+           Hold[$CellContext`n, $CellContext`p, $CellContext`x, \
+$CellContext`y, $CellContext`board, $CellContext`nextItem, \
+$CellContext`gameOver, $CellContext`pause, $CellContext`num]]; EventHandler[
+           Graphics[{
+             Text[
+              Style["Level", Blue, Italic, 24], {18, 12}], 
+             Text[
+              Style["Score", Blue, Italic, 24], {18, 9}], 
+             Table[
+              $CellContext`showSquare[{$CellContext`i + 16, $CellContext`j + 
+                13}, 
+               
+               Part[$CellContext`smallBoard, $CellContext`i, \
+$CellContext`j]], {$CellContext`i, 1, 6}, {$CellContext`j, 1, 6}], 
+             Dynamic[Refresh[
+                Switch[$CellContext`state, 1, $CellContext`newGame[
+                   
+                   Hold[$CellContext`n, $CellContext`p, $CellContext`x, \
+$CellContext`y, $CellContext`board, $CellContext`nextItem, \
+$CellContext`gameOver, $CellContext`pause, $CellContext`num]]; \
+$CellContext`state = 3, 2, $CellContext`pause = True, 3, $CellContext`pause = 
+                 False], UpdateInterval -> Infinity, 
+                TrackedSymbols -> {$CellContext`state}]; Refresh[
+                If[
+                 And[
+                  Not[$CellContext`pause], 
+                  Not[$CellContext`gameOver], 
+                  $CellContext`bDown[$CellContext`n, $CellContext`p, \
+$CellContext`x, $CellContext`y, 
+                   Hold[$CellContext`board]]], 
+                 Decrement[$CellContext`y], 
+                 $CellContext`newBlock[
+                  
+                  Hold[$CellContext`n, $CellContext`p, $CellContext`x, \
+$CellContext`y, $CellContext`board, $CellContext`score, \
+$CellContext`gameOver, $CellContext`nextItem, $CellContext`pause]]], 
+                UpdateInterval -> 3./$CellContext`level, 
+                TrackedSymbols -> {}]; Join[{{
+                  Text[
+                   Style[
+                    ToString[$CellContext`level], Green, Italic, 24], {20, 
+                   11}], 
+                  Text[
+                   Style[
+                    ToString[$CellContext`score], Green, Italic, 24], {20, 
+                   8}]}}, 
+                $CellContext`showBoard[
+                 Hold[$CellContext`board]], 
+                $CellContext`showDropBlock[$CellContext`n, $CellContext`p, \
+$CellContext`x, $CellContext`y], 
+                $CellContext`showHintBlock[$CellContext`nextItem, 2, 17, 14]],
+               TrackedSymbols -> {$CellContext`x, $CellContext`y, \
+$CellContext`n, $CellContext`p, $CellContext`level}]}, Background -> Black, 
+            ImageSize -> {400, 400}], {"LeftArrowKeyDown" :> If[
+              And[
+               Not[$CellContext`pause], 
+               Not[$CellContext`gameOver], 
+               $CellContext`bLeft[$CellContext`n, $CellContext`p, \
+$CellContext`x, $CellContext`y, 
+                Hold[$CellContext`board]]], 
+              Decrement[$CellContext`x]], "RightArrowKeyDown" :> If[
+              And[
+               Not[$CellContext`pause], 
+               Not[$CellContext`gameOver], 
+               $CellContext`bRight[$CellContext`n, $CellContext`p, \
+$CellContext`x, $CellContext`y, 
+                Hold[$CellContext`board]]], 
+              Increment[$CellContext`x]], "DownArrowKeyDown" :> If[
+              And[
+               Not[$CellContext`pause], 
+               Not[$CellContext`gameOver], 
+               $CellContext`bRotateClockwise[$CellContext`n, $CellContext`p, \
+$CellContext`x, $CellContext`y, 
+                Hold[$CellContext`board]]], Increment[$CellContext`p]; 
+              If[$CellContext`p == 5, $CellContext`p = 1]], "UpArrowKeyDown" :> 
+            If[
+              And[
+               Not[$CellContext`pause], 
+               Not[$CellContext`gameOver], 
+               $CellContext`bRotateAnticlock[$CellContext`n, $CellContext`p, \
+$CellContext`x, $CellContext`y, 
+                Hold[$CellContext`board]]], Decrement[$CellContext`p]; 
+              If[$CellContext`p == 0, $CellContext`p = 4]], {"KeyDown", " "} :> 
+            If[
+              And[
+               Not[$CellContext`pause], 
+               Not[$CellContext`gameOver], 
+               $CellContext`bDown[$CellContext`n, $CellContext`p, \
+$CellContext`x, $CellContext`y, 
+                Hold[$CellContext`board]]], 
+              Decrement[$CellContext`y], 
+              $CellContext`newBlock[
+               
+               Hold[$CellContext`n, $CellContext`p, $CellContext`x, \
+$CellContext`y, $CellContext`board, $CellContext`score, \
+$CellContext`gameOver, $CellContext`nextItem, $CellContext`pause]]], 
+            "EscapeKeyDown" :> {
+              $CellContext`newGame[
+               
+               Hold[$CellContext`n, $CellContext`p, $CellContext`x, \
+$CellContext`y, $CellContext`board, $CellContext`nextItem, \
+$CellContext`gameOver, $CellContext`pause, $CellContext`num]]}}]], \
+$CellContext`newGame[
+         Hold[
+          Pattern[$CellContext`n, 
+           Blank[]], 
+          Pattern[$CellContext`p, 
+           Blank[]], 
+          Pattern[$CellContext`x, 
+           Blank[]], 
+          Pattern[$CellContext`y, 
+           Blank[]], 
+          Pattern[$CellContext`board, 
+           Blank[]], 
+          Pattern[$CellContext`nextItem, 
+           Blank[]], 
+          Pattern[$CellContext`gameOver, 
+           Blank[]], 
+          Pattern[$CellContext`pause, 
+           Blank[]], 
+          Pattern[$CellContext`num, 
+           Blank[]]]] := {$CellContext`initBoard[
+           
+           Hold[$CellContext`board, $CellContext`num]]; {$CellContext`n, \
+$CellContext`p, $CellContext`x, $CellContext`y} = {$CellContext`nextItem, 2, 
+            6, 22}; $CellContext`nextItem = 
+          RandomInteger[6] + 1; $CellContext`gameOver = 
+          False; $CellContext`pause = False}, $CellContext`initBoard[
+         Hold[
+          Pattern[$CellContext`board, 
+           Blank[]], 
+          Pattern[$CellContext`num, 
+           Blank[]]]] := {$CellContext`board = Table[
+           If[
+            
+            Or[$CellContext`i <= 3, $CellContext`j <= 3, $CellContext`i >= 
+             14, $CellContext`j >= 24], 9, 0], {$CellContext`i, 1, 
+            16}, {$CellContext`j, 1, 28}], 
+         Table[Part[$CellContext`board, $CellContext`i, 24] = 0; 
+           Part[$CellContext`board, $CellContext`i, 25] = 0; 
+           Part[$CellContext`board, $CellContext`i, 26] = 0, {$CellContext`i, 
+            7, 10}]; Table[
+          Part[$CellContext`board, $CellContext`i, 25] = 
+           0, {$CellContext`i, 1, 16}]; Part[$CellContext`board, 6, 25] = 9, 
+         Part[$CellContext`board, 11, 25] = 9, 
+         Table[
+          If[
+          Mod[$CellContext`j + $CellContext`i, 2] == 0, 
+           Part[$CellContext`board, $CellContext`j, $CellContext`i + 3] = 
+           9], {$CellContext`i, 1, $CellContext`num}, {$CellContext`j, 4, 
+           13}]}, $CellContext`showSquare[{
+          Pattern[$CellContext`i, 
+           Blank[]], 
+          Pattern[$CellContext`j, 
+           Blank[]]}, 
+         Pattern[$CellContext`v, 
+          Blank[]]] := {
+         $CellContext`color[$CellContext`v], 
+         Rectangle[{$CellContext`i + 0.05, $CellContext`j + 
+           0.05}, {$CellContext`i + 0.95, $CellContext`j + 
+           0.95}]}, $CellContext`color[
+         Pattern[$CellContext`v, 
+          Blank[]]] := 
+       Switch[$CellContext`v, 0, Black, 1, Yellow, 2, Blue, 3, Magenta, 4, 
+         Cyan, 5, Red, 6, Orange, 7, Green, 9, Gray, 
+         Blank[], Gray], $CellContext`smallBoard = {{9, 9, 9, 9, 9, 9}, {9, 0,
+         0, 0, 0, 9}, {9, 0, 0, 0, 0, 9}, {9, 0, 0, 0, 0, 9}, {9, 0, 0, 0, 0, 
+        9}, {9, 9, 9, 9, 9, 9}}, $CellContext`bDown[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`p, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]], 
+         Pattern[$CellContext`y, 
+          Blank[]], 
+         Hold[
+          Pattern[$CellContext`board, 
+           
+           Blank[]]]] := $CellContext`bMoveTo[$CellContext`n, $CellContext`p, \
+$CellContext`x, $CellContext`y - 1, 
+         Hold[$CellContext`board]], $CellContext`bMoveTo[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`p, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]], 
+         Pattern[$CellContext`y, 
+          Blank[]], 
+         Hold[
+          Pattern[$CellContext`board, 
+           Blank[]]]] := Total[
+          Table[
+          Part[$CellContext`allBlocks, $CellContext`n, $CellContext`p, \
+$CellContext`i, $CellContext`j] 
+           Part[$CellContext`board, $CellContext`i + $CellContext`x, \
+$CellContext`j + $CellContext`y], {$CellContext`i, 1, 4}, {$CellContext`j, 1, 
+            4}], 2] == 0, $CellContext`allBlocks = CompressedData["
+1:eJydS9sNwCAIRECZoyt1BBfo/n+VgkL6UZNeOLwHHv06OwOADHJiURbdDtXF
+ixWlwOX6gmMQ41il+hxlj1ZHT0BEcUyTkWlPS6ebCWbjT18HoqwvfvetjedZ
+E828R7seRHQCYpmJfX8DUB0Dfg==
+        "], $CellContext`newBlock[
+         Hold[
+          Pattern[$CellContext`n, 
+           Blank[]], 
+          Pattern[$CellContext`p, 
+           Blank[]], 
+          Pattern[$CellContext`x, 
+           Blank[]], 
+          Pattern[$CellContext`y, 
+           Blank[]], 
+          Pattern[$CellContext`board, 
+           Blank[]], 
+          Pattern[$CellContext`score, 
+           Blank[]], 
+          Pattern[$CellContext`gameOver, 
+           Blank[]], 
+          Pattern[$CellContext`nextItem, 
+           Blank[]], 
+          Pattern[$CellContext`pause, 
+           Blank[]]]] := {
+         If[
+          And[
+           Not[$CellContext`pause], 
+           
+           Not[$CellContext`gameOver]], \
+$CellContext`updateBoard[$CellContext`n, $CellContext`p, $CellContext`x, \
+$CellContext`y, 
+            
+            Hold[$CellContext`board, $CellContext`score]]; \
+$CellContext`gameOver = $CellContext`bGameOver[$CellContext`nextItem, 2, 
+             Hold[$CellContext`board]]; 
+          If[$CellContext`gameOver == 
+            False, {$CellContext`n, $CellContext`p, $CellContext`x, \
+$CellContext`y} = {$CellContext`nextItem, 2, 6, 22}; $CellContext`nextItem = 
+             RandomInteger[6] + 1]]}, $CellContext`updateBoard[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`p, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]], 
+         Pattern[$CellContext`y, 
+          Blank[]], 
+         Hold[
+          Pattern[$CellContext`board, 
+           Blank[]], 
+          Pattern[$CellContext`score, 
+           Blank[]]]] := {Table[
+           AddTo[
+            
+            Part[$CellContext`board, $CellContext`i + $CellContext`x, \
+$CellContext`j + $CellContext`y], 
+            
+            Part[$CellContext`allBlocks, $CellContext`n, $CellContext`p, \
+$CellContext`i, $CellContext`j]], {$CellContext`i, 1, 4}, {$CellContext`j, 1, 
+            4}]; AddTo[$CellContext`score, 10 + 100 (2^Sum[
+                $CellContext`updateLine[$CellContext`i, 
+                 Hold[$CellContext`board]], {$CellContext`i, $CellContext`y + 
+                 4, $CellContext`y + 1, -1}] - 1)]}, $CellContext`updateLine[
+         Pattern[$CellContext`line, 
+          Blank[]], 
+         Hold[
+          Pattern[$CellContext`board, 
+           Blank[]]]] := If[
+         And[$CellContext`line <= 23, $CellContext`line >= 4, Apply[And, 
+            Table[
+            Part[$CellContext`board, $CellContext`i, $CellContext`line] != 
+             0, {$CellContext`i, 4, 13}]] == True], 
+         Table[Part[$CellContext`board, $CellContext`i, $CellContext`j] = 
+           Part[$CellContext`board, $CellContext`i, $CellContext`j + 
+             1], {$CellContext`i, 4, 13}, {$CellContext`j, $CellContext`line, 
+            22}]; Table[
+          Part[$CellContext`board, $CellContext`i, 23] = 
+           0, {$CellContext`i, 4, 13}]; 1, 0], $CellContext`bGameOver[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`p, 
+          Blank[]], 
+         Hold[
+          Pattern[$CellContext`board, 
+           Blank[]]]] := Not[
+         $CellContext`bMoveTo[$CellContext`n, $CellContext`p, 6, 22, 
+          Hold[$CellContext`board]]], $CellContext`showBoard[
+         Hold[
+          Pattern[$CellContext`board, 
+           Blank[]]]] := Table[
+         $CellContext`showSquare[{$CellContext`i, $CellContext`j}, 
+          
+          Part[$CellContext`board, $CellContext`i, $CellContext`j]], \
+{$CellContext`i, 3, 14}, {$CellContext`j, 3, 25}], $CellContext`showDropBlock[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`p, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]], 
+         Pattern[$CellContext`y, 
+          Blank[]]] := Table[
+         If[
+         Part[$CellContext`allBlocks, $CellContext`n, $CellContext`p, \
+$CellContext`i, $CellContext`j] != 0, 
+          $CellContext`showSquare[{$CellContext`i + $CellContext`x, \
+$CellContext`j + $CellContext`y}, 
+           
+           Part[$CellContext`allBlocks, $CellContext`n, $CellContext`p, \
+$CellContext`i, $CellContext`j]], Black], {$CellContext`i, 1, 
+          4}, {$CellContext`j, 1, 4}], $CellContext`showHintBlock[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`p, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]], 
+         Pattern[$CellContext`y, 
+          Blank[]]] := Table[
+         $CellContext`showSquare[{$CellContext`i + $CellContext`x, \
+$CellContext`j + $CellContext`y}, 
+          
+          Part[$CellContext`allBlocks, $CellContext`n, $CellContext`p, \
+$CellContext`i, $CellContext`j]], {$CellContext`i, 1, 4}, {$CellContext`j, 1, 
+          4}], $CellContext`bLeft[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`p, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]], 
+         Pattern[$CellContext`y, 
+          Blank[]], 
+         Hold[
+          Pattern[$CellContext`board, 
+           
+           Blank[]]]] := $CellContext`bMoveTo[$CellContext`n, $CellContext`p, \
+$CellContext`x - 1, $CellContext`y, 
+         Hold[$CellContext`board]], $CellContext`bRight[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`p, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]], 
+         Pattern[$CellContext`y, 
+          Blank[]], 
+         Hold[
+          Pattern[$CellContext`board, 
+           
+           Blank[]]]] := $CellContext`bMoveTo[$CellContext`n, $CellContext`p, \
+$CellContext`x + 1, $CellContext`y, 
+         Hold[$CellContext`board]], $CellContext`bRotateClockwise[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`p, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]], 
+         Pattern[$CellContext`y, 
+          Blank[]], 
+         Hold[
+          Pattern[$CellContext`board, 
+           Blank[]]]] := 
+       Module[{$CellContext`tp}, $CellContext`tp = $CellContext`p + 1; 
+         If[$CellContext`tp == 5, $CellContext`tp = 
+           1]; $CellContext`bMoveTo[$CellContext`n, $CellContext`tp, \
+$CellContext`x, $CellContext`y, 
+           Hold[$CellContext`board]]], $CellContext`bRotateAnticlock[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`p, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]], 
+         Pattern[$CellContext`y, 
+          Blank[]], 
+         Hold[
+          Pattern[$CellContext`board, 
+           Blank[]]]] := 
+       Module[{$CellContext`tp}, $CellContext`tp = $CellContext`p - 1; 
+         If[$CellContext`tp == 0, $CellContext`tp = 
+           4]; $CellContext`bMoveTo[$CellContext`n, $CellContext`tp, \
+$CellContext`x, $CellContext`y, 
+           Hold[$CellContext`board]]]}; Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->991703885],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`initLine$$ = 9, $CellContext`level$$ = 
+    8, $CellContext`state$$ = 3, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`level$$], 8}, 1, 9, 1}, {{
+       Hold[$CellContext`initLine$$], 9, "height of bottom level"}, 0, 9, 
+      1}, {{
+       Hold[$CellContext`state$$], 3, ""}, {
+      1 -> "new game", 2 -> "pause", 3 -> "continue"}}}, Typeset`size$$ = 
+    Automatic, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = False, $CellContext`level$3428$$ = 
+    0, $CellContext`initLine$3429$$ = 0, $CellContext`state$3430$$ = False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`initLine$$ = 9, $CellContext`level$$ = 
+        8, $CellContext`state$$ = 3}, "ControllerVariables" :> {
+        Hold[$CellContext`level$$, $CellContext`level$3428$$, 0], 
+        Hold[$CellContext`initLine$$, $CellContext`initLine$3429$$, 0], 
+        Hold[$CellContext`state$$, $CellContext`state$3430$$, False]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> $CellContext`shapeDescend[
+        Hold[$CellContext`level$$, $CellContext`state$$, \
+$CellContext`initLine$$]], 
+      "Specifications" :> {{{$CellContext`level$$, 8}, 1, 9, 
+         1}, {{$CellContext`initLine$$, 9, "height of bottom level"}, 0, 9, 
+         1}, {{$CellContext`state$$, 3, ""}, {
+         1 -> "new game", 2 -> "pause", 3 -> "continue"}}}, 
+      "Options" :> {
+       ContentSize -> {480, 450}, SynchronousUpdating -> False, Alignment -> 
+        Center, TrackedSymbols -> {}}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`shapeDescend[
+         Hold[
+          Pattern[$CellContext`level, 
+           Blank[]], 
+          Pattern[$CellContext`state, 
+           Blank[]], 
+          Pattern[$CellContext`num, 
+           Blank[]]]] := 
+       DynamicModule[{$CellContext`score = 0, $CellContext`gameOver = 
+          False, $CellContext`pause = False, $CellContext`board = Table[
+            If[
+             
+             Or[$CellContext`i <= 3, $CellContext`j <= 3, $CellContext`i >= 
+              14, $CellContext`j >= 24], 0, 0], {$CellContext`i, 1, 
+             16}, {$CellContext`j, 1, 
+             28}], $CellContext`n, $CellContext`p, $CellContext`x, \
+$CellContext`y, $CellContext`nextItem}, 
+         SeedRandom[$CellContext`level 
+            10 + $CellContext`num]; $CellContext`nextItem = 
+          RandomInteger[6] + 1; $CellContext`newGame[
+           
+           Hold[$CellContext`n, $CellContext`p, $CellContext`x, \
+$CellContext`y, $CellContext`board, $CellContext`nextItem, \
+$CellContext`gameOver, $CellContext`pause, $CellContext`num]]; EventHandler[
+           Graphics[{
+             Text[
+              Style["Level", Blue, Italic, 24], {18, 12}], 
+             Text[
+              Style["Score", Blue, Italic, 24], {18, 9}], 
+             Table[
+              $CellContext`showSquare[{$CellContext`i + 16, $CellContext`j + 
+                13}, 
+               
+               Part[$CellContext`smallBoard, $CellContext`i, \
+$CellContext`j]], {$CellContext`i, 1, 6}, {$CellContext`j, 1, 6}], 
+             Dynamic[Refresh[
+                Switch[$CellContext`state, 1, $CellContext`newGame[
+                   
+                   Hold[$CellContext`n, $CellContext`p, $CellContext`x, \
+$CellContext`y, $CellContext`board, $CellContext`nextItem, \
+$CellContext`gameOver, $CellContext`pause, $CellContext`num]]; \
+$CellContext`state = 3, 2, $CellContext`pause = True, 3, $CellContext`pause = 
+                 False], UpdateInterval -> Infinity, 
+                TrackedSymbols -> {$CellContext`state}]; Refresh[
+                If[
+                 And[
+                  Not[$CellContext`pause], 
+                  Not[$CellContext`gameOver], 
+                  $CellContext`bDown[$CellContext`n, $CellContext`p, \
+$CellContext`x, $CellContext`y, 
+                   Hold[$CellContext`board]]], 
+                 Decrement[$CellContext`y], 
+                 $CellContext`newBlock[
+                  
+                  Hold[$CellContext`n, $CellContext`p, $CellContext`x, \
+$CellContext`y, $CellContext`board, $CellContext`score, \
+$CellContext`gameOver, $CellContext`nextItem, $CellContext`pause]]], 
+                UpdateInterval -> 3./$CellContext`level, 
+                TrackedSymbols -> {}]; Join[{{
+                  Text[
+                   Style[
+                    ToString[$CellContext`level], Green, Italic, 24], {20, 
+                   11}], 
+                  Text[
+                   Style[
+                    ToString[$CellContext`score], Green, Italic, 24], {20, 
+                   8}]}}, 
+                $CellContext`showBoard[
+                 Hold[$CellContext`board]], 
+                $CellContext`showDropBlock[$CellContext`n, $CellContext`p, \
+$CellContext`x, $CellContext`y], 
+                $CellContext`showHintBlock[$CellContext`nextItem, 2, 17, 14]],
+               TrackedSymbols -> {$CellContext`x, $CellContext`y, \
+$CellContext`n, $CellContext`p, $CellContext`level}]}, Background -> Black, 
+            ImageSize -> {400, 400}], {"LeftArrowKeyDown" :> If[
+              And[
+               Not[$CellContext`pause], 
+               Not[$CellContext`gameOver], 
+               $CellContext`bLeft[$CellContext`n, $CellContext`p, \
+$CellContext`x, $CellContext`y, 
+                Hold[$CellContext`board]]], 
+              Decrement[$CellContext`x]], "RightArrowKeyDown" :> If[
+              And[
+               Not[$CellContext`pause], 
+               Not[$CellContext`gameOver], 
+               $CellContext`bRight[$CellContext`n, $CellContext`p, \
+$CellContext`x, $CellContext`y, 
+                Hold[$CellContext`board]]], 
+              Increment[$CellContext`x]], "DownArrowKeyDown" :> If[
+              And[
+               Not[$CellContext`pause], 
+               Not[$CellContext`gameOver], 
+               $CellContext`bRotateClockwise[$CellContext`n, $CellContext`p, \
+$CellContext`x, $CellContext`y, 
+                Hold[$CellContext`board]]], Increment[$CellContext`p]; 
+              If[$CellContext`p == 5, $CellContext`p = 1]], "UpArrowKeyDown" :> 
+            If[
+              And[
+               Not[$CellContext`pause], 
+               Not[$CellContext`gameOver], 
+               $CellContext`bRotateAnticlock[$CellContext`n, $CellContext`p, \
+$CellContext`x, $CellContext`y, 
+                Hold[$CellContext`board]]], Decrement[$CellContext`p]; 
+              If[$CellContext`p == 0, $CellContext`p = 4]], {"KeyDown", " "} :> 
+            If[
+              And[
+               Not[$CellContext`pause], 
+               Not[$CellContext`gameOver], 
+               $CellContext`bDown[$CellContext`n, $CellContext`p, \
+$CellContext`x, $CellContext`y, 
+                Hold[$CellContext`board]]], 
+              Decrement[$CellContext`y], 
+              $CellContext`newBlock[
+               
+               Hold[$CellContext`n, $CellContext`p, $CellContext`x, \
+$CellContext`y, $CellContext`board, $CellContext`score, \
+$CellContext`gameOver, $CellContext`nextItem, $CellContext`pause]]], 
+            "EscapeKeyDown" :> {
+              $CellContext`newGame[
+               
+               Hold[$CellContext`n, $CellContext`p, $CellContext`x, \
+$CellContext`y, $CellContext`board, $CellContext`nextItem, \
+$CellContext`gameOver, $CellContext`pause, $CellContext`num]]}}]], \
+$CellContext`newGame[
+         Hold[
+          Pattern[$CellContext`n, 
+           Blank[]], 
+          Pattern[$CellContext`p, 
+           Blank[]], 
+          Pattern[$CellContext`x, 
+           Blank[]], 
+          Pattern[$CellContext`y, 
+           Blank[]], 
+          Pattern[$CellContext`board, 
+           Blank[]], 
+          Pattern[$CellContext`nextItem, 
+           Blank[]], 
+          Pattern[$CellContext`gameOver, 
+           Blank[]], 
+          Pattern[$CellContext`pause, 
+           Blank[]], 
+          Pattern[$CellContext`num, 
+           Blank[]]]] := {$CellContext`initBoard[
+           
+           Hold[$CellContext`board, $CellContext`num]]; {$CellContext`n, \
+$CellContext`p, $CellContext`x, $CellContext`y} = {$CellContext`nextItem, 2, 
+            6, 22}; $CellContext`nextItem = 
+          RandomInteger[6] + 1; $CellContext`gameOver = 
+          False; $CellContext`pause = False}, $CellContext`initBoard[
+         Hold[
+          Pattern[$CellContext`board, 
+           Blank[]], 
+          Pattern[$CellContext`num, 
+           Blank[]]]] := {$CellContext`board = Table[
+           If[
+            
+            Or[$CellContext`i <= 3, $CellContext`j <= 3, $CellContext`i >= 
+             14, $CellContext`j >= 24], 9, 0], {$CellContext`i, 1, 
+            16}, {$CellContext`j, 1, 28}], 
+         Table[Part[$CellContext`board, $CellContext`i, 24] = 0; 
+           Part[$CellContext`board, $CellContext`i, 25] = 0; 
+           Part[$CellContext`board, $CellContext`i, 26] = 0, {$CellContext`i, 
+            7, 10}]; Table[
+          Part[$CellContext`board, $CellContext`i, 25] = 
+           0, {$CellContext`i, 1, 16}]; Part[$CellContext`board, 6, 25] = 9, 
+         Part[$CellContext`board, 11, 25] = 9, 
+         Table[
+          If[
+          Mod[$CellContext`j + $CellContext`i, 2] == 0, 
+           Part[$CellContext`board, $CellContext`j, $CellContext`i + 3] = 
+           9], {$CellContext`i, 1, $CellContext`num}, {$CellContext`j, 4, 
+           13}]}, $CellContext`showSquare[{
+          Pattern[$CellContext`i, 
+           Blank[]], 
+          Pattern[$CellContext`j, 
+           Blank[]]}, 
+         Pattern[$CellContext`v, 
+          Blank[]]] := {
+         $CellContext`color[$CellContext`v], 
+         Rectangle[{$CellContext`i + 0.05, $CellContext`j + 
+           0.05}, {$CellContext`i + 0.95, $CellContext`j + 
+           0.95}]}, $CellContext`color[
+         Pattern[$CellContext`v, 
+          Blank[]]] := 
+       Switch[$CellContext`v, 0, Black, 1, Yellow, 2, Blue, 3, Magenta, 4, 
+         Cyan, 5, Red, 6, Orange, 7, Green, 9, Gray, 
+         Blank[], Gray], $CellContext`smallBoard = {{9, 9, 9, 9, 9, 9}, {9, 0,
+         0, 0, 0, 9}, {9, 0, 0, 0, 0, 9}, {9, 0, 0, 0, 0, 9}, {9, 0, 0, 0, 0, 
+        9}, {9, 9, 9, 9, 9, 9}}, $CellContext`bDown[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`p, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]], 
+         Pattern[$CellContext`y, 
+          Blank[]], 
+         Hold[
+          Pattern[$CellContext`board, 
+           
+           Blank[]]]] := $CellContext`bMoveTo[$CellContext`n, $CellContext`p, \
+$CellContext`x, $CellContext`y - 1, 
+         Hold[$CellContext`board]], $CellContext`bMoveTo[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`p, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]], 
+         Pattern[$CellContext`y, 
+          Blank[]], 
+         Hold[
+          Pattern[$CellContext`board, 
+           Blank[]]]] := Total[
+          Table[
+          Part[$CellContext`allBlocks, $CellContext`n, $CellContext`p, \
+$CellContext`i, $CellContext`j] 
+           Part[$CellContext`board, $CellContext`i + $CellContext`x, \
+$CellContext`j + $CellContext`y], {$CellContext`i, 1, 4}, {$CellContext`j, 1, 
+            4}], 2] == 0, $CellContext`allBlocks = CompressedData["
+1:eJydS9sNwCAIRECZoyt1BBfo/n+VgkL6UZNeOLwHHv06OwOADHJiURbdDtXF
+ixWlwOX6gmMQ41il+hxlj1ZHT0BEcUyTkWlPS6ebCWbjT18HoqwvfvetjedZ
+E828R7seRHQCYpmJfX8DUB0Dfg==
+        "], $CellContext`newBlock[
+         Hold[
+          Pattern[$CellContext`n, 
+           Blank[]], 
+          Pattern[$CellContext`p, 
+           Blank[]], 
+          Pattern[$CellContext`x, 
+           Blank[]], 
+          Pattern[$CellContext`y, 
+           Blank[]], 
+          Pattern[$CellContext`board, 
+           Blank[]], 
+          Pattern[$CellContext`score, 
+           Blank[]], 
+          Pattern[$CellContext`gameOver, 
+           Blank[]], 
+          Pattern[$CellContext`nextItem, 
+           Blank[]], 
+          Pattern[$CellContext`pause, 
+           Blank[]]]] := {
+         If[
+          And[
+           Not[$CellContext`pause], 
+           
+           Not[$CellContext`gameOver]], \
+$CellContext`updateBoard[$CellContext`n, $CellContext`p, $CellContext`x, \
+$CellContext`y, 
+            
+            Hold[$CellContext`board, $CellContext`score]]; \
+$CellContext`gameOver = $CellContext`bGameOver[$CellContext`nextItem, 2, 
+             Hold[$CellContext`board]]; 
+          If[$CellContext`gameOver == 
+            False, {$CellContext`n, $CellContext`p, $CellContext`x, \
+$CellContext`y} = {$CellContext`nextItem, 2, 6, 22}; $CellContext`nextItem = 
+             RandomInteger[6] + 1]]}, $CellContext`updateBoard[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`p, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]], 
+         Pattern[$CellContext`y, 
+          Blank[]], 
+         Hold[
+          Pattern[$CellContext`board, 
+           Blank[]], 
+          Pattern[$CellContext`score, 
+           Blank[]]]] := {Table[
+           AddTo[
+            
+            Part[$CellContext`board, $CellContext`i + $CellContext`x, \
+$CellContext`j + $CellContext`y], 
+            
+            Part[$CellContext`allBlocks, $CellContext`n, $CellContext`p, \
+$CellContext`i, $CellContext`j]], {$CellContext`i, 1, 4}, {$CellContext`j, 1, 
+            4}]; AddTo[$CellContext`score, 10 + 100 (2^Sum[
+                $CellContext`updateLine[$CellContext`i, 
+                 Hold[$CellContext`board]], {$CellContext`i, $CellContext`y + 
+                 4, $CellContext`y + 1, -1}] - 1)]}, $CellContext`updateLine[
+         Pattern[$CellContext`line, 
+          Blank[]], 
+         Hold[
+          Pattern[$CellContext`board, 
+           Blank[]]]] := If[
+         And[$CellContext`line <= 23, $CellContext`line >= 4, Apply[And, 
+            Table[
+            Part[$CellContext`board, $CellContext`i, $CellContext`line] != 
+             0, {$CellContext`i, 4, 13}]] == True], 
+         Table[Part[$CellContext`board, $CellContext`i, $CellContext`j] = 
+           Part[$CellContext`board, $CellContext`i, $CellContext`j + 
+             1], {$CellContext`i, 4, 13}, {$CellContext`j, $CellContext`line, 
+            22}]; Table[
+          Part[$CellContext`board, $CellContext`i, 23] = 
+           0, {$CellContext`i, 4, 13}]; 1, 0], $CellContext`bGameOver[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`p, 
+          Blank[]], 
+         Hold[
+          Pattern[$CellContext`board, 
+           Blank[]]]] := Not[
+         $CellContext`bMoveTo[$CellContext`n, $CellContext`p, 6, 22, 
+          Hold[$CellContext`board]]], $CellContext`showBoard[
+         Hold[
+          Pattern[$CellContext`board, 
+           Blank[]]]] := Table[
+         $CellContext`showSquare[{$CellContext`i, $CellContext`j}, 
+          
+          Part[$CellContext`board, $CellContext`i, $CellContext`j]], \
+{$CellContext`i, 3, 14}, {$CellContext`j, 3, 25}], $CellContext`showDropBlock[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`p, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]], 
+         Pattern[$CellContext`y, 
+          Blank[]]] := Table[
+         If[
+         Part[$CellContext`allBlocks, $CellContext`n, $CellContext`p, \
+$CellContext`i, $CellContext`j] != 0, 
+          $CellContext`showSquare[{$CellContext`i + $CellContext`x, \
+$CellContext`j + $CellContext`y}, 
+           
+           Part[$CellContext`allBlocks, $CellContext`n, $CellContext`p, \
+$CellContext`i, $CellContext`j]], Black], {$CellContext`i, 1, 
+          4}, {$CellContext`j, 1, 4}], $CellContext`showHintBlock[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`p, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]], 
+         Pattern[$CellContext`y, 
+          Blank[]]] := Table[
+         $CellContext`showSquare[{$CellContext`i + $CellContext`x, \
+$CellContext`j + $CellContext`y}, 
+          
+          Part[$CellContext`allBlocks, $CellContext`n, $CellContext`p, \
+$CellContext`i, $CellContext`j]], {$CellContext`i, 1, 4}, {$CellContext`j, 1, 
+          4}], $CellContext`bLeft[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`p, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]], 
+         Pattern[$CellContext`y, 
+          Blank[]], 
+         Hold[
+          Pattern[$CellContext`board, 
+           
+           Blank[]]]] := $CellContext`bMoveTo[$CellContext`n, $CellContext`p, \
+$CellContext`x - 1, $CellContext`y, 
+         Hold[$CellContext`board]], $CellContext`bRight[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`p, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]], 
+         Pattern[$CellContext`y, 
+          Blank[]], 
+         Hold[
+          Pattern[$CellContext`board, 
+           
+           Blank[]]]] := $CellContext`bMoveTo[$CellContext`n, $CellContext`p, \
+$CellContext`x + 1, $CellContext`y, 
+         Hold[$CellContext`board]], $CellContext`bRotateClockwise[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`p, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]], 
+         Pattern[$CellContext`y, 
+          Blank[]], 
+         Hold[
+          Pattern[$CellContext`board, 
+           Blank[]]]] := 
+       Module[{$CellContext`tp}, $CellContext`tp = $CellContext`p + 1; 
+         If[$CellContext`tp == 5, $CellContext`tp = 
+           1]; $CellContext`bMoveTo[$CellContext`n, $CellContext`tp, \
+$CellContext`x, $CellContext`y, 
+           Hold[$CellContext`board]]], $CellContext`bRotateAnticlock[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`p, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]], 
+         Pattern[$CellContext`y, 
+          Blank[]], 
+         Hold[
+          Pattern[$CellContext`board, 
+           Blank[]]]] := 
+       Module[{$CellContext`tp}, $CellContext`tp = $CellContext`p - 1; 
+         If[$CellContext`tp == 0, $CellContext`tp = 
+           4]; $CellContext`bMoveTo[$CellContext`n, $CellContext`tp, \
+$CellContext`x, $CellContext`y, 
+           Hold[$CellContext`board]]]}; Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->457885217]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "DetailsSection"],
+
+Cell["Play with the keyboard keys:", "DetailNotes",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.463518405430481*^9, 3.463518413492981*^9}},
+ CellID->370677422],
+
+Cell["\"Esc\" key starts a new game, ", "DetailNotes",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.4635165223226056`*^9, 3.4635167818062596`*^9}, {
+   3.463516913238112*^9, 3.4635169146599417`*^9}},
+ CellID->492907086],
+
+Cell["\"Left\" arrow key moves the object left, ", "DetailNotes",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.4635165223226056`*^9, 3.4635167879621153`*^9}, {
+   3.4635169222534485`*^9, 3.4635169264408145`*^9}},
+ CellID->407004303],
+
+Cell["\"Right\" arrow key\" moves the object right,", "DetailNotes",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.4635165223226056`*^9, 3.4635168066171713`*^9}, {
+   3.4635169326906147`*^9, 3.463516935112412*^9}, 3.463517332055461*^9},
+ CellID->152465365],
+
+Cell["\"Up\" arrow key rotates the object anti-clockwise ", "DetailNotes",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.4635165223226056`*^9, 3.4635168185226593`*^9}, {
+   3.463516875958055*^9, 3.463516887160822*^9}, {3.4635169393779*^9, 
+   3.4635169513775167`*^9}, 3.463517334242919*^9},
+ CellID->514964617],
+
+Cell["\"Down\" arrow keys rotates the object clockwise", "DetailNotes",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.4635165223226056`*^9, 3.4635168185226593`*^9}, {
+   3.463516875958055*^9, 3.463516899738544*^9}, {3.463516955736752*^9, 
+   3.463516958533538*^9}},
+ CellID->625163518],
+
+Cell["\"Space\" key moves the object down.", "DetailNotes",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.4635165223226056`*^9, 3.4635168185226593`*^9}, {
+   3.463516875958055*^9, 3.463516910363204*^9}, {3.463516963642749*^9, 
+   3.463516963861492*^9}, {3.463517345758323*^9, 3.4635173486176434`*^9}},
+ CellID->505442794],
+
+Cell["\<\
+To play the game, the manipulate box must have the keyboard focus.\
+\>", "DetailNotes",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.463516965705183*^9, 3.463517026703231*^9}, {
+   3.4635175841943846`*^9, 3.463517586022603*^9}, {3.463849603614704*^9, 
+   3.4638496036195865`*^9}},
+ CellID->21095110],
+
+Cell["\<\
+Tetris \[RegisteredTrademark] & \[Copyright] 1985-2009 Tetris Holding, LLC.\
+\>", "DetailNotes",
+ CellChangeTimes->{3.35696210375764*^9, 3.4638496043031363`*^9},
+ CellID->75944242]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "ControlSuggestionsSection"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Resize Images"]}],
+  "\"Click inside an image to reveal its orange resize frame.\\nDrag any of \
+the orange resize handles to resize the image.\"",
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"ResizeImages"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Rotate and Zoom in 3D"]}],
+  RowBox[{
+   "\"Drag a 3D graphic to rotate it. Starting the drag near the center \
+tumbles\\nthe graphic; starting near a corner turns it parallel to the plane \
+of the screen.\\nHold down \"", 
+    FrameBox[
+    "Ctrl", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" (or \"", 
+    FrameBox[
+    "Cmd", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" on Mac) and drag up and down to zoom.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"RotateAndZoomIn3D"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Drag Locators"]}],
+  RowBox[{"\"Drag any locator (\"", 
+    GraphicsBox[
+     LocatorBox[
+      Scaled[{0.5, 0.5}]], ImageSize -> 20], 
+    "\", etc.) to move it around.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"DragLocators"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Create and Delete Locators"]}],
+  RowBox[{"\"Insert a new locator in the graphic by holding down the \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], 
+    "\" key\\nand clicking where you want it to be. Delete a locator by \
+clicking it\\nwhile holding down the \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" key.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"CreateAndDeleteLocators"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Slider Zoom"]}],
+  RowBox[{"\"Hold down the \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], 
+    "\" key while moving a slider to make fine adjustments in the slider \
+value.\\nHold \"", 
+    FrameBox[
+    "Ctrl", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" and/or \"", 
+    FrameBox[
+    "Shift", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" at the same time as \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" to make ever finer adjustments.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"SliderZoom"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Gamepad Controls"]}],
+  "\"Control this Demonstration with a gamepad or other\\nhuman interface \
+device connected to your computer.\"",
+  TooltipDelay->0.35]], "ControlSuggestions",
+ CellChangeTimes->{3.35696210375764*^9, 3.3895522232313623`*^9},
+ FontFamily->"Verdana",
+ CellTags->"GamepadControls"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[True], Cell[" Automatic Animation"]}],
+  RowBox[{"\"Animate a slider in this Demonstration by clicking the\"", 
+    AdjustmentBox[
+     Cell[
+      GraphicsData[
+      "CompressedBitmap", 
+       "eJzzTSzJSM1NLMlMTlRwL0osyMhMLlZwyy8CCjEzMjAwcIKwAgOI/R/IhBKc\n\
+/4EAyGAG0f+nTZsGwgysIJIRKsWKLAXGIHFmEpUgLADxWUAkI24jZs+eTaEt\n\
+IG+wQKRmzJgBlYf5lhEA30OqWA=="], "Graphics", ImageSize -> {9, 9}, ImageMargins -> 
+      0, CellBaseline -> Baseline], BoxBaselineShift -> 0.1839080459770115, 
+     BoxMargins -> {{0., 0.}, {-0.1839080459770115, 0.1839080459770115}}], 
+    "\"button\\nnext to the slider, and then clicking the play button that \
+appears.\\nAnimate all controls by selecting \"", 
+    StyleBox["Autorun", FontWeight -> "Bold"], "\" from the\"", 
+    AdjustmentBox[
+     Cell[
+      GraphicsData[
+      "CompressedBitmap", 
+       "eJyNULENwyAQfEySIlMwTVJlCGRFsosokeNtqBmDBagoaZjAI1C8/8GUUUC6\n\
+57h7cQ8PvU7Pl17nUav7oj/TPH7V7b2QJAUAXBkKmCPRowxICy64bRvGGNF7\n\
+X8CctGoDSN4xhIDGGDhzFXwUh3/ClBKrDQPmnGXtI6u0OOd+tZBVUqy1xSaH\n\
+UqiK6pPe4XdEdAz6563tx/gejuORGMxJaz8mdpJn7hc="], "Graphics", 
+      ImageSize -> {10, 10}, ImageMargins -> 0, CellBaseline -> Baseline], 
+     BoxBaselineShift -> 0.1839080459770115, 
+     BoxMargins -> {{0., 0.}, {-0.1839080459770115, 0.1839080459770115}}], 
+    "\"menu.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ CellChangeTimes->{3.35696210375764*^9, 3.4635170458901167`*^9},
+ FontFamily->"Verdana",
+ CellTags->"AutomaticAnimation"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Bookmark Animation"]}],
+  RowBox[{
+   "\"See a prepared animation of this Demonstration by selecting\\n\"", 
+    StyleBox["Animate Bookmarks", FontWeight -> "Bold"], "\" from the\"", 
+    AdjustmentBox[
+     Cell[
+      GraphicsData[
+      "CompressedBitmap", 
+       "eJyNULENwyAQfEySIlMwTVJlCGRFsosokeNtqBmDBagoaZjAI1C8/8GUUUC6\n\
+57h7cQ8PvU7Pl17nUav7oj/TPH7V7b2QJAUAXBkKmCPRowxICy64bRvGGNF7\n\
+X8CctGoDSN4xhIDGGDhzFXwUh3/ClBKrDQPmnGXtI6u0OOd+tZBVUqy1xSaH\n\
+UqiK6pPe4XdEdAz6563tx/gejuORGMxJaz8mdpJn7hc="], "Graphics", 
+      ImageSize -> {10, 10}, ImageMargins -> 0, CellBaseline -> Baseline], 
+     BoxBaselineShift -> 0.1839080459770115, 
+     BoxMargins -> {{0., 0.}, {-0.1839080459770115, 0.1839080459770115}}], 
+    "\"menu.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"BookmarkAnimation"]
+}, Open  ]],
+
+Cell["", "SearchTermsSection"],
+
+Cell["", "RelatedLinksSection"],
+
+Cell[CellGroupData[{
+
+Cell["", "AuthorSection"],
+
+Cell[TextData[{
+ "Contributed by: ",
+ ButtonBox["Xiangdong Wen",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/author.html?author=Xiangdong+Wen"],
+     None},
+  ButtonNote->
+   "http://demonstrations.wolfram.com/author.html?author=Xiangdong+Wen"]
+}], "Author",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.46351760374226*^9, 3.463517606945549*^9}, {
+   3.463517686676097*^9, 3.463517686676097*^9}}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1364, 906},
+WindowMargins->{{Automatic, 133}, {Automatic, 1}},
+FrontEndVersion->"7.0 for Microsoft Windows (64-bit) (February 18, 2009)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "Demonstration.nb", 
+  CharacterEncoding -> "WindowsANSI"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "ResizeImages"->{
+  Cell[147980, 3551, 312, 8, 22, "ControlSuggestions",
+   CellTags->"ResizeImages"]},
+ "RotateAndZoomIn3D"->{
+  Cell[148295, 3561, 678, 16, 22, "ControlSuggestions",
+   CellTags->"RotateAndZoomIn3D"]},
+ "DragLocators"->{
+  Cell[148976, 3579, 340, 11, 22, "ControlSuggestions",
+   CellTags->"DragLocators"]},
+ "CreateAndDeleteLocators"->{
+  Cell[149319, 3592, 637, 15, 22, "ControlSuggestions",
+   CellTags->"CreateAndDeleteLocators"]},
+ "SliderZoom"->{
+  Cell[149959, 3609, 844, 21, 22, "ControlSuggestions",
+   CellTags->"SliderZoom"]},
+ "GamepadControls"->{
+  Cell[150806, 3632, 369, 9, 22, "ControlSuggestions",
+   CellTags->"GamepadControls"]},
+ "AutomaticAnimation"->{
+  Cell[151178, 3643, 1528, 32, 22, "ControlSuggestions",
+   CellTags->"AutomaticAnimation"]},
+ "BookmarkAnimation"->{
+  Cell[152709, 3677, 908, 21, 22, "ControlSuggestions",
+   CellTags->"BookmarkAnimation"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"ResizeImages", 154592, 3736},
+ {"RotateAndZoomIn3D", 154702, 3739},
+ {"DragLocators", 154813, 3742},
+ {"CreateAndDeleteLocators", 154930, 3745},
+ {"SliderZoom", 155045, 3748},
+ {"GamepadControls", 155152, 3751},
+ {"AutomaticAnimation", 155266, 3754},
+ {"BookmarkAnimation", 155384, 3757}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[567, 22, 152, 3, 74, "DemoTitle"],
+Cell[CellGroupData[{
+Cell[744, 29, 33, 0, 266, "InitializationSection"],
+Cell[780, 31, 45201, 1086, 1248, "Input",
+ InitializationCell->True,
+ CellID->140853134]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[46018, 1122, 29, 0, 188, "ManipulateSection"],
+Cell[CellGroupData[{
+Cell[46072, 1126, 3194, 62, 128, "Input",
+ CellID->1055884519],
+Cell[49269, 1190, 19194, 452, 583, "Output",
+ CellID->153250097]
+}, {2}]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[68509, 1648, 36, 0, 166, "ManipulateCaptionSection"],
+Cell[68548, 1650, 279, 8, 22, "ManipulateCaption"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[68864, 1663, 28, 0, 168, "ThumbnailSection"],
+Cell[68895, 1665, 19138, 451, 37, "Output",
+ CellID->2590956]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[88070, 2121, 28, 0, 138, "SnapshotsSection"],
+Cell[88101, 2123, 19140, 451, 37, "Output",
+ CellID->290403707],
+Cell[107244, 2576, 19140, 451, 37, "Output",
+ CellID->991703885],
+Cell[126387, 3029, 19140, 451, 37, "Output",
+ CellID->457885217]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[145564, 3485, 26, 0, 332, "DetailsSection"],
+Cell[145593, 3487, 161, 3, 22, "DetailNotes",
+ CellID->370677422],
+Cell[145757, 3492, 220, 4, 22, "DetailNotes",
+ CellID->492907086],
+Cell[145980, 3498, 233, 4, 22, "DetailNotes",
+ CellID->407004303],
+Cell[146216, 3504, 256, 4, 22, "DetailNotes",
+ CellID->152465365],
+Cell[146475, 3510, 310, 5, 22, "DetailNotes",
+ CellID->514964617],
+Cell[146788, 3517, 285, 5, 22, "DetailNotes",
+ CellID->625163518],
+Cell[147076, 3524, 321, 5, 22, "DetailNotes",
+ CellID->505442794],
+Cell[147400, 3531, 310, 7, 22, "DetailNotes",
+ CellID->21095110],
+Cell[147713, 3540, 190, 4, 22, "DetailNotes",
+ CellID->75944242]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[147940, 3549, 37, 0, 120, "ControlSuggestionsSection"],
+Cell[147980, 3551, 312, 8, 22, "ControlSuggestions",
+ CellTags->"ResizeImages"],
+Cell[148295, 3561, 678, 16, 22, "ControlSuggestions",
+ CellTags->"RotateAndZoomIn3D"],
+Cell[148976, 3579, 340, 11, 22, "ControlSuggestions",
+ CellTags->"DragLocators"],
+Cell[149319, 3592, 637, 15, 22, "ControlSuggestions",
+ CellTags->"CreateAndDeleteLocators"],
+Cell[149959, 3609, 844, 21, 22, "ControlSuggestions",
+ CellTags->"SliderZoom"],
+Cell[150806, 3632, 369, 9, 22, "ControlSuggestions",
+ CellTags->"GamepadControls"],
+Cell[151178, 3643, 1528, 32, 22, "ControlSuggestions",
+ CellTags->"AutomaticAnimation"],
+Cell[152709, 3677, 908, 21, 22, "ControlSuggestions",
+ CellTags->"BookmarkAnimation"]
+}, Open  ]],
+Cell[153632, 3701, 30, 0, 152, "SearchTermsSection"],
+Cell[153665, 3703, 31, 0, 126, "RelatedLinksSection"],
+Cell[CellGroupData[{
+Cell[153721, 3707, 25, 0, 124, "AuthorSection"],
+Cell[153749, 3709, 438, 12, 22, "Author"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

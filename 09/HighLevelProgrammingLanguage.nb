@@ -1,0 +1,301 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     10521,        293]
+NotebookOptionsPosition[      9335,        245]
+NotebookOutlinePosition[      9694,        261]
+CellTagsIndexPosition[      9651,        258]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["High Level Language", "Title",
+ CellChangeTimes->{{3.6883469216929617`*^9, 3.688346944058173*^9}}],
+
+Cell["\<\
+High level programming languages, such as C, Java, Ruby, Python, and \
+Mathematica, are designed for manipulating abstract data types, and create \
+concrete computational results that is easy for human consumption. Since this \
+note is designed to work with the Nand2X course, we will talk about building \
+an application using high level language features.\
+\>", "Text",
+ CellChangeTimes->{{3.688346970069496*^9, 3.688347050146963*^9}, {
+  3.6883471415210733`*^9, 3.688347147088681*^9}, {3.6883485784324217`*^9, 
+  3.688348610124893*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Tools Involved", "Chapter",
+ CellChangeTimes->{{3.688347059932019*^9, 3.688347063138171*^9}}],
+
+Cell["\<\
+This chapter, we will look at a few examples of using Mathematica\
+\[CloseCurlyQuote]s built-in functions to create animation or simple \
+interactive applications. The experience of developing these simple \
+application will give you some sense of what high level programming languages \
+can do. More importantly, it will give you an idea of how to think about \
+developing a system from a functional programming approach. Once you learned \
+the pattern of how to compose a set of functions to perform the task, then, \
+you will have a better sense to develop the compiler for the high level \
+language.\
+\>", "Text",
+ CellChangeTimes->{{3.688347065970252*^9, 3.688347165696514*^9}, {
+  3.6883486279325113`*^9, 3.6883487867929373`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Level[exp..., {}]", "Subchapter",
+ CellChangeTimes->{{3.688347192592112*^9, 3.6883471932309237`*^9}, {
+  3.6883487932100286`*^9, 3.6883488084715557`*^9}}],
+
+Cell["\<\
+The function that we will show here is the Level function, which parses a \
+Mathematica expression into multiple levels. This function will be very \
+handy, and gives you a way to think about high level languages as some kind \
+of Abstract Syntax Tree (AST). \
+\>", "Text",
+ CellChangeTimes->{{3.6883472004848957`*^9, 3.688347288998166*^9}, {
+  3.6883488114860907`*^9, 3.688348878143724*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["App Examples", "Subchapter",
+ CellChangeTimes->{{3.688348885943089*^9, 3.6883488905174427`*^9}}],
+
+Cell["\<\
+At the same time, we will also show you some simple applications written in a \
+few lines of Mathematica code. Having this observation will give you a better \
+idea of how to go about designing the compiler of the language. This is an \
+interesting teaching strategy set out by Noam Nisan and Shimon Shocken in \
+their book. We will follow their strategy here.\
+\>", "Text",
+ CellChangeTimes->{{3.68834889370903*^9, 3.688349003787024*^9}}],
+
+Cell["", "PageBreak",
+ PageBreakBelow->True]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Some Basics", "Chapter",
+ CellChangeTimes->{{3.688349380926571*^9, 3.6883493844941063`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Control Objects", "Section",
+ CellChangeTimes->{{3.688349042128314*^9, 3.688349059295978*^9}, {
+  3.6883494488617373`*^9, 3.688349450931836*^9}}],
+
+Cell["\<\
+This following example shows that you can treat function as a variable, and \
+use Manipulate function and a list of function names to perform interactions.\
+\
+\>", "Text",
+ CellChangeTimes->{{3.68834919146002*^9, 3.688349233363317*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"f", "[", 
+      RowBox[{"c", " ", "x"}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", 
+       RowBox[{"-", "10"}], ",", "10"}], "}"}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"f", ",", 
+     RowBox[{"{", 
+      RowBox[{
+      "Sin", ",", " ", "Cos", ",", " ", "Tan", ",", " ", "Sinh", ",", "Cosh", 
+       ",", " ", "Tanh"}], "}"}], ",", " ", "SetterBar"}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{"c", ",", "1", ",", "10"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.688349063913292*^9, 3.6883491696952333`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`c$$ = 
+    1.6099999999999999`, $CellContext`f$$ = Tanh, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`f$$], {Sin, Cos, Tan, Sinh, Cosh, Tanh}}, {
+      Hold[$CellContext`c$$], 1, 10}}, Typeset`size$$ = {360., {109., 114.}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`f$4837$$ = 0, $CellContext`c$4838$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`c$$ = 1, $CellContext`f$$ = Sin}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`f$$, $CellContext`f$4837$$, 0], 
+        Hold[$CellContext`c$$, $CellContext`c$4838$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Plot[
+        $CellContext`f$$[$CellContext`c$$ $CellContext`x], {$CellContext`x, \
+-10, 10}], 
+      "Specifications" :> {{$CellContext`f$$, {
+         Sin, Cos, Tan, Sinh, Cosh, Tanh}, ControlType -> 
+         SetterBar}, {$CellContext`c$$, 1, 10}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{405., {167., 173.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.6883491287826433`*^9, 3.688349171081987*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"f", "[", 
+      RowBox[{"c", " ", "x"}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", 
+       RowBox[{"-", "10"}], ",", "10"}], "}"}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"f", ",", 
+     RowBox[{"{", 
+      RowBox[{
+      "Sin", ",", " ", "Cos", ",", " ", "Tan", ",", " ", "Sinh", ",", "Cosh", 
+       ",", " ", "Tanh"}], "}"}], ",", " ", "RadioButtonBar"}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{"c", ",", "1", ",", "10"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.688349256518299*^9, 3.68834926115668*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`c$$ = 2.84, $CellContext`f$$ = Cosh, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`f$$], {Sin, Cos, Tan, Sinh, Cosh, Tanh}}, {
+      Hold[$CellContext`c$$], 1, 10}}, Typeset`size$$ = {360., {111., 116.}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`f$9026$$ = 0, $CellContext`c$9027$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`c$$ = 1, $CellContext`f$$ = Sin}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`f$$, $CellContext`f$9026$$, 0], 
+        Hold[$CellContext`c$$, $CellContext`c$9027$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Plot[
+        $CellContext`f$$[$CellContext`c$$ $CellContext`x], {$CellContext`x, \
+-10, 10}], 
+      "Specifications" :> {{$CellContext`f$$, {
+         Sin, Cos, Tan, Sinh, Cosh, Tanh}, ControlType -> 
+         RadioButtonBar}, {$CellContext`c$$, 1, 10}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{405., {168., 174.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.688349261970355*^9}]
+}, Open  ]],
+
+Cell["", "PageBreak",
+ PageBreakBelow->True]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{808, 751},
+WindowMargins->{{74, Automatic}, {Automatic, 11}},
+FrontEndVersion->"11.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (September \
+21, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 104, 1, 92, "Title"],
+Cell[687, 25, 549, 9, 87, "Text"],
+Cell[CellGroupData[{
+Cell[1261, 38, 99, 1, 65, "Chapter"],
+Cell[1363, 41, 746, 12, 125, "Text"],
+Cell[CellGroupData[{
+Cell[2134, 57, 160, 2, 63, "Subchapter"],
+Cell[2297, 61, 402, 7, 68, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2736, 73, 102, 1, 63, "Subchapter"],
+Cell[2841, 76, 449, 7, 87, "Text"],
+Cell[3293, 85, 44, 1, 4, "PageBreak",
+ PageBreakBelow->True]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3386, 92, 98, 1, 65, "Chapter"],
+Cell[CellGroupData[{
+Cell[3509, 97, 151, 2, 64, "Section"],
+Cell[3663, 101, 246, 5, 49, "Text"],
+Cell[CellGroupData[{
+Cell[3934, 110, 669, 19, 75, "Input"],
+Cell[4606, 131, 1980, 40, 357, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6623, 176, 671, 19, 75, "Input"],
+Cell[7297, 197, 1939, 39, 359, "Output"]
+}, Open  ]],
+Cell[9251, 239, 44, 1, 4, "PageBreak",
+ PageBreakBelow->True]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
